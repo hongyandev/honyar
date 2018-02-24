@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover" />
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../static/css/example.css?v=1.0.0" />
+		<link rel="stylesheet" href="../static/css/weui.css?v=1.0.0" />
+		<link rel="stylesheet" href="../static/css/home/home.css?v=1.0.0" />
+		<link rel="stylesheet" href="../static/css/utlis/owl.carousel.css?v=1.0.0" />
+		<script src="../static/js/jquery.min.js?v=1.0.0"></script>
+		<script type="text/javascript" src="../static/js/utils/core.js?v=1.0.0" ></script>
+		<!--
+        <script type="text/javascript" src="../static/js/utils/getWxOpenId.js?v=1.0.0" ></script>-->
+		<script src="../static/js/home/owl.carousel.js?v=1.0.0"></script>
+		<script src="../static/js/home/index.js"></script>
+	</head>
+
+	<body>
+		<div class="home">
+			<div class="home_top">
+				<div class="top_head">
+					<img id="headImg" src="../static/img/home/top_head.jpg" />
+				</div>
+				<div class="top_nick">
+					<p id="nickName">Small.....</p>
+				</div>
+				<div class="top_info">
+					<a href="login/login.html">
+						<label>注册</label>
+					</a>
+				</div>
+				<div class="top_back">
+					<img src="../static/img/home/top_back.jpg" />
+				</div>
+			</div>
+			<div class="grid">
+				<div class="weui-grids">
+					<a href="antifake/antif.html" th:href="@{antifake}" class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_antif.png" alt="" />
+						</div>
+						<p class="weui-grid__label">防伪查询</p>
+					</a>
+					<a href="history/history.html" th:href="@{history}" class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_hist.png" alt="" />
+						</div>
+						<p class="weui-grid__label">质保记录</p>
+					</a>
+					<a href="sddown/sddown.html"  th:href="@{sddown}" class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_down.png" alt="" />
+						</div>
+						<p class="weui-grid__label">水电图下载</p>
+					</a>
+					<a href="discount/discount.html" class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_cut.png" alt="" />
+						</div>
+						<p class="weui-grid__label">我的优惠</p>
+					</a>
+					<a href="javascript:;" class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_date.png" alt="" />
+						</div>
+						<p class="weui-grid__label">水电管家预约</p>
+					</a>
+					<a href="member/member.html"  class="weui-grid">
+						<div class="weui-grid__icon">
+							<img src="../static/img/home/icon_vip.png" alt="" />
+						</div>
+						<p class="weui-grid__label">会员中心</p>
+					</a>
+				</div>
+			</div>
+			<div class="turnPlayImg">
+				<section id="demos">
+					<div class="row">
+						<div class="large-12 columns">
+							<div class="fadeOut owl-carousel owl-theme">
+								<div class="item"><img src="../static/img/home/top_bottom1.jpg" /></div>
+								<div class="item"><img src="../static/img/home/top_back.jpg" /></div>
+								<div class="item"><img src="../static/img/home/top_bottom1.jpg" /></div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+
+</html>

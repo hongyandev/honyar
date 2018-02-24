@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">   
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/login/login.css?v=1.0.0" />
+		<!--<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />-->
+		<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0" ></script>
+		<script type="text/javascript" src="../../static/js/jquery.min.js?v=1.0.0"></script>
+		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0" ></script>
+        <!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js?v=1.0.0" ></script>-->
+		<script src="../../static/js/login/login.js?v=1.0.0"></script>
+		<script src="../../static/js/utils/common.js?v=1.0.0"></script>
+	</head>
+
+	<body ontouchstart>
+		<div class="all">
+			<div class="head_back">
+				<img src="../../static/img/login/login_back.jpg" />
+			</div>
+			<div class="weinfo">
+				<div class="weinfo_head">
+					<img id="headImg" src="../../static/img/login/weinfo_head.jpg" />
+				</div>
+				<div class="weinfo_label">
+					<label id="nickName">Small.....</label>
+				</div>
+			</div>
+			<div class="bodytip">
+				<div class="body_text">
+					<div class="body_text_div">
+						<label class="body_text_div_phone">姓名</label>
+						<input type="text" name="inputName" id="vipname" />
+					</div>
+				</div>
+				<div class="body_hr">
+					<hr />
+				</div>               
+				<div class="body_text">
+					<div class="body_text_div">
+						<div class="weui-cell weui-cell_vcode">
+							<div class="weui-cell__hd">
+								<label class="weui-label">手机号</label>
+							</div>
+							<div class="weui-cell__bd">
+								<input type="number" name="telnum" id="inputTelNumber" class="weui-input" type="tel" placeholder="请输入手机号" />
+							</div>
+							<div class="weui-cell__ft">
+								<input type="button" value="获取验证码" id="YZM" onclick="getYZM()" class="weui-vcode-btn"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="body_hr">
+					<hr />
+				</div>
+				<div class="body_text">
+					<div class="body_text_div">
+						<label class="body_text_div_phone">验证码</label>
+						<input id="inpu_YZM" />
+					</div>
+				</div>
+				<div class="body_hr">
+					<hr />
+				</div>
+			</div>
+			<div class="submit">
+				<button onclick="Bt_submit()">提交</button>
+			</div>
+		</div>
+	</body>
+
+</html>

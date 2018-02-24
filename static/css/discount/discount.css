@@ -1,0 +1,270 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+.all {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+
+.head {
+	position: relative;
+	width: 100%;
+	height: 6%;
+}
+
+.head_back {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: #8BC34A;
+}
+
+.city {
+	position: absolute;
+	width: 20%;
+	height: 28px;
+	left: 10%;
+	top: 15%;
+	background-color: white;
+	border-radius: 20px;
+}
+
+.city_name {
+	position: absolute;
+	width: 60%;
+	height: 28px;
+	left: 5%;
+	text-align: center;
+	line-height: 28px;
+	font-size: 12px;
+}
+
+.city_icon {
+	position: absolute;
+	right: 20%;
+	top: 25%;
+	width: 13px;
+	height: 13px;
+	text-align: center;
+	line-height: 13px;
+	font-size: 12px;
+}
+
+.city_icon img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.search {
+	position: absolute;
+	width: 60%;
+	height: 28px;
+	left: 30%;
+	top: 15%;
+}
+
+.weui-search-bar {
+	padding: 0px !important;
+	background-color: #8BC34A !important;
+}
+
+.weui-search-bar:before {
+	border-top: 0px !important;
+}
+
+.weui-search-bar:after {
+	border-bottom: 0px !important;
+}
+
+.weui-search-bar__form {
+	background-color: #8BC34A !important;
+}
+
+.weui-search-bar__cancel-btn {
+	margin-left: 0px !important;
+	color: white !important;
+}
+
+.weui-search-bar__box {
+	padding-left: 30px !important;
+	padding-right: 10px !important;
+}
+
+.weui-icon-search {
+	font-size: 15px !important;
+}
+
+.ad {
+	position: relative;
+	width: 100%;
+	height: 15%;
+}
+
+.ad img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.condition {
+	position: relative;
+	width: 100%;
+	height: 20px;
+	background-color: white;
+}
+
+.condi_1 {
+	position: relative;
+	width: 33.33%;
+	height: 100%;
+	border-right: 1px solid rgb(187, 187, 187);
+}
+
+.condi_label {
+	position: relative;
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+}
+
+.condi_label label {
+	position: relative;
+	width: 100%;
+	height: 20px;
+	font-size: 10px;
+}
+
+.condi_icon {
+	position: absolute;
+	right: 5%;
+	top: 5%;
+	width: 12px;
+	height: 12px;
+}
+
+.condi_icon img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.condi_2 {
+	position: relative;
+	width: 33.33%;
+	height: 100%;
+	left: 33.33%;
+	top: -100%;
+	border-right: 1px solid rgb(187, 187, 187);
+}
+
+.condi_3 {
+	position: relative;
+	width: 33.33%;
+	height: 100%;
+	left: 66.67%;
+	top: -200%;
+}
+
+.det {
+	position: relative;
+	width: 94%;
+	height: 10%;
+	margin: 10px 3%;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.det_back {
+	position: relative;
+	width: 96%;
+	height: 84%;
+	left: 2%;
+	top: 8%;
+}
+
+.det_left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80%;
+	height: 100%;
+	border-right: 1px solid rgb(187, 187, 187);
+}
+
+.det_left_name {
+	position: relative;
+	width: 100%;
+	height: 50%;
+}
+
+.det_left_name p {
+	position: relative;
+	width: 100%;
+	height: 90%;
+	top: 15%;
+	font-size: 12px;
+}
+
+.det_left_time {
+	position: relative;
+	width: 100%;
+	height: 50%;
+}
+
+.det_left_time p {
+	position: relative;
+	width: 100%;
+	height: 90%;
+	top: 15%;
+	font-size: 10px;
+	color: #AAAAAA;
+}
+
+.det_right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20%;
+	height: 100%;
+}
+
+.det_right_icon {
+	position: relative;
+	width: 100%;
+	height: 65%;
+}
+
+.det_right_icon img{
+	position: relative;
+	width: 50%;
+	height: 70%;
+	left: 25%;
+	top: 15%;
+}
+
+.det_right_distance {
+	position: relative;
+	width: 100%;
+	height: 35%;
+}
+
+.det_right_distance p{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	font-size: 10px;
+	text-align: center;
+	color: #BBBBBB;
+}
+

@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+.weui-search-bar{
+	width: 88%;
+}
+
+.icon_new{
+	position: absolute;
+	width: 20%;
+	height: 10%;
+	margin: 0;
+	padding: 0;
+	right: 0;
+	top: 0;
+}
+
+.icon_new_img{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 65%;
+	height: 65%;
+}
+
+.icon_new_img img{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 35px;
+	height: 35px;
+	margin-top: 5%;
+	margin-right: 5%;
+}

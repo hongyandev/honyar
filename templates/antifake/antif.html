@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="gb2312">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title>鸿雁产品数码防伪查询</title>
+		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/antif.css" />
+		<script src="../../static/js/antif/ie-emulation-modes-warning.js"></script>
+		<script src="../../static/js/jquery.min.js"></script>
+		<script src="../../static/js/antif/bootstrap.min.js"></script>
+		<script src="../../static/js/antif/ie10-viewport-bug-workaround.js"></script>
+	</head>
+
+	<body style="padding-top: 50px;">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="navbar-header">
+				<img class="navbar-brand" src="../../static/img/antifake/logo-hy.png" width="190" height="22" alt="logo">
+			</div>
+		</nav>
+		<div class="container">
+			<form name="form" method="post" action="TmcxAllServlet" onSubmit="return validateAll()">
+				<div class="radio">
+					<label><input name="tmlb" type="radio" value="hy" checked />杭州鸿雁电器有限公司产品</label>
+					<label><input name="tmlb" type="radio" value="nj" />原南京普天鸿雁电器有限公司产品</label>
+				</div>
+				<div class="form-group">
+					<label for="fwm">请输入20位防伪码</label>
+					<input type="text" class="form-control" id="fwm" name="tm" placeholder="请输入20位防伪码">
+					<div class="scan">
+						<img src="../../static/img/antifake/scananti.png" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="yzm">请输入验证码</label>
+					<input type="text" class="form-control" id="yzm" name="yzm" placeholder="请输入验证码">
+				</div>
+				<div class="form-group"><img src="image.jsp" width="119" height="42"></div>
+				<button type="submit" class="btn btn-block btn-primary">提交认证</button>
+				<button type="reset" class="btn btn-block btn-default">重置</button>
+			</form>
+
+
+			<h3>使用说明</h3>
+			<p>输入20位防伪数码（位于外包装合格证条形码下方及产品防伪标识上）和验证码，按“提交认证”按钮。</p>
+			<p>如果为鸿雁正宗产品，查询结果会显示“鸿雁正宗产品” 字样，同时显示该防伪数码已被查询的总次数。</p>
+			<p>如果该防伪数码已被查询的总次数大于1次，请与经销商联系核实</p>
+			<p>如果不是鸿雁正宗产品，查询结果会显示“非鸿雁正宗产品”字样，请与经销商交涉。</p>
+			<p>如有任何疑问请致电：400 826 7818</p>
+		</div>
+		<footer class="footer-main">
+			<div class="container">
+				<p>&copy; 2015 杭州鸿雁电器有限公司</p>
+			</div>
+		</footer>
+
+	</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../../static/css/discount/discount.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
+		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
+		<script src="../../static/js/example.js?v=1.0.0"></script>
+	</head>
+
+	<body onload="load()">
+		<div class="all" id="myList">
+			<div class="head">
+				<div class="head_back">
+				</div>
+				<div class="city">
+					<div class="city_name">
+						杭州
+					</div>
+					<div class="city_icon">
+						<img src="../../static/img/discount/city_icon.png" />
+					</div>
+				</div>
+				<div class="search">
+					<div class="page__bd">
+						<!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+						<div class="weui-search-bar" id="searchBar">
+							<form class="weui-search-bar__form">
+								<div class="weui-search-bar__box">
+									<i class="weui-icon-search"></i>
+									<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+									<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+								</div>
+								<label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
+							</form>
+							<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ad">
+				<img src="../../static/img/discount/ad.jpeg" />
+			</div>
+			<div class="condition">
+				<div class="condi_1">
+					<div class="condi_label">
+						<label>优惠力度</label>
+					</div>
+					<div class="condi_icon">
+						<img src="../../static/img/discount/city_icon.png" />
+					</div>
+				</div>
+				<div class="condi_2">
+					<div class="condi_label">
+						<label>热门商家</label>
+					</div>
+					<div class="condi_icon">
+						<img src="../../static/img/discount/city_icon.png" />
+					</div>
+				</div>
+				<div class="condi_3">
+					<div class="condi_label">
+						<label>距离优先</label>
+					</div>
+					<div class="condi_icon">
+						<img src="../../static/img/discount/city_icon.png" />
+					</div>
+				</div>
+			</div>
+			<!--<div class="det">
+				<div class="det_back">
+					<div class="det_left">
+						<div class="det_left_name">
+							<p>鸿雁电工（文一路店）</p>
+						</div>
+						<div class="det_left_time">
+							<p>活动时间：2017/12/01-2017/12/31</p>
+						</div>
+					</div>
+					<div class="det_right">
+						<div class="det_right_icon">
+							<img src="../../static/img/history/right_icon.png" />
+						</div>
+						<div class="det_right_distance">
+							<p>8km</p>
+						</div>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var $searchBar = $('#searchBar'),
+					$searchResult = $('#searchResult'),
+					$searchText = $('#searchText'),
+					$searchInput = $('#searchInput'),
+					$searchClear = $('#searchClear'),
+					$searchCancel = $('#searchCancel');
+
+				function hideSearchResult() {
+					$searchResult.hide();
+					$searchInput.val('');
+				}
+
+				function cancelSearch() {
+					hideSearchResult();
+					$searchBar.removeClass('weui-search-bar_focusing');
+					$searchText.show();
+				}
+
+				$searchText.on('click', function() {
+					$searchBar.addClass('weui-search-bar_focusing');
+					$searchInput.focus();
+				});
+				$searchInput
+					.on('blur', function() {
+						if(!this.value.length) cancelSearch();
+					})
+					.on('input', function() {
+						if(this.value.length) {
+							$searchResult.show();
+						} else {
+							$searchResult.hide();
+						}
+					});
+				$searchClear.on('click', function() {
+					hideSearchResult();
+					$searchInput.focus();
+				});
+				$searchCancel.on('click', function() {
+					cancelSearch();
+					$searchInput.blur();
+				});
+			});
+
+			/////////////////////////////////////////////
+			function load() {
+				var html =
+					"<div class=\"det\">" +
+					"<div class=\"det_back\">" +
+					"<div class=\"det_left\">" +
+					"<div class=\"det_left_name\">" +
+					"<p>鸿雁电工（文一路店）</p>" +
+					"</div>" +
+					"<div class=\"det_left_time\">" +
+					"<p>活动时间：2017/12/01-2017/12/31</p>" +
+					"</div>" +
+					"</div>" +
+					"<div class=\"det_right\">" +
+					"<div class=\"det_right_icon\">" +
+					"<img src=\"../../static/img/history/right_icon.png\"/>" +
+					"</div>" +
+					"<div class=\"det_right_distance\">" +
+					"<p>8km</p>" +
+					"</div>" +
+					"</div>" +
+					"</div>" +
+					"</div>";
+
+				for(var i = 0; i < 5; i++) {
+					$("#myList").append(html);
+				}
+			}
+		</script>
+	</body>
+
+</html>

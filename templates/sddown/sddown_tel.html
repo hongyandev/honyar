@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../../static/css/sddown/sddown_tel.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+	</head>
+
+	<body>
+
+		<div class="all">
+			<div class="head_back">
+			</div>
+			<div class="bodytip">
+				<div class="body_text">
+					<div class="body_text_div">
+						<div class="weui-cell weui-cell_vcode">
+							<div class="weui-cell__hd">
+								<label class="weui-label">手机号</label>
+							</div>
+							<div class="weui-cell__bd">
+								<input type="number" name="telnum" id="inputTelNumber" class="weui-input" type="tel" placeholder="请输入手机号" />
+							</div>
+							<div class="weui-cell__ft">
+								<input type="button" value="获取验证码" id="YZM" onclick="getYZM()" class="weui-vcode-btn"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="body_hr">
+					<hr />
+				</div>
+				<div class="body_text">
+					<div class="body_text_div">
+						<label class="body_text_div_phone">验证码</label>
+						<input type="text" name="inputName" id="vipname" />
+					</div>
+				</div>
+			</div>
+			<div class="search">
+				<button>查询</button>
+			</div>
+	</body>
+
+</html>
