@@ -167,6 +167,25 @@
 </table>
 	</div>
 	
+	<div class="Category">接口编号：08</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>获取质保单列表</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId获取质保单列表</td></tr>
+	<tr><td>接口地址：</td><td>http://127.0.0.1:9999/wxDev/file/getBillAndDetails</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td><img src="file.png" /></td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+</table>
+	</div>
+	
 	<div class="Category">接口验证的返回字符说明 RRRR_STATUS</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">

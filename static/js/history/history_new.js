@@ -77,3 +77,23 @@ function Bt_submit() {
 	});
 
 }
+
+$(document).ready(function(){
+	$.ajax({
+		type:'get',
+		url:'http://wx.hongyancloud.com/wxDev/file/getItmType',
+		success:function(data){
+			if (data.code == "00000") {
+				var selType = $('#selType');
+				$(data.data).each(function(i,o){
+					selType.append("<option value='"+o.itmType+"'>"+o.itmTypeDesc+"</option>");
+				});
+			}else{
+				weui.topTips(data.msg);
+			}
+		},
+		error:function(data){
+			weui.topTips('网络异常,请检查您的网络');
+		}
+	});
+});
