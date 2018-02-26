@@ -153,7 +153,7 @@
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取质保单列表</b></td></tr>
 	<tr><td>接口描述：</td><td>根据openId获取质保单列表</td></tr>
-	<tr><td>接口地址：</td><td>http://127.0.0.1:9999/wxDev/file/getBillAndDetails</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getBillAndDetails</td></tr>
 	<tr><td>请求方式：</td><td>GET</td></tr>
 	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
 	<tr><td>请求参数说明：</td><td>
@@ -170,9 +170,71 @@
 	<div class="Category">接口编号：08</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取质保单列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId获取质保单列表</td></tr>
-	<tr><td>接口地址：</td><td>http://127.0.0.1:9999/wxDev/file/getBillAndDetails</td></tr>
+	<tr><td class="cc">接口名称：</td><td><b>删除质保单</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId与质保单id删除质保单与明细</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillAndDetails</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=7</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>id</td><td>int</td><td>是</td><td>质检单id</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td></td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：09</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>保存水电图主单</b></td></tr>
+	<tr><td>接口描述：</td><td>保存水电图主单</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropower</td></tr>
+	<tr><td>请求方式：</td><td>POST</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&address=天上人间&comment=修水管</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>address</td><td>string</td><td>是</td><td>详细地址</td></tr>
+		<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"id":3,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[]}}</td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：10</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>保存水电图明细</b></td></tr>
+	<tr><td>接口描述：</td><td>保存质保单明细</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropowerDetails</td></tr>
+	<tr><td>请求方式：</td><td>POST <b>enctype="multipart/form-data"</b></td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1&files=[file]</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>id</td><td>string</td><td>是</td><td>主单id</td></tr>
+		<tr><td>files</td><td>MultipartFile</td><td>是</td><td>上传图片</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：11</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>获取水电图列表</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId获取水电图列表</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getDropowerAndDetails</td></tr>
 	<tr><td>请求方式：</td><td>GET</td></tr>
 	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
 	<tr><td>请求参数说明：</td><td>
@@ -181,8 +243,28 @@
 		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
 		</table>
 	</td></tr>
-	<tr><td>返回json：</td><td><img src="file.png" /></td></tr>
+	<tr><td>返回json：</td><td><img src="dropower.png" /></td></tr>
 	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：12</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>删除水电图</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId与质保单id删除水电图与明细</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=3</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>id</td><td>int</td><td>是</td><td>水电图id</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td></td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
 </table>
 	</div>
 	
