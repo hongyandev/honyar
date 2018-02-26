@@ -1,8 +1,8 @@
 function Bt_submit() {
 
 	var itmType = $('#selType').val();
-	var comment = $('#inputName').val();
-	var telphone = $('#inputTelphone').val();
+	var describe = $('#inputName').val();
+	var telephone = $('#inputTelphone').val();
 	var address = $('#inputAddress').val();
 	var openId = '123';
 	
@@ -10,20 +10,22 @@ function Bt_submit() {
 	var submitJson = new Object();
 	submitJson.openId = openId;
 	submitJson.itmType = itmType;
-	submitJson.comment = comment;
-	submitJson.telphone = telphone;
+	submitJson.describe = describe;
+	submitJson.telephone = telephone;
 	submitJson.address = address;
 	console.log(submitJson)
 
-	/*if(name==""){
-		alert('请输入备注信息，方便后续查询！');
+	if(describe == ""){
+		weui.topTips('为方便查询，请输入备注！',3000);
 		return;
 	}
 
-	if(isPhoneNo(telphone) == false) {
-		alert('请输入正确的手机号码！');
-		return false;
-	}*/
+	if(isPhoneNo(telephone) == false) {
+		weui.topTips('请输入正确的手机号码！',3000);
+		return;
+	}
+	
+	
 	
 
 	/*var datalist=[];
@@ -56,7 +58,7 @@ function Bt_submit() {
 			itmType : $('#selType').val(),
 			telephone : $('#inputTelphone').val(),
 			address : $('#inputAddress').val(),
-			comment : $('#inputName').val()
+			describe : $('#inputName').val()
 		},
 		success:function(data){
 			if (data.code == "00000") {

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 		<title>水电管家</title>
-		<link rel="stylesheet" href="../../static/css/antifake/antifake.css" />
-		<script src="../../static/js/utils/hstyle.js"></script>
+		<link rel="stylesheet" href="../../static/css/antifake/antifake.css?v=1.0.0" />
+		<script src="../../static/js/jquery.min.js?v=1.0.0"></script>
+		<script src="../../static/js/utils/hstyle.js?v=1.0.0"></script>
+		<script src="../../static/js/antif/antifake.js?v=1.0.0"></script>
 	</head>
 
 	<body>
@@ -15,15 +18,17 @@
 			</div>
 			<div class="scan">
 				<div class="scan_icon">
-					<img src="../../static/img/antifake/scan.png">
+					<img id="scanIcon" src="../../static/img/antifake/scan.png">
 				</div>
 				<div class="scan_p">
 					<p>扫码查询</p>
 				</div>
 			</div>
 			<div class="search">
-				<div class="search_p"><p>防伪查询</p></div>
-				
+				<div class="search_p">
+					<p>防伪查询</p>
+				</div>
+
 				<div class="search_input">
 					<input type="text" name="insert" placeholder="请输入防伪码">
 				</div>
@@ -33,4 +38,5 @@
 			</div>
 		</div>
 	</body>
+
 </html>
