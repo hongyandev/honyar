@@ -170,6 +170,26 @@
 	<div class="Category">接口编号：08</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>根据条件检索质保列表</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId根据条件检索质保列表</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchBill</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&content=检索内容</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td><img src="file.png" /></td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：09</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>删除质保单</b></td></tr>
 	<tr><td>接口描述：</td><td>根据openId与质保单id删除质保单与明细</td></tr>
 	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillAndDetails</td></tr>
@@ -187,7 +207,7 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：09</div>
+	<div class="Category">接口编号：10</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>保存水电图主单</b></td></tr>
@@ -208,7 +228,7 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：10</div>
+	<div class="Category">接口编号：11</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>保存水电图明细</b></td></tr>
@@ -229,7 +249,7 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：11</div>
+	<div class="Category">接口编号：12</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取水电图列表</b></td></tr>
@@ -248,11 +268,31 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：12</div>
+	<div class="Category">接口编号：13</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>检索水电图列表</b></td></tr>
+	<tr><td>接口描述：</td><td>根据openId 与 检索条件 获取水电图列表</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchDropower</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&content=检索内容</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td><img src="dropower.png" /></td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：14</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>删除水电图</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId与质保单id删除水电图与明细</td></tr>
+	<tr><td>接口描述：</td><td>根据openId与水电图id删除水电图与明细</td></tr>
 	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails</td></tr>
 	<tr><td>请求方式：</td><td>GET</td></tr>
 	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=3</td></tr>
