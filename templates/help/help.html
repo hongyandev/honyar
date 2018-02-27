@@ -30,7 +30,7 @@
 </table>
 	</div>
 
-	<div class="Category">接口编号：01</div>
+	<div class="Category">接口编号：00</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取AccessToken</b></td></tr>
@@ -42,6 +42,25 @@
 		无参
 	</td></tr>
 	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"lastRefreshTime":1517896221723,"errcode":null,"errmsg":null,"access_token":"6_XnYBGglXDIpNRFSvLoRAvDzZh-aPe1pqdJYNFGMTz33x3pBMSXrFG-MmEizamqvTV_MkbcPtdQIugxQkaZq5cF9Id6PZJ0OGLiX83loHX4ptg76PtSilMqtYXY_ZQy2FWyX40sWwVPGLfizOYPBjACAGXJ","expires_in":7200}}</td></tr>
+	<tr><td>其他备注：</td><td>无</td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：01</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>根据手机号获取二维码</b></td></tr>
+	<tr><td>接口描述：</td><td>根据手机号获取二维码</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/qrcode/getQrcode</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":"一张二维码的图片"}</td></tr>
 	<tr><td>其他备注：</td><td>无</td></tr>
 </table>
 	</div>
