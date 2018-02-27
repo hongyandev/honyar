@@ -39,3 +39,25 @@ html {
 	margin-top: 5%;
 	margin-right: 5%;
 }
+
+.details{
+	position: relative;
+}
+
+.deta_h{
+	
+}
+
+.deta_h h1{
+	margin-left: 10px;
+	font-size: 13px;
+	color: #AAAAAA;
+}
+
+.deta_ul{
+	background-color: cadetblue;
+}
+
+.deta_ul ul{
+	
+}
