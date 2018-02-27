@@ -311,6 +311,28 @@
 	<div class="Category">接口编号：15</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>获取经销商列表</b></td></tr>
+	<tr><td>接口描述：</td><td>根据当前位置获取经销商列表</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getDealerList</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546</td></tr>
+	<tr><td>请求参数说明：</td><td>
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
+		<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
+		<tr><td>longitude</td><td>double</td><td>是</td><td>经度</td></tr>
+		<tr><td>latitude</td><td>double</td><td>是</td><td>维度</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"khdm":"00000000","khmc":"杭州鸿雁电器有限公司","province":"浙江省","city":"杭州市","district":"余杭区","address":"五常大道138","telephone":"4008267818","longitude":120.037467,"latitude":30.24546,"distance":111.0}]}</td></tr>
+	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：16</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取预约人类型</b></td></tr>
 	<tr><td>接口描述：</td><td>获取预约人类型</td></tr>
 	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveType</td></tr>
@@ -327,7 +349,7 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：16</div>
+	<div class="Category">接口编号：17</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取服务类型</b></td></tr>
@@ -346,7 +368,7 @@
 </table>
 	</div>
 	
-	<div class="Category">接口编号：17</div>
+	<div class="Category">接口编号：18</div>
 	<div class="ItemList">
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr><td class="cc">接口名称：</td><td><b>获取预约人+服务类型</b></td></tr>
@@ -362,6 +384,110 @@
 	</td></tr>
 	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"serviceType":[{"serviceType":1,"serviceTypeDesc":"试压服务"},{"serviceType":2,"serviceTypeDesc":"漏水检查"},{"serviceType":3,"serviceTypeDesc":"智能家居调试"},{"serviceType":4,"serviceTypeDesc":"智能家居售后"}],"peopleType":[{"reserveType":1,"reserveTypeDesc":"业主"},{"reserveType":2,"reserveTypeDesc":"水电工"},{"reserveType":3,"reserveTypeDesc":"工长"},{"reserveType":4,"reserveTypeDesc":"项目经理"},{"reserveType":5,"reserveTypeDesc":"装饰公司"},{"reserveType":6,"reserveTypeDesc":"分销商"},{"reserveType":7,"reserveTypeDesc":"运营商"}]}}</td></tr>
 	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：19</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>获取预约验证码</b></td></tr>
+	<tr><td>接口描述：</td><td>根据手机号发送验证码</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/sendIcode</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
+	<tr><td>请求参数说明：</td><td>
+
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>telephone</td><td>string</td><td>是</td><td>预约人手机号</td></tr>
+		</table>
+
+	</td></tr>
+	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+	<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：20</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>保存预约单</b></td></tr>
+	<tr><td>接口描述：</td><td>保存预约单</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/saveReserve</td></tr>
+	<tr><td>请求方式：</td><td>POST</td></tr>
+	<tr><td>请求参数示例：</td><td>参数参考 《请求参数说明》</td></tr>
+	<tr><td>请求参数说明：</td><td>
+
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>serviceType</td><td>string</td><td>是</td><td>服务类型</td></tr>
+		<tr><td>reserveType</td><td>string</td><td>是</td><td>预约人类型</td></tr>
+		<tr><td>reserveName</td><td>string</td><td>是</td><td>预约人姓名</td></tr>
+		<tr><td>reserveTelephone</td><td>string</td><td>是</td><td>预约人电话</td></tr>
+		<tr><td>userName</td><td>string</td><td>是</td><td>业主姓名</td></tr>
+		<tr><td>userTelephone</td><td>string</td><td>是</td><td>业主电话</td></tr>
+		<tr><td>reserveDate</td><td>string</td><td>是</td><td>预约日期</td></tr>
+		<tr><td>arrivalDate</td><td>string</td><td>是</td><td>上门日期</td></tr>
+		<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
+		<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
+		<tr><td>district</td><td>string</td><td>是</td><td>区</td></tr>
+		<tr><td>town</td><td>string</td><td>是</td><td>街</td></tr>
+		<tr><td>detailAddress</td><td>string</td><td>是</td><td>详细地址</td></tr>
+		<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
+		<tr><td>longitude</td><td>string</td><td>是</td><td>经度</td></tr>
+		<tr><td>latitude</td><td>string</td><td>是</td><td>维度</td></tr>
+		<tr><td>state</td><td>string</td><td>是</td><td>状态</td></tr>
+		<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+		</table>
+
+	</td></tr>
+	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+	<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：21</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>获取预约单列表</b></td></tr>
+	<tr><td>接口描述：</td><td>获取预约单列表</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveList</td></tr>
+	<tr><td>请求方式：</td><td>GET</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&telephone=预约手机号</td></tr>
+	<tr><td>请求参数说明：</td><td>
+
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>telephone</td><td>string</td><td>否</td><td>预约人手机号</td></tr>
+		</table>
+
+	</td></tr>
+	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+	<tr><td>其他备注：</td><td>如何预约手机号不填,按照openId查询.如何填了,则按照openId或者手机号查</td></tr>
+</table>
+	</div>
+	
+	<div class="Category">接口编号：22</div>
+	<div class="ItemList">
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr><td class="cc">接口名称：</td><td><b>删除预约单</b></td></tr>
+	<tr><td>接口描述：</td><td>删除预约单</td></tr>
+	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/deleteReserve</td></tr>
+	<tr><td>请求方式：</td><td>POST</td></tr>
+	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1</td></tr>
+	<tr><td>请求参数说明：</td><td>
+
+		<table id="list" border="1" cellpadding="0" cellspacing="0">
+		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+		<tr><td>id</td><td>int</td><td>否</td><td>预约单序号</td></tr>
+		</table>
+
+	</td></tr>
+	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+	<tr><td>其他备注：</td><td></td></tr>
 </table>
 	</div>
 	
