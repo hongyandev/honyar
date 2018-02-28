@@ -9,27 +9,40 @@ $(document).ready(function() {
 			console.log(returnDatas)
 
 			if(returnDatas.code == "00000") {
-
 				var returnData = returnDatas.data;
-
+				$gallery = $("#gallery");
+				$galleryImg = $("#galleryImg");
 				var details = $('#details');
-				var uploaderFiles = $('#uploaderFiles');
+				//var uploaderFiles = $('#uploaderFiles');
 				var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>';
+				//var img = '<img src="#urlc#">';
+
+				//var uploaderSlider = $('#uploaderSlider');
+				//var gallerySlider = $('#gallerySlider');
 
 				$(returnData).each(function(i, o) {
 					details.append('<div class="deta_h">' + '<h1>' + o.id + '</>' + '</div>');
 					details.append('<div class="deta_ul">' + '<ul id=' + o.id + '>' + '</div>');
+					//gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
 
 					var children = o.children;
 					var uploaderFiles = $('#' + o.id);
+					//var placeholder = $('#placeholder_' + o.id);
 
 					$(children).each(function(j, obj) {
-
 						uploaderFiles.append($(tmpl.replace('#url#', obj.fileRealPath)));
 						console.log(obj.fileRealPath)
+						uploaderFiles.on("click", "li", function() {
+							$galleryImg.attr("style", this.getAttribute("style"));
+							$gallery.fadeIn(100);
+						});
+						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
 					});
 					details.append('<div style="clear:both;"></div> ');
-
+				});
+				$gallery.on("click", function() {
+					alert(7)
+					$gallery.fadeOut(100);
 				});
 			} else {
 				weui.topTips(data.msg);
