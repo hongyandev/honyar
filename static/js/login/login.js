@@ -14,20 +14,7 @@ function Bt_submit() {
 		return;
 	}
 
-	/*$.ajax({
-		type: "get",
-		//async: false,
-		url: "http://wx.hongyancloud.com/wxDev/user/saveHyUserJsonp?telephone=" + telephone + "&iCode=" + iCode,
-		dataType: "jsonp", //数据类型为jsonp
-		jsonp: "callback", //服务端用于接收callback调用的function名的参数
-		success: function(data) {
-			console.log(data)
-			alert(data.code);
-		},
-		error: function(data) {
-			alert(data.code + "a");
-		}
-	});*/
+
 	$.ajax({
 		type:"post",
 		url:"http://wx.hongyancloud.com/wxDev/user/saveHyUser",

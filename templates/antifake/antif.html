@@ -2,18 +2,24 @@
 <html>
 
 	<head>
-		<meta charset="gb2312">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="renderer" content="webkit">
-		<title>�����Ʒ�����α��ѯ</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0"> 
+		
+		<title>鸿雁产品数码防伪查询</title>
 		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../../static/css/antifake/antif.css" />
+		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+		<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0" ></script>
 		<script src="../../static/js/antif/ie-emulation-modes-warning.js"></script>
 		<script src="../../static/js/jquery.min.js"></script>
 		<script src="../../static/js/antif/bootstrap.min.js"></script>
 		<script src="../../static/js/antif/ie10-viewport-bug-workaround.js"></script>
+		<script src="../../static/js/antif/antif.js"></script>
+		
 	</head>
 
 	<body style="padding-top: 50px;">
@@ -23,25 +29,23 @@
 			</div>
 		</nav>
 		<div class="container">
-			<form name="form" method="post" action="TmcxAllServlet" onSubmit="return validateAll()">
 				<div class="radio">
-					<label><input name="tmlb" type="radio" value="hy" checked />���ݺ���������޹�˾��Ʒ</label>
-					<label><input name="tmlb" type="radio" value="nj" />ԭ�Ͼ��������������޹�˾��Ʒ</label>
+					<label><input name="tmlb" type="radio" value="hy" checked />杭州鸿雁电器有限公司产品</label>
+					<label><input name="tmlb" type="radio" value="nj" />原南京普天鸿雁电器有限公司产品</label>
 				</div>
 				<div class="form-group">
-					<label for="fwm">������20λ��α��</label>
-					<input type="text" class="form-control" id="fwm" name="tm" placeholder="������20λ��α��">
+					<label for="fwm">请输入20位防伪码</label>
+					<input type="text" class="form-control" id="fwm" name="tm" placeholder="请输入20位防伪码">
 					<div class="scan">
 						<img id="scanf" src="../../static/img/antifake/scananti.png" />
 					</div>
 				</div>
-				<button type="submit" class="btn btn-block btn-primary">�ύ��֤</button>
-				<button type="reset" class="btn btn-block btn-default">����</button>
-			</form>
+				<button type="submit" onclick="submitAntiCode()" class="btn btn-block btn-primary">提交认证</button>
+				<button type="reset" class="btn btn-block btn-default">重置</button>
 
 		<footer class="footer-main">
 			<div class="container">
-				<p>&copy; 2015 ���ݺ���������޹�˾</p>
+				<p>&copy; 2015 杭州鸿雁电器有限公司</p>
 			</div>
 		</footer>
 

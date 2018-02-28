@@ -21,8 +21,8 @@ $(document).ready(function() {
 				//var gallerySlider = $('#gallerySlider');
 
 				$(returnData).each(function(i, o) {
-					details.append('<div class="deta_h">' + '<h1>' + o.id + '</>' + '</div>');
-					details.append('<div class="deta_ul">' + '<ul id=' + o.id + '>' + '</div>');
+					details.append('<div class="deta_h"><h1>' + o.id + '</></div>');
+					details.append('<div class="deta_ul"><ul id=' + o.id + '></div>');
 					//gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
 
 					var children = o.children;
@@ -32,16 +32,21 @@ $(document).ready(function() {
 					$(children).each(function(j, obj) {
 						uploaderFiles.append($(tmpl.replace('#url#', obj.fileRealPath)));
 						console.log(obj.fileRealPath)
+						
 						uploaderFiles.on("click", "li", function() {
 							$galleryImg.attr("style", this.getAttribute("style"));
 							$gallery.fadeIn(100);
 						});
+						
+						
 						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
 					});
+					var clickBT='<a href="history_pic.html" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
+					uploaderFiles.append($(clickBT.replace('#url#', "../../static/img/history/add.png")));
 					details.append('<div style="clear:both;"></div> ');
 				});
 				$gallery.on("click", function() {
-					alert(7)
+					//alert(7)
 					$gallery.fadeOut(100);
 				});
 			} else {
