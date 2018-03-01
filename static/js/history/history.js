@@ -21,7 +21,7 @@ $(document).ready(function() {
 				//var gallerySlider = $('#gallerySlider');
 
 				$(returnData).each(function(i, o) {
-					details.append('<div class="deta_h"><h1>' + o.id + '</></div>');
+					details.append('<div class="deta_h"><h1>' + o.address + '</></div>');
 					details.append('<div class="deta_ul"><ul id=' + o.id + '></div>');
 					//gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
 						
 						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
 					});
-					var clickBT='<a href="history_pic.html" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
+					var clickBT='<a href="history_pic.html?mainid='+o.id+'" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
 					uploaderFiles.append($(clickBT.replace('#url#', "../../static/img/history/add.png")));
 					details.append('<div style="clear:both;"></div> ');
 				});

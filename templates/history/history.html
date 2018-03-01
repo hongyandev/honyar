@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
 		<script src="../../static/js/example.js?v=1.0.0"></script>
-		
+
 		<!--<script src="../../static/js/history/jquery-1.7.1.min.js?v=1.0.0"></script>-->
 
 		<style type="text/css">
@@ -64,8 +64,8 @@
                             <p class="weui-uploader__title">图片上传</p>
                             <div class="weui-uploader__info">0/2</div>
                         </div>-->
-							<div  id="details" class="weui-uploader__bd">
-							
+							<div id="details" class="weui-uploader__bd">
+
 								<!--<ul class="weui-uploader__files" id="uploaderFiles">
                                 <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
@@ -119,6 +119,25 @@
 					})
 					.on('input', function() {
 						if(this.value.length) {
+
+							$.ajax({
+								type: 'get',
+								url: "http://wx.hongyancloud.com/wxDev/user/sendIcode?telephone=" + telephone,
+								success: function(data) {
+									if(data.code == "00000") {
+										weui.toast('短信已发送,请注意查收', 3000);
+									} else {
+										weui.topTips(data.msg);
+										countdown = 0;
+										obj.attr('disabled', false);
+										obj.val("获取验证码");
+									}
+								},
+								error: function(data) {
+									weui.topTips('网络异常,请检查您的网络');
+								}
+							});
+
 							$searchResult.show();
 						} else {
 							$searchResult.hide();

@@ -8,11 +8,12 @@
 		<link rel="stylesheet" href="../../static/css/history/history_pic.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
-
+		
 		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
 		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
 		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js?v=1.0.0"></script>
-		<script src="../../static/js/example.js?v=1.0.0"></script>
+		<!--<script src="../../static/js/example.js?v=1.0.0"></script>-->
+		<script src="../../static/js/history/history_pic.js?v=1.0.0"></script>
 	</head>
 
 	<body>
@@ -45,15 +46,21 @@
 
 		</div>
 		<div class="submit">
-			<button id="uploadPic">提交</button>
+			<button id='uploadPic'>提交</button>
 		</div>
 
+<div id="uploadForm">
+<input id="file" type="file" multiple="multiple"/>
+<button id="upload" type="button">button</button>
+</div>
 		<script type="text/javascript">
 			
 			//保存上传图片信息的全局变量
 			var uploadFiles=[];
 			
 			$(function() {
+				//var theRequest = GetRequest();
+				//console.log(theRequest);
 				var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
 					$gallery = $("#gallery"),
 					$galleryImg = $("#galleryImg"),
@@ -93,6 +100,7 @@
 				//提价上传的功能
 				$("#uploadPic").click(function() {
 					console.log(uploadFiles)
+					Bt_submit(uploadFiles)
 				});
 				
 			});

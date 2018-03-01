@@ -1,17 +1,5 @@
-function retrieveData() {
-	if("<%=strCxjg%>" != "GOOD") {
-		if("<%=strTmh%>" != "null") {
-			$("#fwm").val("");
-		}
-		if("<%=strCxjg%>" == "YZMERROR") {
-			alert("验证码错误！");
-			$("#yzm").focus();
-		}
-	}
-}
-
 function validateAll() {
-	if($("#fwm").val().length != 2) {
+	if($("#fwm").val().length != 20) {
 		weui.topTips('请输入20位防伪码！');
 		$("#fwm").focus();
 		return false;
@@ -22,7 +10,7 @@ $(document).ready(function(e) {
 });
 
 function submitAntiCode() {
-	
+
 	var validResult = validateAll();
 	if(validResult == false)
 		return;
@@ -41,9 +29,14 @@ function submitAntiCode() {
 			var queryResult = data.queryResult;
 			var quertCode = data.quertCode;
 
-			var info = queryResult + ", 已被查询" + queryCount + "次！"
-			weui.topTips(info);
+			var infoFalse = queryResult
+			var infoTure = queryResult + ", 已被查询" + queryCount + "次！"
 
+			if(queryCount == 0) {
+				weui.topTips(infoFalse);
+			} else {
+				weui.topTips(infoTure);
+			}
 		},
 		error: function(data) {
 			weui.topTips('访问出错！');
