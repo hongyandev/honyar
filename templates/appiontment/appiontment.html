@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/weui.min.css">
+    <link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
+    <style>
+        .page,
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .amap-container {
+            height: 334px;
+        }
+        
+        .amap-logo,
+        .amap-copyright {
+            z-index: -160;
+        }
+        
+        .weui-label {
+            color: #999
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div id="amap" class="amap-container"></div>
+        <div class="page" id="page">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">所在地区</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input id="district" class="weui-input" type="text" v-bind:value="district" v-on:click="selButClick" readonly />
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">详细地址</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input id="address" class="weui-input" type="text" v-bind:value="address" />
+                    </div>
+                </div>
+            </div>
+            <div id="sel_popup" class="weui-popup__container">
+                <!-- <div class="weui-popup__overlay"></div> -->
+                <div class="weui-popup__modal">
+                    <div class="toolbar">
+                        <div class="toolbar-inner">
+                            <a href="javascript:;" class="picker-button" v-on:click="closeDistrict">关闭</a>
+                            <h1 class="title">{{title}}</h1>
+                        </div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="weui-cells">
+                            <template v-for="item in cells">
+                                <a class="weui-cell weui-cell_access" v-on:click="getDistrict(item)" href="javascript:;">
+                                    <div class="weui-cell__bd">
+                                        <p>{{item.name}}</p>
+                                    </div>
+                                    <div class="weui-cell__ft"></div>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../static/js/jquery-2.1.4.js"></script>
+<script src="../../static/js/jquery-weui.js"></script>
+<script src="../../static/js/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="//webapi.amap.com/maps?v=1.4.3&key=ae4b6a00d98aef05211a06f61981321e"></script>
+<!-- UI组件库 1.0 -->
+<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+<script src="//cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    $(function() {
+        // key
+        var key = 'b3f46725cfbf1073af700a708c2eb00c';
+
+        var marker, map = new AMap.Map("amap", {
+            resizeEnable: true,
+            scrollWheel: false,
+            center: [116.397428, 39.90923],
+            zoom: 13
+        });
+
+        // 实例化点标记
+        function addMarker(lnglat) {
+            if (marker) {
+                marker.setMap(null);
+                marker = null;
+            }
+            marker = new AMap.Marker({
+                position: lnglat
+            });
+            marker.setMap(map);
+        }
+        var vm = new Vue({
+            el: '#page',
+            methods: {
+                selButClick: function() {
+                    $("#district").blur();
+                    this.districtComponent = null;
+                    $("#sel_popup").popup();
+                    this.getDistrict({
+                        adcode: '100000'
+                    })
+                },
+                closeDistrict: function() {
+                    if (this.districtComponent)
+                        map.setCenter(this.districtComponent.center.split(','));
+                    $.closePopup();
+                },
+                getDistrict: function(item) {
+                    if (item.adcode != '100000') {
+                        this.districtComponent = item;
+                    }
+                    if (item.level === "street") {
+                        map.setCenter(item.center.split(','));
+                        $.closePopup();
+                        return;
+                    }
+                    $.showLoading();
+                    $.ajax({
+                        url: "http://restapi.amap.com/v3/config/district?key=" + key + "&keywords=" + item.adcode + "&subdistrict=1&extensions=base",
+                        async: false,
+                        dataType: 'jsonp',
+                        success: function(data) {
+                            this.cells = data.districts[0].districts;
+                            this.title = data.districts[0].name;
+                        },
+                        error: function(data) {
+                            console.log(data)
+                        },
+                        complete: function() {
+                            $.hideLoading();
+                        },
+                        context: this
+                    });
+                }
+            },
+            data: {
+                district: '',
+                address: '',
+                districtComponent: null,
+                title: '请选择',
+                cells: [{
+                    adcode: "110000",
+                    center: "116.397428, 39.90923",
+                    citycode: "010",
+                    name: "北京市"
+                }]
+            }
+        });
+        AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+            var positionPicker = new PositionPicker({
+                mode: 'dragMap',
+                map: map
+            });
+            positionPicker.on('success', function(result) {
+                console.log(result);
+                var component = result.regeocode.addressComponent;
+                vm.district = component.province + component.city + component.district + component.township;
+                vm.address = component.street + component.streetNumber;
+            });
+            positionPicker.on('fail', function(result) {
+                console.log(result);
+            });
+            positionPicker.start();
+        });
+    });
+</script>
+
+</html>

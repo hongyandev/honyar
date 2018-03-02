@@ -9,8 +9,8 @@
 		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
-		<script src="../../static/js/example.js?v=1.0.0"></script>
-
+		<!--<script src="../../static/js/example.js?v=1.0.0"></script>-->
+		<script src="../../static/js/history/history.js?v=1.0.0"></script>
 		<!--<script src="../../static/js/history/jquery-1.7.1.min.js?v=1.0.0"></script>-->
 
 		<style type="text/css">
@@ -89,72 +89,8 @@
 			</div>
 		</div>
 
-		<script type="text/javascript">
-			$(function() {
-				var $searchBar = $('#searchBar'),
-					$searchResult = $('#searchResult'),
-					$searchText = $('#searchText'),
-					$searchInput = $('#searchInput'),
-					$searchClear = $('#searchClear'),
-					$searchCancel = $('#searchCancel');
-
-				function hideSearchResult() {
-					$searchResult.hide();
-					$searchInput.val('');
-				}
-
-				function cancelSearch() {
-					hideSearchResult();
-					$searchBar.removeClass('weui-search-bar_focusing');
-					$searchText.show();
-				}
-
-				$searchText.on('click', function() {
-					$searchBar.addClass('weui-search-bar_focusing');
-					$searchInput.focus();
-				});
-				$searchInput
-					.on('blur', function() {
-						if(!this.value.length) cancelSearch();
-					})
-					.on('input', function() {
-						if(this.value.length) {
-
-							$.ajax({
-								type: 'get',
-								url: "http://wx.hongyancloud.com/wxDev/user/sendIcode?telephone=" + telephone,
-								success: function(data) {
-									if(data.code == "00000") {
-										weui.toast('短信已发送,请注意查收', 3000);
-									} else {
-										weui.topTips(data.msg);
-										countdown = 0;
-										obj.attr('disabled', false);
-										obj.val("获取验证码");
-									}
-								},
-								error: function(data) {
-									weui.topTips('网络异常,请检查您的网络');
-								}
-							});
-
-							$searchResult.show();
-						} else {
-							$searchResult.hide();
-						}
-					});
-				$searchClear.on('click', function() {
-					hideSearchResult();
-					$searchInput.focus();
-				});
-				$searchCancel.on('click', function() {
-					cancelSearch();
-					$searchInput.blur();
-				});
-			});
-		</script>
 		<!--</script>-->
-		<script src="../../static/js/history/history.js?v=1.0.0"></script>
+
 	</body>
 
 </html>

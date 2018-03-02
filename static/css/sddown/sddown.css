@@ -8,21 +8,21 @@ html {
 	height: 100%;
 }
 
-.weui-search-bar{
+.weui-search-bar {
 	width: 88%;
 }
 
-.icon_new{
+.icon_new {
 	position: absolute;
-	width: 20%;
-	height: 10%;
+	width: 44px;
+	height: 44px;
 	margin: 0;
 	padding: 0;
 	right: 0;
 	top: 0;
 }
 
-.icon_new_img{
+.icon_new_img {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -30,7 +30,7 @@ html {
 	height: 65%;
 }
 
-.icon_new_img img{
+.icon_new_img img {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -39,3 +39,18 @@ html {
 	margin-top: 5%;
 	margin-right: 5%;
 }
+
+.deta_h {}
+
+.deta_h h1 {
+	margin: 5px;
+	font-size: 13px;
+	color: #AAAAAA;
+}
+
+.weui-cells {
+	margin-top: 0 !important;
+}
+
+
+

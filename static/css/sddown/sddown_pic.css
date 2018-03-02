@@ -29,3 +29,11 @@ html {
 	border-width: 1px;
 	border-color: #8bc34a;
 }
+
+#file{
+	display: none;
+}
+
+#upload{
+	display: none;
+}

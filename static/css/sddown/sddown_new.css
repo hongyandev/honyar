@@ -22,9 +22,16 @@ html {
 }
 
 .weui-label {
-	margin-left: 15%;
-	width: 60px !important;
+	margin-left: 25%;
 	font-size: 12px;
+}
+
+.weui-select {
+	font-size: 12px !important;
+}
+
+.weui-cell_select .weui-cell__bd:after {
+	right: 45px !important;
 }
 
 .weui-cells {
@@ -46,14 +53,13 @@ html {
 
 .weui-input {
 	font-size: 12px !important;
-	margin-right: 10%;
 }
 
 .bodytip {
 	position: relative;
 	z-index: 1;
 	width: 80%;
-	height: 15%;
+	height: 50%;
 	top: -7%;
 	left: 10%;
 	box-shadow: 0px 1px 10px 0.5px #a1d6b0;
@@ -61,12 +67,50 @@ html {
 	background-color: white;
 }
 
+.body_type {
+	position: relative;
+	z-index: 2;
+	top: 7.5%;
+	width: 100%;
+	height: 30%;
+}
+
+.body_hr {
+	position: relative;
+	z-index: 3;
+	width: 90%;
+	top: 9%;
+	padding-left: 5%;
+}
+
+.body_hr hr {
+	width: 100%;
+	height: 1px;
+	border: none;
+	border-top: 1px solid #AAAAAA;
+}
+
+.body_hrt {
+	position: relative;
+	z-index: 3;
+	width: 90%;
+	top: 7.5%;
+	padding-left: 5%;
+}
+
+.body_hrt hr {
+	width: 100%;
+	height: 1px;
+	border: none;
+	border-top: 1px solid #AAAAAA;
+}
+
 .body_input {
 	position: relative;
 	z-index: 2;
-	top: 40%;
+	top: 7.5%;
 	width: 100%;
-	height: 20%;
+	height: 17%;
 }
 
 .weui-cell{
@@ -80,7 +124,6 @@ html {
 	z-index: 5;
 	width: 100%;
 	height: 5%;
-	top: 0%;
 }
 
 .submit button {
@@ -88,11 +131,24 @@ html {
 	font-size: 15px;
 	background-color: #8bc34a;
 	color: white;
-	left: 25%;
-	width: 50%;
+	left: 30%;
+	width: 40%;
 	height: 100%;
 	border-radius: 5px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #8bc34a;
+}
+
+.search button {
+	position: relative;
+	font-size: 15px;
+	color: #8BC34A;
+	left: 25%;
+	width: 50%;
+	height: 100%;
+	border-style: solid;
+	border-width: 1px;
+	background: none;
+	border: none;
 }
