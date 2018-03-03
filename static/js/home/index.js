@@ -13,8 +13,9 @@ jQuery(document).ready(function($) {
 		stagePadding: 30,
 		smartSpeed: 450
 	});
-	if (!$.isNull($.getCookie('head_url'))) {
-		$('#headImg').attr('src',$.getCookie('head_url'));
+	
+	if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
+		$('#headImg').attr('src',decodeURIComponent($.getCookie('head_url')));
 	}
 	if (!$.isNull(decodeURIComponent($.getCookie('nick_name')))) {
 		$('#nickName').html(decodeURIComponent($.getCookie('nick_name')));
