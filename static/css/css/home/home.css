@@ -1,0 +1,101 @@
+.home{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.home_top {
+	position: relative;
+	width: 100%;
+	height: 25%;
+}
+
+.top_head
+{   
+	z-index: 100;
+	position: absolute; 
+	top:25%;
+	left: 5%;
+	width: 59px;
+	height: 59px;
+}
+.top_head img
+{
+	border:4px solid #e1f2f0;
+	border-radius:50px ;
+　　 border-width: 330px;
+	height: 100%;
+	width: 100%;
+
+}
+.top_nick
+{
+	z-index: 101;
+	position: absolute;
+	top:56%;
+	left: 25%;
+	color: white;
+	font-size: 12px;
+	font-weight: 600;
+}
+.top_info label
+{
+	z-index: 101;
+	position: absolute;
+	top:56%;
+	left: 70%;
+	color: white;
+	font-size: 12px;
+	font-weight: 500;
+	text-align:center;
+	border-radius: 8px;
+	background-color:rgba(225,242,240,0.5);
+	width: 60px;
+}
+.top_back
+{
+	position: absolute;
+	z-index: 50;
+	width: 100%;
+	height: 100%;
+}
+.top_back img
+{
+	width: 100%;
+	height: 100%;
+}
+.grid{
+	top: 3px;
+	width: 100%;
+	height: auto;
+}
+.weui-grids
+{	
+
+}
+.weui-grid
+{
+	height: 100%;
+	padding: 45px 20px;
+}
+.weui-grid__icon
+{
+	padding: 5px;
+}
+.weui-grid__label
+{
+	font-size: 10px;
+}
+.turnPlayImg
+{
+	width: 100%;
+	height: 30%;
+}
+.item{
+	width: 100%;
+	height: 100%;
+}
+
+.item img{
+	width: 100%;
+	height: 100%;
+}

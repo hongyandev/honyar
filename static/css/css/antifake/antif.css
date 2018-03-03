@@ -1,0 +1,43 @@
+@media (max-width: 768px){
+	.navbar-header {
+	    text-align: center;
+	    width: 100%;
+	}
+	.navbar-brand {
+		float:none;
+	        display:inline-block;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	margin-top: 0;
+	}
+}
+.footer-main {
+    position: relative;
+    right: 0;
+    left: 0;
+    /*z-index: 1030;*/
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    color: #999;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #e5e5e5;
+    zoom: 1;
+}
+.footer-main p {
+    margin: 2px 0 0;
+}
+
+.scan{
+	position: absolute;
+	right: 16px;
+	top: 136px;
+	width: 32px;
+	height: 32px;
+}
+
+.scan img{
+	height: 100%;
+	width: 100%;
+}

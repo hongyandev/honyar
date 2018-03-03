@@ -1,6 +1,6 @@
 //刷新加载页面
 function loadList(action, openid, keyword){
-	
+	var openID="";
 	$.ajax({
 		type: 'get',
 		url: 'http://wx.hongyancloud.com/wxDev/file/'+action,
@@ -9,8 +9,6 @@ function loadList(action, openid, keyword){
 			content: keyword
 		},
 		success: function(returnDatas) {
-			console.log(returnDatas)
-
 			if(returnDatas.code == "00000") {
 				var returnData = returnDatas.data;
 				$gallery = $("#gallery");
@@ -49,7 +47,6 @@ function loadList(action, openid, keyword){
 					details.append('<div style="clear:both;"></div> ');
 				});
 				$gallery.on("click", function() {
-					//alert(7)
 					$gallery.fadeOut(100);
 				});
 			} else {
@@ -63,7 +60,9 @@ function loadList(action, openid, keyword){
 
 }
 $(document).ready(function() {
-	loadList('getBillAndDetails',$.getCookie('open_id'))
+	openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	//alert(openID)
+	loadList('getBillAndDetails',openID)
 });
 
 //检索后加载列表
@@ -96,9 +95,8 @@ $(function() {
 		})
 		.on('change', function() {
 			if(this.value.length) {
-				//alert(this.value)
 
-				loadList('searchBill','oZIooxJ_MT0M1ApB_4caa_gvXgWc',this.value);
+				loadList('searchBill',openID,this.value);
 
 				$searchResult.show();
 			} else {

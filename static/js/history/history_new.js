@@ -1,14 +1,16 @@
 function Bt_submit() {
-
+	alert('oZIooxJ_MT0M1ApB_4caa_gvXgWc');
+	alert($.getCookie('open_id'));
+	
+	var openID=$.getCookie('open_id');
 	var itmType = $('#selType').val();
 	var describe = $('#inputName').val();
 	var telephone = $('#inputTelphone').val();
 	var address = $('#inputAddress').val();
 	
-	
 	//创建json格式
 	var submitJson = new Object();
-	submitJson.openId = openId;
+	submitJson.openId = openID;
 	submitJson.itmType = itmType;
 	submitJson.describe = describe;
 	submitJson.telephone = telephone;
@@ -24,38 +26,12 @@ function Bt_submit() {
 		weui.topTips('请输入正确的手机号码！',3000);
 		return;
 	}
-	
-	
-	
 
-	/*var datalist=[];
-	datalist.push(submitJson);
-	datalist.push(submitJson);
-	for (var i=0;i<datalist.length;i++) {
-		console.log(i+datalist[i].name)
-	}*/
-
-	//ajx请求，成功后将页面转向至指定界面
-	/*$.ajax({
-		type: "get",//http://114.55.73.4:8080/wxDev/file/saveBill
-		url: "http://wx.hongyancloud.com/wxDev/user/saveHyUserJsonp?telephone=" + submitJson.telphone + "&iCode=1234",
-		dataType: "jsonp", //数据类型为jsonp
-		jsonp: "callback", //服务端用于接收callback调用的function名的参数
-		success: function(data) {
-			alert("success");
-		},
-		error: function(data) {
-			alert("重定向");
-			window.location.href = "history.html";
-		}
-	});*/
-	
 	$.ajax({
 		type:"post",
 		url:"http://wx.hongyancloud.com/wxDev/file/saveBill",
 		data : {
-			openId : $.getCookie('open_id'),
-//			'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
+			openId : openID,
 			itmType : $('#selType').val(),
 			telephone : $('#inputTelphone').val(),
 			address : $('#inputAddress').val(),
