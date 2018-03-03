@@ -6,7 +6,7 @@ function loadList(action, openid, keyword){
 		url: 'http://wx.hongyancloud.com/wxDev/file/'+action,
 		data: {
 			openId: openid, //$.getCookie('open_id')
-			content: keyword
+			content: keyword,
 		},
 		success: function(returnDatas) {
 			console.log(returnDatas)
@@ -44,8 +44,8 @@ function loadList(action, openid, keyword){
 
 						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
 					});
-					var clickBT = '<a href="history_pic.html?mainid=' + o.id + '" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
-					uploaderFiles.append($(clickBT.replace('#url#', "../../static/img/history/add.png")));
+					var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
+					uploaderFiles.append($(clickBT.replace('#url#', "../../static/img/sddown/add.png")));
 					details.append('<div style="clear:both;"></div> ');
 				});
 				$gallery.on("click", function() {
@@ -63,7 +63,7 @@ function loadList(action, openid, keyword){
 
 }
 $(document).ready(function() {
-	loadList('getBillAndDetails','oZIooxJ_MT0M1ApB_4caa_gvXgWc')
+	loadList('getDropowerAndDetails',$.getCookie('open_id'))
 });
 
 //检索后加载列表
@@ -98,7 +98,7 @@ $(function() {
 			if(this.value.length) {
 				//alert(this.value)
 
-				loadList('searchBill','oZIooxJ_MT0M1ApB_4caa_gvXgWc',this.value);
+				loadList('searchDropower','oZIooxJ_MT0M1ApB_4caa_gvXgWc',this.value);
 
 				$searchResult.show();
 			} else {

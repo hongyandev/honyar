@@ -17,12 +17,12 @@ function Bt_submit(uploadFiles) {
 	for(var index in uploadFiles) {
 		formdata.append("files", uploadFiles[index][0]);
 	}
-	formdata.append('openId', 'oZIooxJ_MT0M1ApB_4caa_gvXgWc');
+	formdata.append('openId', $.getCookie('open_id'));
 	formdata.append('id', theRequest.mainid);
 
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/saveBillDetails",
+		url: "http://wx.hongyancloud.com/wxDev/file/saveDropowerDetails",
 		data: formdata,
 		timeout: 5000,
 		//必须false才会避开jQuery对 formdata 的默认处理 
@@ -39,7 +39,7 @@ function Bt_submit(uploadFiles) {
 					//var d = data;
 					duration: 3000,
 					callback: function() {
-						window.location.href = "history.html";
+						window.location.href = "sddown.html";
 					}
 				});
 			} else {

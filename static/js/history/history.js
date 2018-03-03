@@ -63,7 +63,7 @@ function loadList(action, openid, keyword){
 
 }
 $(document).ready(function() {
-	loadList('getBillAndDetails','oZIooxJ_MT0M1ApB_4caa_gvXgWc')
+	loadList('getBillAndDetails',$.getCookie('open_id'))
 });
 
 //检索后加载列表

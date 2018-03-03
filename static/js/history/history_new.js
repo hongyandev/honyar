@@ -4,7 +4,7 @@ function Bt_submit() {
 	var describe = $('#inputName').val();
 	var telephone = $('#inputTelphone').val();
 	var address = $('#inputAddress').val();
-	var openId = '123';
+	
 	
 	//创建json格式
 	var submitJson = new Object();
@@ -54,7 +54,8 @@ function Bt_submit() {
 		type:"post",
 		url:"http://wx.hongyancloud.com/wxDev/file/saveBill",
 		data : {
-			openId : 'oZIooxJ_MT0M1ApB_4caa_gvXgWc',//$.getCookie('open_id'),
+			openId : $.getCookie('open_id'),
+//			'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
 			itmType : $('#selType').val(),
 			telephone : $('#inputTelphone').val(),
 			address : $('#inputAddress').val(),

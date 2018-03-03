@@ -1,32 +1,45 @@
 function Bt_submit() {
 
-	var itmType = $('#selType').val();
-	var describe = $('#inputName').val();
-	var telephone = $('#inputTelphone').val();
+//	var sdid = $('#inputSdid').val();
+//	var name = $('#inputName').val();
+//	var telphone = $('#inputTelphone').val();
 	var address = $('#inputAddress').val();
-	var openId = '123';
-	
+//	var coment = $('#inputComment').val();
+	var openId = $.getCookie('open_id')';
+
 	//创建json格式
-	var submitJson = new Object();
-	submitJson.openId = openId;
-	submitJson.itmType = itmType;
-	submitJson.describe = describe;
-	submitJson.telephone = telephone;
-	submitJson.address = address;
-	console.log(submitJson)
+	//	var submitJson = new Object();
+	//	submitJson.openId = openId;
+	//	submitJson.itmType = itmType;
+	//	submitJson.describe = describe;
+	//	submitJson.telephone = telephone;
+	//	submitJson.address = address;
+	//	console.log(submitJson)
 
-	if(describe == ""){
-		weui.topTips('为方便查询，请输入备注！',3000);
+//	if(sdid == "") {
+//		weui.topTips('请输入水电工ID！', 3000);
+//		return;
+//	}
+//
+//	if(name == "") {
+//		weui.topTips('请输入业主姓名！', 3000);
+//		return;
+//	}
+//
+//	if(isPhoneNo(telephone) == false) {
+//		weui.topTips('请输入正确的手机号码！', 3000);
+//		return;
+//	}
+
+	if(address == "") {
+		weui.topTips('为方便查询，请输入详细地址！', 3000);
 		return;
 	}
 
-	if(isPhoneNo(telephone) == false) {
-		weui.topTips('请输入正确的手机号码！',3000);
-		return;
-	}
-	
-	
-	
+//	if(coment == "") {
+//		weui.topTips('为方便查询，请输入备注！', 3000);
+//		return;
+//	}
 
 	/*var datalist=[];
 	datalist.push(submitJson);
@@ -49,53 +62,34 @@ function Bt_submit() {
 			window.location.href = "history.html";
 		}
 	});*/
-	
+
 	$.ajax({
-		type:"post",
-		url:"http://wx.hongyancloud.com/wxDev/file/saveBill",
-		data : {
-			openId : 'oZIooxJ_MT0M1ApB_4caa_gvXgWc',//$.getCookie('open_id'),
-			itmType : $('#selType').val(),
-			telephone : $('#inputTelphone').val(),
-			address : $('#inputAddress').val(),
-			describe : $('#inputName').val()
+		type: "post",
+		url: "http://wx.hongyancloud.com/wxDev/file/saveDropower",
+		data: {
+			openId:  $.getCookie('open_id'),
+			address: $('#inputAddress').val(),
+//			comment: $('#inputComment').val(),
+//			uid: $('#inputSdid').val(),
+//			userName: $('#inputName')
+//			userTel: $('#inputTelphone').val()
 		},
-		success:function(data){
-			if (data.code == "00000") {
+		success: function(data) {
+			if(data.code == "00000") {
 				weui.toast('新建成功', {
-				    duration: 3000,
-				    className: 'custom-classname',
-				    callback: function(){ 
-				    	window.location.href = "history.html"; 
-				    }
+					duration: 3000,
+					className: 'custom-classname',
+					callback: function() {
+						window.location.href = "sddown.html";
+					}
 				});
-			} else{
+			} else {
 				weui.topTips(data.msg);
 			}
 		},
-		error:function(data){
+		error: function(data) {
 			weui.topTips('网络异常,请检查您的网络');
 		}
 	});
 
 }
-
-$(document).ready(function(){
-	$.ajax({
-		type:'get',
-		url:'http://wx.hongyancloud.com/wxDev/file/getItmType',
-		success:function(data){
-			if (data.code == "00000") {
-				var selType = $('#selType');
-				$(data.data).each(function(i,o){
-					selType.append("<option value='"+o.itmType+"'>"+o.itmTypeDesc+"</option>");
-				});
-			}else{
-				weui.topTips(data.msg);
-			}
-		},
-		error:function(data){
-			weui.topTips('网络异常,请检查您的网络');
-		}
-	});
-});

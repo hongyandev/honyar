@@ -17,7 +17,7 @@ function Bt_submit(uploadFiles) {
 	for(var index in uploadFiles) {
 		formdata.append("files", uploadFiles[index][0]);
 	}
-	formdata.append('openId', 'oZIooxJ_MT0M1ApB_4caa_gvXgWc');
+	formdata.append('openId', $.getCookie('open_id'));
 	formdata.append('id', theRequest.mainid);
 
 	$.ajax({
