@@ -12,11 +12,9 @@
 		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
 		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
 		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../static/js/jquery.min.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/jquery-2.1.4.js"></script>
 		<script src="../../static/js/history/history_pic.js?v=1.0.0"></script>
-		<!--<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
 	</head>
 
 	<body>
@@ -56,6 +54,57 @@
 			<input id="file" type="file" multiple="multiple" />
 			<button id="upload" type="button">button</button>
 		</div>
+		<script type="text/javascript">
+			//保存上传图片信息的全局变量
+			var uploadFiles = [];
+
+			$(function() {
+				//var theRequest = GetRequest();
+				//console.log(theRequest);
+				var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+					$gallery = $("#gallery"),
+					$galleryImg = $("#galleryImg"),
+					$uploaderInput = $("#uploaderInput"),
+					$uploaderFiles = $("#uploaderFiles");
+
+				$uploaderInput.on("change", function(e) {
+					var src, url = window.URL || window.webkitURL || window.mozURL,
+						files = e.target.files;
+
+					uploadFiles.push(files)
+					for(var i = 0, len = files.length; i < len; ++i) {
+						var file = files[i];
+
+						if(url) {
+							src = url.createObjectURL(file);
+						} else {
+							src = e.target.result;
+						}
+
+						$uploaderFiles.append($(tmpl.replace('#url#', src)));
+					}
+				});
+				var index; //第几张图片
+				$uploaderFiles.on("click", "li", function() {
+					index = $(this).index();
+					$galleryImg.attr("style", this.getAttribute("style"));
+					$gallery.fadeIn(100);
+				});
+				$gallery.on("click", function() {
+					$gallery.fadeOut(100);
+				});
+				//删除图片 删除图片的代码也贴出来。
+				$(".weui-gallery__del").click(function() {
+					$uploaderFiles.find("li").eq(index).remove();
+				});
+
+				//提价上传的功能
+				$("#uploadPic").click(function() {
+					Bt_submit(uploadFiles)
+				});
+
+			});
+		</script>
 
 	</body>
 

@@ -1,14 +1,15 @@
 //刷新加载页面
-function loadList(action, openid, keyword){
-	var openID="";
+function loadList(action, openID, keyword){
+
 	$.ajax({
 		type: 'get',
 		url: 'http://wx.hongyancloud.com/wxDev/file/'+action,
 		data: {
-			openId: openid, //$.getCookie('open_id')
+			openId: openID, //$.getCookie('open_id')
 			content: keyword
 		},
 		success: function(returnDatas) {
+			console.log(returnDatas)
 			if(returnDatas.code == "00000") {
 				var returnData = returnDatas.data;
 				$gallery = $("#gallery");
@@ -60,8 +61,8 @@ function loadList(action, openid, keyword){
 
 }
 $(document).ready(function() {
+	//openID='oZlooxHvjmiadlhZXf_40nVrHgd4';//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-	//alert(openID)
 	loadList('getBillAndDetails',openID)
 });
 
