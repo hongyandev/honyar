@@ -12,12 +12,17 @@ function GetRequest() {
 }
 
 function Bt_submit(uploadFiles) {
+	
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = $.getCookie('open_id'); //'oZlooxHvjmiadlhZXf_40nVrHgd4';// $.getCookie('open_id');
+	
+	
 	var theRequest = GetRequest();
 	var formdata = new FormData();
 	for(var index in uploadFiles) {
 		formdata.append("files", uploadFiles[index][0]);
 	}
-	formdata.append('openId', $.getCookie('open_id'));
+	formdata.append('openId', openID);
 	formdata.append('id', theRequest.mainid);
 
 	$.ajax({
