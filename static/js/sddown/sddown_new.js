@@ -1,11 +1,14 @@
 function Bt_submit() {
 
+
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = $.getCookie('open_id'); //'oZlooxHvjmiadlhZXf_40nVrHgd4';// $.getCookie('open_id');
+	
 //	var sdid = $('#inputSdid').val();
 //	var name = $('#inputName').val();
 //	var telphone = $('#inputTelphone').val();
 	var address = $('#inputAddress').val();
 //	var coment = $('#inputComment').val();
-	var openId = $.getCookie('open_id')';
 
 	//创建json格式
 	//	var submitJson = new Object();
@@ -67,7 +70,7 @@ function Bt_submit() {
 		type: "post",
 		url: "http://wx.hongyancloud.com/wxDev/file/saveDropower",
 		data: {
-			openId:  $.getCookie('open_id'),
+			openId:  openID,
 			address: $('#inputAddress').val(),
 //			comment: $('#inputComment').val(),
 //			uid: $('#inputSdid').val(),

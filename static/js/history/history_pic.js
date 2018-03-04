@@ -1,7 +1,3 @@
-//保存上传图片信息的全局变量
-var uploadFiles = [];
-var openID = "oZIooxJ_MT0M1ApB_4caa_gvXgWc";
-
 function GetRequest() {
 	var url = location.search; //获取url中"?"符后的字串   
 	var theRequest = new Object();
@@ -16,18 +12,15 @@ function GetRequest() {
 }
 
 function Bt_submit(uploadFiles) {
-
+		//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
+	var openID=$.getCookie('open_id');
 	var theRequest = GetRequest();
 	var formdata = new FormData();
 	for(var index in uploadFiles) {
 		formdata.append("files", uploadFiles[index][0]);
-		alert(uploadFiles[index][0]);
-		alert(JSON.stringify(uploadFiles[index][0]));
 	}
 	formdata.append('openId', openID);
-	formdata.append('id', theRequest.mainid);
-console.log('XXXXX '+openID);
-console.log(formdata);
+	formdata.append('id', theRequest.mainid); //theRequest.mainid
 
 	$.ajax({
 		type: "post",
@@ -35,7 +28,9 @@ console.log(formdata);
 		data: formdata,
 		timeout: 5000,
 		//必须false才会避开jQuery对 formdata 的默认处理 
+		// XMLHttpRequest会对 formdata 进行正确的处理
 		processData: false,
+		//必须false才会自动加上正确的Content-Type 
 		contentType: false,
 		xhrFields: {
 			withCredentials: false
@@ -54,55 +49,7 @@ console.log(formdata);
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			weui.topTips('网络异常......');
+
 		}
 	})
 }
-
-$(function() {
-	openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';//$.getCookie('open_id');
-	alert(openID);
-	var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
-		$gallery = $("#gallery"),
-		$galleryImg = $("#galleryImg"),
-		$uploaderInput = $("#uploaderInput"),
-		$uploaderFiles = $("#uploaderFiles");
-
-	$uploaderInput.on("change", function(e) {
-		var src, url = window.URL || window.webkitURL || window.mozURL,
-			files = e.target.files;
-
-		uploadFiles.push(files)
-		for(var i = 0, len = files.length; i < len; ++i) {
-			var file = files[i];
-
-			if(url) {
-				src = url.createObjectURL(file);
-			} else {
-				src = e.target.result;
-			}
-
-			$uploaderFiles.append($(tmpl.replace('#url#', src)));
-		}
-	});
-	var index; //第几张图片
-	$uploaderFiles.on("click", "li", function() {
-		index = $(this).index();
-		$galleryImg.attr("style", this.getAttribute("style"));
-		$gallery.fadeIn(100);
-	});
-	$gallery.on("click", function() {
-		$gallery.fadeOut(100);
-	});
-	//删除图片 删除图片的代码也贴出来。
-	$(".weui-gallery__del").click(function() {
-		$uploaderFiles.find("li").eq(index).remove();
-	});
-
-	//提交上传的功能
-	$("#uploadPic").click(function() {
-		console.log(uploadFiles)
-		Bt_submit(uploadFiles)
-	});
-
-});

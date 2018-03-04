@@ -63,7 +63,9 @@ function loadList(action, openid, keyword){
 
 }
 $(document).ready(function() {
-	loadList('getDropowerAndDetails',$.getCookie('open_id'))
+	//var openID='oZIooxJ_MT0M1ApB_4caa_gvXgWc';//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	loadList('getDropowerAndDetails',openID)
 });
 
 //检索后加载列表
