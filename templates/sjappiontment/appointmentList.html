@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../static/css/weui.min.css">
+		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
+		<link rel="stylesheet" href="../../static/css/appiontment/appiontmentList.css">
+
+		<script src="../../static/js/jquery-2.1.4.js"></script>
+		<script src="../../static/js/jquery-weui.js"></script>
+		<script src="../../static/js/fastclick.js"></script>
+		<script src="//webapi.amap.com/maps?v=1.4.3&key=ae4b6a00d98aef05211a06f61981321e"></script>
+		<!-- UI组件库 1.0 -->
+		<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+		<script src="//cdn.jsdelivr.net/npm/vue"></script>
+		<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+		<script src="../../static/js/appiontment/appiontmentList.js"></script>
+	</head>
+
+	<body>
+
+		<div id="page">
+			<div class="toolbar">
+				<div class="toolbar-inner">
+					<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">返回</a>
+					<h1 class="title">预约信息提交</h1>
+				</div>
+			</div>
+
+			<!--水电工列表内容-->
+
+			<div class="modal-content">
+				<div class="weui-cells">
+					<template v-for="item in workersItem">
+						<a class="weui-cell weui-cell_access" v-on:click="postuser(item)" href="javascript:;">
+							<div class="weui-cell__bd" style="height: 70px;">
+								<div class="det_back">
+									<div class="det_left">
+										<div class="det_left_name">
+											<p>{{item.khmc}}</p>
+										</div>
+										<div class="det_left_time">
+											<p>电话：{{item.telephone}}</p>
+										</div>
+										<div class="det_left_time">
+											<p>地址：{{item.province}}{{item.district}}{{item.address}}</p>
+										</div>
+									</div>
+									<div class="det_right">
+										<div class="det_right_icon"><img src="right_icon.png"></div>
+										<div class="det_right_distance">
+											<p>{{item.distance}}km</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</template>
+				</div>
+			</div>
+
+			<!--水电工列表开始-->
+			<div id="sel_popup" class="weui-popup__container">
+				<div class="weui-popup__modal">
+					<div class="toolbar">
+						<div class="toolbar-inner">
+							<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">返回</a>
+							<h1 class="title">预约信息提交</h1>
+						</div>
+					</div>
+					<!--水电工列表内容-->
+					<div class="modal-content">
+						<div class="weui-cells">
+							<template v-for="item in workersItem">
+								<a class="weui-cell weui-cell_access" v-on:click="postuser(item)" href="javascript:;">
+									<div class="weui-cell__bd" style="height: 70px;">
+										<div class="det_back">
+											<div class="det_left">
+												<div class="det_left_name">
+													<p>{{item.khmc}}</p>
+												</div>
+												<div class="det_left_time">
+													<p>电话：{{item.telephone}}</p>
+												</div>
+												<div class="det_left_time">
+													<p>地址：{{item.province}}{{item.district}}{{item.address}}</p>
+												</div>
+											</div>
+											<div class="det_right">
+												<div class="det_right_icon"><img src="right_icon.png"></div>
+												<div class="det_right_distance">
+													<p>{{item.distance}}km</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--水电工列表结束-->
+	</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../../static/css/weui.min.css">
+		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
+		<link rel="stylesheet" href="../../static/css/appiontment/appiontmentMap.css">
+
+		<script src="../../static/js/jquery-2.1.4.js"></script>
+		<script src="../../static/js/jquery-weui.js"></script>
+		<script src="../../static/js/fastclick.js"></script>
+		<script src="//webapi.amap.com/maps?v=1.4.3&key=ae4b6a00d98aef05211a06f61981321e"></script>
+		<!-- UI组件库 1.0 -->
+		<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+		<script src="//cdn.jsdelivr.net/npm/vue"></script>
+		<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+		<script src="../../static/js/sjappiontment/appiontmentMap.js"></script>
+	</head>
+
+	<body>
+		<div class="container" id="container">
+			<div id="amap" class="amap-container"></div>
+			<!--地图所在的位置-->
+			<div class="page" id="page">
+				<div class="weui-cells weui-cells_form">
+					<!--<div class="weui-cell weui-cell_vcode">
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="tel" placeholder="请输入地址" v-model="searchAddress">
+						</div>
+						<div class="weui-cell__ft">
+							<button class="weui-vcode-btn" @click="mapSearch">查询</button>
+						</div>
+					</div>-->
+
+					<div class="weui-cell">
+						<div class="weui-cell__hd"><label class="weui-label">当前位置</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" type="text" placeholder="请输入当前位置" v-bind:value="address">
+						</div>
+					</div>
+
+					<!--省 城市 县级 街道选择-->
+					<div class="weui-cell">
+						<div class="weui-cell__hd"><label class="weui-label">所在地区</label></div>
+						<div class="weui-cell__bd">
+							<input id="district" class="weui-input" type="text" placeholder="请输入所在地区" v-bind:value="district" v-on:click="selButClick" readonly>
+						</div>
+					</div>
+
+					<!--省 城市 县级 街道选择-->
+					<div class="weui-cell">
+						<div class="weui-cell__hd"><label class="weui-label">可预约水电工</label></div>
+						<div class="weui-cell__bd">
+							<input class="weui-input" id="workers" type="text" placeholder="请输入可预约水电工" v-bind:value="supplier" v-on:click="workersSelButClick" readonly>
+						</div>
+					</div>
+				</div>
+
+				<!--省级选择的pop弹窗-->
+				<div id="sel_popup" class="weui-popup__container">
+					<!-- <div class="weui-popup__overlay"></div> -->
+					<div class="weui-popup__modal">
+						<div class="toolbar">
+							<div class="toolbar-inner">
+								<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">关闭</a>
+								<h1 class="title">{{title}}</h1>
+							</div>
+						</div>
+						<div class="modal-content">
+							<div class="weui-cells">
+								<template v-for="item in cells">
+									<a class="weui-cell weui-cell_access" v-on:click="getDistrict(item)" href="javascript:;">
+										<div class="weui-cell__bd">
+											<p>{{item.name}}</p>
+										</div>
+										<div class="weui-cell__ft"></div>
+									</a>
+								</template>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--水电工列表开始-->
+				<div id="sel_popup1" class="weui-popup__container">
+					<!-- <div class="weui-popup__overlay"></div> -->
+					<div class="weui-popup__modal">
+						<div class="toolbar">
+							<div class="toolbar-inner">
+								<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">返回</a>
+								<h1 class="title">可预约的水电工</h1>
+							</div>
+						</div>
+						<!--水电工列表内容-->
+						<div class="modal-content">
+							<div class="weui-cells">
+								<template v-for="item in workersItem">
+									<a class="weui-cell weui-cell_access" v-on:click="postuser(item)" href="javascript:;">
+										<div class="weui-cell__bd" style="height: 70px;">
+											<div class="det_back">
+												<div class="det_left">
+													<div class="det_left_name">
+														<p>{{item.khmc}}</p>
+													</div>
+													<div class="det_left_time">
+														<p>电话：{{item.telephone}}</p>
+													</div>
+													<div class="det_left_time">
+														<p>地址：{{item.province}}{{item.district}}{{item.address}}</p>
+													</div>
+												</div>
+												<div class="det_right">
+													<div class="det_right_icon"><img src="../../static/img/appiontment/right_icon.png"></div>
+													<div class="det_right_distance">
+														<p>{{item.distance}}km</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</template>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--水电工列表结束-->
+
+				<!--预约人提交开始-->
+				<!--省级选择的pop弹窗-->
+				<div id="sel_popup2" class="weui-popup__container">
+					<!-- <div class="weui-popup__overlay"></div> -->
+					<div class="weui-popup__modal">
+						<div class="toolbar">
+							<div class="toolbar-inner">
+								<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">关闭</a>
+								<h1 class="title">{{title}}</h1>
+							</div>
+						</div>
+						<div class="modal-content">
+							<div class="weui-cells">
+								<template>
+									<div class="all">
+
+										<div class="weui-cell weui-cell_select weui-cell_select-after">
+											<div class="weui-cell__hd">
+												<label for="" class="weui-label">预约人类型</label>
+											</div>
+											<div class="weui-cell__bd">
+												<select class="weui-select" v-model="reserveType">
+													<option v-for="option in reserveTypes" :value="option.reserveType" v-text="option.reserveTypeDesc"></option>
+												</select>
+											</div>
+										</div>
+
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label class="weui-label">预约人姓名</label></div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="text" placeholder="请输入预约人姓名" v-model="reserveName">
+											</div>
+										</div>
+
+										<div class="weui-cell weui-cell_vcode">
+											<div class="weui-cell__hd">
+												<label class="weui-label">预约人电话</label>
+											</div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="tel" placeholder="请输入手机号" v-model="reserveTelephone">
+											</div>
+											<div class="weui-cell__ft">
+												<button class="weui-vcode-btn" @click="smsclick">获取验证码</button>
+											</div>
+										</div>
+
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="text" placeholder="请输入验证码" v-model="iCode">
+											</div>
+										</div>
+
+										<div class="weui-cell weui-cell_select weui-cell_select-after">
+											<div class="weui-cell__hd">
+												<label for="" class="weui-label">服务类型</label>
+											</div>
+											<div class="weui-cell__bd">
+												<select class="weui-select" v-model="serviceType">
+													<option v-for="option in serviceTypes" :value="option.serviceType" v-text="option.serviceTypeDesc"></option>
+												</select>
+											</div>
+										</div>
+
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label class="weui-label">业主姓名</label></div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="text" placeholder="请输入业主姓名" v-model="userName">
+											</div>
+										</div>
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label class="weui-label">业主电话</label></div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="text" placeholder="请输入业主电话" v-model="userTelephone">
+											</div>
+										</div>
+
+										<div class="weui-cells__title">备注信息</div>
+										<div class="weui-cells weui-cells_form">
+											<div class="weui-cell">
+												<div class="weui-cell__bd">
+													<textarea class="weui-textarea" placeholder="请输入备注信息" rows="3" v-model="comment"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label class="weui-label">小区</label></div>
+											<div class="weui-cell__bd">
+												<input class="weui-input" type="text" placeholder="请输入小区" v-model="detailAddress">
+											</div>
+										</div>
+
+										<div class="weui-cell">
+											<div class="weui-cell__hd"><label for="" class="weui-label">时间</label></div>
+											<div class="weui-cell__bd">
+												<!--<input class="weui-input" type="datetime-local" v-model="reserveDate" value="" placeholder="">-->
+												<input class="weui-input" type="date" v-model="reserveDate" value="">
+											</div>
+										</div>
+										<div class="weui-btn-area">
+											<a class="weui-btn weui-btn_primary" @click="userPostSubmit">提交</a>
+										</div>
+									</div>
+								</template>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--预约人提交结束-->
+			</div>
+		</div>
+	</body>
+
+</html>
