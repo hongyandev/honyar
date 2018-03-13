@@ -4,7 +4,9 @@
  */
 var wx = new Object();
 wx.getOpenIdUrl = 'http://wx.hongyancloud.com/wxDev/getOpenId';
+wx.getTzOpenIdUrl = 'http://wx.hongyancloud.com/wxDev/getTzOpenId';
 wx.removeCookieOpenId = 'http://wx.hongyancloud.com/wxDev/removeCookieOpenId';
+wx.desUrl = 'https://wwww.baidu.com';
 wx.appId = 'wx203cc78ceb539356';
 (function($){
 	//获取指定名称的cookie的值
