@@ -12,7 +12,7 @@ function GetRequest() {
 }
 
 function Bt_submit(uploadFiles) {
-		//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
+	//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
 	var openID=$.getCookie('open_id');
 	var theRequest = GetRequest();
 	var formdata = new FormData();
