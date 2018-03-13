@@ -5,8 +5,7 @@ function loadList(action, openID, keyword){
 		type: 'get',
 		url: 'http://wx.hongyancloud.com/wxDev/file/'+action,
 		data: {
-			//openId: openID, 
-			$.getCookie('open_id'),
+			openId: $.getCookie('open_id'), 
 			content: keyword
 		},
 		success: function(returnDatas) {
