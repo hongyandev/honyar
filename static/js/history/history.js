@@ -5,7 +5,8 @@ function loadList(action, openID, keyword){
 		type: 'get',
 		url: 'http://wx.hongyancloud.com/wxDev/file/'+action,
 		data: {
-			openId: $.getCookie('open_id'), 
+			openId: openID, 
+			//openId: $.getCookie('open_id'),
 			content: keyword
 		},
 		success: function(returnDatas) {
@@ -61,7 +62,7 @@ function loadList(action, openID, keyword){
 
 }
 $(document).ready(function() {
-	//openID='oZlooxHvjmiadlhZXf_40nVrHgd4';//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+//	openID='oZlooxHvjmiadlhZXf_40nVrHgd4';//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	loadList('getBillAndDetails',openID)
 });
