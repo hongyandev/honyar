@@ -16,6 +16,7 @@
 		<script>
 			$(function () {
                 var openId=$.getCookie('open_id');
+               // alert(openId);
                 $.showLoading = function(text) {
                     var html = '<div class="weui_loading">';
                     	html+='<div class="weui-loadmore">\n' +
@@ -28,7 +29,7 @@
                 $.showLoading();
                 $.ajax({
 					type:"get",
-					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential",
+					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId="+openId,
 					dataType:"json",
                     success:function (res) {
                         if(res.code==00000){
@@ -39,7 +40,7 @@
 
 						}else {
                             	jQuery(weui.topTips("优惠码不存在")).show();
-                              jQuery(".discountImg").html("<img src=\"../../static/img/discount/nopic.png\"/>");
+                                jQuery(".discountImg").html("<img src=\"../../static/img/discount/nopic.png\"/>");
                         }
 					}
 				})
