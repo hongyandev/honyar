@@ -29,553 +29,608 @@
 	<tr><td>UserSign验证地址：</td><td><a href="g.html" target="_blank">点击查看 UserSign验证地址</a></td></tr>
 </table>
 	</div>
-
-	<div class="Category">接口编号：00</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取AccessToken</b></td></tr>
-	<tr><td>接口描述：</td><td>获取微信开发的AccessToken</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/api/accessToken</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>无参</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		无参
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"lastRefreshTime":1517896221723,"errcode":null,"errmsg":null,"access_token":"6_XnYBGglXDIpNRFSvLoRAvDzZh-aPe1pqdJYNFGMTz33x3pBMSXrFG-MmEizamqvTV_MkbcPtdQIugxQkaZq5cF9Id6PZJ0OGLiX83loHX4ptg76PtSilMqtYXY_ZQy2FWyX40sWwVPGLfizOYPBjACAGXJ","expires_in":7200}}</td></tr>
-	<tr><td>其他备注：</td><td>无</td></tr>
-</table>
-	</div>
 	
-	<div class="Category">接口编号：01</div>
+	<div class="Category">接口总览</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>根据手机号获取二维码</b></td></tr>
-	<tr><td>接口描述：</td><td>根据手机号获取二维码</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/qrcode/getQrcode</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
-	<tr><td>请求参数说明：</td><td>
 		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
+			<tr><th width=150>接口编号</th><th>接口说明</th><th width=100>详情</th></tr>
+			<tr><td>00</td><td>获取微信开发的AccessToken</td><td><a href="#00">详情</td></tr>
+			<tr><td>01</td><td>根据类别和水电工账号生成公众号二维码</td><td><a href="#01">详情</td></tr>
+			<tr><td>02</td><td>获取注册验证码</td><td><a href="#02">详情</td></tr>
+			<tr><td>03</td><td>用户注册</td><td><a href="#03">详情</td></tr>
+			<tr><td>04</td><td>获取产品类型</td><td><a href="#04">详情</td></tr>
+			<tr><td>05</td><td>保存质保单主单</td><td><a href="#05">详情</td></tr>
+			<tr><td>06</td><td>保存质保单明细</td><td><a href="#06">详情</td></tr>
+			<tr><td>07</td><td>获取质保单列表</td><td><a href="#07">详情</td></tr>
+			<tr><td>07-01</td><td>获取质保单列表分页</td><td><a href="#07-01">详情</td></tr>
+			<tr><td>08</td><td>根据条件检索质保列表</td><td><a href="#08">详情</td></tr>
+			<tr><td>09</td><td>删除质保单 主单+明细</td><td><a href="#09">详情</td></tr>
+			<tr><td>09-01</td><td>删除质保单明细</td><td><a href="#09-01">详情</td></tr>
+				
+			<tr><td>10</td><td>保存水电图主单</td><td><a href="#10">详情</td></tr>
+			<tr><td>11</td><td>保存水电图明细</td><td><a href="#11">详情</td></tr>
+			<tr><td>12</td><td>获取水电图列表</td><td><a href="#12">详情</td></tr>
+			<tr><td>13</td><td>检索水电图列表</td><td><a href="#13">详情</td></tr>
+			<tr><td>14</td><td>删除水电图 主表+明细</td><td><a href="#14">详情</td></tr>
+			<tr><td>14-01</td><td>删除水电图明细</td><td><a href="#14-01">详情</td></tr>
+			<tr><td>15</td><td>获取经销商列表</td><td><a href="#15">详情</td></tr>
+			<tr><td>16</td><td>获取预约人类型</td><td><a href="#16">详情</td></tr>
+				
+			<tr><td>17</td><td>获取服务类型</td><td><a href="#17">详情</td></tr>
+			<tr><td>18</td><td>获取预约人+服务类型</td><td><a href="#18">详情</td></tr>
+			<tr><td>19</td><td>获取预约验证码</td><td><a href="#19">详情</td></tr>
+			<tr><td>20</td><td>保存预约单</td><td><a href="#20">详情</td></tr>
+			<tr><td>21</td><td>获取预约单列表</td><td><a href="#21">详情</td></tr>
+			<tr><td>22</td><td>删除预约单</td><td><a href="#22">详情</td></tr>
+			<tr><td>23</td><td>获取优惠二维码</td><td><a href="#23">详情</td></tr>
 		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":"一张二维码的图片"}</td></tr>
-	<tr><td>其他备注：</td><td>无</td></tr>
-</table>
-	</div>
-
-	<div class="Category">接口编号：02</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取注册验证码</b></td></tr>
-	<tr><td>接口描述：</td><td>根据手机号发送验证码</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/sendIcode</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
-	<tr><td>请求参数说明：</td><td>
-
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>telephone</td><td>string</td><td>是</td><td>注册手机号</td></tr>
-		</table>
-
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>手机号必须合法,且未注册过</td></tr>
-</table>
 	</div>
 
-	<div class="Category">接口编号：03</div>
+	<div class="Category" id="00">接口编号：00</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>用户注册</b></td></tr>
-	<tr><td>接口描述：</td><td>保存用户的注册信息</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/saveHyUser</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&name=haha&telephone=110&iCode=123456</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>name</td><td>string</td><td>是</td><td>用户名</td></tr>
-		<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
-		<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取AccessToken</b></td></tr>
+			<tr><td>接口描述：</td><td>获取微信开发的AccessToken</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/api/accessToken</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>无参</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				无参
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"lastRefreshTime":1517896221723,"errcode":null,"errmsg":null,"access_token":"6_XnYBGglXDIpNRFSvLoRAvDzZh-aPe1pqdJYNFGMTz33x3pBMSXrFG-MmEizamqvTV_MkbcPtdQIugxQkaZq5cF9Id6PZJ0OGLiX83loHX4ptg76PtSilMqtYXY_ZQy2FWyX40sWwVPGLfizOYPBjACAGXJ","expires_in":7200}}</td></tr>
+			<tr><td>其他备注：</td><td>无</td></tr>
 		</table>
+	</div>
+	
+	<div class="Category" id="01">接口编号：01</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>根据类别和水电工账号生成公众号二维码</b></td></tr>
+			<tr><td>接口描述：</td><td>根据类别和水电工账号生成公众号二维码</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/qrcode/getQrcode</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>type</td><td>string</td><td>是</td><td>类别(水电工推广默认是:1)</td></tr>
+				<tr><td>uid</td><td>string</td><td>是</td><td>水电工id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":"一张二维码的图片"}</td></tr>
+			<tr><td>其他备注：</td><td>无</td></tr>
+		</table>
+	</div>
 
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：04</div>
+	<div class="Category" id="02">接口编号：02</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取产品类型</b></td></tr>
-	<tr><td>接口描述：</td><td>获取产品类型</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getItmType</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>无参</td></tr>
-	<tr><td>请求参数说明：</td><td>无参</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：05</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>保存质保单主单</b></td></tr>
-	<tr><td>接口描述：</td><td>保存质保单主单</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveBill</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&itmType=1&telephone=110&address=天上人间&comment=修水管</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>itmType</td><td>string</td><td>是</td><td>产品类别</td></tr>
-		<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
-		<tr><td>address</td><td>string</td><td>是</td><td>详细地址</td></tr>
-		<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取注册验证码</b></td></tr>
+			<tr><td>接口描述：</td><td>根据手机号发送验证码</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/sendIcode</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>telephone</td><td>string</td><td>是</td><td>注册手机号</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>手机号必须合法,且未注册过</td></tr>
 		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"id":7,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"3","itmTypeDesc":null,"telephone":"15857125375","address":"新西湖小镇","comment":"修管子","children":[]}}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
-</table>
 	</div>
-	
-	<div class="Category">接口编号：06</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>保存质保单明细</b></td></tr>
-	<tr><td>接口描述：</td><td>保存质保单明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveBillDetails</td></tr>
-	<tr><td>请求方式：</td><td>POST <b>enctype="multipart/form-data"</b></td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1&files=[file]</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>id</td><td>string</td><td>是</td><td>主单id</td></tr>
-		<tr><td>files</td><td>MultipartFile</td><td>是</td><td>上传图片</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：07</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取质保单列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId获取质保单列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getBillAndDetails</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":11,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":null,"children":[]},{"id":10,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":"哈哈","children":[{"fileName":"logo-hy.png","contentType":"image/png","fileKey":"upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileSize":6071,"id":12,"mainId":10,"lastModified":1519548421000},{"fileName":"patchca.png","contentType":"image/png","fileKey":"upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileSize":2795,"id":13,"mainId":10,"lastModified":1519548421000}]}]}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：07-01</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取质保单列表分页</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId获取质保单列表分页</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getBillAndDetailsFenye</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&pageNum=2&pageSize=3</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>pageNum</td><td>int</td><td>是</td><td>当前页数</td></tr>
-		<tr><td>pageSize</td><td>int</td><td>是</td><td>每页条数</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td><a href="billFenye.html">详见链接</a></td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：08</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>根据条件检索质保列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId根据条件检索质保列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchBill</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&content=检索内容</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":10,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":"哈哈","children":[{"fileName":"logo-hy.png","contentType":"image/png","fileKey":"upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileSize":6071,"id":12,"mainId":10,"lastModified":1519548421000},{"fileName":"patchca.png","contentType":"image/png","fileKey":"upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileSize":2795,"id":13,"mainId":10,"lastModified":1519548421000}]}]}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：09-1</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>删除质保单 主单+明细</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId与质保单id删除质保单与明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillAndDetails</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=7</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>id</td><td>int</td><td>是</td><td>质检单id</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：09-2</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>删除质保单 明细</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId与质保单明细id删除质保单明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillDetail</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=7</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>id</td><td>int</td><td>是</td><td>质检单明细id</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：10</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>保存水电图主单</b></td></tr>
-	<tr><td>接口描述：</td><td>保存水电图主单</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropower</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&address=天上人间&comment=修水管&uid=水电工id&userName=业主姓名&userTel=业主电话</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>address</td><td>string</td><td>是</td><td>详细地址</td></tr>
-		<tr><td>comment</td><td>string</td><td>否</td><td>备注</td></tr>
-		<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
-		<tr><td>userName</td><td>string</td><td>否</td><td>业主姓名</td></tr>
-		<tr><td>userTel</td><td>string</td><td>否</td><td>业主电话</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"id":3,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[]}}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：11</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>保存水电图明细</b></td></tr>
-	<tr><td>接口描述：</td><td>保存质保单明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropowerDetails</td></tr>
-	<tr><td>请求方式：</td><td>POST <b>enctype="multipart/form-data"</b></td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1&files=[file]</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>id</td><td>string</td><td>是</td><td>主单id</td></tr>
-		<tr><td>files</td><td>MultipartFile</td><td>是</td><td>上传图片</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：12</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取水电图列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId获取水电图列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getDropowerAndDetails</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":4,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[{"fileName":"1.jpg","contentType":"image/jpeg","fileKey":"upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileSize":12799,"id":20,"mainId":4,"lastModified":1519611152000},{"fileName":"2.jpg","contentType":"image/jpeg","fileKey":"upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileSize":28678,"id":21,"mainId":4,"lastModified":1519611152000}]},{"id":2,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"五常大道138号","comment":"备注","children":[]}]}</td></tr>
-	<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：13</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>检索水电图列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId 与 检索条件 获取水电图列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchDropower</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=uid&content=检索内容</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
-		<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":4,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[{"fileName":"1.jpg","contentType":"image/jpeg","fileKey":"upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileSize":12799,"id":20,"mainId":4,"lastModified":1519611152000},{"fileName":"2.jpg","contentType":"image/jpeg","fileKey":"upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileSize":28678,"id":21,"mainId":4,"lastModified":1519611152000}]},{"id":2,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"五常大道138号","comment":"备注","children":[]}]}</td></tr>
-	<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息</td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：14-1</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>删除水电图 主表+明细</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId与水电图id删除水电图与明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1&id=3</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
-		<tr><td>id</td><td>int</td><td>是</td><td>水电图id</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td><b>注：openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：14-2</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>删除水电图 明细</b></td></tr>
-	<tr><td>接口描述：</td><td>根据openId与水电图id删除水电图与明细</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerDetail</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1&id=3</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
-		<tr><td>id</td><td>int</td><td>是</td><td>水电图id</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：15</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取经销商列表</b></td></tr>
-	<tr><td>接口描述：</td><td>根据当前位置获取经销商列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getDealerList</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
-		<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
-		<tr><td>longitude</td><td>double</td><td>是</td><td>经度</td></tr>
-		<tr><td>latitude</td><td>double</td><td>是</td><td>维度</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"khdm":"00000000","khmc":"杭州鸿雁电器有限公司","province":"浙江省","city":"杭州市","district":"余杭区","address":"五常大道138","telephone":"4008267818","longitude":120.037467,"latitude":30.24546,"distance":111.0}]}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：16</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取预约人类型</b></td></tr>
-	<tr><td>接口描述：</td><td>获取预约人类型</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveType</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"reserveType":1,"reserveTypeDesc":"业主"},{"reserveType":2,"reserveTypeDesc":"水电工"},{"reserveType":3,"reserveTypeDesc":"工长"},{"reserveType":4,"reserveTypeDesc":"项目经理"},{"reserveType":5,"reserveTypeDesc":"装饰公司"},{"reserveType":6,"reserveTypeDesc":"分销商"},{"reserveType":7,"reserveTypeDesc":"运营商"}]}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：17</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取服务类型</b></td></tr>
-	<tr><td>接口描述：</td><td>获取服务类型</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getServiceType</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"serviceType":1,"serviceTypeDesc":"试压服务"},{"serviceType":2,"serviceTypeDesc":"漏水检查"},{"serviceType":3,"serviceTypeDesc":"智能家居调试"},{"serviceType":4,"serviceTypeDesc":"智能家居售后"}]}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：18</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取预约人+服务类型</b></td></tr>
-	<tr><td>接口描述：</td><td>获取预约人+服务类型</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveMessage</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
-	<tr><td>请求参数说明：</td><td>
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		</table>
-	</td></tr>
-	<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"serviceType":[{"serviceType":1,"serviceTypeDesc":"试压服务"},{"serviceType":2,"serviceTypeDesc":"漏水检查"},{"serviceType":3,"serviceTypeDesc":"智能家居调试"},{"serviceType":4,"serviceTypeDesc":"智能家居售后"}],"peopleType":[{"reserveType":1,"reserveTypeDesc":"业主"},{"reserveType":2,"reserveTypeDesc":"水电工"},{"reserveType":3,"reserveTypeDesc":"工长"},{"reserveType":4,"reserveTypeDesc":"项目经理"},{"reserveType":5,"reserveTypeDesc":"装饰公司"},{"reserveType":6,"reserveTypeDesc":"分销商"},{"reserveType":7,"reserveTypeDesc":"运营商"}]}}</td></tr>
-	<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
-</table>
-	</div>
-	
-	<div class="Category">接口编号：19</div>
-	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取预约验证码</b></td></tr>
-	<tr><td>接口描述：</td><td>根据手机号发送验证码</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/sendIcode</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
-	<tr><td>请求参数说明：</td><td>
 
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>telephone</td><td>string</td><td>是</td><td>预约人手机号</td></tr>
+	<div class="Category" id="03">接口编号：03</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>用户注册</b></td></tr>
+			<tr><td>接口描述：</td><td>保存用户的注册信息</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/saveHyUser</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&name=haha&telephone=110&iCode=123456</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>name</td><td>string</td><td>是</td><td>用户名</td></tr>
+				<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
+				<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
 		</table>
-
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
-</table>
 	</div>
 	
-	<div class="Category">接口编号：20</div>
+	<div class="Category" id="04">接口编号：04</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>保存预约单</b></td></tr>
-	<tr><td>接口描述：</td><td>保存预约单</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/saveReserve</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>参数参考 《请求参数说明》</td></tr>
-	<tr><td>请求参数说明：</td><td>
-
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>serviceType</td><td>string</td><td>是</td><td>服务类型</td></tr>
-		<tr><td>reserveType</td><td>string</td><td>是</td><td>预约人类型</td></tr>
-		<tr><td>reserveName</td><td>string</td><td>是</td><td>预约人姓名</td></tr>
-		<tr><td>reserveTelephone</td><td>string</td><td>是</td><td>预约人电话</td></tr>
-		<tr><td>userName</td><td>string</td><td>是</td><td>业主姓名</td></tr>
-		<tr><td>userTelephone</td><td>string</td><td>是</td><td>业主电话</td></tr>
-		<tr><td>reserveDate</td><td>string</td><td>是</td><td>预约日期</td></tr>
-		<tr><td>arrivalDate</td><td>string</td><td>是</td><td>上门日期</td></tr>
-		<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
-		<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
-		<tr><td>district</td><td>string</td><td>是</td><td>区</td></tr>
-		<tr><td>town</td><td>string</td><td>是</td><td>街</td></tr>
-		<tr><td>detailAddress</td><td>string</td><td>是</td><td>详细地址</td></tr>
-		<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
-		<tr><td>longitude</td><td>string</td><td>是</td><td>经度</td></tr>
-		<tr><td>latitude</td><td>string</td><td>是</td><td>维度</td></tr>
-		<tr><td>state</td><td>string</td><td>是</td><td>状态</td></tr>
-		<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取产品类型</b></td></tr>
+			<tr><td>接口描述：</td><td>获取产品类型</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getItmType</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>无参</td></tr>
+			<tr><td>请求参数说明：</td><td>无参</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
 		</table>
-
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
-</table>
 	</div>
 	
-	<div class="Category">接口编号：21</div>
+	<div class="Category" id="05">接口编号：05</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>获取预约单列表</b></td></tr>
-	<tr><td>接口描述：</td><td>获取预约单列表</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveList</td></tr>
-	<tr><td>请求方式：</td><td>GET</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&telephone=预约手机号</td></tr>
-	<tr><td>请求参数说明：</td><td>
-
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>telephone</td><td>string</td><td>否</td><td>预约人手机号</td></tr>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存质保单主单</b></td></tr>
+			<tr><td>接口描述：</td><td>保存质保单主单</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveBill</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&itmType=1&telephone=110&address=天上人间&comment=修水管</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>itmType</td><td>string</td><td>是</td><td>产品类别</td></tr>
+				<tr><td>telephone</td><td>string</td><td>是</td><td>手机号</td></tr>
+				<tr><td>address</td><td>string</td><td>是</td><td>详细地址</td></tr>
+				<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"id":7,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"3","itmTypeDesc":null,"telephone":"15857125375","address":"新西湖小镇","comment":"修管子","children":[]}}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
 		</table>
-
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td>如何预约手机号不填,按照openId查询.如何填了,则按照openId或者手机号查</td></tr>
-</table>
 	</div>
 	
-	<div class="Category">接口编号：22</div>
+	<div class="Category" id="06">接口编号：06</div>
 	<div class="ItemList">
-<table border="1" cellpadding="0" cellspacing="0">
-	<tr><td class="cc">接口名称：</td><td><b>删除预约单</b></td></tr>
-	<tr><td>接口描述：</td><td>删除预约单</td></tr>
-	<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/deleteReserve</td></tr>
-	<tr><td>请求方式：</td><td>POST</td></tr>
-	<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1</td></tr>
-	<tr><td>请求参数说明：</td><td>
-
-		<table id="list" border="1" cellpadding="0" cellspacing="0">
-		<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-		<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
-		<tr><td>id</td><td>int</td><td>否</td><td>预约单序号</td></tr>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存质保单明细</b></td></tr>
+			<tr><td>接口描述：</td><td>保存质保单明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveBillDetails</td></tr>
+			<tr><td>请求方式：</td><td>POST <b>enctype="multipart/form-data"</b></td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1&files=[file]</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>id</td><td>string</td><td>是</td><td>主单id</td></tr>
+				<tr><td>files</td><td>MultipartFile</td><td>是</td><td>上传图片</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
 		</table>
-
-	</td></tr>
-	<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-	<tr><td>其他备注：</td><td></td></tr>
-</table>
+	</div>
+	
+	<div class="Category" id="07">接口编号：07</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取质保单列表</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId获取质保单列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getBillAndDetails</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":11,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":null,"children":[]},{"id":10,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":"哈哈","children":[{"fileName":"logo-hy.png","contentType":"image/png","fileKey":"upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileSize":6071,"id":12,"mainId":10,"lastModified":1519548421000},{"fileName":"patchca.png","contentType":"image/png","fileKey":"upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileSize":2795,"id":13,"mainId":10,"lastModified":1519548421000}]}]}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="07-01">接口编号：07-01</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取质保单列表分页</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId获取质保单列表分页</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getBillAndDetailsFenye</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&pageNum=2&pageSize=3</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>pageNum</td><td>int</td><td>是</td><td>当前页数</td></tr>
+				<tr><td>pageSize</td><td>int</td><td>是</td><td>每页条数</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td><a href="07-01.html">详见链接</a></td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="08">接口编号：08</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>根据条件检索质保列表</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId根据条件检索质保列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchBill</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&content=检索内容</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":10,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","itmType":"1","itmTypeDesc":"电工类产品","telephone":"15868179409","address":"2","comment":"哈哈","children":[{"fileName":"logo-hy.png","contentType":"image/png","fileKey":"upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802e19d9980-3c7c-4e45-bf23-d3adc065dd18.png","fileSize":6071,"id":12,"mainId":10,"lastModified":1519548421000},{"fileName":"patchca.png","contentType":"image/png","fileKey":"upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802c4f678ca-1d23-4e46-8285-24ed93c6a83c.png","fileSize":2795,"id":13,"mainId":10,"lastModified":1519548421000}]}]}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="09">接口编号：09</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>删除质保单 主单+明细</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId与质保单id删除质保单与明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillAndDetails</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=7</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>id</td><td>int</td><td>是</td><td>质检单id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="09-01">接口编号：09-01</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>删除质保单明细</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId与质保单明细id删除质保单明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteBillDetail</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=7</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>id</td><td>int</td><td>是</td><td>质检单明细id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="10">接口编号：10</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存水电图主单</b></td></tr>
+			<tr><td>接口描述：</td><td>保存水电图主单</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropower</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&address=天上人间&comment=修水管&uid=水电工id&userName=业主姓名&userTel=业主电话</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>address</td><td>string</td><td>是</td><td>详细地址</td></tr>
+				<tr><td>comment</td><td>string</td><td>否</td><td>备注</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				<tr><td>userName</td><td>string</td><td>否</td><td>业主姓名</td></tr>
+				<tr><td>userTel</td><td>string</td><td>否</td><td>业主电话</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"id":3,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[]}}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="11">接口编号：11</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存水电图明细</b></td></tr>
+			<tr><td>接口描述：</td><td>保存质保单明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/saveDropowerDetails</td></tr>
+			<tr><td>请求方式：</td><td>POST <b>enctype="multipart/form-data"</b></td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1&files=[file]</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>id</td><td>string</td><td>是</td><td>主单id</td></tr>
+				<tr><td>files</td><td>MultipartFile</td><td>是</td><td>上传图片</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 <b>该接口为图片上传接口</b></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="12">接口编号：12</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取水电图列表</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId获取水电图列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getDropowerAndDetails</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":4,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[{"fileName":"1.jpg","contentType":"image/jpeg","fileKey":"upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileSize":12799,"id":20,"mainId":4,"lastModified":1519611152000},{"fileName":"2.jpg","contentType":"image/jpeg","fileKey":"upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileSize":28678,"id":21,"mainId":4,"lastModified":1519611152000}]},{"id":2,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"五常大道138号","comment":"备注","children":[]}]}</td></tr>
+			<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="13">接口编号：13</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>检索水电图列表</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId 与 检索条件 获取水电图列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/searchDropower</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=uid&content=检索内容</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				<tr><td>content</td><td>string</td><td>否</td><td>检索条件</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"id":4,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"地址","comment":"备注","children":[{"fileName":"1.jpg","contentType":"image/jpeg","fileKey":"upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/201802eaee2093-a48b-454f-acb0-20479fdf710f.jpg","fileSize":12799,"id":20,"mainId":4,"lastModified":1519611152000},{"fileName":"2.jpg","contentType":"image/jpeg","fileKey":"upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileRealPath":"https://hywxdev.oss-cn-hangzhou.aliyuncs.com/upload/image/2018026d91613b-5f1f-4e3d-91ff-edba46cc1ae8.jpg","fileSize":28678,"id":21,"mainId":4,"lastModified":1519611152000}]},{"id":2,"openId":"oZIooxJ_MT0M1ApB_4caa_gvXgWc","address":"五常大道138号","comment":"备注","children":[]}]}</td></tr>
+			<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="14">接口编号：14</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>删除水电图 主表+明细</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId与水电图id删除水电图与明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1&id=3</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				<tr><td>id</td><td>int</td><td>是</td><td>水电图id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td><b>注：openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="14-01">接口编号：14-01</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>删除水电图明细</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId与水电图id删除水电图与明细</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/deleteDropowerDetail</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1&id=3</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				<tr><td>id</td><td>int</td><td>是</td><td>水电图id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="15">接口编号：15</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取经销商列表</b></td></tr>
+			<tr><td>接口描述：</td><td>根据当前位置获取经销商列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getDealerList</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
+				<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
+				<tr><td>longitude</td><td>double</td><td>是</td><td>经度</td></tr>
+				<tr><td>latitude</td><td>double</td><td>是</td><td>维度</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"khdm":"00000000","khmc":"杭州鸿雁电器有限公司","province":"浙江省","city":"杭州市","district":"余杭区","address":"五常大道138","telephone":"4008267818","longitude":120.037467,"latitude":30.24546,"distance":111.0}]}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="16">接口编号：16</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取预约人类型</b></td></tr>
+			<tr><td>接口描述：</td><td>获取预约人类型</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveType</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"reserveType":1,"reserveTypeDesc":"业主"},{"reserveType":2,"reserveTypeDesc":"水电工"},{"reserveType":3,"reserveTypeDesc":"工长"},{"reserveType":4,"reserveTypeDesc":"项目经理"},{"reserveType":5,"reserveTypeDesc":"装饰公司"},{"reserveType":6,"reserveTypeDesc":"分销商"},{"reserveType":7,"reserveTypeDesc":"运营商"}]}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="17">接口编号：17</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取服务类型</b></td></tr>
+			<tr><td>接口描述：</td><td>获取服务类型</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getServiceType</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":[{"serviceType":1,"serviceTypeDesc":"试压服务"},{"serviceType":2,"serviceTypeDesc":"漏水检查"},{"serviceType":3,"serviceTypeDesc":"智能家居调试"},{"serviceType":4,"serviceTypeDesc":"智能家居售后"}]}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="18">接口编号：18</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取预约人+服务类型</b></td></tr>
+			<tr><td>接口描述：</td><td>获取预约人+服务类型</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveMessage</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{"code":"00000","msg":"成功","data":{"serviceType":[{"serviceType":1,"serviceTypeDesc":"试压服务"},{"serviceType":2,"serviceTypeDesc":"漏水检查"},{"serviceType":3,"serviceTypeDesc":"智能家居调试"},{"serviceType":4,"serviceTypeDesc":"智能家居售后"}],"peopleType":[{"reserveType":1,"reserveTypeDesc":"业主"},{"reserveType":2,"reserveTypeDesc":"水电工"},{"reserveType":3,"reserveTypeDesc":"工长"},{"reserveType":4,"reserveTypeDesc":"项目经理"},{"reserveType":5,"reserveTypeDesc":"装饰公司"},{"reserveType":6,"reserveTypeDesc":"分销商"},{"reserveType":7,"reserveTypeDesc":"运营商"}]}}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="19">接口编号：19</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取预约验证码</b></td></tr>
+			<tr><td>接口描述：</td><td>根据手机号发送验证码</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/sendIcode</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>telephone=15857125375</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>telephone</td><td>string</td><td>是</td><td>预约人手机号</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="20">接口编号：20</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存预约单</b></td></tr>
+			<tr><td>接口描述：</td><td>保存预约单</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/saveReserve</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>参数参考 《请求参数说明》</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>serviceType</td><td>string</td><td>是</td><td>服务类型</td></tr>
+				<tr><td>reserveType</td><td>string</td><td>是</td><td>预约人类型</td></tr>
+				<tr><td>reserveName</td><td>string</td><td>是</td><td>预约人姓名</td></tr>
+				<tr><td>reserveTelephone</td><td>string</td><td>是</td><td>预约人电话</td></tr>
+				<tr><td>userName</td><td>string</td><td>是</td><td>业主姓名</td></tr>
+				<tr><td>userTelephone</td><td>string</td><td>是</td><td>业主电话</td></tr>
+				<tr><td>reserveDate</td><td>string</td><td>是</td><td>预约日期</td></tr>
+				<tr><td>arrivalDate</td><td>string</td><td>是</td><td>上门日期</td></tr>
+				<tr><td>province</td><td>string</td><td>是</td><td>省</td></tr>
+				<tr><td>city</td><td>string</td><td>是</td><td>市</td></tr>
+				<tr><td>district</td><td>string</td><td>是</td><td>区</td></tr>
+				<tr><td>town</td><td>string</td><td>是</td><td>街</td></tr>
+				<tr><td>detailAddress</td><td>string</td><td>是</td><td>详细地址</td></tr>
+				<tr><td>comment</td><td>string</td><td>是</td><td>备注</td></tr>
+				<tr><td>longitude</td><td>string</td><td>是</td><td>经度</td></tr>
+				<tr><td>latitude</td><td>string</td><td>是</td><td>维度</td></tr>
+				<tr><td>state</td><td>string</td><td>是</td><td>状态</td></tr>
+				<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="21">接口编号：21</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取预约单列表</b></td></tr>
+			<tr><td>接口描述：</td><td>获取预约单列表</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/getReserveList</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&telephone=预约手机号</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>telephone</td><td>string</td><td>否</td><td>预约人手机号</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>如何预约手机号不填,按照openId查询.如何填了,则按照openId或者手机号查</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="22">接口编号：22</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>删除预约单</b></td></tr>
+			<tr><td>接口描述：</td><td>删除预约单</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/reserve/deleteReserve</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&id=1</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>id</td><td>int</td><td>否</td><td>预约单序号</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="23">接口编号：23</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取优惠二维码</b></td></tr>
+			<tr><td>接口描述：</td><td>获取优惠二维码</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/qrcode/preferential</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td><a href="23.html">详见链接</a></td></tr>
+			<tr><td>其他备注：</td><td></td></tr>
+		</table>
 	</div>
 	
 	<div class="Category">接口验证的返回字符说明 RRRR_STATUS</div>
