@@ -1,4 +1,12 @@
 jQuery(document).ready(function($) {
+	//这个是调用微信的jssdk将需要用到的功能进行注入
+	weixin.config({
+		debug: false,
+		jsApiList: ['hideOptionMenu']
+	});
+	weixin.ready(function () {
+		weixin.hideOptionMenu();
+	});
 	$('.fadeOut').owlCarousel({
 		items: 1,
 		animateOut: 'fadeOut',
