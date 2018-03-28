@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<title>水电管家</title>
+		<link rel="stylesheet" href="../../static/css/discount/discount.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/weui.min.css" />
+		<script src="../../static/js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
+		<script src="../../static/js/weui.min.js"></script>
+		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+	</head>
+		<script>
+			$(function () {
+                var openID=$.getCookie('open_id');
+                $.showLoading = function(text) {
+                    var html = '<div class="weui_loading">';
+                    	html+='<div class="weui-loadmore">\n' +
+                            '        <i class="weui-loading"></i>\n' +
+                            '        <span class="weui-loadmore__tips">正在加载</span>\n' +
+                            '      </div>'	;
+                    	html+='</div>'
+					$(".discountImg").html(html);
+                };
+                $.showLoading();
+                $.ajax({
+					type:"get",
+					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential",
+					dataType:"json",
+                    success:function (res) {
+                        if(res.code==00000){
+                                jQuery(".discountImg").html(res.data.image);
+                                jQuery(".infoHx .yhx").html(res.data.preferential);
+                                jQuery(".hxAddress").html(res.data.address);
+                                jQuery(".Opentime time").html(res.data.openTime);
+
+						}else {
+                            	jQuery(weui.topTips("优惠码不存在")).show();
+                              jQuery(".discountImg").html("<img src=\"../../static/img/discount/nopic.png\"/>");
+                        }
+					}
+				})
+            })
+		</script>
+	<body>
+		<div class="discountImg">
+
+		</div>
+		<div class="discountInfo">
+			<p class="infoMj clear">
+				<span class="fle">优惠详情</span>
+				<span class="fri yhx"></span>
+			</p>
+			<p class="infoHx clear">
+				<span class="fle">核销网点地址</span>
+				<span class="Opentime fle">
+					（营业时间：<time></time>）
+				</span>
+			</p>
+			<div class="hxAddress"></div>
+
+		</div>
+		<!--dialog-->
+		<div id="dialog1" class="weui-mask weui-mask--visible" style="display: none">
+			<div class="weui-dialog weui-dialog--visible">
+				<div class="weui-dialog__bd">图片不存在！</div>
+				<div class="weui-dialog__ft">
+					<a href="javascript:void(0);" class="weui-dialog__btn primary">确定</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+
+</html>
