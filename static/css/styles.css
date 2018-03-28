@@ -31,6 +31,7 @@
     right:20px;
     top:22px;
     color:#8a8a8a;
+    z-index: 999;
 }
 .scanQRCode span{
     font-size:10px;
