@@ -13,7 +13,6 @@
 		<script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
 		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
-
     </head>
     <script type="text/javascript">
         //保存上传图片信息的全局变量
@@ -131,7 +130,7 @@
 		    });
 		  }
 		});
-		wx.error(function (res) {
+		weixin.error(function (res) {
 		  weui.topTips(res.errMsg, 3000);
 		});
 	});
