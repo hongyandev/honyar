@@ -46,9 +46,9 @@
                     throw new Error('wx don\'t exist');
                 }
                 weixin.ready = wx.ready;
+                console.log(location.href.split('#')[0]);
                 $.ajax({
                     type: 'get',
-                    //url: 'getSign.do',
                     url:'http://wx.hongyancloud.com/wxDev/jsApiTicket/getSign',
                     data: {
                         url: location.href.split('#')[0]
@@ -57,7 +57,6 @@
                     dataType: 'json',
                     success: function (result) {
                         loading.hide();
-                        //调试 {"errMsg":"config:invalid signature"}
                         weixin.configMessage = result;
                         var config = {};
                         config.debug = _config.debug;

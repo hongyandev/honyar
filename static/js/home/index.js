@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 		debug: false,
 		jsApiList: ['hideOptionMenu']
 	});
-	weixin.ready(function () {
+	weixin.ready(function(){
 		weixin.hideOptionMenu();
 	});
 	$('.fadeOut').owlCarousel({
