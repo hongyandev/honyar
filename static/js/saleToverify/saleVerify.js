@@ -73,7 +73,7 @@ $(function () {
                 loading.hide();
                 if(data.code == "00000") {
                     weui.toast('提交成功', {
-                        duration: 2000,
+                        duration: 6000,
                         callback: function(){
                             window.location.href = window.location.href;
                         }
