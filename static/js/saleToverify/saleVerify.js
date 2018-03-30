@@ -22,6 +22,9 @@ $(function () {
     });
 
     $("#submit").click(function () {
+        var loading = weui.loading('正在提交...', {
+            className: 'custom-classname'
+        });
         var openID=$.getCookie('open_id');
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
@@ -66,18 +69,23 @@ $(function () {
             xhrFields: {
                 withCredentials: false
             },
-            success: function(data) {
+            success: function(data){
+                loading.hide();
                 if(data.code == "00000") {
-
+                    weui.toast('提交成功', {
+                        duration: 32000,
+                        callback: function(){
+                            window.location.href = window.location.href;
+                        }
+                    });
+                }else{
+                    weui.topTips(data.msg);
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-
+                loading.hide();
             }
         })
     });
-
-
-
 });
 
