@@ -63,6 +63,10 @@
 			<tr><td>21</td><td>获取预约单列表</td><td><a href="#21">详情</td></tr>
 			<tr><td>22</td><td>删除预约单</td><td><a href="#22">详情</td></tr>
 			<tr><td>23</td><td>获取优惠二维码</td><td><a href="#23">详情</td></tr>
+				
+			<tr><td>24</td><td>根据openId判断有没有优惠核销界面的权限</td><td><a href="#24">详情</td></tr>
+			<tr><td>25</td><td>保存优惠核销的信息</td><td><a href="#25">详情</td></tr>
+			
 		</table>
 	</div>
 
@@ -630,6 +634,56 @@
 			</td></tr>
 			<tr><td>返回json：</td><td><a href="23.html">详见链接</a></td></tr>
 			<tr><td>其他备注：</td><td></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="24">接口编号：24</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>根据openId判断有没有优惠核销界面的权限</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId判断有没有优惠核销界面的权限</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/verificate/authority</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td><a href="23.html">详见链接</a></td></tr>
+			<tr><td>其他备注：</td><td></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="25">接口编号：25</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>保存优惠核销的信息</b></td></tr>
+			<tr><td>接口描述：</td><td>保存优惠核销的信息</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails</td></tr>
+			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求参数示例：</td><td>参数参考 《请求参数说明》</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>name</td><td>string</td><td>否</td><td>核销员名字</td></tr>
+				<tr><td>telephone</td><td>string</td><td>否</td><td>核销员电话</td></tr>
+				<tr><td>khdm</td><td>string</td><td>是</td><td>经销商代码</td></tr>
+				<tr><td>khmc</td><td>string</td><td>否</td><td>经销商名称</td></tr>
+				<tr><td>customer</td><td>string</td><td>否</td><td>顾客名称</td></tr>
+				<tr><td>uid</td><td>string</td><td>是</td><td>优惠码</td></tr>
+				<tr><td>totalMoney</td><td>double</td><td>是</td><td>总金额</td></tr>
+				<tr><td>discountAmount</td><td>double</td><td>是</td><td>优惠金额</td></tr>
+				<tr><td>comment</td><td>double</td><td>否</td><td>备注</td></tr>
+				<tr><td>files</td><td>MultipartFile[]</td><td>否</td><td>附件图片</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
 		</table>
 	</div>
 	
