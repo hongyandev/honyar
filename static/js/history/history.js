@@ -101,14 +101,14 @@ $(function() {
 		$(document).ready(function() {
 			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 			var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-			loadList('searchBill', openID)
+			loadList('getBillAndDetails', openID)
 		});
 	}
 
 	$searchText.on('click', function() {
 		$searchBar.addClass('weui-search-bar_focusing');
 		$searchInput.focus();
-		alert('$searchText');
+		//alert('$searchText');
 	});
 	$searchInput
 		.on('blur', function() {
@@ -118,8 +118,8 @@ $(function() {
 			if(this.value.length) {
 				//alert(this.value)
 				var openID=$.getCookie('open_id');
-				loadList('searchDropower', openID, this.value);
-
+				loadList('searchBill', openID, this.value);
+				//alert('oZIooxJ_MT0M1ApB_4caa_gvXgWc');
 				$searchResult.show();
 			} else {
 				$searchResult.hide();

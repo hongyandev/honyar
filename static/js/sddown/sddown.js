@@ -108,7 +108,7 @@ $(function() {
 	$searchText.on('click', function() {
 		$searchBar.addClass('weui-search-bar_focusing');
 		$searchInput.focus();
-		alert('$searchText');
+		//alert('$searchText');
 	});
 	$searchInput
 		.on('blur', function() {
