@@ -11,13 +11,14 @@
         <script type="text/javascript" src="../../static/js/weui.min.js" ></script>
 		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 		<script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
+        <script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
 		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+        <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
     </head>
-    <script type="text/javascript">
+    <script>
         //保存上传图片信息的全局变量
         var uploadFiles = [];
-
         $(function() {
             //var theRequest = GetRequest();
             //console.log(theRequest);
@@ -40,9 +41,17 @@
                     } else {
                         src = e.target.result;
                     }
-
                     $uploaderFiles.append($(tmpl.replace('#url#', src)));
                 }
+                //图片压缩
+                lrz(this.files[0], {
+                    width: 300
+                }).then(function (rst) {
+                    rst.formData.append('base64img', rst.base64);
+                    //压缩后的图片暂存在变量formData中
+                    formData = rst.formData;
+                });
+
             });
             var index; //第几张图片
             $uploaderFiles.on("click", "li", function() {
@@ -58,22 +67,24 @@
                 $uploaderFiles.find("li").eq(index).remove();
             });
 
-            //提价上传的功能
-            $("#uploadPic").click(function() {
-                Bt_submit(uploadFiles)
-            });
-
         });
     </script>
 <body>
-    <div class="large-margins"><span>请输入经销商姓名</span></div>
+    <div class="large-margins">
+        <input type="hidden" value="" id="khdm"/>
+        <span value="" class="khmc"></span>
+    </div>
 	<div class="sCode clear">
-		<input class="fle" readonly="readonly"/>
+		<input class="fle sCodeInput" placeholder="请扫描优惠码" />
         <a href="javascript:void(0)" class="scanQRCode fri" id="scanQRCode" type="button">
             <img src="../../static/img/saoCode.png" height="26" width="26"/><br>
             <span>扫一扫</span>
         </a>
 	</div>
+    <div class="hiddenInfo">
+        <input type="hidden" id="telephone" value=""/>
+        <input type="hidden" id="name" value=""/>
+    </div>
     <!--上传图片-->
     <div class="large-margins"><span>请上传图片</span></div>
     <div class="page__bd">
@@ -101,17 +112,34 @@
             </div>
         </div>
     </div>
+    <!--输入姓名-->
+    <div class="large-margins"><span>请输入顾客姓名</span></div>
+    <div style="margin-top:0;" class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="customer" type="text" placeholder="请输入顾客姓名">
+            </div>
+        </div>
+    </div>
     <!--输入订单金额-->
     <div class="large-margins"><span>请输入订单金额（元）</span></div>
     <div style="margin-top:0;" class="weui-cells">
         <div class="weui-cell">
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" placeholder="请输入订单金额（元）">
+                <input class="weui-input" id="totalMoney" type="number" placeholder="请输入订单金额（元）">
+            </div>
+        </div>
+    </div>
+    <div class="large-margins"><span>请输入优惠金额（元）</span></div>
+    <div style="margin-top:0;" class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="discountAmount" type="number" placeholder="请输入优惠金额（元）">
             </div>
         </div>
     </div>
     <div style="margin:20px;">
-        <a href="javascript:;" class="weui-btn weui-btn_primary">提交</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary" id="submit">提交</a>
     </div>
 </body>
 
@@ -126,7 +154,8 @@
 		  weixin.hideOptionMenu();
 		  document.querySelector('#scanQRCode').onclick = function () {
 		    weixin.scanQRCode(function(res){
-				jQuery(".fle").val(res.resultStr);
+				jQuery(".sCodeInput").val(res.resultStr);
+				//jQuery(".weui-btn").addClass("weui-btn_primary");
 		    });
 		  }
 		});

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<title>水电管家</title>
+        <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+        <link rel="stylesheet" href="../../static/css/styles.css">
+		<script src="../../static/js/jquery-2.1.4.js"></script>
+    </head>
+<body>
+    <div class="errorPart">
+        <div>错误提示</div>
+        <p></p>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        function getQueryString(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null) return unescape(decodeURIComponent(r[2]));return null;
+        }
+        var error = (getQueryString('error')!=null ? getQueryString('error') : null);
+            $(".errorPart p").html(error);
+    })
+</script>
+</html>
