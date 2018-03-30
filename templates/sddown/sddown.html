@@ -8,9 +8,10 @@
 		<link rel="stylesheet" href="../../static/css/sddown/sddown.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
+		<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0"></script>
 		<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
 		<script src="../../static/js/sddown/sddown.js?v=1.0.0"></script>
-		<script src="../../static/js/history/jquery-1.7.1.min.js?v=1.0.0"></script>
+		<!--<script src="../../static/js/history/jquery-1.7.1.min.js?v=1.0.0"></script>-->
 		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
 		<style type="text/css">
@@ -32,7 +33,7 @@
 						<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="电话号码" required/>
 						<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
 					</div>
-					<label class="weui-search-bar__label" id="searchText">
+				<label class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
                     <span>请输入电话号码</span>
                 </label>
@@ -49,9 +50,9 @@
 		</div>
 		<div class="page__bd">
 			<div class="weui-gallery" id="gallery" style="opacity: 0; display: none;">
-				<span class="weui-gallery__img" id="galleryImg" style="background-image:url(./images/pic_160.png)"></span>
+				<span class="weui-gallery__img" imgid="" id="galleryImg" style="background-image:url(./images/pic_160.png)"></span>
 				<div class="weui-gallery__opr">
-					<a href="javascript:" class="weui-gallery__del">
+					<a href="javascript:" class="weui-gallery__del" id="galleryDel">
 						<i class="weui-icon-delete weui-icon_gallery-delete"></i>
 					</a>
 				</div>
