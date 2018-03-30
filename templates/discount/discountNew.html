@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
 		<script src="../../static/js/weui.min.js"></script>
 		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
 	</head>
 		<script>
 			$(function () {
@@ -29,11 +29,13 @@
                 $.showLoading();
                 $.ajax({
 					type:"get",
-					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId="+openId,
+					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
+                    //url:"http://172.30.8.95:9999/wxDev/qrcode/preferential?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
 					dataType:"json",
                     success:function (res) {
                         if(res.code==00000){
                                 jQuery(".discountImg").html(res.data.image);
+                                jQuery(".codeName").html(res.data.name);
                                 jQuery(".yhx").html(res.data.preferential);
                                 jQuery(".hxAddress").html(res.data.address);
                                 jQuery(".Opentime time").html(res.data.openTime);
@@ -48,8 +50,8 @@
 		</script>
 	<body>
 		<div class="discountImg">
-
 		</div>
+        <p class="codeName"></p>
 		<div class="discountInfo">
 			<p class="infoMj clear">
 				<span class="fle">优惠详情</span>
