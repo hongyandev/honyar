@@ -64,7 +64,7 @@
             });
             //删除图片 删除图片的代码也贴出来。
             $(".weui-gallery__del").click(function() {
-                $uploaderFiles.find("li").eq(index).remove();
+                $uploaderFiles.find("li").eq(index).empty();
             });
 
         });
@@ -72,7 +72,7 @@
 <body>
     <div class="large-margins">
         <input type="hidden" value="" id="khdm"/>
-        <span value="" class="khmc"></span>
+        <span class="khmc"></span>
     </div>
 	<div class="sCode clear">
 		<input class="fle sCodeInput" placeholder="请扫描优惠码" readonly="readonly"/>
