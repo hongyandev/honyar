@@ -22,9 +22,6 @@ $(function () {
     });
 
     $("#submit").click(function () {
-        var loading = weui.loading('正在提交...', {
-            className: 'custom-classname'
-        });
         var openID=$.getCookie('open_id');
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
@@ -55,7 +52,9 @@ $(function () {
         formdata.append('customer',$('#customer').val());
         formdata.append('totalMoney',$('#totalMoney').val());
         formdata.append('discountAmount',$('#discountAmount').val());
-
+        var loading = weui.loading('正在提交...', {
+            className: 'custom-classname'
+        });
         $.ajax({
             type: "post",
             url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
