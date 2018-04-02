@@ -2,24 +2,22 @@
 <html>
 
 	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 		<title>水电管家</title>
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
         <link rel="stylesheet" href="../../static/css/styles.css">
 		<script src="../../static/js/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="../../static/js/weui.min.js" ></script>
-		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-		<script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
-        <!--<script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>-->
+        <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
+        <script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
+        <script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
         <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
-        <script type="text/javascript" src="../../static/js/vconsole.min.js"></script>
+        <!--<script type="text/javascript" src="../../static/js/vconsole.min.js"></script>-->
     </head>
     <script>
-    	 var vConsole = new VConsole();
-              console.log('Hello world');
         //保存上传图片信息的全局变量
         var uploadFiles = [];
         $(function() {
@@ -45,13 +43,13 @@
                     $uploaderFiles.append($(tmpl.replace('#url#', src)));
                 }
                 //图片压缩
-                /*lrz(this.files[0], {
+                lrz(this.files[0], {
                     width: 300
                 }).then(function (rst) {
-                    rst.formData.append('base64img', rst.base64);
+                    rst.formdata.append('base64img', rst.base64);
                     //压缩后的图片暂存在变量formData中
-                    formData = rst.formData;
-                });*/
+                    formData = rst.formdata;
+                });
             });
             var index; //第几张图片
             $uploaderFiles.on("click", "li", function() {
