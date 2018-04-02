@@ -51,6 +51,7 @@ $(function () {
             weui.topTips('请输入优惠金额',3000);
             return;
         }
+
         /* var formData={};
          var arr=[];
          for(var i = 0;i<uploadFiles.length;i++){
