@@ -33,6 +33,7 @@ $(function () {
         formdata.append('openId', openID);
         formdata.append('uid',$(".sCodeInput").val());
         formdata.append('khdm',$("#khdm").val());
+        formdata.append('khmc',$(".khmc").html());
         formdata.append('name',$("#name").val());
         formdata.append('telephone',$("#telephone").val());
         formdata.append('customer',$("#customer").val());
