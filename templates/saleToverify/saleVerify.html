@@ -15,8 +15,11 @@
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
         <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
+        <script type="text/javascript" src="../../static/js/vconsole.min.js"></script>
     </head>
     <script>
+    	 var vConsole = new VConsole();
+              console.log('Hello world');
         //保存上传图片信息的全局变量
         var uploadFiles = [];
         $(function() {
@@ -31,11 +34,9 @@
             $uploaderInput.on("change", function(e) {
                 var src, url = window.URL || window.webkitURL || window.mozURL,
                     files = e.target.files;
-
                 uploadFiles.push(files)
                 for(var i = 0, len = files.length; i < len; ++i) {
                     var file = files[i];
-
                     if(url) {
                         src = url.createObjectURL(file);
                     } else {
@@ -51,7 +52,6 @@
                     //压缩后的图片暂存在变量formData中
                     formData = rst.formData;
                 });
-
             });
             var index; //第几张图片
             $uploaderFiles.on("click", "li", function() {
@@ -75,7 +75,7 @@
         <span class="khmc"></span>
     </div>
 	<div class="sCode clear">
-		<input class="fle sCodeInput" placeholder="请扫描优惠码" readonly="readonly"/>
+		<input class="fle sCodeInput" placeholder="请扫描优惠码"/>
         <a href="javascript:void(0)" class="scanQRCode fri" id="scanQRCode" type="button">
             <img src="../../static/img/saoCode.png" height="26" width="26"/><br>
             <span>扫一扫</span>
