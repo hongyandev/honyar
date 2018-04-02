@@ -34,14 +34,14 @@ $(function () {
             formdata.append("files", uploadFiles[index][0]);
         }
         formdata.append('openId', openID);
-        formdata.append('uid','$(".sCodeInput").val()');
-        formdata.append('khdm','$("#khdm").val()');
-        formdata.append('khmc','$(".khmc").html()');
-        formdata.append('name','$("#name").val()');
-        formdata.append('telephone','$("#telephone").val()');
-        formdata.append('customer','$("#customer").val()');
-        formdata.append('totalMoney','$("#totalMoney").val()');
-        formdata.append('discountAmount','$("#discountAmount").val()');
+        formdata.append('uid',$(".sCodeInput").val());
+        formdata.append('khdm',$("#khdm").val()
+        formdata.append('khmc',$(".khmc").html());
+        formdata.append('name',$("#name").val());
+        formdata.append('telephone',$("#telephone").val());
+        formdata.append('customer',$("#customer").val());
+        formdata.append('totalMoney',$("#totalMoney").val());
+        formdata.append('discountAmount',$("#discountAmount").val());
         if(customer == "") {
             weui.topTips('请输入顾客姓名',3000);
             return;
