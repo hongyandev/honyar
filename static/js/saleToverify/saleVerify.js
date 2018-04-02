@@ -67,7 +67,7 @@ $(function () {
             // XMLHttpRequest会对 formdata 进行正确的处理
             processData: false,
             //必须false才会自动加上正确的Content-Type
-            contentType: 'multipart/form-data',
+
             xhrFields: {
                 withCredentials: false
             },
