@@ -98,6 +98,7 @@ $(function () {
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 loading.hide();
+                weui.topTips(errorThrown);
             }
         })
     });
