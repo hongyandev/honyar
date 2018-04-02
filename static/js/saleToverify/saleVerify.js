@@ -22,9 +22,6 @@ $(function () {
     });
 
     $("#submit").click(function () {
-        var loading = weui.loading('正在提交...', {
-            className: 'custom-classname'
-        });
         var openID=$.getCookie('open_id');
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
@@ -72,6 +69,9 @@ $(function () {
         //console.log(formData);
         //return;
         console.info(formdata);
+        var loading = weui.loading('正在提交...', {
+            className: 'custom-classname'
+        });
         $.ajax({
             type: "post",
             url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
