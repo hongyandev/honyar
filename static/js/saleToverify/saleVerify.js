@@ -52,22 +52,23 @@ $(function () {
         formData.khdm=$('#khdm').val();
         formData.khmc=$('.khmc').html();
         formData.telephone=$('#telephone').val();
-        formData.name=$('.name').val();
-        formData.customer=$('.customer').val();
-        formData.totalMoney=$('.totalMoney').val();
-        formData.discountAmount=$('.discountAmount').val();
+        formData.name=$('#name').val();
+        formData.customer=$('#customer').val();
+        formData.totalMoney=$('#totalMoney').val();
+        formData.discountAmount=$('#discountAmount').val();
         console.log(formData);
         //return;
         $.ajax({
-            type: "post",
+            type: "POST",
             url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
             data: formData,
+            dataType:"json",
             timeout: 5000,
             //必须false才会避开jQuery对 formdata 的默认处理
             // XMLHttpRequest会对 formdata 进行正确的处理
             processData: false,
             //必须false才会自动加上正确的Content-Type
-			Content-Type: false,
+            contentType: false,
             xhrFields: {
                 withCredentials: false
             },
