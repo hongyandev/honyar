@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-        <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 		<title>水电管家</title>
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
@@ -11,9 +11,9 @@
         <script type="text/javascript" src="../../static/js/weui.min.js" ></script>
 		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 		<script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
-        <script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>
+        <!--<script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>-->
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
         <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
         <script type="text/javascript" src="../../static/js/vconsole.min.js"></script>
     </head>
@@ -45,13 +45,13 @@
                     $uploaderFiles.append($(tmpl.replace('#url#', src)));
                 }
                 //图片压缩
-                lrz(this.files[0], {
+                /*lrz(this.files[0], {
                     width: 300
                 }).then(function (rst) {
                     rst.formData.append('base64img', rst.base64);
                     //压缩后的图片暂存在变量formData中
                     formData = rst.formData;
-                });
+                });*/
             });
             var index; //第几张图片
             $uploaderFiles.on("click", "li", function() {
