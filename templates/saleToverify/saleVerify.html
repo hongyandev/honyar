@@ -48,7 +48,7 @@
                 }).then(function (rst) {
                     rst.formdata.append('base64img', rst.base64);
                     //压缩后的图片暂存在变量formData中
-                    formData = rst.formdata;
+                    formdata = rst.formdata;
                 });
             });
             var index; //第几张图片
@@ -102,7 +102,7 @@
                             <ul class="weui-uploader__files" id="uploaderFiles">
                             </ul>
                             <div class="weui-uploader__input-box">
-                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" multiple="">
                             </div>
                         </div>
                     </div>
