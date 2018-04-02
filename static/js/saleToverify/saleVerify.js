@@ -61,7 +61,7 @@ $(function () {
         $.ajax({
             type: "post",
             url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
-            data: formdata,
+            data: formData,
             timeout: 5000,
             //必须false才会避开jQuery对 formdata 的默认处理
             // XMLHttpRequest会对 formdata 进行正确的处理
