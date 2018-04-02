@@ -29,7 +29,7 @@
                 $.showLoading();
                 $.ajax({
 					type:"get",
-					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
+					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId="+openId,
                     //url:"http://172.30.8.95:9999/wxDev/qrcode/preferential?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
 					dataType:"json",
                     success:function (res) {
