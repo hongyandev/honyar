@@ -3,34 +3,54 @@
 
 	<head>
 		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-		<title>水电管家</title>
+		<title>核销记录</title>
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+        <link rel="stylesheet" href="../../static/css/jquery-weui.min.css" />
         <link rel="stylesheet" href="../../static/css/styles.css">
 		<script src="../../static/js/jquery-2.1.4.js"></script>
-        <script type="text/javascript" src="../../static/js/weui.min.js" ></script>
-		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-		<script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
-        <script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
-        <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+        <script src="../../static/js/saleToverify/saleVerifyList.js"></script>
+
     </head>
-<body>
-    <div>
-        <ul class="infoList">
-            <li>
-                <div class="cInfo">
-                    <span>姓名</span>
-                    <b>总金额：￥100</b>
-                    <b>优惠金额：￥20</b>
-                </div>
-                <div class="binfo">
-                    <span></span>
-                    <b></b>
-                </div>
-            </li>
-        </ul>
-    </div>
+<body ontouchstart style="background-color:#efefef;">
+<div class="weui-pull-to-refresh__layer">
+    <div class='weui-pull-to-refresh__arrow'></div>
+    <div class='weui-pull-to-refresh__preloader'></div>
+    <div class="down">下拉刷新</div>
+    <div class="up">释放刷新</div>
+    <div class="refresh">正在刷新</div>
+</div>
+<ul class="infoList">
+    <!--<li class="weui-cell weui-cell_swiped">-->
+        <!--<div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">-->
+                <!--<div class="weui-cell__bd">-->
+                    <!--<p class="cInfo">-->
+                        <!--<span class="font14">姓名姓名</span>-->
+                        <!--<span class="font12">共计:<b class="font14">￥100</b></span>-->
+                        <!--<span class="font12">优惠:<b class="font14">￥20</b></span>-->
+                    <!--</p>-->
+                    <!--<div class="binfo clear">-->
+                        <!--<span class="fle">水电工姓名：</span>-->
+                        <!--<span class="fle">15656565656</span>-->
+                        <!--<time class="fri">2017-03-31</time>-->
+                    <!--</div>-->
+                <!--</div>-->
+         <!--</div>-->
+        <!--<div class="weui-cell__ft">-->
+            <!--<a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>-->
+        <!--</div>-->
+    <!--</li>-->
+
+</ul>
+<div class="weui-loadmore">
+    <i class="weui-loading"></i>
+    <span class="weui-loadmore__tips">上拉加载更多</span>
+</div>
+
+
 </body>
+    <script type="text/javascript" src="../../static/js/jquery-weui.js"></script>
 </html>

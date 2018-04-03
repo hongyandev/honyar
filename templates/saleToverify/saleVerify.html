@@ -4,7 +4,7 @@
 	<head>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-		<title>水电管家</title>
+		<title>核销</title>
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
         <link rel="stylesheet" href="../../static/css/styles.css">
 		<script src="../../static/js/jquery-2.1.4.js"></script>
@@ -15,7 +15,7 @@
         <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
         <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
-        <!--<script type="text/javascript" src="../../static/js/vconsole.min.js"></script>-->
+        <script type="text/javascript" src="../../static/js/vconsole.min.js"></script>
     </head>
     <script>
         //保存上传图片信息的全局变量
@@ -42,15 +42,9 @@
                     }
                     $uploaderFiles.append($(tmpl.replace('#url#', src)));
                 }
-                //图片压缩
-                lrz(this.files[0], {
-                    width: 300
-                }).then(function (rst) {
-                    rst.formdata.append('base64img', rst.base64);
-                    //压缩后的图片暂存在变量formData中
-                    formdata = rst.formdata;
-                });
+
             });
+
             var index; //第几张图片
             $uploaderFiles.on("click", "li", function() {
                 index = $(this).index();
@@ -71,6 +65,7 @@
     <div class="large-margins">
         <input type="hidden" value="" id="khdm"/>
         <span class="khmc"></span>
+        <a href="saleVerifyList.html" class="hxRecord fri">核销记录</a>
     </div>
 	<div class="sCode clear">
 		<input class="fle sCodeInput" placeholder="请扫描优惠码"/>
