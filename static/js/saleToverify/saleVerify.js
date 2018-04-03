@@ -1,6 +1,6 @@
 $(function () {
-    var openID=$.getCookie('open_id');
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    //var openID=$.getCookie('open_id');
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
         url: "http://wx.hongyancloud.com/wxDev/verificate/authority?openId="+openID,
@@ -27,6 +27,17 @@ $(function () {
         var totalMoney =$('#totalMoney').val();
         var discountAmount=$('#discountAmount').val();
         var formdata = new FormData();
+        var $uploaderInput = $("#uploaderInput");
+        //图片压缩
+        $uploaderInput.on("change", function(e) {
+            lrz(this.files[0], {width: 300}).then(function (rst) {
+                rst.formdata.append('base64img', rst.base64);
+                //压缩后的图片暂存在变量formdata中
+                formdata = rst.formdata;
+            });
+
+        });
+        //console.info(formdata);
         for(var index in uploadFiles) {
             formdata.append("files", uploadFiles[index][0]);
         }
@@ -39,6 +50,7 @@ $(function () {
         formdata.append('customer',$("#customer").val());
         formdata.append('totalMoney',$("#totalMoney").val());
         formdata.append('discountAmount',$("#discountAmount").val());
+        return;
         var regChinese = new RegExp("[\\u4E00-\\u9FFF]+", "g"); //汉语
         var specialSymbol =/[`~!@#$%^&*_+<>{}\/'[\]]/im; //特殊符号
         if(customer == "") {
@@ -75,24 +87,6 @@ $(function () {
             return;
         };
 
-        /* var formData={};
-         var arr=[];
-         for(var i = 0;i<uploadFiles.length;i++){
-             arr.push(uploadFiles[i][0]);
-         }
-         formData.files=arr;
-        formData.openId=openID;
-        formData.uid=$('.sCodeInput').val();
-        formData.khdm=$('#khdm').val();
-        formData.khmc=$('.khmc').html();
-        formData.telephone=$('#telephone').val();
-        formData.name=$('#name').val();
-        formData.customer=$('#customer').val();
-        formData.totalMoney=$('#totalMoney').val();
-        formData.discountAmount=$('#discountAmount').val();*/
-        //console.log(formData);
-        //return;
-        console.info(formdata);
         var loading = weui.loading('正在提交...', {
             className: 'custom-classname'
         });

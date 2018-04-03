@@ -1,5 +1,5 @@
 /** 
-* jQuery WeUI V1.0.1 
+* jQuery WeUI V1.2.0 
 * By 言川
 * http://lihongxun945.github.io/jquery-weui/
  */
@@ -3485,8 +3485,8 @@ if (typeof define === 'function' && define.amd) {
     var tpl = '<div class="weui-toast ' + className + '">' + html + '</div>';
     var dialog = $(tpl).appendTo(document.body);
 
-    dialog.show();
     dialog.addClass("weui-toast--visible");
+    dialog.show();
   };
 
   var hide = function(callback) {
@@ -3558,7 +3558,7 @@ if (typeof define === 'function' && define.amd) {
     var titleHtml = "";
     
     if (params.title) {
-      titleHtml = '<div class="weui-actionsheet__title">' + params.title + '</div>';
+      titleHtml = '<div class="weui-actionsheet__title"><p class="weui-actionsheet__title-text">' + params.title + '</p></div>';
     }
 
     var tpl = '<div class="weui-actionsheet " id="weui-actionsheet">'+
@@ -3638,10 +3638,24 @@ if (typeof define === 'function' && define.amd) {
 +function ($) {
   "use strict";
 
-  var PTR = function(el) {
+  var PTR = function(el, opt) {
+    if (typeof opt === typeof function () {}) {
+      opt = {
+        onRefresh: opt
+      }
+    }
+    if (typeof opt === typeof 'a') {
+      opt = undefined
+    }
+    this.opt = $.extend(PTR.defaults, opt || {});
     this.container = $(el);
-    this.distance = 50;
     this.attachEvents();
+  }
+
+  PTR.defaults = {
+    distance: 50,
+    onRefresh: undefined,
+    onPull: undefined
   }
 
   PTR.prototype.touchStart = function(e) {
@@ -3658,18 +3672,14 @@ if (typeof define === 'function' && define.amd) {
     var p = $.getTouchPosition(e);
     this.diffX = p.x - this.start.x;
     this.diffY = p.y - this.start.y;
+    if (Math.abs(this.diffX) > Math.abs(this.diffY)) return true; // 说明是左右方向的拖动
     if(this.diffY < 0) return;
     this.container.addClass("touching");
     e.preventDefault();
     e.stopPropagation();
-    this.diffY = Math.pow(this.diffY, 0.8);
+    this.diffY = Math.pow(this.diffY, 0.75);
     this.container.css("transform", "translate3d(0, "+this.diffY+"px, 0)");
-
-    if(this.diffY < this.distance) {
-      this.container.removeClass("pull-up").addClass("pull-down");
-    } else {
-      this.container.removeClass("pull-down").addClass("pull-up");
-    }
+    this.triggerPull(this.diffY)
   };
   PTR.prototype.touchEnd = function() {
     this.start = false;
@@ -3677,12 +3687,38 @@ if (typeof define === 'function' && define.amd) {
     this.container.removeClass("touching");
     this.container.removeClass("pull-down pull-up");
     this.container.css("transform", "");
-    if(Math.abs(this.diffY) <= this.distance) {
+    if(Math.abs(this.diffY) <= this.opt.distance) {
     } else {
-      this.container.addClass("refreshing");
-      this.container.trigger("pull-to-refresh");
+      this.triggerPullToRefresh();
     }
   };
+
+  PTR.prototype.triggerPullToRefresh = function() {
+    this.triggerPull(this.opt.distance)
+    this.container.removeClass('pull-up').addClass("refreshing");
+    if (this.opt.onRefresh) {
+      this.opt.onRefresh.call(this)
+    }
+    this.container.trigger("pull-to-refresh");
+  }
+
+  PTR.prototype.triggerPull = function(diffY) {
+
+    if(diffY < this.opt.distance) {
+      this.container.removeClass("pull-up").addClass("pull-down");
+    } else {
+      this.container.removeClass("pull-down").addClass("pull-up");
+    }
+
+    if (this.opt.onPull) {
+      this.opt.onPull.call(this, Math.floor(diffY / this.opt.distance * 100))
+    }
+    this.container.trigger("pull");
+  }
+
+  PTR.prototype.pullToRefreshDone = function() {
+    this.container.removeClass("refreshing");
+  }
 
   PTR.prototype.attachEvents = function() {
     var el = this.container;
@@ -3692,17 +3728,18 @@ if (typeof define === 'function' && define.amd) {
     el.on($.touchEvents.end, $.proxy(this.touchEnd, this));
   };
 
-  var pullToRefresh = function(el) {
-    new PTR(el);
-  };
-
   var pullToRefreshDone = function(el) {
     $(el).removeClass("refreshing");
   }
 
-  $.fn.pullToRefresh = function() {
+  $.fn.pullToRefresh = function(opt) {
     return this.each(function() {
-      pullToRefresh(this);
+      var $this = $(this)
+      var ptr = $this.data('ptr')
+      if (!ptr) $this.data('ptr', ptr = new PTR(this, opt))
+      if (typeof opt === typeof 'a') {
+        ptr[opt].call(ptr)
+      }
     });
   }
 
@@ -3721,6 +3758,21 @@ if (typeof define === 'function' && define.amd) {
 +function ($) {
   "use strict";
 
+  // fix https://github.com/lihongxun945/jquery-weui/issues/442
+  // chrome will always return 0, when use document.body.scrollTop
+  // https://stackoverflow.com/questions/43717316/google-chrome-document-body-scrolltop-always-returns-0
+  var getOffset = function (container) {
+    var tagName = container[0].tagName.toUpperCase()
+    var scrollTop 
+    if (tagName === 'BODY' || tagName === 'HTML') {
+      scrollTop = container.scrollTop() || $(window).scrollTop()
+    } else {
+      scrollTop = container.scrollTop()
+    }
+    var offset = container.scrollHeight() - ($(window).height() + scrollTop)
+    console.log(offset)
+    return offset
+  }
 
   var Infinite = function(el, distance) {
     this.container = $(el);
@@ -3731,10 +3783,7 @@ if (typeof define === 'function' && define.amd) {
 
   Infinite.prototype.scroll = function() {
     var container = this.container;
-    var offset = container.scrollHeight() - ($(window).height() + container.scrollTop());
-    if(offset <= this.distance) {
-      container.trigger("infinite");
-    }
+    this._check();
   }
 
   Infinite.prototype.attachEvents = function(off) {
@@ -3744,6 +3793,12 @@ if (typeof define === 'function' && define.amd) {
   };
   Infinite.prototype.detachEvents = function(off) {
     this.attachEvents(true);
+  }
+  Infinite.prototype._check = function() {
+    var offset = getOffset(this.container);
+    if(Math.abs(offset) <= this.distance) {
+      this.container.trigger("infinite");
+    }
   }
 
   var infinite = function(el) {
@@ -4601,7 +4656,7 @@ Device/OS Detection
       
       var picker = $this.data("picker");
       if(!picker) {
-        params = params || {};
+        params = $.extend({ input: this }, params || {}) // https://github.com/lihongxun945/jquery-weui/issues/432
         var inputValue = $this.val();
         if(params.value === undefined && inputValue !== "") {
           params.value = (params.cols && params.cols.length > 1) ? inputValue.split(" ") : [inputValue];
@@ -4745,6 +4800,7 @@ Device/OS Detection
 
       if(config.autoClose && !config.multi) self.close();
     })
+    .trigger('change')
     .on("click", ".close-select", function() {
       self.close();
     });
@@ -5725,7 +5781,7 @@ Device/OS Detection
             //默认显示今天
             if(!params.value) {
               var today = new Date();
-              params.value = [today.getFullYear() + "-" + format(today.getMonth() + 1) + "-" + format(today.getDate())];
+              params.value = [today.getFullYear() + "/" + format(today.getMonth() + 1) + "/" + format(today.getDate())];
             }
             calendar = $this.data("calendar", new Calendar($.extend(p, params)));
           }
@@ -5746,7 +5802,7 @@ Device/OS Detection
     firstDay: 1, // First day of the week, Monday
     weekendDays: [0, 6], // Sunday and Saturday
     multiple: false,
-    dateFormat: 'yyyy-mm-dd',
+    dateFormat: 'yyyy/mm/dd',
     direction: 'horizontal', // or 'vertical'
     minDate: null,
     maxDate: null,
@@ -5811,15 +5867,11 @@ Device/OS Detection
 
   var Datetime = function(input, params) {
     this.input = $(input);
-    this.params = params;
+    this.params = params || {};
 
-    this.initMonthes = ('01 02 03 04 05 06 07 08 09 10 11 12').split(' ');
+    this.initMonthes = params.monthes
 
-    this.initYears = (function () {
-      var arr = [];
-      for (var i = 1950; i <= 2030; i++) { arr.push(i); }
-      return arr;
-    })();
+    this.initYears = params.years
 
     var p = $.extend({}, params, this.getConfig());
     $(this.input).picker(p);
@@ -5890,18 +5942,14 @@ Device/OS Detection
 
         cols: [
           {
-            values: (function () {
-              var years = [];
-              for (var i=1950; i<=2050; i++) years.push(i);
-              return years;
-            })()
+            values: this.initYears
           },
           {
             divider: true,  // 这是一个分隔符
             content: params.yearSplit
           },
           {
-            values: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+            values: this.initMonthes
           },
           {
             divider: true,  // 这是一个分隔符
@@ -5965,6 +6013,12 @@ Device/OS Detection
     monthSplit: '-',
     dateSplit: '',  // 默认为空
     datetimeSplit: ' ',  // 日期和时间之间的分隔符，不可为空
+    monthes: ('01 02 03 04 05 06 07 08 09 10 11 12').split(' '),
+    years: (function () {
+      var arr = [];
+      for (var i = 1950; i <= 2030; i++) { arr.push(i); }
+      return arr;
+    })(),
     times: function () {
       return [  // 自定义的时间
         {
@@ -6273,4 +6327,115 @@ Device/OS Detection
       else $this.data('slider', new Slider(this, arg))
     })
   }
+}($);
+
+/* ===============================================================================
+************   Swipeout ************
+=============================================================================== */
+/* global $:true */
+
++function ($) {
+  "use strict";
+
+  var cache = [];
+  var TOUCHING = 'swipeout-touching'
+
+  var Swipeout = function(el) {
+    this.container = $(el);
+    this.mover = this.container.find('>.weui-cell__bd')
+    this.attachEvents();
+    cache.push(this)
+  }
+
+  Swipeout.prototype.touchStart = function(e) {
+    var p = $.getTouchPosition(e);
+    this.container.addClass(TOUCHING);
+    this.start = p;
+    this.startX = 0;
+    this.startTime = + new Date;
+    var transform =  this.mover.css('transform').match(/-?[\d\.]+/g)
+    if (transform && transform.length) this.startX = parseInt(transform[4])
+    this.diffX = this.diffY = 0;
+    this._closeOthers()
+    this.limit = this.container.find('>.weui-cell__ft').width() || 68; // 因为有的时候初始化的时候元素是隐藏的（比如在对话框内），所以在touchstart的时候计算宽度而不是初始化的时候
+  };
+
+  Swipeout.prototype.touchMove= function(e) {
+    if(!this.start) return true;
+    var p = $.getTouchPosition(e);
+    this.diffX = p.x - this.start.x;
+    this.diffY = p.y - this.start.y;
+    if (Math.abs(this.diffX) < Math.abs(this.diffY)) { // 说明是上下方向在拖动
+      this.close()
+      this.start = false
+      return true;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    var x = this.diffX + this.startX
+    if (x > 0) x = 0;
+    if (Math.abs(x) > this.limit) x = - (Math.pow(-(x+this.limit), .7) + this.limit)
+    this.mover.css("transform", "translate3d("+x+"px, 0, 0)");
+  };
+  Swipeout.prototype.touchEnd = function() {
+    if (!this.start) return true;
+    this.start = false;
+    var x = this.diffX + this.startX
+    var t = new Date - this.startTime;
+    if (this.diffX < -5 && t < 200) { // 向左快速滑动，则打开
+      this.open()
+    } else if (this.diffX >= 0 && t < 200) { // 向右快速滑动，或者单击,则关闭
+      this.close()
+    } else if (x > 0 || -x <= this.limit / 2) {
+      this.close()
+    } else {
+      this.open()
+    }
+  };
+
+
+  Swipeout.prototype.close = function() {
+    this.container.removeClass(TOUCHING);
+    this.mover.css("transform", "translate3d(0, 0, 0)");
+    this.container.trigger('swipeout-close');
+  }
+
+  Swipeout.prototype.open = function() {
+    this.container.removeClass(TOUCHING);
+    this._closeOthers()
+    this.mover.css("transform", "translate3d(" + (-this.limit) + "px, 0, 0)");
+    this.container.trigger('swipeout-open');
+  }
+
+  Swipeout.prototype.attachEvents = function() {
+    var el = this.mover;
+    el.on($.touchEvents.start, $.proxy(this.touchStart, this));
+    el.on($.touchEvents.move, $.proxy(this.touchMove, this));
+    el.on($.touchEvents.end, $.proxy(this.touchEnd, this));
+  }
+  Swipeout.prototype._closeOthers = function() {
+    //close others
+    var self = this
+    cache.forEach(function (s) {
+      if (s !== self) s.close()
+    })
+  }
+
+  var swipeout = function(el) {
+    return new Swipeout(el);
+  };
+
+  $.fn.swipeout = function (arg) {
+    return this.each(function() {
+      var $this = $(this)
+      var s = $this.data('swipeout') || swipeout(this);
+      $this.data('swipeout', s);
+
+      if (typeof arg === typeof 'a') {
+        s[arg]()
+      }
+    });
+  }
+
+  $('.weui-cell_swiped').swipeout() // auto init
 }($);
