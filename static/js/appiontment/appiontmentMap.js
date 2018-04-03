@@ -289,7 +289,7 @@ $(function() {
 			userPostSubmit: function() {
 
 				var myData = {
-					openId: openID, // TODO 这里我先写死..麻烦自己获取下放入这里 微信给用户分配的ID 
+					openId: openID,  
 					serviceType: vm.serviceType, // 服务类型
 					reserveType: vm.reserveType, // 预约人类型
 					reserveName: vm.reserveName, // 预约人姓名
@@ -358,7 +358,7 @@ $(function() {
 						if(data.code == "00000") {
 							//alert(JSON.stringify(data));
 							alert('预约申请提交成功！');
-							window.location.href = "../index.html";
+							window.location.href = "../appiontment/myAppiont.html";
 						} else {
 							alert(data.msg);
 						}

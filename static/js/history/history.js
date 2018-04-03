@@ -49,7 +49,7 @@ function loadList(action, openid, keyword) {
 
 						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
 					});
-					var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
+					var clickBT = '<a href="history_pic.html?mainid=' + o.id + '" class="weui-uploader__file" style="background-image:url(#url#)"></a>'
 					uploaderFiles.append($(clickBT.replace('#url#', "../../static/img/sddown/add.png")));
 					details.append('<div style="clear:both;"></div> ');
 				});
@@ -165,8 +165,4 @@ function galleryDel(obj) {
 		}
 	});
 }
-//function reLoad() {
-//	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-//	//var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-//	loadList('getDropowerAndDetails', openID)
-//};
+
