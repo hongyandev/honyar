@@ -114,7 +114,7 @@ function record(){
                         url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
                         dataType: "json",
                         data: {
-                            "openId":'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
+                            "openId":openID,
                             "pageNum":page++,
                             "pageSize":"10"
                         },success: function(res) {
