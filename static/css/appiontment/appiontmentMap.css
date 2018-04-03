@@ -119,3 +119,12 @@
 					right: 10px;
 					width: 280px;
 				}
+				
+				.weui-label-myapp{
+					position: relative;
+					left: 25%;
+					width: 50%;
+					text-align: center;
+					color: #8BC34A;
+				}
+				
