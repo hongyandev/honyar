@@ -41,7 +41,7 @@ html {
 .det_left_name {
 	position: relative;
 	width: 100%;
-	height: 50%;
+	height: 29%;
 }
 
 .det_left_name p {
@@ -52,13 +52,28 @@ html {
 	font-size: 12px;
 }
 
-.det_left_time {
+.det_left_tetl {
 	position: relative;
 	width: 100%;
-	height: 30%;
+	height: 25%;
 }
 
-.det_left_time p {
+.det_left_tetl p {
+	position: relative;
+	width: 100%;
+	height: 90%;
+	top: 5%;
+	font-size: 10px;
+	color: #AAAAAA;
+}
+
+.det_left_add {
+	position: relative;
+	width: 100%;
+	height: 46%;
+}
+
+.det_left_add p {
 	position: relative;
 	width: 100%;
 	height: 90%;
@@ -75,6 +90,13 @@ html {
 	height: 100%;
 }
 
+.det_right_state{
+	position: relative;
+	top: 38%;
+	width: 100%;
+	height: 24%;
+}
+
 .det_right_state p {
 	position: relative;
 	left: 15%;
@@ -83,6 +105,9 @@ html {
 	height: 100%;
 	font-size: 10px;
 	text-align: center;
-	color: #BBBBBB;
+	color: #8BC34A;
 }
 
+table td{
+	height: 15px;
+}
