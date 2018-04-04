@@ -3,7 +3,7 @@ $(function () {
   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $('.weui-cell_swiped').swipeout();
     record();
-    
+
     //删除
     $(document).on("click", ".delete-swipeout", function() {
         var recordid=$(this).parents("li").attr("value");
