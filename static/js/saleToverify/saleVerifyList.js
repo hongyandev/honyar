@@ -1,18 +1,7 @@
 $(function () {
     var openID=$.getCookie('open_id');
-   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+  // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     record();
-
-    $(document.body).pullToRefresh({
-        onRefresh: function () {
-            record();
-        },
-        onPull: function (percent) { /* 用户下拉过程中会触发，接收一个百分比表示用户下拉的比例 */ },
-        distance: 50 /* 下拉刷新的触发距离， 注意，如果你重新定义了这个值，那么你需要重载一部分CSS才可以，请参考下面的自定义样式部分 */
-    });
-
-
-
 
     //删除
     $(document).on("click", ".delete-swipeout", function() {
@@ -58,6 +47,7 @@ function record(){
             "pageSize":"10"
         },
         success: function(res) {
+            $('.weui-cell_swiped').swipeout();
             if(res.code == "00000") {
                 var str="";
                 $.each(res.data.list,function (index,val){
@@ -81,13 +71,13 @@ function record(){
                         "        </div>"+
                         "      </li>"
                 });
-                //str+="</ul>";
+
                 $('.infoList').html(str);
 
             }else{
                 weui.topTips(res.msg);
             };
-            $('.weui-cell_swiped').swipeout();
+
 
                 var loading = false;
                 $(document.body).infinite().on("infinite", function() {
@@ -107,6 +97,7 @@ function record(){
                                 "pageNum":page++,
                                 "pageSize":"10"
                             },success: function(res) {
+                                $('.weui-cell_swiped').swipeout();
                                 if(res.code == "00000") {
                                     var str="";
                                     $.each(res.data.list,function (index,val){
@@ -130,10 +121,10 @@ function record(){
                                             "        </div>"+
                                             "      </li>"
                                     });
-                                    // str+="</ul>";
+
                                     $('.infoList').append(str);
                                 }
-                                $('.weui-cell_swiped').swipeout();
+
                             }, error: function(XMLHttpRequest, textStatus, errorThrown) {
                             }
                         });
