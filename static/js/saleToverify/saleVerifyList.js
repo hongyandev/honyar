@@ -1,8 +1,9 @@
 $(function () {
     var openID=$.getCookie('open_id');
   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    $('.weui-cell_swiped').swipeout();
     record();
-
+    
     //删除
     $(document).on("click", ".delete-swipeout", function() {
         var recordid=$(this).parents("li").attr("value");
@@ -39,11 +40,11 @@ function record(){
     var page = 1;
     $.ajax({
         type: "get",
-        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page=1",
+        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
         dataType:"json",
         data: {
             "openId":openID,
-            "pageNum":1,
+            "pageNum":page,
             "pageSize":"10"
         },
         success: function(res) {
