@@ -77,6 +77,7 @@ $(function() {
 	var vm = new Vue({
 		el: '#page',
 		data: {
+			khdm: '',
 			mapoption: [], // 获取地图定位信息的变量
 			lng: 120.037467,
 			lat: 30.24546,
@@ -142,7 +143,7 @@ $(function() {
 				});
 			},
 			// 跳转预约post提交
-			postuser: function() {
+			postuser: function(item) {
 				$("#workers").blur(); // 选中工人栏
 				this.workersCompoment = null; // 水电工人组件
 				$("#sel_popup2").popup();
@@ -166,7 +167,7 @@ $(function() {
 					},
 					context: this
 				});
-
+				vm.khdm = item.khdm;
 			},
 			workersSelButClick: function() { // 水电工选取方法
 				$("#workers").blur(); // 选中工人栏
@@ -289,7 +290,7 @@ $(function() {
 			userPostSubmit: function() {
 
 				var myData = {
-					openId: openID,  
+					openId: openID,
 					serviceType: vm.serviceType, // 服务类型
 					reserveType: vm.reserveType, // 预约人类型
 					reserveName: vm.reserveName, // 预约人姓名
@@ -307,6 +308,7 @@ $(function() {
 					longitude: vm.mapoption.position.lng, // 经度
 					latitude: vm.mapoption.position.lat, // 纬度
 					iCode: vm.iCode, // 验证码
+					khdm: vm.khdm // 客户代码
 				};
 				if(myData.reserveType == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
