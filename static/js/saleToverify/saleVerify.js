@@ -1,6 +1,6 @@
 $(function () {
     var openID=$.getCookie('open_id');
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+//    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
         url: "http://wx.hongyancloud.com/wxDev/verificate/authority?openId="+openID,
