@@ -1,3 +1,28 @@
+$(function () {
+    $.ajax({
+        type: "get",
+        url: "http://wx.hongyancloud.com/wxDev/user/judgeRegister?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
+        dataType: "json",
+        success: function(res) {
+            if(res.code == "00000") {
+                jQuery(".top_info label").html("个人中心");
+                jQuery(".top_info a").attr("href","member/member.html");
+            }else{
+                jQuery(".top_info label").html("注册");
+                jQuery(".top_info a").attr("href","login/login.html");
+            }
+
+        }, error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+        }
+
+    });
+})
+
+
+
+
+
 jQuery(document).ready(function($) {
 	$('.fadeOut').owlCarousel({
 		items: 1,
@@ -25,3 +50,12 @@ jQuery(document).ready(function($) {
 document.addEventListener('touchmove', function(e) {
 	e.preventDefault();
 }, false);
+
+
+
+
+
+
+
+
+
