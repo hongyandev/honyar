@@ -1,6 +1,6 @@
 $(function () {
-    var openID=$.getCookie('open_id');
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    //var openID=$.getCookie('open_id');
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     record();
 
     //删除
@@ -76,8 +76,7 @@ $(function () {
                             }
                             con+= "</li>"
                         });
-                        $('.infoList').append(con);
-
+                        $('.infoList').empty().append(con);
                     }
                     $('.weui-cell_swiped').swipeout();
                 }, error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -91,9 +90,8 @@ $(function () {
 
 });
 function record(){
-    var openID=$.getCookie('open_id');
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-
+    //var openID=$.getCookie('open_id');
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     var page = 1;
 
     $.ajax({
