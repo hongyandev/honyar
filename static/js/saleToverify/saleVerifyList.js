@@ -27,7 +27,67 @@ $(function () {
             //取消操作
         });
     });
+    //下拉
+    $(document.body).pullToRefresh().on("pull-to-refresh", function() {
+        setTimeout(function() {
+            $.ajax({
+                type: "get",
+                url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page=1",
+                dataType: "json",
+                data: {
+                    "openId":openID,
+                    "pageNum":1,
+                    "pageSize":"10"
+                },success: function(res) {
 
+                    if(res.code == "00000") {
+
+                        var con="";
+                        $.each(res.data.list,function (index,val){
+
+                            con+= "<li class='weui-cell weui-cell_swiped'  value='"+val.id+"'>"+
+                                " <div class='weui-cell__bd' style='transform: translate3d(0px, 0px, 0px);'>" +
+                                " <div class='weui-cell__bd'>";
+                            if(val.status==1){
+                                con+= "<p class='binfo clear'><em class='fri red'>"+val.desc+"</em></p>";
+                            }else{
+                                con+= "<p class='binfo clear'><em class='fri gray'>"+val.desc+"</em></p>";
+                            }
+                            con+="<p class=\"cInfo\">\n" +
+                                "<span class=\"font14\">"+val.customer+"</span>\n" +
+                                "<span class=\"font12\">共计:<b class=\"font14\">￥"+val.totalMoney+"</b></span>\n" +
+                                "<span class=\"font12\">优惠:<b class=\"font14\">￥"+val.discountAmount+"</b></span>\n" +
+                                "</p>\n" +
+                                "<div class=\"binfo clear\">\n" +
+                                "<span class=\"fle\">"+val.name+"&nbsp;&nbsp;</span>\n" +
+                                "<span class=\"fle\">"+val.telephone+"</span>\n" +
+                                "<time class=\"fri\">"+val.verificateDate+"</time>\n" +
+                                "</div>\n" +
+                                "</div>\n" +
+                                "</div>\n" ;
+                            if(val.status==1){
+                                con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
+                                    "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout\" href=\"javascript:\">删除</button>\n" +
+                                    "</div>";
+                            }else{
+                                con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
+                                    "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout btnGray\" disabled='disabled' href=\"javascript:\">删除</button>\n" +
+                                    "</div>";
+                            }
+                            con+= "</li>"
+                        });
+                        $('.infoList').append(con);
+
+                    }
+                    $('.weui-cell_swiped').swipeout();
+                }, error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+
+            });
+            $(document.body).pullToRefreshDone();
+        }, 2000);
+    });
 
 });
 function record(){
@@ -93,68 +153,6 @@ function record(){
                 weui.topTips(res.msg);
             };
             $('.weui-cell_swiped').swipeout();
-
-            //下拉
-            $(document.body).pullToRefresh().on("pull-to-refresh", function() {
-                setTimeout(function() {
-                    $.ajax({
-                        type: "get",
-                        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
-                        dataType: "json",
-                        data: {
-                            "openId":openID,
-                            "pageNum":page,
-                            "pageSize":"10"
-                        },success: function(res) {
-
-                            if(res.code == "00000") {
-
-                                var con="";
-                                $.each(res.data.list,function (index,val){
-
-                                    con+= "<li class='weui-cell weui-cell_swiped'  value='"+val.id+"'>"+
-                                        " <div class='weui-cell__bd' style='transform: translate3d(0px, 0px, 0px);'>" +
-                                        " <div class='weui-cell__bd'>";
-                                    if(val.status==1){
-                                        con+= "<p class='binfo clear'><em class='fri red'>"+val.desc+"</em></p>";
-                                    }else{
-                                        con+= "<p class='binfo clear'><em class='fri gray'>"+val.desc+"</em></p>";
-                                    }
-                                    con+="<p class=\"cInfo\">\n" +
-                                        "<span class=\"font14\">"+val.customer+"</span>\n" +
-                                        "<span class=\"font12\">共计:<b class=\"font14\">￥"+val.totalMoney+"</b></span>\n" +
-                                        "<span class=\"font12\">优惠:<b class=\"font14\">￥"+val.discountAmount+"</b></span>\n" +
-                                        "</p>\n" +
-                                        "<div class=\"binfo clear\">\n" +
-                                        "<span class=\"fle\">"+val.name+"&nbsp;&nbsp;</span>\n" +
-                                        "<span class=\"fle\">"+val.telephone+"</span>\n" +
-                                        "<time class=\"fri\">"+val.verificateDate+"</time>\n" +
-                                        "</div>\n" +
-                                        "</div>\n" +
-                                        "</div>\n" ;
-                                    if(val.status==1){
-                                        con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
-                                            "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout\" href=\"javascript:\">删除</button>\n" +
-                                            "</div>";
-                                    }else{
-                                        con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
-                                            "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout btnGray\" disabled='disabled' href=\"javascript:\">删除</button>\n" +
-                                            "</div>";
-                                    }
-                                    con+= "</li>"
-                                });
-                                $('.infoList').append(con);
-
-                            }
-                            $('.weui-cell_swiped').swipeout();
-                        }, error: function(XMLHttpRequest, textStatus, errorThrown) {
-
-                        }
-
-                    });
-                    $(document.body).pullToRefreshDone();
-                }, 2000);
-            });
                 var loading = false;
                 //向上拉
                 $(document.body).infinite().on("infinite", function() {
