@@ -43,7 +43,7 @@ $(function() {
 		mounted: function() {
 			console.log("init...")
 			//this.openId = "oZIooxJ_MT0M1ApB_4caa_gvXgWc";
-			this.openID = $.getCookie('open_id');
+			this.openId = $.getCookie('open_id');
 			this.pageNum = 1;
 			this.pageSize = 10000;
 			this.doSearch();
