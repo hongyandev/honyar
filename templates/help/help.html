@@ -66,9 +66,10 @@
 			<tr><td>23</td><td>获取优惠二维码</td><td><a href="#23">详情</td></tr>
 				
 			<tr><td>24</td><td>根据openId判断有没有优惠核销界面的权限</td><td><a href="#24">详情</td></tr>
-			<tr><td>25</td><td>保存优惠核销的信息</td><td><a href="#25">详情</td></tr>
-			<tr><td>26</td><td>优惠核销列表</td><td><a href="#26">详情</td></tr>
-			<tr><td>27</td><td>删除优惠核销</td><td><a href="#27">详情</td></tr>
+			<tr><td>25</td><td>判断优惠二维码的扫描结果是否有效</td><td><a href="#25">详情</td></tr>
+			<tr><td>26</td><td>保存优惠核销的信息</td><td><a href="#26">详情</td></tr>
+			<tr><td>27</td><td>优惠核销列表</td><td><a href="#27">详情</td></tr>
+			<tr><td>28</td><td>删除优惠核销</td><td><a href="#28">详情</td></tr>
 			
 		</table>
 	</div>
@@ -548,7 +549,8 @@
 		
 				<table id="list" border="1" cellpadding="0" cellspacing="0">
 				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
-				<tr><td>openId</td><td>string</td><td>是</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
 				<tr><td>serviceType</td><td>string</td><td>是</td><td>服务类型</td></tr>
 				<tr><td>reserveType</td><td>string</td><td>是</td><td>预约人类型</td></tr>
 				<tr><td>reserveName</td><td>string</td><td>是</td><td>预约人姓名</td></tr>
@@ -567,11 +569,12 @@
 				<tr><td>latitude</td><td>string</td><td>是</td><td>维度</td></tr>
 				<tr><td>state</td><td>string</td><td>是</td><td>状态</td></tr>
 				<tr><td>iCode</td><td>string</td><td>是</td><td>验证码</td></tr>
+				<tr><td>khdm</td><td>string</td><td>是</td><td>经销商代码</td></tr>
 				</table>
 		
 			</td></tr>
 			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
-			<tr><td>其他备注：</td><td>手机号必须合法</td></tr>
+			<tr><td>其他备注：</td><td>手机号必须合法;openId与uid两者之一必填</td></tr>
 		</table>
 	</div>
 	
@@ -689,6 +692,27 @@
 	<div class="Category" id="25">接口编号：25</div>
 	<div class="ItemList">
 		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>判断优惠二维码的扫描结果是否有效</b></td></tr>
+			<tr><td>接口描述：</td><td>判断优惠二维码的扫描结果是否有效</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/verificate/uidAuthority</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>uid=180112160619</td></tr>
+			<tr><td>请求参数说明：</td><td>
+		
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>uid</td><td>string</td><td>是</td><td>优惠码</td></tr>
+				</table>
+		
+			</td></tr>
+			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td></td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="26">接口编号：26</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
 			<tr><td class="cc">接口名称：</td><td><b>保存优惠核销的信息</b></td></tr>
 			<tr><td>接口描述：</td><td>保存优惠核销的信息</td></tr>
 			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails</td></tr>
@@ -716,7 +740,7 @@
 	</div>
 
 	
-	<div class="Category" id="26">接口编号：26</div>
+	<div class="Category" id="27">接口编号：27</div>
 	<div class="ItemList">
 		<table border="1" cellpadding="0" cellspacing="0">
 			<tr><td class="cc">接口名称：</td><td><b>优惠核销列表</b></td></tr>
@@ -737,7 +761,7 @@
 		</table>
 	</div>
 	
-	<div class="Category" id="27">接口编号：27</div>
+	<div class="Category" id="28">接口编号：28</div>
 	<div class="ItemList">
 		<table border="1" cellpadding="0" cellspacing="0">
 			<tr><td class="cc">接口名称：</td><td><b>删除优惠核销</b></td></tr>
