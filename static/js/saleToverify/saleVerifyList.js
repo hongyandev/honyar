@@ -99,7 +99,7 @@ function record(){
                 setTimeout(function() {
                     $.ajax({
                         type: "get",
-                        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page=1"+page,
+                        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
                         dataType: "json",
                         data: {
                             "openId":openID,
@@ -120,18 +120,18 @@ function record(){
                                     }else{
                                         con+= "<p class='binfo clear'><em class='fri gray'>"+val.desc+"</em></p>";
                                     }
-                                    list+="                    <p class=\"cInfo\">\n" +
-                                        "                        <span class=\"font14\">"+val.customer+"</span>\n" +
-                                        "                        <span class=\"font12\">共计:<b class=\"font14\">￥"+val.totalMoney+"</b></span>\n" +
-                                        "                        <span class=\"font12\">优惠:<b class=\"font14\">￥"+val.discountAmount+"</b></span>\n" +
-                                        "                    </p>\n" +
-                                        "                    <div class=\"binfo clear\">\n" +
-                                        "                        <span class=\"fle\">"+val.name+"&nbsp;&nbsp;</span>\n" +
-                                        "                        <span class=\"fle\">"+val.telephone+"</span>\n" +
-                                        "                        <time class=\"fri\">"+val.verificateDate+"</time>\n" +
-                                        "                    </div>\n" +
-                                        "                </div>\n" +
-                                        "         </div>\n" ;
+                                    con+="<p class=\"cInfo\">\n" +
+                                        "<span class=\"font14\">"+val.customer+"</span>\n" +
+                                        "<span class=\"font12\">共计:<b class=\"font14\">￥"+val.totalMoney+"</b></span>\n" +
+                                        "<span class=\"font12\">优惠:<b class=\"font14\">￥"+val.discountAmount+"</b></span>\n" +
+                                        "</p>\n" +
+                                        "<div class=\"binfo clear\">\n" +
+                                        "<span class=\"fle\">"+val.name+"&nbsp;&nbsp;</span>\n" +
+                                        "<span class=\"fle\">"+val.telephone+"</span>\n" +
+                                        "<time class=\"fri\">"+val.verificateDate+"</time>\n" +
+                                        "</div>\n" +
+                                        "</div>\n" +
+                                        "</div>\n" ;
                                     if(val.status==1){
                                         con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
                                             "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout\" href=\"javascript:\">删除</button>\n" +
