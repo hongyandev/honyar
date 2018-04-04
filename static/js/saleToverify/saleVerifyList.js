@@ -1,6 +1,6 @@
 $(function () {
-    //var openID=$.getCookie('open_id');
-    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     var loading = false;
     record();
 
@@ -43,8 +43,8 @@ $(function () {
 
 });
 function record(){
-   // var openID=$.getCookie('open_id');
-    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     var page = 1;
     var loading = false;
     $.ajax({
