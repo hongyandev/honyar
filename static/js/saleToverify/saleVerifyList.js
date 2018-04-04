@@ -1,7 +1,7 @@
 $(function () {
     var openID=$.getCookie('open_id');
-  // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-    $('.weui-cell_swiped').swipeout();
+   //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+   // $('.weui-cell_swiped').swipeout();
     record();
 
     //删除
@@ -48,8 +48,9 @@ function record(){
             "pageSize":"10"
         },
         success: function(res) {
-            $('.weui-cell_swiped').swipeout();
+
             if(res.code == "00000") {
+
                 var str="";
                 $.each(res.data.list,function (index,val){
                     str+= "<li class=\"weui-cell weui-cell_swiped\"  value='"+val.id+"'>"+
@@ -78,7 +79,7 @@ function record(){
             }else{
                 weui.topTips(res.msg);
             };
-
+            $('.weui-cell_swiped').swipeout();
 
                 var loading = false;
                 $(document.body).infinite().on("infinite", function() {
@@ -98,7 +99,7 @@ function record(){
                                 "pageNum":page++,
                                 "pageSize":"10"
                             },success: function(res) {
-                                $('.weui-cell_swiped').swipeout();
+
                                 if(res.code == "00000") {
                                     var str="";
                                     $.each(res.data.list,function (index,val){
@@ -127,7 +128,9 @@ function record(){
                                 }
 
                             }, error: function(XMLHttpRequest, textStatus, errorThrown) {
+
                             }
+
                         });
                         loading = false;
                     }, 1000);

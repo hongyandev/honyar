@@ -15,10 +15,13 @@ function Bt_submit(uploadFiles) {
 	//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
 	var openID=$.getCookie('open_id');
 	var theRequest = GetRequest();
+    var files= $("#uploaderInput").get(0).files;
 	var formdata = new FormData();
-	for(var index in uploadFiles) {
-		formdata.append("files", uploadFiles[index][0]);
-	}
+    if(files.length>0){
+        for(var i=0;i<files.length;i++){
+            formdata.append('files',files[i])
+        }
+    };
 	formdata.append('openId', openID);
 	formdata.append('id', theRequest.mainid); //theRequest.mainid
     var loading = weui.loading('正在提交...', {

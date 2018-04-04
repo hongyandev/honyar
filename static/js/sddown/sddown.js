@@ -150,12 +150,15 @@ function galleryDel(obj) {
 		},
 		success: function(data) {
 			if(data.code == "00000") {
-				weui.toast('删除成功', {
-					duration: 3000,
-					className: 'custom-classname',
-				});
+				// weui.toast('删除成功', ,{
+				// 	duration: 3000,
+				// 	className: 'custom-classname',
+				// },
+                $.toast("删除成功",3000,function() {
+                   window.location.href = window.location.href;
+                });
 				//reLoad();
-				window.location.href = window.location.href;
+
 			} else {
 				weui.topTips(data.msg);
 			}

@@ -1,6 +1,6 @@
 $(function () {
     var openID=$.getCookie('open_id');
-   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
         url: "http://wx.hongyancloud.com/wxDev/verificate/authority?openId="+openID,
@@ -23,24 +23,17 @@ $(function () {
 
     $("#submit").click(function () {
         var openID=$.getCookie('open_id');
+        //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
         var discountAmount=$('#discountAmount').val();
+        var files= $("#uploaderInput").get(0).files;
         var formdata = new FormData();
-        var $uploaderInput = $("#uploaderInput");
-        //图片压缩
-        $uploaderInput.on("change", function(e) {
-            lrz(this.files[0], {width: 300}).then(function (rst) {
-                rst.formdata.append('base64img', rst.base64);
-                //压缩后的图片暂存在变量formdata中
-                formdata = rst.formdata;
-            });
-
-        });
-        //console.info(formdata);
-        for(var index in uploadFiles) {
-            formdata.append("files", uploadFiles[index][0]);
-        }
+        if(files.length>0){
+            for(var i=0;i<files.length;i++){
+                formdata.append('files',files[i])
+            }
+        };
         formdata.append('openId', openID);
         formdata.append('uid',$(".sCodeInput").val());
         formdata.append('khdm',$("#khdm").val());
@@ -50,7 +43,7 @@ $(function () {
         formdata.append('customer',$("#customer").val());
         formdata.append('totalMoney',$("#totalMoney").val());
         formdata.append('discountAmount',$("#discountAmount").val());
-        return;
+        //return;
         var regChinese = new RegExp("[\\u4E00-\\u9FFF]+", "g"); //汉语
         var specialSymbol =/[`~!@#$%^&*_+<>{}\/'[\]]/im; //特殊符号
         if(customer == "") {
