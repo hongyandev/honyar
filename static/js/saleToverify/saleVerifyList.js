@@ -35,7 +35,6 @@ function record(){
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 
     var page = 1;
-
     $.ajax({
         type: "get",
         url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
@@ -99,11 +98,11 @@ function record(){
                 setTimeout(function() {
                     $.ajax({
                         type: "get",
-                        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
+                        url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page=1"+page,
                         dataType: "json",
                         data: {
                             "openId":openID,
-                            "pageNum":page++,
+                            "pageNum":page,
                             "pageSize":"10"
                         },success: function(res) {
 
