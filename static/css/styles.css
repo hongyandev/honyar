@@ -98,8 +98,22 @@
 .binfo span{
     color:#555;
 }
+.binfo em{
+    font-style: normal;
+}
+.gray{
+    color:#999;
+}
+.red{
+    color:#dc0000;
+}
+.btnGray{
+    background-color: #999;
+    color:#fff;
+}
 .weui-swiped-btn{
-    padding:25px 1em;
+    padding:45px 1em;
+    border:none;
 }
 .weui-dialog__title{
     font-weight:normal;
