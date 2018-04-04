@@ -35,6 +35,7 @@ function record(){
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 
     var page = 1;
+
     $.ajax({
         type: "get",
         url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
@@ -108,19 +109,18 @@ function record(){
 
                             if(res.code == "00000") {
 
-                                var str="";
+                                var con="";
                                 $.each(res.data.list,function (index,val){
 
-
-                                    str+= "<li class=\"weui-cell weui-cell_swiped\"  value='"+val.id+"'>"+
-                                        " <div class=\"weui-cell__bd\" style=\"transform: translate3d(0px, 0px, 0px);\">\n" +
-                                        "                <div class=\"weui-cell__bd\">\n";
+                                    con+= "<li class='weui-cell weui-cell_swiped'  value='"+val.id+"'>"+
+                                        " <div class='weui-cell__bd' style='transform: translate3d(0px, 0px, 0px);'>" +
+                                        " <div class='weui-cell__bd'>";
                                     if(val.status==1){
-                                        str+= "<p class='binfo clear'><em class='fri red'>"+val.desc+"</em></p>";
+                                        con+= "<p class='binfo clear'><em class='fri red'>"+val.desc+"</em></p>";
                                     }else{
-                                        str+= "<p class='binfo clear'><em class='fri gray'>"+val.desc+"</em></p>";
+                                        con+= "<p class='binfo clear'><em class='fri gray'>"+val.desc+"</em></p>";
                                     }
-                                    str+="                    <p class=\"cInfo\">\n" +
+                                    list+="                    <p class=\"cInfo\">\n" +
                                         "                        <span class=\"font14\">"+val.customer+"</span>\n" +
                                         "                        <span class=\"font12\">共计:<b class=\"font14\">￥"+val.totalMoney+"</b></span>\n" +
                                         "                        <span class=\"font12\">优惠:<b class=\"font14\">￥"+val.discountAmount+"</b></span>\n" +
@@ -133,18 +133,17 @@ function record(){
                                         "                </div>\n" +
                                         "         </div>\n" ;
                                     if(val.status==1){
-                                        str+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
+                                        con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
                                             "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout\" href=\"javascript:\">删除</button>\n" +
                                             "</div>";
                                     }else{
-                                        str+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
+                                        con+= "<div class=\"weui-cell__ft\" status='"+val.status+"'>\n" +
                                             "<button class=\"weui-swiped-btn weui-swiped-btn_warn delete-swipeout btnGray\" disabled='disabled' href=\"javascript:\">删除</button>\n" +
                                             "</div>";
                                     }
-
-                                    str+= "</li>"
+                                    con+= "</li>"
                                 });
-                                $('.infoList').append(str);
+                                $('.infoList').append(con);
 
                             }
                             $('.weui-cell_swiped').swipeout();
