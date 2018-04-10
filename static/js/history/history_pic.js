@@ -29,7 +29,8 @@ function Bt_submit(uploadFiles) {
     });
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/saveBillDetails",
+		url:genAPI('wxDev/file/saveBillDetails'),
+		//url: "http://wx.hongyancloud.com/wxDev/file/saveBillDetails",
 		data: formdata,
 		//timeout: 5000,
 		//必须false才会避开jQuery对 formdata 的默认处理 

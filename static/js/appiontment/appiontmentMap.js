@@ -126,7 +126,8 @@ $(function() {
 				}
 
 				$.ajax({ // 获取验证码
-					url: "http://wx.hongyancloud.com/wxDev/reserve/sendIcode?telephone=" + phone, // TODO  这里用真号码居然错误+ phone
+					url:genAPI('wxDev/reserve/sendIcode?telephone='+ phone),
+					//url: "http://wx.hongyancloud.com/wxDev/reserve/sendIcode?telephone=" + phone, // TODO  这里用真号码居然错误+ phone
 					async: false,
 					type: 'GET',
 					dataType: 'json',
@@ -149,8 +150,8 @@ $(function() {
 				$("#sel_popup2").popup();
 				$.showLoading(); // 显示加载等待?
 				$.ajax({ // 获取预约人+服务类型
-
-					url: "http://wx.hongyancloud.com/wxDev/reserve/getReserveMessage?openId=" + openID, // TODO 这里的openId 写死了 需要跟着接口改为$.getCookie('open_id')
+					url:genAPI('wxDev/reserve/getReserveMessage?openId=' + openID),
+					//url: "http://wx.hongyancloud.com/wxDev/reserve/getReserveMessage?openId=" + openID, // TODO 这里的openId 写死了 需要跟着接口改为$.getCookie('open_id')
 					async: false,
 					type: 'GET',
 					dataType: 'json',
@@ -182,7 +183,8 @@ $(function() {
 				//				alert(district);
 				//				alert("http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude);
 				$.ajax({ // 获取当前经纬度 省 市 的水电工列表
-					url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude, // province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546改为::1.  vm.mapoption.addressComponent.province 省 2. vm.mapoption.addressComponent.city 市 3. vm.mapoption.position.lng 长的度数 4.  vm.mapoption.position.lat  短的度数
+					url:genAPI('wxDev/reserve/getDealerList?'+province + city + longitude + latitude),
+					//url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude, // province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546改为::1.  vm.mapoption.addressComponent.province 省 2. vm.mapoption.addressComponent.city 市 3. vm.mapoption.position.lng 长的度数 4.  vm.mapoption.position.lat  短的度数
 					async: false,
 					type: 'GET',
 					dataType: 'json',
@@ -351,7 +353,8 @@ $(function() {
 				}
 
 				$.ajax({ // 获取全国省级等数据的请求
-					url: "http://wx.hongyancloud.com/wxDev/reserve/saveReserve",
+					url:genAPI('wxDev/reserve/saveReserve'),
+					//url: "http://wx.hongyancloud.com/wxDev/reserve/saveReserve",
 					async: false,
 					type: 'POST',
 					data: myData,

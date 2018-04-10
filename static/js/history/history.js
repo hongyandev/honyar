@@ -3,7 +3,8 @@ function loadList(action, openid, keyword) {
 
 	$.ajax({
 		type: 'get',
-		url: 'http://wx.hongyancloud.com/wxDev/file/' + action,
+		url:genAPI('wxDev/file/'+ action),
+		//url: 'http://wx.hongyancloud.com/wxDev/file/' + action,
 		data: {
 			openId: openid, //$.getCookie('open_id')
 			content: keyword,
@@ -74,8 +75,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-	var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	//var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	loadList('getBillAndDetails', openID)
 });
 
@@ -138,12 +139,13 @@ $(function() {
 
 //删除图片明细方法
 function galleryDel(obj) {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 	//console.log(obj.getAttribute("imgid"))
-	var openID = $.getCookie('open_id'); 
+	//var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/deleteBillDetail",
+        url:genAPI('wxDev/file/deleteBillDetail'),
+		//url: "http://wx.hongyancloud.com/wxDev/file/deleteBillDetail",
 		data: {
 			openId: openID,
 			id: obj.getAttribute("imgid")

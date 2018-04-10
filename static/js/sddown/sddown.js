@@ -1,17 +1,18 @@
+
 //刷新加载页面
 function loadList(action, openid, keyword) {
 
 	$.ajax({
 		type: 'get',
-		url: 'http://wx.hongyancloud.com/wxDev/file/' + action,
+        url: genAPI('wxDev/file/'+ action) ,
+		//url: 'http://wx.hongyancloud.com/wxDev/file/' + action,
 		data: {
 			openId: openid,
 			//openId:'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
 			content: keyword
 		},
 		success: function(returnDatas) {
-			console.log(returnDatas)
-
+			//console.log(returnDatas)
 			if(returnDatas.code == "00000") {
 				var returnData = returnDatas.data;
 				$gallery = $("#gallery");
@@ -25,13 +26,14 @@ function loadList(action, openid, keyword) {
 
 				//var uploaderSlider = $('#uploaderSlider');
 				//var gallerySlider = $('#gallerySlider');
-
+                    var str='';
 				$(returnData).each(function(i, o) {
                     var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>'
-                    var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>'
-					details.append('');
-					details.append('<div class="detaId"><div class="deta_h"><h1>' + o.address + '<h1/></div><div class="deta_ul"><ul class="clear" id=' + o.id + '></ul><ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div></div>');
-					//gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
+                    var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
+					details.append('<div class="detaId"><div class="deta_h"><h1>' + o.address + '<h1/></div><div class="deta_ul"><ul class="clear" id=' + o.id + '></ul>');
+                    details.append('<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol>');
+                    details.append('</div></div>');
+                    //gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
 
 					var children = o.children;
 					var uploaderFiles = $('#' + o.id);
@@ -58,37 +60,51 @@ function loadList(action, openid, keyword) {
 				});
                 //删除水电图和明细
                 $(document).on("click",".delpic",function () {
-                   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                   //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
                     var openID = $.getCookie('open_id');
                     var detaId = $(this).parents("ol").attr("value");
-                    $.ajax({
-                        type: "post",
-                        url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails",
-                        data: {
-                            openId: openID,
-                            id: detaId
-                        },
-                        success: function(data) {
-                            if(data.code == "00000") {
+                    weui.confirm('您确定要删除文件这条记录吗?', {
+                        buttons: [{
+                            label: '取消',
+                            type: 'default',
+                            onClick: function(){
+                            }
+                        }, {
+                            label: '确定',
+                            type: 'primary',
+                            onClick: function(){
+                                $.ajax({
+                                    type: "post",
+                                    url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails",
+                                    data: {
+                                        openId: openID,
+                                        id: detaId
+                                    },
+                                    success: function(data) {
+                                        if(data.code == "00000") {
+                                            weui.toast('删除成功', {
+                                                duration: 3000,
+                                                callback: function(){
+                                                    window.location.href = window.location.href;
+                                                }
+                                            });
 
-                                weui.toast('删除成功', {
-                                    duration: 3000,
-                                    callback: function(){
-                                        window.location.href = window.location.href;
+                                        } else {
+                                            weui.topTips(data.msg);
+                                        }
+                                    },
+                                    error: function(data) {
+                                        weui.topTips('网络异常,请检查您的网络');
                                     }
                                 });
-
-                            } else {
-                                weui.topTips(data.msg);
                             }
-                        },
-                        error: function(data) {
-                            weui.topTips('网络异常,请检查您的网络');
-                        }
+                        }]
                     });
+
                 });
+
 				$galleryImg.on("click", function() {
-					console.log(this);
+					//console.log(this);
 					$gallery.fadeOut(100);
 				});
 				$galleryDel.on("click", function() {
@@ -108,8 +124,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-	var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID=$.getCookie('open_id');
 	loadList('getDropowerAndDetails', openID)
 });
 
@@ -150,7 +166,10 @@ $(function() {
 		.on('change', function() {
 			if(this.value.length) {
 				//alert(this.value)
-				var openID=$.getCookie('open_id');
+				//var openID=$.getCookie('open_id');
+
+                var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                alert(this.openID);
 				loadList('searchDropower', openID, this.value);
 
 				$searchResult.show();
@@ -174,11 +193,12 @@ $(function() {
 //删除图片明细方法
 function galleryDel(obj) {
 	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	console.log(obj.getAttribute("imgid"))
+	//console.log(obj.getAttribute("imgid"))
 	var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerDetail",
+        url:genAPI('wxDev/file/deleteDropowerDetail')
+		//url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerDetail",
 		data: {
 			openId: openID,
 			id: obj.getAttribute("imgid")

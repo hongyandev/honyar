@@ -68,7 +68,8 @@ function Bt_submit() {
 
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/saveDropower",
+		url:genAPI('wxDev/file/saveDropower'),
+		//url: "http://wx.hongyancloud.com/wxDev/file/saveDropower",
 		data: {
 			openId:  openID,
 			address: $('#inputAddress').val(),

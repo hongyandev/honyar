@@ -3,11 +3,11 @@
  *	2018.01.24 13:23
  */
 var req = new Object();
-req.getOpenIdUrl = 'http://wx.hongyancloud.com/wxDev/getOpenId';
-req.getTzOpenIdUrl = 'http://wx.hongyancloud.com/wxDev/getTzOpenId';
-req.removeCookieOpenId = 'http://wx.hongyancloud.com/wxDev/removeCookieOpenId';
+req.getOpenIdUrl = genAPI('wxDev/getOpenId');
+req.getTzOpenIdUrl = genAPI('wxDev/getTzOpenId');
+req.removeCookieOpenId = genAPI('wxDev/removeCookieOpenId');
 req.desUrl = 'http://h5.charge.zone.hongyancloud.com/WeiXin/OAuth/Callback?code=';
-req.appId = 'wx203cc78ceb539356';
+req.appId = getAppId();
 (function($){
 	//获取指定名称的cookie的值
 	$.getCookie = function(objname){

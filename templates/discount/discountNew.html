@@ -7,14 +7,16 @@
 		<title>水电管家</title>
 		<link rel="stylesheet" href="../../static/css/discount/discount.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/weui.min.css" />
-		<script src="../../static/js/jquery-2.1.4.js"></script>
+	<!--	<script src="../../static/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
 		<script src="../../static/js/weui.min.js"></script>
 		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+		<script src="../../static/js/lib-jq.js"></script>
 	</head>
 		<script>
 			$(function () {
+                //var openId = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
                 var openId=$.getCookie('open_id');
                // alert(openId);
                 $.showLoading = function(text) {
@@ -29,8 +31,8 @@
                 $.showLoading();
                 $.ajax({
 					type:"get",
-					url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId="+openId,
-                    //url:"http://172.30.8.95:9999/wxDev/qrcode/preferential?openId=oZIooxJ_MT0M1ApB_4caa_gvXgWc",
+					url:genAPI('wxDev/qrcode/preferential?openId='+openId),
+					//url:"http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId="+openId,
 					dataType:"json",
                     success:function (res) {
                         if(res.code==00000){

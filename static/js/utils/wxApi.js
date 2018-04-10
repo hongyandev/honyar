@@ -49,7 +49,8 @@
                 console.log(location.href.split('#')[0]);
                 $.ajax({
                     type: 'get',
-                    url:'http://wx.hongyancloud.com/wxDev/jsApiTicket/getSign',
+                    url:genAPI('wxDev/jsApiTicket/getSign'),
+                    //url:'http://wx.hongyancloud.com/wxDev/jsApiTicket/getSign',
                     data: {
                         url: location.href.split('#')[0]
                         // url: encodeURIComponent(location.href.split('#')[0])

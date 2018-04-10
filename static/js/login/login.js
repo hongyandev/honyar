@@ -17,7 +17,8 @@ function Bt_submit() {
 
 	$.ajax({
 		type:"post",
-		url:"http://wx.hongyancloud.com/wxDev/user/saveHyUser",
+		url:genAPI('wxDev/user/saveHyUser'),
+		//url:"http://wx.hongyancloud.com/wxDev/user/saveHyUser",
 		data:{
 			openId : $.getCookie('open_id'),
 			name : vipname,

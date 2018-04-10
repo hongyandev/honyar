@@ -1,8 +1,10 @@
 $(function () {
-    var openID=$.getCookie('open_id');
+    //var openID=$.getCookie('open_id');
+	var openID='oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
-        url: "http://wx.hongyancloud.com/wxDev/user/judgeRegister?openId="+openID,
+		url:genAPI('wxDev/user/judgeRegister?openId='+openID),
+        //url: "http://wx.hongyancloud.com/wxDev/user/judgeRegister?openId="+openID,
         dataType: "json",
         success: function(res) {
             if(res.code == "00000") {

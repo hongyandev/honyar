@@ -1,6 +1,6 @@
 $(function () {
     var openID=$.getCookie('open_id');
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+   // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     var loading = false;
     var page=1;
     record();
@@ -23,7 +23,8 @@ $(document.body).infinite().on("infinite", function() {
     setTimeout(function(){
         $.ajax({
             type: "get",
-            url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
+            url:genAPI('wxDev/verificate/getVerificateFenye?page='+page),
+            //url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
             dataType: "json",
             data: {
                 "openId":openID,
@@ -87,7 +88,8 @@ $(document).on("click", ".delete-swipeout", function() {
         $.confirm("", "您确定要删除文件这条记录吗?", function() {
             $.ajax({
                 type:"post",
-                url: "http://wx.hongyancloud.com/wxDev/verificate/deleteVerificateAndDetails",
+                url:genAPI('wxDev/verificate/deleteVerificateAndDetails'),
+                //url: "http://wx.hongyancloud.com/wxDev/verificate/deleteVerificateAndDetails",
                 dataType:"json",
                 data: {
                     "openId":openID,
@@ -110,7 +112,8 @@ $(document).on("click", ".delete-swipeout", function() {
  function record(){
         $.ajax({
             type: "get",
-            url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
+            url:genAPI('wxDev/verificate/getVerificateFenye?page='+page),
+            //url: "http://wx.hongyancloud.com/wxDev/verificate/getVerificateFenye?page="+page,
             dataType:"json",
             data: {
                 "openId":openID,

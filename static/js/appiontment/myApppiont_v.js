@@ -14,7 +14,8 @@ $(function() {
 				var telephone = e ? e.target.value : '';
 //				$.showLoading();
 				$.ajax({
-					url: "http://wx.hongyancloud.com/wxDev/reserve/getReserveFenye",
+                    url:genAPI('wxDev/reserve/getReserveFenye'),
+					//url: "http://wxdev.hongyancloud.com/wxDev/reserve/getReserveFenye",
 					async: false,
 					type: 'GET',
 					data: {

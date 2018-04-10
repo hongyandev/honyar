@@ -1,9 +1,10 @@
 $(function () {
-    var openID=$.getCookie('open_id');
-//    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+   // var openID=$.getCookie('open_id');
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
-        url: "http://wx.hongyancloud.com/wxDev/verificate/authority?openId="+openID,
+        url:genAPI('wxDev/verificate/authority?openId='+openID),
+        //url: "http://wx.hongyancloud.com/wxDev/verificate/authority?openId="+openID,
         dataType:"json",
         success: function(data) {
         if(data.code != "00000") {
@@ -22,8 +23,8 @@ $(function () {
     });
 
     $("#submit").click(function () {
-        var openID=$.getCookie('open_id');
-        //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+        //var openID=$.getCookie('open_id');
+        var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
         var discountAmount=$('#discountAmount').val();
@@ -85,7 +86,8 @@ $(function () {
         });
         $.ajax({
             type: "post",
-            url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
+            url:genAPI('wxDev/verificate/saveVerificateAndDetails'),
+            //url: "http://wx.hongyancloud.com/wxDev/verificate/saveVerificateAndDetails",
             data: formdata,
             //timeout: 5000,
             //必须false才会避开jQuery对 formdata 的默认处理

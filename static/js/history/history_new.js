@@ -27,7 +27,8 @@ function Bt_submit() {
 
 	$.ajax({
 		type: "post",
-		url: "http://wx.hongyancloud.com/wxDev/file/saveBill",
+		url:genAPI('wxDev/file/saveBill'),
+		//url: "http://wx.hongyancloud.com/wxDev/file/saveBill",
 		data: {
 			openId: openID,
 			itmType: $('#selType').val(),
@@ -58,7 +59,8 @@ function Bt_submit() {
 $(document).ready(function() {
 	$.ajax({
 		type: 'get',
-		url: 'http://wx.hongyancloud.com/wxDev/file/getItmType',
+		url:genAPI('wxDev/file/getItmType'),
+		//url: 'http://wx.hongyancloud.com/wxDev/file/getItmType',
 		success: function(data) {
 			if(data.code == "00000") {
 				var selType = $('#selType');
