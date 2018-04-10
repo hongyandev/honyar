@@ -24,7 +24,7 @@ function genAPI(apiName,apiAction){
 }
 
 function getAppId() {
-    return config.PARAM.appid;
+    return config.PARAM.appId;
 }
 
 /*
