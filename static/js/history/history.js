@@ -4,7 +4,6 @@ function loadList(action, openid, keyword) {
 	$.ajax({
 		type: 'get',
 		url:genAPI('wxDev/file/'+ action),
-		//url: 'http://wx.hongyancloud.com/wxDev/file/' + action,
 		data: {
 			openId: openid, //$.getCookie('open_id')
 			content: keyword,
@@ -41,8 +40,8 @@ function loadList(action, openid, keyword) {
                 details.html(str);
                 //删除水电图和明细
                 $(document).on("click",".delpic",function () {
-                    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-                    //var openID = $.getCookie('open_id');
+                    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                    var openID = $.getCookie('open_id');
                     var detaId = $(this).parents("ol").attr("value");
                     weui.confirm('您确定要删除文件这条记录吗?', {
                         buttons: [{
@@ -57,7 +56,6 @@ function loadList(action, openid, keyword) {
                                 $.ajax({
                                     type: "post",
                                     url:genAPI('wxDev/file/deleteBillAndDetails'),
-                                    //url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails",
                                     data: {
                                         openId: openID,
                                         id: detaId
@@ -85,12 +83,10 @@ function loadList(action, openid, keyword) {
 
                 });
 				$galleryImg.on("click", function() {
-					console.log(this);
 					$gallery.fadeOut(100);
 				});
 				$galleryDel.on("click", function() {
 					galleryDel(this);
-					//alert(imgId);
 				})
 			} else {
 				weui.topTips(data.msg);
@@ -103,8 +99,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//var openID=$.getCookie('open_id');
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID=$.getCookie('open_id');
 	loadList('getBillAndDetails', openID)
 });
 
@@ -128,8 +124,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			//var openID=$.getCookie('open_id');
+			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			var openID=$.getCookie('open_id');
 			loadList('getBillAndDetails', openID)
 		});
 	}
@@ -145,7 +141,6 @@ $(function() {
 		})
 		.on('change', function() {
 			if(this.value.length) {
-				//alert(this.value)
 				var openID=$.getCookie('open_id');
 				loadList('searchBill', openID, this.value);
 				//alert('oZIooxJ_MT0M1ApB_4caa_gvXgWc');
@@ -167,8 +162,8 @@ $(function() {
 
 //删除图片明细方法
 function galleryDel(obj) {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//var openID = $.getCookie('open_id');
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
         url:genAPI('wxDev/file/deleteBillDetail'),
