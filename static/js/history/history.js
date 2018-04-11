@@ -75,8 +75,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-	//var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	loadList('getBillAndDetails', openID)
 });
 
@@ -139,9 +139,9 @@ $(function() {
 
 //删除图片明细方法
 function galleryDel(obj) {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 	//console.log(obj.getAttribute("imgid"))
-	//var openID = $.getCookie('open_id');
+	var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
         url:genAPI('wxDev/file/deleteBillDetail'),

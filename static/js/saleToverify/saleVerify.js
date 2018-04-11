@@ -1,6 +1,6 @@
 $(function () {
-   // var openID=$.getCookie('open_id');
-    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
         url:genAPI('wxDev/verificate/authority?openId='+openID),
@@ -23,8 +23,8 @@ $(function () {
     });
 
     $("#submit").click(function () {
-        //var openID=$.getCookie('open_id');
-        var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+        var openID=$.getCookie('open_id');
+        //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
         var customer = $('#customer').val();
         var totalMoney =$('#totalMoney').val();
         var discountAmount=$('#discountAmount').val();

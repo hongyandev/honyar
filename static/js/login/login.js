@@ -72,7 +72,8 @@ function getYZM() {
 	
 	$.ajax({
 		type:'get',
-		url:"http://wx.hongyancloud.com/wxDev/user/sendIcode?telephone="+telephone,
+        url:genAPI('wxDev/user/sendIcode?telephone='+telephone),
+		//url:"http://wx.hongyancloud.com/wxDev/user/sendIcode?telephone="+telephone,
 		success:function (data) {
 			if (data.code == "00000") {
 				weui.toast('短信已发送,请注意查收', 3000);

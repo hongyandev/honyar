@@ -1,6 +1,7 @@
 function loadList(openid, keyword) {
-$.ajax({ 
-	url: "http://wx.hongyancloud.com/wxDev/reserve/getReserveList" ,
+$.ajax({
+	url:genAPI('wxDev/reserve/getReserveList'),
+	//url: "http://wx.hongyancloud.com/wxDev/reserve/getReserveList" ,
 	async: false,
 	type: 'GET',
 	dataType: 'json',
@@ -20,8 +21,8 @@ $.ajax({
 
 // 获取预约列表
 $(document).ready(function() {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-	//var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+	var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 	loadList(openID)
 });
 
@@ -44,8 +45,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-			//var openID = $.getCookie('open_id'); //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+			var openID = $.getCookie('open_id'); //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
 			loadList(openID)
 		});
 	}

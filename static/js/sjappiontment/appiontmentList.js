@@ -32,7 +32,8 @@
 $(function() {
 var vmInfo=new Vue;
 	$.ajax({ // 获取当前经纬度 省 市 的水电工列表
-		url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546",
+		url:genAPI('wxDev/reserve/getDealerList?province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546'),
+		//url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546",
 		async: false,
 		type: 'GET',
 		dataType: 'json',
