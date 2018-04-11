@@ -12,50 +12,37 @@ function loadList(action, openid, keyword) {
 		success: function(returnDatas) {
 
 			if(returnDatas.code == "00000") {
-				var returnData = returnDatas.data;
-				$gallery = $("#gallery");
-				$galleryImg = $("#galleryImg");
-				$galleryDel = $("#galleryDel");
-				var details = $('#details');
-				details.empty();
-				//var uploaderFiles = $('#uploaderFiles');
-				var tmpl = '<li class="weui-uploader__file" imgid="#imgid#" style="background-image:url(#url#)"></li>';
-				//var img = '<img src="#urlc#">';
-
-				//var uploaderSlider = $('#uploaderSlider');
-				//var gallerySlider = $('#gallerySlider');
-
-				$(returnData).each(function(i, o) {
-                    var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
+                var returnData = returnDatas.data;
+                $gallery = $("#gallery")
+                $galleryImg = $("#galleryImg");
+                $galleryDel = $("#galleryDel");
+                var details = $('#details');
+                details.empty();
+                var str='';
+                $.each(returnData,function (i,o) {
+                    var clickBT = '<a href="history_pic.html?mainid=' + o.id + '" class="addPic"></a>';
                     var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
-                    details.append('<div class="detaId"><div class="deta_h"><h1>' + o.address + '<h1/></div><div class="deta_ul"><ul class="clear" id=' + o.id + '></ul><ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div></div>');
-					//gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
-
-					var children = o.children;
-					var uploaderFiles = $('#' + o.id);
-					//var placeholder = $('#placeholder_' + o.id);
-
-					$(children).each(function(j, obj) {
-						var imgtmpl = tmpl.replace('#url#', obj.fileRealPath);
-						imgtmpl = imgtmpl.replace('#imgid#', obj.id);
-						uploaderFiles.append($(imgtmpl));
-
-						console.log(obj.fileRealPath)
-						console.log(obj.id)
-						uploaderFiles.on("click", "li", function() {
-							$galleryImg.attr("style", this.getAttribute("style"));
-							$galleryDel.attr("imgid", this.getAttribute("imgid"));
-							$gallery.fadeIn(100);
-						});
-
-						//placeholder.append($(img.replace('#urlc#', obj.fileRealPath)));
-					});
-				})
-
+                    str="<div class='detaId'>";
+                    str+="<div class='deta_h'><h1>"+ o.address +"<h1/></div><div class='deta_ul' openid="+o.openId+">";
+                    str+="<ul class='clear detaPic' id="+o.id+">";
+                    $.each(o.children,function (j,obj) {
+                        str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
+                        //明细图片fadeIn
+                        $(document).on("click", ".weui-uploader__file", function() {
+                            $galleryImg.attr("style", this.getAttribute("realPath"));
+                            $galleryDel.attr("imgid", this.getAttribute("imgid"));
+                            $gallery.fadeIn(100);
+                        });
+                    });
+                    str+="</ul>";
+                    str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol>'
+                    str+='</div><div/>';
+                });
+                details.html(str);
                 //删除水电图和明细
                 $(document).on("click",".delpic",function () {
-                    // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-                    var openID = $.getCookie('open_id');
+                    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                    //var openID = $.getCookie('open_id');
                     var detaId = $(this).parents("ol").attr("value");
                     weui.confirm('您确定要删除文件这条记录吗?', {
                         buttons: [{
@@ -116,8 +103,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	var openID=$.getCookie('open_id');
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	//var openID=$.getCookie('open_id');
 	loadList('getBillAndDetails', openID)
 });
 
@@ -141,8 +128,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc'; //'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
-			var openID=$.getCookie('open_id');//'oZIooxJ_MT0M1ApB_4caa_gvXgWc'
+			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			//var openID=$.getCookie('open_id');
 			loadList('getBillAndDetails', openID)
 		});
 	}
@@ -180,13 +167,11 @@ $(function() {
 
 //删除图片明细方法
 function galleryDel(obj) {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//console.log(obj.getAttribute("imgid"))
-	var openID = $.getCookie('open_id');
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	//var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
         url:genAPI('wxDev/file/deleteBillDetail'),
-		//url: "http://wx.hongyancloud.com/wxDev/file/deleteBillDetail",
 		data: {
 			openId: openID,
 			id: obj.getAttribute("imgid")
