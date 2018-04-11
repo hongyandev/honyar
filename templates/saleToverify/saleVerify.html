@@ -152,7 +152,8 @@
 				});
 				$.ajax({
 			        type: "get",
-			        url: "	http://wx.hongyancloud.com/wxDev/verificate/uidAuthority?uid="+res.resultStr,
+                    url:genAPI('wxDev/verificate/uidAuthority?uid='+res.resultStr),
+			        //url: "	http://wx.hongyancloud.com/wxDev/verificate/uidAuthority?uid="+res.resultStr,
 			        dataType:"json",
 			        success: function(data) {
 			        	loading.hide();
