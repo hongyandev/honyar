@@ -28,11 +28,10 @@ function loadList(action, openid, keyword) {
 				//var gallerySlider = $('#gallerySlider');
                     var str='';
 				$(returnData).each(function(i, o) {
-                    var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>'
+                    var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
                     var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
-					details.append('<div class="detaId"><div class="deta_h"><h1>' + o.address + '<h1/></div><div class="deta_ul"><ul class="clear" id=' + o.id + '></ul>');
-                    details.append('<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol>');
-                    details.append('</div></div>');
+					details.append('<div class="detaId"><div class="deta_h"><h1>' + o.address + '<h1/></div><div class="deta_ul"><ul class="clear" id=' + o.id + '></ul><ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div></div>');
+                    details.append('');
                     //gallerySlider.append('<div class="placeholder" id="placeholder_' + o.id + '"></div>');
 
 					var children = o.children;
@@ -60,7 +59,7 @@ function loadList(action, openid, keyword) {
 				});
                 //删除水电图和明细
                 $(document).on("click",".delpic",function () {
-                   //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                  // var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
                     var openID = $.getCookie('open_id');
                     var detaId = $(this).parents("ol").attr("value");
                     weui.confirm('您确定要删除文件这条记录吗?', {
