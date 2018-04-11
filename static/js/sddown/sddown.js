@@ -75,7 +75,8 @@ function loadList(action, openid, keyword) {
                             onClick: function(){
                                 $.ajax({
                                     type: "post",
-                                    url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails",
+                                    url:genAPI('wxDev/file/deleteDropowerAndDetails'),
+                                    //url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerAndDetails",
                                     data: {
                                         openId: openID,
                                         id: detaId
@@ -166,10 +167,10 @@ $(function() {
 		.on('change', function() {
 			if(this.value.length) {
 				//alert(this.value)
-				//var openID=$.getCookie('open_id');
+				var openID=$.getCookie('open_id');
 
-                var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-                alert(this.openID);
+                //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                //alert(this.openID);
 				loadList('searchDropower', openID, this.value);
 
 				$searchResult.show();
@@ -197,7 +198,7 @@ function galleryDel(obj) {
 	var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
-        url:genAPI('wxDev/file/deleteDropowerDetail')
+        url:genAPI('wxDev/file/deleteDropowerDetail'),
 		//url: "http://wx.hongyancloud.com/wxDev/file/deleteDropowerDetail",
 		data: {
 			openId: openID,
