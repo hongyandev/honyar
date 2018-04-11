@@ -6,8 +6,8 @@ function loadList(action, openid, keyword) {
 		type: 'get',
         url: genAPI('wxDev/file/'+ action) ,
 		data: {
-			openId: openid,
-			//openId:'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
+			//openId: openid,
+			openId:'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
 			content: keyword
 		},
 		success: function(returnDatas) {
@@ -27,10 +27,10 @@ function loadList(action, openid, keyword) {
                     str+="<div class='deta_h'><h1>"+ o.address +"<h1/></div><div class='deta_ul' openid="+o.openId+">";
                     str+="<ul class='clear detaPic' id="+o.id+">";
                     $.each(o.children,function (j,obj) {
-                        str+="<li class='weui-uploader__file' imgid="+obj.id+" style='background-image:url("+obj.fileRealPath+")'></li>"
+                        str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
                        //明细图片fadeIn
                         $(document).on("click", ".weui-uploader__file", function() {
-                            $galleryImg.attr("style", this.getAttribute("style"));
+                            $galleryImg.attr("style", this.getAttribute("realPath"));
                             $galleryDel.attr("imgid", this.getAttribute("imgid"));
                             $gallery.fadeIn(100);
                         });
@@ -106,8 +106,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	var openID=$.getCookie('open_id');
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	//var openID=$.getCookie('open_id');
 	loadList('getDropowerAndDetails', openID)
 });
 
@@ -131,8 +131,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			var openID=$.getCookie('open_id');
+			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			//var openID=$.getCookie('open_id');
 			loadList('getDropowerAndDetails', openID)
 		});
 	}
