@@ -19,8 +19,8 @@
 
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 <script type="text/javascript">
-    $('.btn').on("click",function () {
-        var clipboard = new Clipboard($(this).get(0), {
+    $('.btn').each(function(){
+    	var clipboard = new Clipboard($(this).get(0), {
             target: function () {
                 return $('#biao1').get(0);
             }
@@ -28,7 +28,6 @@
         clipboard.on('success', function (e) {
             alert('复制成功');
         });
-
         clipboard.on('error', function (e) {
             alert('复制失败，请手动复制！');
         });
