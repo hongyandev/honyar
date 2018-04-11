@@ -38,9 +38,9 @@ var vmInfo=new Vue;
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
-			var datas = data.data
-			this.workersItem = datas
-			this.title = '请选择服务商'
+			var datas = data.data;
+			this.workersItem = datas;
+			this.title = '请选择服务商';
 			vmInfo.data.message;
 	
 		},
