@@ -6,8 +6,8 @@ function loadList(action, openid, keyword) {
 		type: 'get',
         url: genAPI('wxDev/file/'+ action) ,
 		data: {
-			//openId: openid,
-			openId:'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
+			openId: openid,
+			//openId:'oZIooxJ_MT0M1ApB_4caa_gvXgWc',
 			content: keyword
 		},
 		success: function(returnDatas) {
@@ -106,8 +106,8 @@ function loadList(action, openid, keyword) {
 
 }
 $(document).ready(function() {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//var openID=$.getCookie('open_id');
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID=$.getCookie('open_id');
 	loadList('getDropowerAndDetails', openID)
 });
 
@@ -131,8 +131,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			//var openID=$.getCookie('open_id');
+			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			var openID=$.getCookie('open_id');
 			loadList('getDropowerAndDetails', openID)
 		});
 	}
