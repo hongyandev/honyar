@@ -19,15 +19,6 @@ function Bt_submit(uploadFiles) {
     var files= $("#uploaderInput").get(0).files;
 	var theRequest = GetRequest();
 	var formdata = new FormData();
-    //图片压缩
-    // $uploaderInput.on("change", function(e) {
-    //     lrz(this.files[0], {width: 300}).then(function (rst) {
-    //         rst.formdata.append('base64img', rst.base64);
-    //         //压缩后的图片暂存在变量formdata中
-    //         formdata = rst.formdata;
-    //     });
-    //
-    // });
     if(files.length>0){
         for(var i=0;i<files.length;i++){
             formdata.append('files',files[i])
