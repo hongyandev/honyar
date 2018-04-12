@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 <title>鸿雁官方旗舰店</title>
 	<style>
-		#biao1{font-family:"Microsoft YaHei";border:none;font-size:15px;text-align: center;display:block;background-color:#9feb6a;border-radius:10px;width:90%;padding:15px 5%;text-decoration: none;color:#000;}
+		#biao1{font-family:"Microsoft YaHei";border:none;font-size:15px;text-align: center;display:block;background-color:#9feb6a;border-radius:10px;width:90%;padding:15px 5%;margin:10px auto;text-decoration: none;color:#000;}
 		.btn{border:none;background: #ff6900;height:45px;padding:0 45px;border-radius: 20px;font-size:16px;color:#fff;margin-top:21px;display: inline-block}
 	</style>
-
+	<link rel="stylesheet" type="text/css" href="../../static/css/css/weui.min.css"/>
 </head>
 
 <body>
-<div style="width:80%; margin: 0 auto;text-align: center">
+<div style="width:80%; margin: 0 auto;text-align: center;">
 		<p id="biao1">【鸿雁旗舰店】，复制这条信息￥YGrv0rrMfuJ￥后打开手淘</p>
 		<button class="btn" type="button">一键复制</button>
 </div>
 <script src="../../static/js/jquery-2.1.4.js"></script>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script src="../../static/js/weui.min.js"></script>
 <script type="text/javascript">
     $('.btn').each(function(){
     	var clipboard = new Clipboard($(this).get(0), {
@@ -26,10 +27,10 @@
             }
         });
         clipboard.on('success', function (e) {
-            alert('复制成功');
+              weui.toast('复制成功',2000);
         });
         clipboard.on('error', function (e) {
-            alert('复制失败，请手动复制！');
+            weui.topTips('复制失败,请手动复制',2000);
         });
     });
 </script>
