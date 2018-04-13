@@ -139,3 +139,6 @@
 				.count{
 					color:#b1b1b1;
 				}
+                .weui-popup__modal .toolbar{
+                    z-index: 10;
+                }
