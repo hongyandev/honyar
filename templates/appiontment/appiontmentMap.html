@@ -55,8 +55,10 @@
                             <label for="" class="weui-label">服务类型</label>
                         </div>
                         <div class="weui-cell__bd">
-                            <select class="weui-select" v-model="serviceType" @change="changeData">
-                                <option v-for="option in serviceTypes" :value="option.serviceType" v-text="option.serviceTypeDesc"></option>
+                            <select id="serviceType" class="weui-select" v-model="serviceType">
+                            <template v-for="option in serviceTypes">
+                                <option :value="option.serviceType" v-text="option.serviceTypeDesc"></option>
+                            </template>
                             </select>
                         </div>
                     </div>
