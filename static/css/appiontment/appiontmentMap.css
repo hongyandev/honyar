@@ -127,4 +127,15 @@
 					text-align: center;
 					color: #8BC34A;
 				}
-				
+
+				.weui-vcode-btn{
+					width:90px;
+					padding:0;
+					font-size:14px;
+				}
+				.weui-vcode-btn span{
+					font-size: 14px;
+				}
+				.count{
+					color:#b1b1b1;
+				}
