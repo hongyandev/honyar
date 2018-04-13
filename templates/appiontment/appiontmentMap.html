@@ -10,10 +10,6 @@
 		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css?v=1.0.0">
 		<link rel="stylesheet" href="../../static/css/appiontment/appiontmentMap.css?v=1.0.0">
 		<script src="../../static/js/utils/common.js?v=1.0.0"></script>
-		<!--<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0"></script>
-		<script src="../../static/js/jquery-2.1.4.js?v=1.0.0"></script>
-		<script src="../../static/js/jquery-weui.js?v=1.0.0"></script>
-		<script src="../../static/js/fastclick.js?v=1.0.0"></script>-->
 		<script src="../../static/js/lib-jq.js"></script>
 		<script src="//webapi.amap.com/maps?v=1.4.3&key=ae4b6a00d98aef05211a06f61981321e"></script>
 		<!-- UI组件库 1.0 -->
@@ -21,9 +17,7 @@
 		<script src="//cdn.jsdelivr.net/npm/vue"></script>
 		<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js?v=1.0.0"></script>
 		<script src="../../static/js/appiontment/appiontmentMap.js?v=1.0.0"></script>
-
-		<!--<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+        
 	</head>
 
 	<body>
@@ -55,7 +49,17 @@
 							<input id="district" class="weui-input" type="text" placeholder="请输入所在地区" v-bind:value="district" v-on:click="selButClick" readonly>
 						</div>
 					</div>
-
+                    <!--可预约类型-->
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd">
+                            <label for="" class="weui-label">服务类型</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <select class="weui-select" v-model="serviceType" @change="changeData">
+                                <option v-for="option in serviceTypes" :value="option.serviceType" v-text="option.serviceTypeDesc"></option>
+                            </select>
+                        </div>
+                    </div>
 					<!--可预约水电工-->
 					<div class="weui-cell">
 						<div class="weui-cell__hd"><label class="weui-label">可预约水电工</label></div>
@@ -101,7 +105,7 @@
 					<div class="weui-popup__modal">
 						<div class="toolbar">
 							<div class="toolbar-inner">
-								<a href="javascript:;" class="picker-button" v-on:click="closeDistrict">返回</a>
+								<a style="left:0;" href="javascript:;" class="picker-button-l" v-on:click="closeDistrict">返回</a>
 								<h1 class="title">可预约的水电工</h1>
 							</div>
 						</div>
@@ -181,7 +185,10 @@
 												<input class="weui-input" type="tel" placeholder="请输入手机号" v-model="reserveTelephone">
 											</div>
 											<div class="weui-cell__ft">
-												<button class="weui-vcode-btn" @click="smsclick">获取验证码</button>
+												<button class="weui-vcode-btn" @click="smsclick" :disabled="!show">
+													<span v-show="show">获取验证码</span>
+													<span v-show="!show" class="count" style="color:#b1b1b1">倒计时{{count}} s</span>
+												</button>
 											</div>
 										</div>
 
@@ -197,7 +204,7 @@
 												<label for="" class="weui-label">服务类型</label>
 											</div>
 											<div class="weui-cell__bd">
-												<select class="weui-select" v-model="serviceType">
+												<select class="weui-select" v-model="serviceType" :disabled="disabled">
 													<option v-for="option in serviceTypes" :value="option.serviceType" v-text="option.serviceTypeDesc"></option>
 												</select>
 											</div>
