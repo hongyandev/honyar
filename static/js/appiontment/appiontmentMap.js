@@ -1,7 +1,9 @@
 $(function() {
+    const time_count = 60;
 	// key
 	var key = 'b3f46725cfbf1073af700a708c2eb00c';
 	// TODO 1.这里缺少一个 开始获取用户坐标的方法
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 	//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
 	var openID=$.getCookie('open_id');
 	mapObj = new AMap.Map('iCenter');
@@ -31,7 +33,7 @@ $(function() {
 	}
 
 	function onComplete(data) {
-		console.log(data)
+		//console.log(data)
 		// 得到数据后开始转
 		var lng = data.position.lng // 长的
 		vm.lng = lng
@@ -105,6 +107,10 @@ $(function() {
 			workersItem: [], // 水电工数据 item
 			supplier: '    请选择预约水电工',
 			address: '',
+            show: true,
+            count: '',
+            timer: null,
+            disabled:true,
 			districtComponent: null,
 			title: '请选择',
 			cells: [{
@@ -114,17 +120,54 @@ $(function() {
 				name: "北京市"
 			}]
 		},
+        mounted: function (){
+            this.showData();
+            },
 
 		methods: {
+		    //获取服务类型
+            showData:function () {
+                $.ajax({
+                    url:genAPI('wxDev/reserve/getServiceType?openId=' + openID),
+                    type:"GET",
+                    dataType:"json",
+                    success:function(res){
+                        if(res.code==00000){
+                            for(var i=0;i<res.data.length;i++){
+                            	vm.serviceTypes.push(res.data[i]);
+							}
+
+                        }
+                    },
+                    error:function(){
+                        weui.topTips(res.msg,3000);
+                    }
+                });
+            },
+            changeData:function () {
+                console.log(this.serviceType);
+            },
 			// 获取验证码
 			smsclick: function() {
-				var phone = vm.reserveTelephone
+				var phone = vm.reserveTelephone;
 				if(isPhoneNo(phone) == false) {
 					alert('请输入正确的手机号码')
 					//weui.topTips('请输入正确的手机号码', 3000);
 					return;
-				}
-
+				};
+                if (!this.timer) {
+                    this.count = time_count;
+                    this.show = false;
+                    this.timer = setInterval(() => {
+                        if (this.count > 0 && this.count <= time_count) {
+                        this.count--;
+                    } else {
+                        this.show = true;
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    };
+                }, 1000)
+                };
 				$.ajax({ // 获取验证码
 					url:genAPI('wxDev/reserve/sendIcode?telephone='+ phone),
 					//url: "http://wx.hongyancloud.com/wxDev/reserve/sendIcode?telephone=" + phone, // TODO  这里用真号码居然错误+ phone
@@ -183,7 +226,7 @@ $(function() {
 				//				alert(district);
 				//				alert("http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude);
 				$.ajax({ // 获取当前经纬度 省 市 的水电工列表
-					url:genAPI('wxDev/reserve/getDealerList?'+province + city + longitude + latitude),
+					url:genAPI('wxDev/reserve/getDealerList?'+province + city + longitude + latitude + '&serviceType=' + this.serviceType),
 					//url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude, // province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546改为::1.  vm.mapoption.addressComponent.province 省 2. vm.mapoption.addressComponent.city 市 3. vm.mapoption.position.lng 长的度数 4.  vm.mapoption.position.lat  短的度数
 					async: false,
 					type: 'GET',
@@ -288,9 +331,11 @@ $(function() {
 				});
 				return format;
 			},
+            selToDisabled:function () {
+                this.selToDisabled=true;
+            },
 			// 预约人信息提交
 			userPostSubmit: function() {
-
 				var myData = {
 					openId: openID,
 					serviceType: vm.serviceType, // 服务类型
@@ -387,8 +432,8 @@ $(function() {
 			map: map
 		});
 		positionPicker.on('success', function(result) {
-			console.log('XXX');
-			console.log(result);
+			//console.log('XXX');
+			//console.log(result);
 			var component = result.regeocode.addressComponent;
 			NewProvince = component.province;
 			NewCity = component.city;
