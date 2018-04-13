@@ -84,7 +84,7 @@ $(function() {
 			lng: 120.037467,
 			lat: 30.24546,
 			openId: '', // 微信给用户分配的ID
-			serviceType: '', // 服务类型的值
+			serviceType: '1', // 服务类型的值
 			serviceTypes: [], // 服务类型列表
 			reserveType: '', // 预约人类型的值
 			reserveTypes: [], // 预约人类型列表
@@ -123,7 +123,6 @@ $(function() {
         mounted: function (){
             this.showData();
             },
-
 		methods: {
 		    //获取服务类型
             showData:function () {
@@ -133,10 +132,16 @@ $(function() {
                     dataType:"json",
                     success:function(res){
                         if(res.code==00000){
-                            for(var i=0;i<res.data.length;i++){
-                            	vm.serviceTypes.push(res.data[i]);
-							}
-
+                            // for(var i=0;i<res.data.length;i++){
+                            	// vm.serviceTypes.push(res.data[i]);
+							// }
+                            vm.serviceTypes=res.data;
+                            // $('#serviceType').val(1);
+                          // var obj = document.getElementById('serviceType');
+                          //   for(i=0;i<obj.length;i++){
+                          //       if(obj[i].value==1)
+                          //           obj[i].selected = true;
+                          //   }
                         }
                     },
                     error:function(){
@@ -144,14 +149,11 @@ $(function() {
                     }
                 });
             },
-            changeData:function () {
-                console.log(this.serviceType);
-            },
 			// 获取验证码
 			smsclick: function() {
 				var phone = vm.reserveTelephone;
 				if(isPhoneNo(phone) == false) {
-					alert('请输入正确的手机号码')
+					alert('请输入正确的手机号码');
 					//weui.topTips('请输入正确的手机号码', 3000);
 					return;
 				};
