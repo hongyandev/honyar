@@ -123,6 +123,31 @@ $(function() {
         mounted: function (){
             this.showData();
             },
+
+        watch : {
+            reserveName : function (val, reserveType) {
+                if(vm.reserveType=='1'){
+                    vm.userName = val;
+                }
+            },
+            reserveTelephone : function (val, reserveType) {
+                if(vm.reserveType=='1'){
+                    vm.userTelephone = val
+                }
+            },
+            reserveType : function (val) {
+                if(val!='1'){
+                    vm.reserveName='';
+                    vm.reserveTelephone='';
+                    vm.userName='';
+                    vm.userTelephone='';
+                    vm.iCode='';
+                    vm.comment='';
+                    vm.detailAddress='';
+                    vm.reserveDate='';
+                }
+            }
+        },
 		methods: {
 		    //获取服务类型
             showData:function () {
@@ -136,12 +161,6 @@ $(function() {
                             	// vm.serviceTypes.push(res.data[i]);
 							// }
                             vm.serviceTypes=res.data;
-                            // $('#serviceType').val(1);
-                          // var obj = document.getElementById('serviceType');
-                          //   for(i=0;i<obj.length;i++){
-                          //       if(obj[i].value==1)
-                          //           obj[i].selected = true;
-                          //   }
                         }
                     },
                     error:function(){
