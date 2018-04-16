@@ -105,8 +105,8 @@ function loadList(action, openid, keyword) {
 }
 
 $(document).ready(function() {
-    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-    //var openID=$.getCookie('open_id');
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID)
 });
 //检索后加载列表
@@ -128,8 +128,8 @@ $(function() {
 		$searchBar.removeClass('weui-search-bar_focusing');
 		$searchText.show();
 		$(document).ready(function() {
-			var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			//var openID=$.getCookie('open_id');
+			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			var openID=$.getCookie('open_id');
 			loadList('getDropowerAndDetails', openID)
 		});
 	}
@@ -144,8 +144,8 @@ $(function() {
 		})
 		.on('change', function() {
 			if(this.value.length) {
-				//var openID=$.getCookie('open_id');
-                var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+				var openID=$.getCookie('open_id');
+                //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 				loadList('searchDropower', openID, this.value);
 
 				$searchResult.show();
@@ -168,8 +168,8 @@ $(function() {
 
 //删除图片明细方法
 function galleryDel(obj) {
-	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//var openID = $.getCookie('open_id');
+	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = $.getCookie('open_id');
 	$.ajax({
 		type: "post",
         url:genAPI('wxDev/file/deleteDropowerDetail'),
