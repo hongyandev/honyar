@@ -21,17 +21,12 @@ function loadList(action, openid, keyword) {
 				$.each(returnData,function (i,o) {
                     var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
                     var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
-                    str="<div class='detaId'>";
+                    str+="<div class='detaId'>";
                     str+="<div class='deta_h'><h1>"+ o.address +"</h1></div><div class='deta_ul' openid="+o.openId+">";
                     str+="<ul class='clear detaPic' id="+o.id+">";
                     $.each(o.children,function (j,obj) {
                         str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
-                       //明细图片fadeIn
-                        $(document).on("click", ".weui-uploader__file", function() {
-                            $galleryImg.attr("style", this.getAttribute("realPath"));
-                            $galleryDel.attr("imgid", this.getAttribute("imgid"));
-                            $gallery.fadeIn(100);
-                        });
+
                     });
                     str+="</ul>";
                     if(o.openId == openid){
@@ -40,10 +35,14 @@ function loadList(action, openid, keyword) {
                         $(".weui-gallery__opr").hide();
                     }
                     str+='</div>';
-                    details.append(str);
                 });
-
-
+                details.html(str);
+                //明细图片fadeIn
+                $(document).on("click", ".weui-uploader__file", function() {
+                    $galleryImg.attr("style", this.getAttribute("realPath"));
+                    $galleryDel.attr("imgid", this.getAttribute("imgid"));
+                    $gallery.fadeIn(100);
+                });
                 //删除水电图和明细
                 $(document).on("click",".deletePic",function () {
                     var openID = $(this).parents("ol").parents(".deta_ul").attr("openid");
@@ -110,7 +109,6 @@ $(document).ready(function() {
     var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID)
 });
-
 //检索后加载列表
 $(function() {
 	var $searchBar = $('#searchBar'),
@@ -146,8 +144,8 @@ $(function() {
 		})
 		.on('change', function() {
 			if(this.value.length) {
-				var openID=$.getCookie('open_id');
-                //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+				//var openID=$.getCookie('open_id');
+                var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 				loadList('searchDropower', openID, this.value);
 
 				$searchResult.show();
