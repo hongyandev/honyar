@@ -27,7 +27,7 @@ function loadList(action, openid, keyword) {
                     $.each(o.children,function (j,obj) {
                         str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
                         //明细图片fadeIn
-                        $(document).on("click", ".weui-uploader__file", function() {
+                        $(".detaPic").on("click", "li", function() {
                             $galleryImg.attr("style", this.getAttribute("realPath"));
                             $galleryDel.attr("imgid", this.getAttribute("imgid"));
                             $gallery.fadeIn(100);
