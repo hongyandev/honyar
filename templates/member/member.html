@@ -8,67 +8,43 @@
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
 		<title>水电管家</title>
-		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/common.css"/>
 		<link rel="stylesheet" href="../../static/css/member/member.css?v=1.0.0" />
-		<!--<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />-->
 		<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../../static/js/jquery.min.js?v=1.0.0"></script>
-		<!--<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js?v=1.0.0" ></script>-->
+        <script src="../../static/js/config.js"></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js?v=1.0.0" ></script>
+        <script src="../../static/js/member/member.js"></script>
 	</head>
 
 	<body ontouchstart>
-
 		<div class="all">
 			<div class="head_back">
 				<img src="../../static/img/login/login_back.jpg" />
-			</div>
-			<div class="weinfo">
-				<div class="weinfo_head">
-					<img id="headImg" src="../../static/img/login/weinfo_head.jpg" />
-				</div>
-				<div class="weinfo_label">
-					<label id="nickName">Small.....</label>
-				</div>
-			</div>
-			<div class="bodytip">
-				<div class="body_text">
-					<div class="body_text_div">
-						<label class="body_text_div_phone">姓名</label>
-						<!--<input type="text" name="inputName" id="vipname" />-->
+				<div class="weinfo">
+					<div class="weinfo_head">
+						<img id="headImg" src="../../static/img/login/weinfo_head.jpg" />
 					</div>
-				</div>
-				<div class="body_hr">
-					<hr />
-				</div>
-				<div class="body_text">
-					<div class="body_text_div">
-						<label class="body_text_div_phone">电话</label>
-						<!--<input type="text" name="inputName" id="vipname" />-->
-					</div>
-				</div>
-				<div class="body_hr">
-					<hr />
-				</div>
-			</div>
-			<!--<div class="body_text">
-				<div class="body_text_div">
-					<div class="weui-cell weui-cell_vcode">
-						<div class="weui-cell__hd">
-							<label class="weui-label">性别</label>
-						</div>
-						<a class="weui-cell weui-cell_access" href="javascript:;">
-							<div class="weui-cell__bd">
-								<p>cell standard</p>
-							</div>
-							<div class="weui-cell__ft">
-							</div>
-						</a>
+					<div class="weinfo_label">
+						<label id="nickName">Small.....</label>
 					</div>
 				</div>
 			</div>
-			<div class="body_hr">
-				<hr />
-			</div>-->
+			<ul class="bodytip">
+				<li class="weui-cell weui-cell_access">
+					<div class="weui-cell__bd">
+						<span style="vertical-align: middle">姓名</span>
+					</div>
+					<div class="weui-cell__ft userName">samall</div>
+				</li>
+                <li class="weui-cell weui-cell_access">
+                    <div class="weui-cell__bd">
+                        <span style="vertical-align: middle">电话</span>
+                    </div>
+                    <div class="weui-cell__ft userTel">16565656565</div>
+                </li>
+			</ul>
+
 		</div>
 	</body>
 
