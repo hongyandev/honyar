@@ -39,6 +39,7 @@
 			<tr><td>02</td><td>获取注册验证码</td><td><a href="#02">详情</td></tr>
 			<tr><td>03</td><td>用户注册</td><td><a href="#03">详情</td></tr>
 			<tr><td>03-01</td><td>判断用户是否注册</td><td><a href="#03-01">详情</td></tr>
+			<tr><td>03-02</td><td>根据openId获取用户的详细信息</td><td><a href="#03-02">详情</td></tr>
 			<tr><td>04</td><td>获取产品类型</td><td><a href="#04">详情</td></tr>
 			<tr><td>05</td><td>保存质保单主单</td><td><a href="#05">详情</td></tr>
 			<tr><td>06</td><td>保存质保单明细</td><td><a href="#06">详情</td></tr>
@@ -158,7 +159,7 @@
 			<tr><td class="cc">接口名称：</td><td><b>判断用户是否注册</b></td></tr>
 			<tr><td>接口描述：</td><td>判断用户是否注册</td></tr>
 			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/judgeRegister</td></tr>
-			<tr><td>请求方式：</td><td>POST</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
 			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
 			<tr><td>请求参数说明：</td><td>
 				<table id="list" border="1" cellpadding="0" cellspacing="0">
@@ -167,6 +168,25 @@
 				</table>
 			</td></tr>
 			<tr><td>返回json：</td><td>{code: "00000", msg: "成功", data: null}</td></tr>
+			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="03-02">接口编号：03-02</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>根据openId获取用户的详细信息</b></td></tr>
+			<tr><td>接口描述：</td><td>根据openId获取用户的详细信息</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/user/getUserInfo</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>是</td><td>微信Id</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td><a href="03-02.html">详见链接</a></td></tr>
 			<tr><td>其他备注：</td><td>code != "000000",直接显示 msg 即为错误信息</td></tr>
 		</table>
 	</div>
