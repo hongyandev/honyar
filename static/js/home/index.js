@@ -53,11 +53,10 @@ $(function () {
 });
 
 
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/hongyandev/honyar.git
+
+
 
 jQuery(document).ready(function($) {
 	$('.fadeOut').owlCarousel({
