@@ -27,7 +27,8 @@ $(function () {
 
     $("#userPic").on("click",function () {
         var obj = $(this);
-        obj.disable();
+        obj.attr({"disable":true});
+        alert(1);
         $.ajax({
             type: "post",
             url:genAPI('/wxDev/refreshHeaderUrl'),
@@ -36,19 +37,19 @@ $(function () {
             },
             dataType: "json",
             success: function(res) {
-                obj.enable();
+                obj.attr({"enable":true});
                 if(res.code == "00000") {
-                    //console.info(res.data.openId);
+                    console.info(res.data.openId);
                     //window.location.href= window.location.href;
-                    if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
+                    /*if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
                          $('#headImg').attr('src',decodeURIComponent($.getCookie('head_url')));
                      }
                      if (!$.isNull(decodeURIComponent($.getCookie('nick_name')))) {
                          $('#nickName').html(decodeURIComponent($.getCookie('nick_name')));
-                     }
+                     }*/
                 }
             }, error: function(XMLHttpRequest, textStatus, errorThrown) {
-                obj.enable();
+                obj.enable({"enable":true});
             }
 
         });
