@@ -22,13 +22,12 @@ $(function () {
         }
 
     });
-<<<<<<< HEAD
     
     $('#btn').click(function(){
 		window.location.href = req.removeCookieOpenId;
 	});
 })
-=======
+
 
     $("#userPic").on("click",function () {
         $.ajax({
