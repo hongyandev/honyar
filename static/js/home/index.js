@@ -22,11 +22,11 @@ $(function () {
         }
 
     });
+    
+    $('#btn').click(function(){
+		window.location.href = req.removeCookieOpenId;
+	});
 })
-
-
-
-
 
 jQuery(document).ready(function($) {
 	$('.fadeOut').owlCarousel({
