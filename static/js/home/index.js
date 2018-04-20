@@ -26,6 +26,8 @@ $(function () {
 
 
     $("#userPic").on("click",function () {
+        var obj = $(this);
+        obj.disable();
         $.ajax({
             type: "post",
             url:genAPI('/wxDev/refreshHeaderUrl'),
@@ -34,6 +36,7 @@ $(function () {
             },
             dataType: "json",
             success: function(res) {
+                obj.enable();
                 if(res.code == "00000") {
                     //console.info(res.data.openId);
                     //window.location.href= window.location.href;
@@ -45,7 +48,7 @@ $(function () {
                      }
                 }
             }, error: function(XMLHttpRequest, textStatus, errorThrown) {
-
+                obj.enable();
             }
 
         });
