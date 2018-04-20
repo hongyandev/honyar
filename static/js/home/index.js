@@ -55,6 +55,9 @@ $(function () {
 
 
 
+
+
+
 jQuery(document).ready(function($) {
 	$('.fadeOut').owlCarousel({
 		items: 1,
