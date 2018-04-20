@@ -14,9 +14,9 @@ $(function () {
                 jQuery(".top_info label").html("注册");
                 jQuery(".top_info a").attr("href","login/login.html");
             }
-			if(openID=="oZIooxJ_MT0M1ApB_4caa_gvXgWc"){
+			/*if(openID=="oZIooxJ_MT0M1ApB_4caa_gvXgWc"){
             	$("#btn").show();
-			}
+			}*/
         }, error: function(XMLHttpRequest, textStatus, errorThrown) {
 
         }
