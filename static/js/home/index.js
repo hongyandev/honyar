@@ -22,11 +22,44 @@ $(function () {
         }
 
     });
+<<<<<<< HEAD
     
     $('#btn').click(function(){
 		window.location.href = req.removeCookieOpenId;
 	});
 })
+=======
+
+    $("#userPic").on("click",function () {
+        $.ajax({
+            type: "post",
+            url:genAPI('/wxDev/refreshHeaderUrl'),
+            data:{
+                "openId":openID,
+            },
+            dataType: "json",
+            success: function(res) {
+                if(res.code == "00000") {
+                    //console.info(res.data.openId);
+                    if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
+                         $('#headImg').attr('src',decodeURIComponent($.getCookie('head_url')));
+                     }
+                     if (!$.isNull(decodeURIComponent($.getCookie('nick_name')))) {
+                         $('#nickName').html(decodeURIComponent($.getCookie('nick_name')));
+                     }
+                }
+            }, error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+
+        });
+    });
+});
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/hongyandev/honyar.git
 
 jQuery(document).ready(function($) {
 	$('.fadeOut').owlCarousel({
@@ -44,12 +77,12 @@ jQuery(document).ready(function($) {
 		smartSpeed: 450
 	});
 	
-	if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
+	/*if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
 		$('#headImg').attr('src',decodeURIComponent($.getCookie('head_url')));
 	}
 	if (!$.isNull(decodeURIComponent($.getCookie('nick_name')))) {
 		$('#nickName').html(decodeURIComponent($.getCookie('nick_name')));
-	}
+	}*/
 });
 
 document.addEventListener('touchmove', function(e) {
