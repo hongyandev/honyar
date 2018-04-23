@@ -307,6 +307,10 @@ html {
 .discountInfo .infoMj span:last-child{
     color:#f92b24;
 }
+.infoMj b{
+	color:#0066ff;
+	font-weight: normal;
+}
 .discountInfo .infoHx{
     height:45px;
     background-color: #f5f5f5;
