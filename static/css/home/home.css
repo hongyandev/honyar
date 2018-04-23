@@ -1,19 +1,22 @@
 .home{
-	position: relative;
-	height: 100%;
 	width: 100%;
+    height:100%;
 }
 .home_top {
 	position: relative;
 	width: 100%;
-	height: 25%;
+	height: auto;
 }
-
+.home_top img{
+	width:100%;
+    height:100%;
+}
 .top_head
 {   
 	z-index: 100;
 	position: absolute; 
-	top:25%;
+	top:50%;
+    margin-top:-30px;
 	left: 5%;
 	width: 59px;
 	height: 59px;
@@ -30,25 +33,32 @@
 {
 	z-index: 101;
 	position: absolute;
-	top:56%;
-	left: 25%;
+	top:50%;
+    margin-top:-30px;
+	left: 30%;
 	color: white;
 	font-size: 12px;
 	font-weight: 600;
+    line-height:70px;
+}
+.top_info{
+    position:absolute;
+    top:50%;
+    right:10%;
+    margin-top:-15px;
+    z-index: 101;
+    padding:0 20px;
+    border-radius: 15px;
+    background-color:rgba(225,242,240,0.5);
+    line-height:30px;
+
 }
 .top_info label
 {
-	z-index: 101;
-	position: absolute;
-	top:56%;
-	left: 70%;
 	color: white;
 	font-size: 12px;
 	font-weight: 500;
 	text-align:center;
-	border-radius: 8px;
-	background-color:rgba(225,242,240,0.5);
-	width: 60px;
 }
 .top_back
 {
@@ -66,11 +76,9 @@
 	top: 3px;
 	width: 100%;
 	height: auto;
+    overflow-y: scroll;
 }
-.weui-grids
-{	
 
-}
 .weui-grid
 {
 	height: 100%;
@@ -87,7 +95,7 @@
 .turnPlayImg
 {
 	width: 100%;
-	height: 30%;
+	height: 120px;
 }
 .item{
 	width: 100%;
