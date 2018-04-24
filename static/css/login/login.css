@@ -75,6 +75,8 @@ html {
 	width: 80%;
 	height:60px;
 	outline: none;
+	font-size: 16px;
+	text-align: center;
 }
 
 .body_text_div_code {
@@ -181,9 +183,6 @@ html {
 .weui-label {
 	font-size: 13px;
 	width: 45px !important;
-}
-.weui-input {
-	font-size: 13px !important;
 }
 
 /*.weui-cell_vcode{
