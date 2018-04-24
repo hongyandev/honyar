@@ -1,5 +1,5 @@
 
-var ENV = 'TEST'; // TEST 测试  PROD 正式
+var ENV = 'PROD'; // TEST 测试  PROD 正式
 
 // 系统配置
 var config = (function(){
