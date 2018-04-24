@@ -42,6 +42,7 @@ html {
 .bodyInput{
 	position:absolute;
 	top:80px;
+	width:100%;
 }
 .body_text{
 	/*position: relative;*/
@@ -54,12 +55,12 @@ html {
 }
 
 .body_text_div{
-	/*position: relative;*/
-	/*width: 76%;*/
+	position: relative;
+	width: 76%;
 	height: 100%;
-	/*left: 13%;
-	top: 47%;*/
-	padding:0 30px;
+	left: 13%;
+	/*top: 47%;*/
+	/*padding:0 30px;*/
 }
 
 .body_text_div_phone {
@@ -105,10 +106,11 @@ html {
 	position: absolute;
 	z-index: 3;
 	top: -9%;
-	left: 35%;
-	width: 80px;
-	height: 80px;
+	/*left: 35%;*/
+	/*width: 80px;*/
+	/*height: 80px;*/
 	/*align-content: center;*/
+	width: 100%;
 	text-align: center;
 }
 
