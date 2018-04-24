@@ -7,7 +7,9 @@ $(function () {
         dataType:"json",
         success: function(data) {
         if(data.code != "00000") {
-            window.location.href="error.html?error="+data.msg;
+            $(".msg").html(data.msg);
+            $(".weAlert").show();
+           // window.location.href="error.html?error="+data.msg;
         }else {
             if(data.code == "00000") {
                 jQuery("#khdm").val(data.data.khdm);
