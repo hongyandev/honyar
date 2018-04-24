@@ -7,13 +7,6 @@
 		<title>核销</title>
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
         <link rel="stylesheet" href="../../static/css/styles.css">
-        <!--<script src="../../static/js/jquery-2.1.4.js"></script>
-        <script type="text/javascript" src="../../static/js/weui.min.js" ></script>
-        <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
-        <script type="text/javascript" src="../../static/js/utils/wxApi.js" ></script>
-        <script type="text/javascript" src="../../static/js/lrz.all.bundle.js"></script>
-        <script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-        <script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
         <script src="../../static/js/lib-jq.js"></script>
         <script type="text/javascript" src="../../static/js/saleToverify/saleVerify.js" ></script>
     </head>
@@ -134,6 +127,12 @@
     <div style="margin:20px;">
         <a href="javascript:;" class="weui-btn weui-btn_primary" id="submit">提交</a>
     </div>
+  <div class="weAlert" style="display: none">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div style="padding:20px;line-height:40px;"><p>错误提示</p><p class="msg"></p></div>
+    </div>
+  </div>
 </body>
 
 <script>
