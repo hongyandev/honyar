@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-<title>水电工二维码</title>
-</head>
 
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<link rel="stylesheet" href="../../static/css/discount/discount.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/weui.min.css" />
+		<script src="../../static/js/config.js"></script>
+		<script src="../../static/js/weui.min.js?v=1.0.0.js"></script>
+		<script src="../../static/js/jquery-2.1.4.js"></script>
+		<script src="../../static/js/jquery-weui.js"></script>
+		<title>水电工二维码</title>
+	</head>
+	<script>
+		$(function() {
+			//var openId = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+			//var openId=$.getCookie('open_id');
+			$.showLoading = function(text) {
+				var html = '<div class="weui_loading">';
+				html += '<div class="weui-loadmore">\n' +
+					'        <i class="weui-loading"></i>\n' +
+					'        <span class="weui-loadmore__tips">正在加载</span>\n' +
+					'      </div>';
+				html += '</div>'
+				$(".uidImg").html(html);
+			};
+			$.showLoading();
 
-</body>
+			function GetRequest() {
+				var url = location.search; //获取url中"?"符后的字串   
+				var theRequest = new Object();
+				if(url.indexOf("?") != -1) {
+					var str = url.substr(1);
+					strs = str.split("&");
+					for(var i = 0; i < strs.length; i++) {
+						theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+					}
+				}
+				return theRequest;
+			}
+			var uId = GetRequest();
+			console.info(uId);
+			$(".uIdImg img").attr("src",genAPI("wxDev/qrcode/getQrcode?type=1&uid=" + uId));
+//			alert(uId);
+			/*$.ajax({
+				type: 'get',
+				url: genAPI('wxDev/qrcode/getQrcode?type=1&uid' + uId),
+				success: function(data) {
+					if(data.code == "00000") {
+						jQuery(".uIdImg").html(data.image);
+						alert(jQuery(".uIdImg").html(html));
+					} else {
+						weui.topTips(data.msg);
+					}
+				},
+				error: function(data) {
+					weui.topTips('网络异常,请检查您的网络');
+				}
+			});*/
+		})
+	</script>
+
+	<body>
+		<div class="uIdImg">
+			<img src="" />
+		</div>
+	</body>
+
 </html>
