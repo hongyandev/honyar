@@ -13,6 +13,8 @@
 		<script>
 			$(function () {
                 //var openId = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+                //var openId='owoh4joV0zYw7mbFhNkyNmYaeATw';
+                //var openId='owoh4joptj9sj3fU7ULmA0NQiVvI';
                 var openId=$.getCookie('open_id');
                 $.showLoading = function(text) {
                     var html = '<div class="weui_loading">';
@@ -31,6 +33,7 @@
 					dataType:"json",
                     success:function (res) {
                         if(res.code==00000){
+                                alert(openId);
                                 jQuery(".discountImg").html(res.data.image);
                                 jQuery(".codeName").html(res.data.name);
                                 jQuery(".yhx").html(res.data.preferential);
