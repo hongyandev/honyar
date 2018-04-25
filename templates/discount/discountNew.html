@@ -33,7 +33,6 @@
 					dataType:"json",
                     success:function (res) {
                         if(res.code==00000){
-                                alert(openId);
                                 jQuery(".discountImg").html(res.data.image);
                                 jQuery(".codeName").html(res.data.name);
                                 jQuery(".yhx").html(res.data.preferential);
@@ -41,8 +40,6 @@
                                 jQuery(".Opentime time").html(res.data.openTime);
                                 jQuery(".jxstel").html(res.data.telephone);
                             	jQuery(".jxstel").attr("href","tel:"+res.data.telephone);
-
-
 						}else {
                             	jQuery(weui.topTips("优惠码不存在")).show();
                                 jQuery(".discountImg").html("<img src=\"../../static/img/discount/nopic.png\"/>");
