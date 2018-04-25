@@ -16,6 +16,21 @@ $(function () {
         }
 
     });
+    $("#removeCookie").on("click",function () {
+        $.ajax({
+            type: "get",
+            url:genAPI('/wxDev/removeCookieOpenId'),
+            dataType: "json",
+            success: function(res) {
+                if(res.code == "00000") {
+                    window.location.href=window.location.href;
+                }
+            }, error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+
+        });
+    });
 
     if (!$.isNull(decodeURIComponent($.getCookie('head_url')))) {
         $('#headImg').attr('src',decodeURIComponent($.getCookie('head_url')));
