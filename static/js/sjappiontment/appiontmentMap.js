@@ -361,7 +361,7 @@ $(function() {
 			// 预约人信息提交
 			userPostSubmit: function() {
 				var myData = {
-					openId: openID,
+					//openId: openID,
 					serviceType: vm.serviceType, // 服务类型
 					reserveType: vm.reserveType, // 预约人类型
 					reserveName: vm.reserveName, // 预约人姓名
