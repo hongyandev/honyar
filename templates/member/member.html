@@ -13,8 +13,8 @@
 		<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../../static/js/jquery.min.js?v=1.0.0"></script>
         <script src="../../static/js/config.js"></script>
-		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>
+		<!--<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
+		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
         <script src="../../static/js/member/member.js"></script>
 	</head>
 
@@ -38,12 +38,18 @@
 					</div>
 					<div class="weui-cell__ft userName"></div>
 				</li>
-                <li class="weui-cell weui-cell_access">
-                    <div class="weui-cell__bd">
-                        <span style="vertical-align: middle">电话</span>
-                    </div>
-                    <div class="weui-cell__ft userTel"></div>
-                </li>
+				<li class="weui-cell weui-cell_access">
+					<div class="weui-cell__bd">
+						<span style="vertical-align: middle">电话</span>
+					</div>
+					<div class="weui-cell__ft userTel"></div>
+				</li>
+				<li id="removeCookie" class="weui-cell weui-cell_access">
+					<div class="weui-cell__bd">
+						<span style="vertical-align: middle">存储空间</span>
+					</div>
+					<div class="weui-cell__ft userTel">清除缓存</div>
+				</li>
 			</ul>
 
 		</div>
