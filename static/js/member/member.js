@@ -1,7 +1,7 @@
 //刷新加载页面
 $(function () {
-    //var openID=$.getCookie('open_id');
-    var openID='oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
+    //var openID='oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     $.ajax({
         type: "get",
         url:genAPI('/wxDev/user/getUserInfo?openId='+openID),
