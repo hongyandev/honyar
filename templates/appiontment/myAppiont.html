@@ -35,7 +35,7 @@
 			</div>
 			<ul class="weui-cells">
 				<template v-for="item in workersItem">
-					<li class="weui-cell weui-cell_swiped"  v-on:click="postuser(item)">
+					<li class="weui-cell weui-cell_swiped">
 						<div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
 							<div class="det_back">
 								<div class="det_left">
@@ -57,7 +57,7 @@
 							</div>
 						</div>
 						<div class="weui-cell__ft">
-							<a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+							<a v-on:click="postuser(item)" class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
 						</div>
 					</li>
 				</template>
