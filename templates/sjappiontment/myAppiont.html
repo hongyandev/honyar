@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<link rel="stylesheet" href="../../static/css/weui.min.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
+		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/appiontment/myAppiont.css?v=1.0.0" />
+        <script src="../../static/js/sjlib-jq.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/vue"></script>
+		<script src="../../static/js/sjappiontment/myApppiont_v.js"></script>
+		<title>预约列表</title>
+	</head>
+
+	<body>
+		<div class="modal-content" ID="modal-content">
+			<div class="page__bd">
+				<!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+				<div class="weui-search-bar" id="searchBar">
+					<form class="weui-search-bar__form">
+						<div class="weui-search-bar__box">
+							<i class="weui-icon-search"></i>
+							<input type="search" class="weui-search-bar__input" id="searchInput" v-on:change="doSearch" placeholder="电话号码" required/>
+							<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+						</div>
+						<label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>请输入电话号码</span>
+                </label>
+					</form>
+					<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" v-on:click="doSearch">取消</a>
+				</div>
+			</div>
+			<ul class="weui-cells">
+				<template v-for="item in workersItem">
+					<li class="weui-cell weui-cell_swiped"  v-on:click="postuser(item)">
+						<div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
+							<div class="det_back">
+								<div class="det_left">
+									<div class="det_left_name">
+										<p>{{item.reserveName}}</p>
+									</div>
+									<div class="det_left_tetl">
+										<p>预约电话：{{item.reserveTelephone}}</p>
+									</div>
+									<div class="det_left_add">
+										<p>地址：{{item.province}}{{item.city}}{{item.district}}{{item.town}}{{item.detailAddress}}</p>
+									</div>
+								</div>
+								<div class="det_right">
+									<div class="det_right_state">
+										<p>{{item.stateDesc}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="weui-cell__ft">
+							<a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+						</div>
+					</li>
+				</template>
+			</ul>
+		</div>
+	</body>
+
+
+</html>
