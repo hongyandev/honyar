@@ -12,29 +12,14 @@ html {
 	margin-top: 0 !important;
 }
 
-.det {
-	position: relative;
-	width: 94%;
-	height: 10%;
-	margin: 10px 3%;
-	background-color: white;
-	border-radius: 5px;
-}
-
 .det_back {
-	position: relative;
-	width: 96%;
-	height: 84%;
-	left: 2%;
-	top: 8%;
+	width: 90%;
+	padding:15px 5%;
 }
 
 .det_left {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 80%;
-	height: 100%;
+	width: 75%;
+    padding-right:5%;
 	border-right: 1px solid rgba(187, 187, 187 ,0.35);
 }
 
@@ -84,10 +69,13 @@ html {
 	font-weight: 500;
 	color: #AAAAAA;
 }
+.weui-swiped-btn{
+    padding: 30px 1em;
+}
 
 .det_right {
 	position: absolute;
-	right: 0;
+	right: 15px;
 	top: 0;
 	width: 20%;
 	height: 100%;
@@ -112,6 +100,3 @@ html {
 	color: #8BC34A;
 }
 
-.weui-cell{
-	padding: 10px;
-}
