@@ -8,7 +8,29 @@ $(function() {
 			workersItem: []
 		},
 		methods: {
-			postuser: function(item){},
+			postuser: function(item){
+                $.confirm("", "您确定要删除文件这条记录吗?", function() {
+                    $.ajax({
+                        type:"post",
+                        url:genAPI('/wxDev/reserve/deleteReserve'),
+                        dataType:"json",
+                        data: {
+                            "openId":this.openId,
+                            "id":item.id
+                        }, success: function(res) {
+                            if(res.code==00000){
+                                //console.info(this.id);
+                                $.toast("文件已经删除!", 2000,function() {
+                                    window.location.href=window.location.href;
+                                });
+                            }
+                        }
+                    });
+                }, function() {
+                    $('.weui-cell_swiped').swipeout('close');
+                    //取消操作
+                });
+            },
 			doSearch: function(e) {
 				console.log(e)
 				var telephone = e ? e.target.value : '';
@@ -29,6 +51,7 @@ $(function() {
 						var datas = data.data.list;
 						console.log(datas);
 						this.workersItem = datas;
+                        $('.weui-cell_swiped').swipeout();
 					},
 					error: function(data) {
 						console.log(data)
@@ -41,6 +64,9 @@ $(function() {
 				});
 			}
 		},
+        updated:function () {
+            $('.weui-cell_swiped').swipeout();
+        },
 		mounted: function() {
 			console.log("init...")
 			//this.openId = "oZIooxJ_MT0M1ApB_4caa_gvXgWc";
@@ -48,6 +74,8 @@ $(function() {
 			this.pageNum = 1;
 			this.pageSize = 10000;
 			this.doSearch();
+
 		}
 	});
+
 });
