@@ -4,18 +4,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/weui.min.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/appiontment/myAppiont.css?v=1.0.0" />
-
-		<!--<script type="text/javascript" src="../../static/js/weui.min.js?v=1.0.0"></script>
-		<script src="../../static/js/jquery-2.1.4.js?v=1.0.0"></script>
-		<script src="../../static/js/jquery-weui.js?v=1.0.0"></script>
-		&lt;!&ndash;<script src="../../static/js/zepto.min.js?v=1.0.0"></script>&ndash;&gt;
-		
-		&lt;!&ndash;<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>&ndash;&gt;-->
         <script src="../../static/js/lib-jq.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/vue"></script>
+		<script src="../../static/js/appiontment/myApppiont_v.js"></script>
 		<title>预约列表</title>
 	</head>
 
@@ -38,10 +33,10 @@
 					<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" v-on:click="doSearch">取消</a>
 				</div>
 			</div>
-			<div class="weui-cells">
+			<ul class="weui-cells">
 				<template v-for="item in workersItem">
-					<a class="weui-cell weui-cell_access" v-on:click="postuser(item)" href="javascript:;">
-						<div class="weui-cell__bd" style="height: 70px;">
+					<li class="weui-cell weui-cell_swiped"  v-on:click="postuser(item)">
+						<div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
 							<div class="det_back">
 								<div class="det_left">
 									<div class="det_left_name">
@@ -54,23 +49,21 @@
 										<p>地址：{{item.province}}{{item.city}}{{item.district}}{{item.town}}{{item.detailAddress}}</p>
 									</div>
 								</div>
-
 								<div class="det_right">
-
 									<div class="det_right_state">
 										<p>{{item.stateDesc}}</p>
 									</div>
-
 								</div>
-
 							</div>
 						</div>
-					</a>
+						<div class="weui-cell__ft">
+							<a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+						</div>
+					</li>
 				</template>
-			</div>
+			</ul>
 		</div>
 	</body>
-	<script src="//cdn.jsdelivr.net/npm/vue"></script>
-	<script src="../../static/js/appiontment/myApppiont_v.js"></script>
+
 
 </html>
