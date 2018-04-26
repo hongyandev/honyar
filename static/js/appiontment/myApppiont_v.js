@@ -9,7 +9,7 @@ $(function() {
 		},
 		methods: {
 			postuser: function(item){
-                $.confirm("", "您确定要删除文件这条记录吗?", function() {
+                $.confirm("", "您确定要删除这条预约吗?", function() {
                     $.ajax({
                         type:"post",
                         url:genAPI('/wxDev/reserve/deleteReserve'),
@@ -20,7 +20,7 @@ $(function() {
                         }, success: function(res) {
                             if(res.code==00000){
                                 //console.info(this.id);
-                                $.toast("文件已经删除!", 2000,function() {
+                                $.toast("预约已删除!", 2000,function() {
                                     window.location.href=window.location.href;
                                 });
                             }
