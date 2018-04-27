@@ -14,8 +14,6 @@
 	</head>
 	<script>
 		$(function() {
-			//var openId = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			//var openId=$.getCookie('open_id');
 			$.showLoading = function(text) {
 				var html = '<div class="weui_loading">';
 				html += '<div class="weui-loadmore">\n' +
@@ -26,44 +24,20 @@
 				$(".uidImg").html(html);
 			};
 			$.showLoading();
-
-			function GetRequest() {
-				var url = location.search; //获取url中"?"符后的字串   
-				var theRequest = new Object();
-				if(url.indexOf("?") != -1) {
-					var str = url.substr(1);
-					strs = str.split("&");
-					for(var i = 0; i < strs.length; i++) {
-						theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-					}
-				}
-				return theRequest;
+			
+			function getQueryString(name){
+			    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			    var r = window.location.search.substr(1).match(reg);
+			    if(r!=null) return unescape(decodeURIComponent(r[2]));return null;
 			}
-			var uId = GetRequest();
-			console.info(uId);
+			var uId = (getQueryString('userid')!=null ? getQueryString('userid'):'');
 			$(".uIdImg img").attr("src",genAPI("wxDev/qrcode/getQrcode?type=1&uid=" + uId));
-//			alert(uId);
-			/*$.ajax({
-				type: 'get',
-				url: genAPI('wxDev/qrcode/getQrcode?type=1&uid' + uId),
-				success: function(data) {
-					if(data.code == "00000") {
-						jQuery(".uIdImg").html(data.image);
-						alert(jQuery(".uIdImg").html(html));
-					} else {
-						weui.topTips(data.msg);
-					}
-				},
-				error: function(data) {
-					weui.topTips('网络异常,请检查您的网络');
-				}
-			});*/
 		})
 	</script>
 
 	<body>
-		<div class="uIdImg">
-			<img src="" />
+		<div class="uIdImg" style="width:80%;min-height:400px;margin:-50% auto;position:absolute;top:50%;left:50%;margin-left:-40%;">
+			<img style="display:block;width:100%;" src="" />
 		</div>
 	</body>
 
