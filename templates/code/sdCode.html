@@ -32,11 +32,13 @@
 			}
 			var uId = (getQueryString('userid')!=null ? getQueryString('userid'):'');
 			$(".uIdImg img").attr("src",genAPI("wxDev/qrcode/getQrcode?type=1&uid=" + uId));
+
+            $()
 		})
 	</script>
 
 	<body>
-		<div class="uIdImg" style="width:80%;min-height:400px;margin:-50% auto;position:absolute;top:50%;left:50%;margin-left:-40%;">
+		<div class="uIdImg" style="width:80%;position:absolute;top:50%;left:50%;margin-left:-40%;margin-top:-40%">
 			<img style="display:block;width:100%;" src="" />
 		</div>
 	</body>
