@@ -5,9 +5,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 		<title>水电图下载</title>
-        <link rel="stylesheet" href="../../static/css/sddown/sddown.css?v=1.0.0" />
+
         <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
         <link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
+		<link rel="stylesheet" href="../../static/css/sddown/sddown.css?v=1.0.0" />
         <script src="../../static/js/lib-zep.js"></script>
 		<script src="../../static/js/sddown/sddown.js?v=1.0.0"></script>
 		<style type="text/css">
@@ -46,12 +47,15 @@
 		</div>
 		<div class="page__bd">
 			<div class="weui-gallery" id="gallery" style="opacity: 0; display: none;">
-				<span class="weui-gallery__img" imgid="" id="galleryImg" style="background-image:url(./images/pic_160.png)"></span>
-				<div class="weui-gallery__opr">
-					<a href="javascript:" class="weui-gallery__del" id="galleryDel">
-						<i class="weui-icon-delete weui-icon_gallery-delete"></i>
-					</a>
-				</div>
+                <div class="weui-closed">
+                    <span>关闭</span>
+                </div>
+                <img class="weui-gallery__img" id="galleryImg" />
+                <div class="weui-gallery__opr">
+                    <a href="javascript:" class="weui-gallery__del" id="galleryDel">
+                        <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                    </a>
+                </div>
 			</div>
 			<div class="weui-cells weui-cells_form">
 
@@ -84,7 +88,6 @@
 				</div>
 		</div>
 
-		<!--</script>-->
 
 	</body>
 </html>
