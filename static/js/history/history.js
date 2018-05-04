@@ -1,3 +1,10 @@
+
+$(function() {
+    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID=$.getCookie('open_id');
+    loadList('getBillAndDetails', openID)
+});
+
 //刷新加载页面
 function loadList(action, openid, keyword) {
 
@@ -25,7 +32,10 @@ function loadList(action, openid, keyword) {
                     str+="<div class='deta_h'><h1>"+ o.address +"<h1/></div><div class='deta_ul' openid="+o.openId+">";
                     str+="<ul class='clear detaPic' id="+o.id+">";
                     $.each(o.children,function (j,obj) {
-                        str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
+                        //str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
+                        str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='"+obj.fileRealPath+"'>" +
+							"<img src='"+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100'/>"+
+							"</li>"
 
                     });
                     str+="</ul>";
@@ -35,10 +45,21 @@ function loadList(action, openid, keyword) {
                 details.html(str);
                 //明细图片fadeIn
                 $(".detaPic").on("click", "li", function() {
-                    $galleryImg.attr("style", this.getAttribute("realPath"));
+                    $galleryImg.attr("src", this.getAttribute("realPath"));
                     $galleryDel.attr("imgid", this.getAttribute("imgid"));
-                    $gallery.fadeIn(100);
+                    $gallery.show();
+
+                    $galleryImg.get(0).onload = function (){
+                        //var picH=document.getElementById("galleryImg").height;
+                       // var picW=document.getElementById("galleryImg").width;
+                        var picH=$("#galleryImg").height();
+                        var picW=$("#galleryImg").width();
+                        console.log(picH);
+                        console.log(picW);
+                        $galleryImg.css({"margin-top":-parseFloat(picH)/2+"px","margin-left":-parseFloat(picW)/2+"px"})
+                    };
                 });
+
                 //删除水电图和明细
                 $(document).on("click",".delpic",function () {
                     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
@@ -83,7 +104,7 @@ function loadList(action, openid, keyword) {
                     });
 
                 });
-				$galleryImg.on("click", function() {
+				$(".weui-closed").on("click", function() {
 					$gallery.fadeOut(100);
 				});
 				$galleryDel.on("click", function() {
@@ -99,11 +120,6 @@ function loadList(action, openid, keyword) {
 	});
 
 }
-$(document).ready(function() {
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	var openID=$.getCookie('open_id');
-	loadList('getBillAndDetails', openID)
-});
 
 
 //检索后加载列表
