@@ -107,9 +107,6 @@ function loadList(action, openid, keyword) {
                 $(".weui-closed").on("click", function() {
                     $gallery.fadeOut(100);
                 });
-				$galleryImg.on("click", function() {
-					$gallery.fadeOut(100);
-				});
 				$galleryDel.on("click", function() {
 					galleryDel(this);
 				});
