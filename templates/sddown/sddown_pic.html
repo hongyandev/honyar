@@ -5,17 +5,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 		<title>水电图下载</title>
-		<link rel="stylesheet" href="../../static/css/sddown/sddown_pic.css?v=1.0.0" />
+
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
-
-		<!--<script src="../../static/js/zepto.min.js?v=1.0.0"></script>
-		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=1.0.0"></script>
-		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js?v=1.0.0"></script>
-		&lt;!&ndash;<script src="../../static/js/example.js?v=1.0.0"></script>&ndash;&gt;
-		<script type="text/javascript" src="../../static/js/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="../../static/js/utils/core.js?v=1.0.0"></script>
-		<script type="text/javascript" src="../../static/js/utils/getWxOpenId.js"></script>-->
+		<link rel="stylesheet" href="../../static/css/sddown/sddown_pic.css?v=1.0.0" />
         <script src="../../static/js/lib-zep.js"></script>
         <script src="../../static/js/sddown/sddown_pic.js"></script>
 	</head>
@@ -23,7 +16,10 @@
 	<body>
 		<div class="page__bd">
 			<div class="weui-gallery" id="gallery">
-				<span class="weui-gallery__img" id="galleryImg"></span>
+				<div class="weui-closed">
+					<span>关闭</span>
+				</div>
+				<img style="-webkit-touch-callout:default;" class="weui-gallery__img" id="galleryImg"/>
 				<div class="weui-gallery__opr">
 					<a href="javascript:" class="weui-gallery__del">
 						<i class="weui-icon-delete weui-icon_gallery-delete"></i>
@@ -57,7 +53,7 @@
 			<input id="file" type="file" multiple="multiple" />
 			<button id="upload" type="button">button</button>
 		</div>
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			//保存上传图片信息的全局变量
 			var uploadFiles = [];
 
@@ -108,7 +104,7 @@
 				});
 
 			});
-		</script>
+		</script>-->
 
 	</body>
 
