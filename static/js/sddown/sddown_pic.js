@@ -21,7 +21,7 @@ $(function() {
     // 允许上传的图片类型
     var allowTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
     // 最大上传图片数量
-    var maxCount = 2;
+    var maxCount = 20;
     //var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
 
     $gallery = $("#gallery"),
