@@ -17,6 +17,8 @@ var uploadFiles = [];
 var openID=$.getCookie('open_id');
 var theRequest = GetRequest();
 var formdata = new FormData();
+formdata.append('openId', openID);
+formdata.append('id', theRequest.mainid); //theRequest.mainid
 $(function() {
     // 允许上传的图片类型
     var allowTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
@@ -50,7 +52,6 @@ $(function() {
             } else {
                 src = e.target.result;
             }
-
             //创建一个文件读取的工具类
             var reader = new FileReader();
             //这里利用了闭包的特性，来保留文件名
@@ -59,39 +60,27 @@ $(function() {
                     //调用压缩文件的方法，具体实现逻辑见下面
                     // render(this.result,x);
                     // 调用函数处理图片 　
+                    //var files= $(this).get(0).files;
                     if (1025 <= file.size /1024 <5120){
-                        console.info(file.size);
+                        //console.info(file.size);
                         dealImage(this.result, {quality: 0.1},function (base) {
                             var bl = convertBase64UrlToBlob(base);
-                            formdata.append("files",bl,"file_"+Date.parse(new Date())+".jpg");
-                            formdata.append('openId', openID);
-                            formdata.append('id', theRequest.mainid); //theRequest.mainid
-                            //提交上传的功能
-                            $("#uploadPic").click(function() {
-                                Bt_submit(uploadFiles);
-                            });
+                            formdata.append("files",bl);
+
+                            console.info(files.length);
+
                         });
                     }else if(file.size /1024 >= 5120){
                         dealImage(this.result, {quality: 0.05},function (base) {
                             var bl = convertBase64UrlToBlob(base);
                             formdata.append("files",bl,"file_"+Date.parse(new Date())+".jpg");
-                            formdata.append('openId', openID);
-                            formdata.append('id', theRequest.mainid); //theRequest.mainid
-                            //提交上传的功能
-                            $("#uploadPic").click(function() {
-                                Bt_submit(uploadFiles);
-                            });
+
                         });
-                    }else if(file.size /1024 < 1025){
+                    }else if(files /1024 < 1025){
                         dealImage(this.result, {quality: 0.2},function (base) {
                             var bl = convertBase64UrlToBlob(base);
                             formdata.append("files",bl,"file_"+Date.parse(new Date())+".jpg");
-                            formdata.append('openId', openID);
-                            formdata.append('id', theRequest.mainid); //theRequest.mainid
-                            //提交上传的功能
-                            $("#uploadPic").click(function() {
-                                Bt_submit(uploadFiles);
-                            });
+
                         });
                     }
 
@@ -104,9 +93,12 @@ $(function() {
 
             //告诉文件读取工具类读取那个文件
             reader.readAsDataURL(file);
-
         }
 
+    });
+    //提交上传的功能
+    $("#uploadPic").click(function() {
+        Bt_submit(uploadFiles);
     });
     var index; //第几张图片
     //点击查看大图
