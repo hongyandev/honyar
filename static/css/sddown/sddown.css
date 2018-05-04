@@ -19,7 +19,6 @@ html {
 .weui-search-bar {
 	width: 88%;
 }
-
 .icon_new {
 	position: absolute;
 	width: 44px;
@@ -98,5 +97,36 @@ html {
 	background: url("../../../static/img/sddown/delete-ico.png") no-repeat;
 	background-size:contain;
 }
-
+.opBtn{
+    width:100%;
+    padding:5px 0;
+    text-align: center;
+    font-size:10px;
+    color:#fb713d;
+}
+.getPic{
+    width:20px;
+    height:20px;
+    background: url("../../../static/img/sddown/getsd.png") no-repeat;
+    background-size:contain;
+    display: inline-block;
+}
+.weui-uploader__file img{
+	width:100%
+}
+.weui-gallery__img{
+	width:80%;
+	height:auto;
+	left:50%;
+	top:50%;
+}
+.weui-closed{
+	width:95%;
+	margin-top:5%;
+	text-align: right;
+}
+.weui-closed span{
+	color:#fff;
+	font-size:14px;
+}
 
