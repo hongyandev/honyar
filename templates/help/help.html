@@ -53,6 +53,7 @@
 			<tr><td>10</td><td>保存水电图主单</td><td><a href="#10">详情</td></tr>
 			<tr><td>11</td><td>保存水电图明细</td><td><a href="#11">详情</td></tr>
 			<tr><td>12</td><td>获取水电图列表</td><td><a href="#12">详情</td></tr>
+			<tr><td>12-01</td><td>获取水电图列表分页</td><td><a href="#12-01">详情</td></tr>
 			<tr><td>13</td><td>检索水电图列表</td><td><a href="#13">详情</td></tr>
 			<tr><td>14</td><td>删除水电图 主表+明细</td><td><a href="#14">详情</td></tr>
 			<tr><td>14-01</td><td>删除水电图明细</td><td><a href="#14-01">详情</td></tr>
@@ -418,7 +419,7 @@
 	<div class="ItemList">
 		<table border="1" cellpadding="0" cellspacing="0">
 			<tr><td class="cc">接口名称：</td><td><b>获取水电图列表</b></td></tr>
-			<tr><td>接口描述：</td><td>根据openId获取水电图列表</td></tr>
+			<tr><td>接口描述：</td><td>根据openId/uid获取水电图列表</td></tr>
 			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getDropowerAndDetails</td></tr>
 			<tr><td>请求方式：</td><td>GET</td></tr>
 			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1</td></tr>
@@ -430,6 +431,28 @@
 				</table>
 			</td></tr>
 			<tr><td>返回json：</td><td><a href="12.html">详见链接</a></td></tr>
+			<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
+		</table>
+	</div>
+	
+	<div class="Category" id="12-01">接口编号：12-01</div>
+	<div class="ItemList">
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr><td class="cc">接口名称：</td><td><b>获取水电图列表分页</b></td></tr>
+			<tr><td>接口描述：</td><td>根据 openId/uid 获取水电图列表分页</td></tr>
+			<tr><td>接口地址：</td><td>http://wx.hongyancloud.com/wxDev/file/getDropowerAndDetailsFenye</td></tr>
+			<tr><td>请求方式：</td><td>GET</td></tr>
+			<tr><td>请求参数示例：</td><td>openId=$.getCookie('open_id')&uid=1&pageNum=1&pageSize=2</td></tr>
+			<tr><td>请求参数说明：</td><td>
+				<table id="list" border="1" cellpadding="0" cellspacing="0">
+				<tr><th width=150>名称</th><th width=100>类型</th><th width=100>必填</th><th>说明</th></tr>
+				<tr><td>openId</td><td>string</td><td>否</td><td>微信给用户分配的ID</td></tr>
+				<tr><td>uid</td><td>string</td><td>否</td><td>水电工id</td></tr>
+				<tr><td>pageNum</td><td>int</td><td>是</td><td>当前页码</td></tr>
+				<tr><td>pageSize</td><td>string</td><td>是</td><td>每页条数</td></tr>
+				</table>
+			</td></tr>
+			<tr><td>返回json：</td><td><a href="12-01.html">详见链接</a></td></tr>
 			<tr><td>其他备注：</td><td><b>注:openId 与 uid 必须传一个</b> code != "000000",直接显示 msg 即为错误信息 </td></tr>
 		</table>
 	</div>
