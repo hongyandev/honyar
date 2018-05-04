@@ -37,3 +37,17 @@ html {
 #upload{
 	display: none;
 }
+.weui-gallery__img{
+	width:80%;
+	top:50%;
+	left:50%;
+}
+.weui-closed{
+	width:95%;
+	margin-top:5%;
+	text-align: right;
+}
+.weui-closed span{
+	color:#fff;
+	font-size:14px;
+}
