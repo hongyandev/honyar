@@ -21,7 +21,7 @@
 	<body>
 		<!--<script type="text/html" id="tpl_searchbar">
 			<div class="page">-->
-		<div class="page__bd">
+		<div class="page__bd topbar">
 			<!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
 			<div class="weui-search-bar" id="searchBar">
 				<form class="weui-search-bar__form">
@@ -31,21 +31,20 @@
 						<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
 					</div>
 					<label class="weui-search-bar__label" id="searchText">
-                    <i class="weui-icon-search"></i>
-                    <span>搜索</span>
+						<i class="weui-icon-search"></i>
+						<span>请输入电话号码</span>
+					</label>
                 </label>
 				</form>
 				<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
 			</div>
-		</div>
-		<div class="icon_new">
-			<div class="icon_new_img">
-				<a href="history_new.html">
-					<img src="../../static/img/history/history_newicon.png" />
+			<div class="icon_new">
+				<a id="souBtn" href="javascript:void(0)">
+					<span>搜索</span>
 				</a>
 			</div>
 		</div>
-		<div class="page__bd">
+		<div class="page__bd content">
 			<div class="weui-gallery" id="gallery" style="opacity: 0; display: none;">
 				<div class="weui-closed">
 					<span>关闭</span>
@@ -87,8 +86,14 @@
 					</div>
 			</div>
 		</div>
-
-		<!--</script>-->
+		<div class="weui-tabbar" style="position:fixed;">
+			<a href="history_new.html" class="weui-tabbar__item weuiTabicon">
+				<div class="weui-tabbar__icon">
+					<img src="../../static/img/sddown/addq.png" alt="">
+				</div>
+				<!--<p class="weui-tabbar__label">上传水电图</p>-->
+			</a>
+		</div>
 
 	</body>
 
