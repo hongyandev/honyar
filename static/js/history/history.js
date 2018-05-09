@@ -13,7 +13,7 @@ function loadList(action, openid, keyword) {
 		url:genAPI('wxDev/file/'+ action),
 		data: {
 			openId: openid, //$.getCookie('open_id')
-			content: keyword,
+			content: keyword
 		},
 		success: function(returnDatas) {
 
@@ -29,7 +29,7 @@ function loadList(action, openid, keyword) {
                     var clickBT = '<a href="history_pic.html?mainid=' + o.id + '" class="addPic"></a>';
                     var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
                     str+="<div class='detaId'>";
-                    str+="<div class='deta_h'><h1>"+ o.address +"<h1/></div><div class='deta_ul' openid="+o.openId+">";
+                    str+="<div class='deta_h'><h1>"+ o.address +"</h1></div><div class='deta_ul' openid="+o.openId+">";
                     str+="<ul class='clear detaPic' id="+o.id+">";
                     $.each(o.children,function (j,obj) {
                         //str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
@@ -39,8 +39,8 @@ function loadList(action, openid, keyword) {
 
                     });
                     str+="</ul>";
-                    str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol>'
-                    str+='</div><div/>';
+                    str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div>';
+                    str+='</div>';
                 });
                 details.html(str);
                 //明细图片fadeIn
