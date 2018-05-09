@@ -2,7 +2,51 @@
 $(function() {
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     var openID=$.getCookie('open_id');
-    loadList('getBillAndDetails', openID)
+    loadList('getBillAndDetails', openID);
+
+    var $searchBar = $('#searchBar'),
+        $searchResult = $('#searchResult'),
+        $searchText = $('#searchText'),
+        $searchInput = $('#searchInput'),
+        $searchClear = $('#searchClear'),
+        $searchCancel = $('#searchCancel');
+
+    function hideSearchResult() {
+        $searchResult.hide();
+        $searchInput.val('');
+    }
+
+    function cancelSearch() {
+        hideSearchResult();
+        $searchBar.removeClass('weui-search-bar_focusing');
+        $searchText.show();
+        loadList('getBillAndDetails', openID)
+    }
+
+    $searchText.on('click', function() {
+        $searchBar.addClass('weui-search-bar_focusing');
+        $searchInput.focus();
+    });
+    $searchInput.on('blur', function() {
+        if(!this.value.length) cancelSearch();
+    });
+    $("#souBtn").on('click', function() {
+        var value = $searchInput.val();
+        if(value.length) {
+            loadList('searchBill', openID, value);
+            $searchResult.show();
+        } else {
+            $searchResult.hide();
+        }
+    });
+    $searchClear.on('click', function() {
+        hideSearchResult();
+        $searchInput.focus();
+    });
+    $searchCancel.on('click', function() {
+        cancelSearch();
+        $searchInput.blur();
+    });
 });
 
 //刷新加载页面
@@ -19,6 +63,7 @@ function loadList(action, openid, keyword) {
 
 			if(returnDatas.code == "00000") {
                 var returnData = returnDatas.data;
+
                 $gallery = $("#gallery")
                 $galleryImg = $("#galleryImg");
                 $galleryDel = $("#galleryDel");
@@ -124,56 +169,6 @@ function loadList(action, openid, keyword) {
 
 //检索后加载列表
 $(function() {
-	var $searchBar = $('#searchBar'),
-		$searchResult = $('#searchResult'),
-		$searchText = $('#searchText'),
-		$searchInput = $('#searchInput'),
-		$searchClear = $('#searchClear'),
-		$searchCancel = $('#searchCancel');
-
-	function hideSearchResult() {
-		$searchResult.hide();
-		$searchInput.val('');
-	}
-
-	function cancelSearch() {
-		hideSearchResult();
-		$searchBar.removeClass('weui-search-bar_focusing');
-		$searchText.show();
-		$(document).ready(function() {
-			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			var openID=$.getCookie('open_id');
-			loadList('getBillAndDetails', openID)
-		});
-	}
-
-	$searchText.on('click', function() {
-		$searchBar.addClass('weui-search-bar_focusing');
-		$searchInput.focus();
-		//alert('$searchText');
-	});
-	$searchInput
-		.on('blur', function() {
-			if(!this.value.length) cancelSearch();
-		})
-		.on('change', function() {
-			if(this.value.length) {
-				var openID=$.getCookie('open_id');
-				loadList('searchBill', openID, this.value);
-				//alert('oZIooxJ_MT0M1ApB_4caa_gvXgWc');
-				$searchResult.show();
-			} else {
-				$searchResult.hide();
-			}
-		});
-	$searchClear.on('click', function() {
-		hideSearchResult();
-		$searchInput.focus();
-	});
-	$searchCancel.on('click', function() {
-		cancelSearch();
-		$searchInput.blur();
-	});
 
 });
 
