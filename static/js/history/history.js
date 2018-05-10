@@ -32,6 +32,10 @@ $(function() {
     });
     $("#souBtn").on('click', function() {
         var value = $searchInput.val();
+        if(value.length==""){
+            weui.topTips("请输入关键词");
+            return;
+        }
         if(value.length) {
             loadList('searchBill', openID, value);
             $searchResult.show();
@@ -70,7 +74,7 @@ function loadList(action, openid, keyword) {
                 var details = $('#details');
                 details.empty();
                 var str='';
-                $.each(returnData,function (i,o) {
+                $.each(returnData,function (i,o){
                     var clickBT = '<a href="history_pic.html?mainid=' + o.id + '" class="addPic"></a>';
                     var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
                     str+="<div class='detaId'>";
