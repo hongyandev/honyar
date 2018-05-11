@@ -17,18 +17,33 @@ html {
 .clear:after {content:".";height:0;visibility:hidden;display:block;clear:both;}
 .hidden{overflow:hidden;}
 .weui-search-bar {
-	width: 88%;
+	width: 82%;
+}
+.topbar{
+	width:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:30;
+}
+.content{
+	padding-top:44px;
+	padding-bottom:50px;
 }
 .icon_new {
 	position: absolute;
-	width: 44px;
+	width: 18%;
 	height: 44px;
+	line-height:44px;
 	margin: 0;
 	padding: 0;
 	right: 0;
 	top: 0;
+	text-align: center;
 }
-
+.icon_new a{
+	color:#09BB07;
+}
 .icon_new_img {
 	position: absolute;
 	right: 0;
@@ -115,4 +130,10 @@ html {
 	color:#fff;
 	font-size:14px;
 }
-
+.weuiTabicon{
+	padding:5px 0;
+}
+.weuiTabicon .weui-tabbar__icon{
+	width:40px;
+	height:40px;
+}
