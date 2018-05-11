@@ -1,8 +1,61 @@
 $(document).ready(function() {
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-    // var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
+    //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
     var openID=$.getCookie('open_id');
-    loadList('getDropowerAndDetails', openID)
+    loadList('getDropowerAndDetails', openID);
+    //检索后加载列表
+        var $searchBar = $('#searchBar'),
+            $searchResult = $('#searchResult'),
+            $searchText = $('#searchText'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchCancel = $('#searchCancel');
+
+        function hideSearchResult() {
+            $searchResult.hide();
+            $searchInput.val('');
+        }
+        //取消按钮
+        function cancelSearch() {
+            hideSearchResult();
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.show();
+            loadList('getDropowerAndDetails', openID);
+        }
+
+        $searchText.on('click', function() {
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchInput.focus();
+        });
+        $searchInput.on('blur', function() {
+            if(!this.value.length) cancelSearch();
+        });
+        $("#souBtn").on('click', function() {
+            var telephone = $('#searchInput').val();
+                if(telephone == ""){
+                    weui.topTips("请输入手机号码");
+                    return;
+                };
+                if(isPhoneNo(telephone) == true) {
+                        //console.info(telephone);
+                        loadList('searchDropower', openID, telephone);
+                        $searchResult.show();
+                        return;
+
+                } else {
+                    weui.topTips("请填写正确的手机号码",3000);
+                }
+            });
+        $searchClear.on('click', function() {
+            hideSearchResult();
+            cancelSearch();
+            $searchInput.focus();
+        });
+        $searchCancel.on('click', function() {
+            cancelSearch();
+            $searchInput.blur();
+        });
+
 });
 //刷新加载页面
 function loadList(action, openid, keyword) {
@@ -21,30 +74,41 @@ function loadList(action, openid, keyword) {
 				$galleryImg = $("#galleryImg");
 				$galleryDel = $("#galleryDel");
 				var details = $('#details');
-                details.empty();
+                details.html('');
 				var str='';
-				$.each(returnData,function (i,o) {
-                    var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
-                    var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
-                    str+="<div class='detaId'>";
-                    str+="<div class='deta_h'><h1>"+ o.address +"</h1></div><div class='deta_ul' openid="+o.openId+">";
-                    str+="<ul class='clear detaPic' id="+o.id+">";
-                    $.each(o.children,function (j,obj) {
-                        //str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
-                        str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='"+obj.fileRealPath+"'>" +
-                            "<img src='"+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100'/>"+
-                            "</li>"
+                //console.info(returnData.length>0);
+                if(returnData.length > 0){
+                    $.each(returnData,function (i,o) {
+                        var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
+                        var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
+                        var getBT = '<a href="javascript:void(0)" class="getPic"></a>';
+                        str+="<div class='detaId'>";
+                        str+="<div class='deta_h'><h1>"+ o.address +"</h1></div><div class='deta_ul' openid="+o.openId+">";
+                        str+="<ul class='clear detaPic' id="+o.id+">";
+                        $.each(o.children,function (j,obj) {
+                            //str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
+                            str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='"+obj.fileRealPath+"'>" +
+                                "<img src='"+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100'/>"+
+                                "</li>"
 
+                        });
+                        str+="</ul>";
+                        if(o.openId == openid){
+                            str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div>'
+                        }else{
+                            $(".weui-gallery__opr").hide();
+                            str+='<div tel="'+o.userTel+'" value="'+o.id+'" class="opBtn">'+getBT+'<br>认领水电图</div>';
+
+                        }
+                        str+='</div>';
                     });
-                    str+="</ul>";
-                    if(o.openId == openid){
-                        str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol>'
-                    }else{
-                        $(".weui-gallery__opr").hide();
-                    }
-                    str+='</div>';
-                });
-                details.html(str);
+                    details.html(str);
+                }else{
+                   str+="<div class='empty align_center'><span>此手机号码还没有上传水电图！</span></div>";
+                   //$(".content").html(str);
+                    details.html(str);
+               }
+
                 //明细图片fadeIn
                 $(".detaPic").on("click", "li", function() {
                     $galleryImg.attr("src", this.getAttribute("realPath"));
@@ -110,6 +174,39 @@ function loadList(action, openid, keyword) {
 				$galleryDel.on("click", function() {
 					galleryDel(this);
 				});
+                //认领水电图
+                $(document).on("click",".opBtn",function(){
+                    var tel=$(this).attr('tel');
+                    $(".telInput").val(tel);
+                    weui.dialog({
+                        content:
+                        '<div class="weui-cell">\n' +
+                        '                <div class="weui-cell__bd weuiInput">\n' +
+                        '                    <input class="weui-input telInput" type="number" pattern="[0-9]*" disabled="disabled"">\n' +
+                        '                </div>\n' +
+                        '            </div>'+
+                        '<div class="weui-cell weui-cell_vcode">\n' +
+                        '                <div class="weui-cell__bd weuiInput">\n' +
+                        '                    <input class="weui-input" type="tel" placeholder="请输入验证码">\n' +
+                        '                </div>\n' +
+                        '                <div class="weui-cell__ft">\n' +
+                        '                    <button class="weui-vcode-btn weui-code-btn-g">获取验证码</button>\n' +
+                        '                </div>\n' +
+                        '            </div>',
+                        className: 'custom-classname',
+                        buttons: [{
+                            label: '取消',
+                            type: 'default',
+                            onClick: function () {
+
+                            }
+                        }, {
+                            label: '确定',
+                            type: 'primary',
+                            onClick: function () { alert('确定') }
+                        }]
+                    });
+                });
 			} else {
 				weui.topTips(returnDatas.msg);
 			}
@@ -122,62 +219,7 @@ function loadList(action, openid, keyword) {
 }
 
 
-//检索后加载列表
-$(function() {
-	var $searchBar = $('#searchBar'),
-		$searchResult = $('#searchResult'),
-		$searchText = $('#searchText'),
-		$searchInput = $('#searchInput'),
-		$searchClear = $('#searchClear'),
-		$searchCancel = $('#searchCancel');
 
-	function hideSearchResult() {
-		$searchResult.hide();
-		$searchInput.val('');
-	}
-
-	function cancelSearch() {
-		hideSearchResult();
-		$searchBar.removeClass('weui-search-bar_focusing');
-		$searchText.show();
-		$(document).ready(function() {
-			//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-            //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4'
-			var openID=$.getCookie('open_id');
-			loadList('getDropowerAndDetails', openID)
-		});
-	}
-
-	$searchText.on('click', function() {
-		$searchBar.addClass('weui-search-bar_focusing');
-		$searchInput.focus();
-	});
-	$searchInput
-		.on('blur', function() {
-			if(!this.value.length) cancelSearch();
-		})
-		.on('change', function() {
-			if(this.value.length) {
-                //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4'
-				var openID=$.getCookie('open_id');
-                //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-				loadList('searchDropower', openID, this.value);
-
-				$searchResult.show();
-			} else {
-				$searchResult.hide();
-			}
-		});
-	$searchClear.on('click', function() {
-		hideSearchResult();
-		$searchInput.focus();
-	});
-	$searchCancel.on('click', function() {
-		cancelSearch();
-		$searchInput.blur();
-	});
-
-});
 
 
 
