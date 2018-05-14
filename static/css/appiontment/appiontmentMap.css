@@ -34,18 +34,18 @@
 				}
 				
 				.det_left {
-					position: absolute;
+					/*position: absolute;
 					left: 0;
-					top: 0;
+					top: 0;*/
 					width: 80%;
-					height: 100%;
+					min-height: 60px;
 					border-right: 1px solid rgb(187, 187, 187);
 				}
 				
 				.det_left_name {
 					position: relative;
 					width: 100%;
-					height: 50%;
+					/*height: 50%;*/
 				}
 				
 				.det_left_name p {
@@ -59,7 +59,7 @@
 				.det_left_time {
 					position: relative;
 					width: 100%;
-					height: 30%;
+					/*height: 30%;*/
 				}
 				
 				.det_left_time p {
