@@ -382,7 +382,7 @@ $(function() {
 					khdm: vm.khdm // 客户代码
 				};
 				if(myData.reserveType == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+                    $.toptip('请选择预约人类型！', 3000);
 					//alert('请选择预约人类型!')
 					return;
 				}
@@ -394,29 +394,29 @@ $(function() {
 				}
 
 				if(myData.serviceType == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+                    $.toptip('请选择服务类型！', 3000);
 					//alert('请选择服务类型!')
 					return;
 				}
 				if(myData.userName == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+                    $.toptip('请输入业主姓名！', 3000);
 					//alert('请输入业主姓名!')
 					return;
 				}
-				if(myData.userName == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+				/*if(myData.userName == "") {
+                    $.toptip('请输入业主姓名！', 3000);
 					//alert('请输入业主姓名!')
 					return;
-				}
+				}*/
 
 				if(myData.detailAddress == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+                    $.toptip('请输入详细位置！', 3000);
 					//alert('请输入详细位置!')
 					return;
 				}
 
 				if(myData.reserveDate == "") {
-                    $.toptip('请输入预约人姓名！', 3000);
+                    $.toptip('请输入预约时间！', 3000);
 					//alert('请输入预约时间!')
 					return;
 				}
@@ -435,7 +435,7 @@ $(function() {
 							$.toast("预约申请提交成功！");
 							window.location.href = "../sjappiontment/myAppiont.html";
 						} else {
-							alert(data.msg);
+                            $.toptip(data.msg);
 						}
 					},
 					error: function(data) {
