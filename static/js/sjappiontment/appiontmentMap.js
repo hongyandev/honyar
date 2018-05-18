@@ -434,7 +434,7 @@ $(function() {
 							//alert(JSON.stringify(data));
 							//alert('预约申请提交成功！');
 							$.toast("预约申请提交成功！",3000);
-							alert(uid);
+							//alert(uid);
 							window.location.href = "../sjappiontment/myAppiont.html";
 						} else {
                             $.toptip(data.msg);
