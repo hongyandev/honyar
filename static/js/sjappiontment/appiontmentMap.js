@@ -87,6 +87,7 @@ $(function() {
 			lng: 120.037467,
 			lat: 30.24546,
 			//openId: '', // 微信给用户分配的ID
+            uid:'',
 			serviceType: '1', // 服务类型的值
 			serviceTypes: [], // 服务类型列表
 			reserveType: '', // 预约人类型的值
@@ -361,7 +362,7 @@ $(function() {
 			// 预约人信息提交
 			userPostSubmit: function() {
 				var myData = {
-					//openId: openID,
+                    uid:uid,
 					serviceType: vm.serviceType, // 服务类型
 					reserveType: vm.reserveType, // 预约人类型
 					reserveName: vm.reserveName, // 预约人姓名
@@ -432,7 +433,8 @@ $(function() {
 						if(data.code == "00000") {
 							//alert(JSON.stringify(data));
 							//alert('预约申请提交成功！');
-							$.toast("预约申请提交成功！");
+							$.toast("预约申请提交成功！",3000);
+							alert(uid);
 							window.location.href = "../sjappiontment/myAppiont.html";
 						} else {
                             $.toptip(data.msg);
