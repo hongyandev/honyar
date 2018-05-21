@@ -247,11 +247,11 @@ $(function() {
 				city = "city=" + NewCity;
 				longitude = "&longitude=" + NewLng;
 				latitude = "&latitude=" + NewLat;
-                district = "&district=" +Newdistrict;
+                district = "&district=" + Newdistrict;
 				//				alert(district);
 				//				alert("http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude);
 				$.ajax({ // 获取当前经纬度 省 市 的水电工列表
-					url:genAPI('wxDev/reserve/getDealerList?'+ city + district + longitude + latitude + '&serviceType=' + this.serviceType),
+					url:genAPI('wxDev/reserve/getDealerList?'+city + district + longitude + latitude + '&serviceType=' + this.serviceType),
 					//url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude, // province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546改为::1.  vm.mapoption.addressComponent.province 省 2. vm.mapoption.addressComponent.city 市 3. vm.mapoption.position.lng 长的度数 4.  vm.mapoption.position.lat  短的度数
 					async: false,
 					type: 'GET',
