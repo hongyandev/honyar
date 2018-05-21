@@ -35,15 +35,16 @@ $(function() {
 	function onComplete(data) {
 		//console.log(data)
 		// 得到数据后开始转
-		var lng = data.position.lng // 长的
-		vm.lng = lng
-		var lat = data.position.lat // 短的
-		vm.lat = lat
-		var arr = [lng, lat]
-		vm.mapoption = data
+		var lng = data.position.lng;// 长的
+		vm.lng = lng;
+		var lat = data.position.lat; // 短的
+		vm.lat = lat;
+		var arr = [lng, lat];
+		vm.mapoption = data;
 		vm.address = data.addressComponent.township + data.addressComponent.street + data.addressComponent.streetNumber // 当前位置
 		vm.district = data.addressComponent.province + data.addressComponent.city + data.addressComponent.district + data.addressComponent.township // 所在地区
-		/*var map = new AMap.Map("amap", {
+
+        /*var map = new AMap.Map("amap", {
 					resizeEnable: true,
 					scrollWheel: false,
 					center: [vm.lng, vm.lat], // TODO 2.这里应该把获取用户的坐标 填入进去  地图就自动一开始定位到用户所在位置
@@ -164,7 +165,7 @@ $(function() {
                         }
                     },
                     error:function(){
-                        weui.topTips(res.msg,3000);
+                        $.toptip(res.msg,3000);
                     }
                 });
             },
@@ -172,7 +173,7 @@ $(function() {
 			smsclick: function() {
 				var phone = vm.reserveTelephone;
 				if(isPhoneNo(phone) == false) {
-					alert('请输入正确的手机号码');
+                    $.toptip('请输入正确的手机号码');
 					//weui.topTips('请输入正确的手机号码', 3000);
 					return;
 				};
@@ -240,22 +241,22 @@ $(function() {
 				$("#sel_popup1").popup();
 				$.showLoading(); // 显示加载等待?
 				province = "province=" + NewProvince;
-				city = "&city=" + NewCity;
+				city = "city=" + NewCity;
 				longitude = "&longitude=" + NewLng;
 				latitude = "&latitude=" + NewLat;
-				district = vm.district;
-				//				alert(district);
-				//				alert("http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude);
+                district = "&district=" +Newdistrict;
 				$.ajax({ // 获取当前经纬度 省 市 的水电工列表
-					url:genAPI('wxDev/reserve/getDealerList?'+province + city + longitude + latitude + '&serviceType=' + this.serviceType),
+					url:genAPI('wxDev/reserve/getDealerList?'+ city + district + longitude + latitude + '&serviceType=' + this.serviceType),
 					//url: "http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude, // province=浙江省&city=杭州市&longitude=120.037467&latitude=30.24546改为::1.  vm.mapoption.addressComponent.province 省 2. vm.mapoption.addressComponent.city 市 3. vm.mapoption.position.lng 长的度数 4.  vm.mapoption.position.lat  短的度数
 					async: false,
 					type: 'GET',
 					dataType: 'json',
 					success: function(data) {
-						var datas = data.data
-						this.workersItem = datas
-						this.title = '请选择服务商'
+                        //console.info(city);
+						//console.info(district);
+						var datas = data.data;
+						this.workersItem = datas;
+						this.title = '请选择服务商';
 					},
 					error: function(data) {
 						console.log(data)
@@ -380,41 +381,41 @@ $(function() {
 				};
 				if(myData.reserveType == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请选择预约人类型!')
+                    $.toptip('请选择预约人类型!',3000);
 					return;
 				}
 
 				if(myData.reserveName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入预约人姓名!')
+                    $.toptip('请输入预约人姓名!',3000);
 					return;
 				}
 
 				if(myData.serviceType == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请选择服务类型!')
+                    $.toptip('请选择服务类型!',3000);
 					return;
 				}
 				if(myData.userName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入业主姓名!')
+                    $.toptip('请输入业主姓名!',3000);
 					return;
 				}
 				if(myData.userName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入业主姓名!')
+                    $.toptip('请输入业主姓名!',3000);
 					return;
 				}
 
 				if(myData.detailAddress == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入详细位置!')
+                    $.toptip('请输入详细位置!',3000);
 					return;
 				}
 
 				if(myData.reserveDate == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入预约时间!')
+                    $.toptip('请输入预约时间!',3000);
 					return;
 				}
 
@@ -428,15 +429,15 @@ $(function() {
 					success: function(data) {
 						if(data.code == "00000") {
 							//alert(JSON.stringify(data));
-							alert('预约申请提交成功！');
+                            $.toast('预约申请提交成功！',3000);
 							window.location.href = "../appiontment/myAppiont.html";
 						} else {
 							alert(data.msg);
 						}
 					},
 					error: function(data) {
-						console.log(data)
-						alert('网络异常,请检查您的网络');
+						//console.log(data)
+                        $.toptip('网络异常,请检查您的网络');
 					},
 					complete: function() {
 						$.hideLoading();
@@ -458,6 +459,7 @@ $(function() {
 			var component = result.regeocode.addressComponent;
 			NewProvince = component.province;
 			NewCity = component.city;
+            Newdistrict = component.district;
 			NewLng = result.position.lng;
 			NewLat = result.position.lat;
 			vm.district = component.province + component.city + component.district + component.township; // 赋值选中后的范围
