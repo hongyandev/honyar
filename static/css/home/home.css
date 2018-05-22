@@ -5,7 +5,8 @@
 .home_top {
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 150px;
+	overflow: hidden;
 }
 .home_top img{
 	width:100%;
@@ -106,4 +107,87 @@
 .item img{
 	width: 100%;
 	height: 100%;
+}
+
+.fle{
+    float: left;
+}
+.fri{
+    float:right;
+}
+
+.discountInfo .infoMj{
+    height:45px;
+    line-height:45px;
+    padding:0 15px;
+    border-bottom:1px solid #E5E5E5;
+}
+.discountInfo{
+    border-top:1px solid #E5E5E5;
+}
+.discountInfo .infoMj span{
+    font-size:14px;
+}
+.discountInfo .infoMj span:last-child{
+    color:#f92b24;
+}
+.infoMj b{
+	color:#0066ff;
+	font-weight: normal;
+}
+.discountInfo .infoHx{
+    height:45px;
+    background-color: #ECECEC;
+    line-height:50px;
+    padding:0 15px;
+
+}
+.discountInfo .infoHx span{
+    font-size:12px;
+    color:#888;
+}
+.hxAddress{
+    fonts-size:14px;
+    padding:12px 15px;
+    border-bottom:1px solid #E5E5E5;
+}
+.Opentime time{
+	color:#999;
+}
+
+.homeInfo{
+	height: auto;
+	padding: 15px;
+}
+
+.infoH{
+	float:left;
+    position:relative;
+    left:50%;
+	
+}
+.infoH h1{
+	font-size: 16px;
+	color: #259B24;
+	position:relative;
+    left:-50%;
+}
+
+.homeH{
+	height: 30px;
+}
+
+.textBox{
+	position: relative;
+	
+}
+
+.textNor{
+	font-size: 13px;
+	color: #5A6B73;
+}
+
+.textH{
+	color: #444444;
+	font-weight: 500;
 }
