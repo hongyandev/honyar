@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
-    var openID=$.getCookie('open_id');
+    //var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID);
     //检索后加载列表
         var $searchBar = $('#searchBar'),
@@ -114,7 +114,7 @@ function loadList(action, openid, keyword) {
                             str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div>'
                         }else{
                             $(".weui-gallery__opr").hide();
-                            str+='<div tel="'+o.userTel+'" value="'+o.id+'" class="opBtn">'+getBT+'<br>认领水电图</div>';
+                           // str+='<div tel="'+o.userTel+'" value="'+o.id+'" class="opBtn">'+getBT+'<br>认领水电图</div>';
 
                         }
                         str+='</div>';
