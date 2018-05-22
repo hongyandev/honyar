@@ -155,7 +155,7 @@
 }
 
 .homeInfo{
-	height: 200px;
+	height: auto;
 	padding: 15px;
 }
 
@@ -172,12 +172,21 @@
     left:-50%;
 }
 
+.homeH{
+	height: 30px;
+}
+
 .textBox{
 	position: relative;
+	
 }
 
-.textBox .textNor p{
+.textNor{
 	font-size: 13px;
+	color: #5A6B73;
 }
 
-.
+.textH{
+	color: #444444;
+	font-weight: 500;
+}

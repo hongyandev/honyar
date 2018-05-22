@@ -10,41 +10,14 @@
 		<link rel="stylesheet" href="../static/css/home/home.css?v=1.0.0" />
 		<link rel="stylesheet" href="../static/css/utlis/owl.carousel.css?v=1.0.0" />
 		<script src="../static/js/config.js"></script>
-		<script src="../../static/js/weui.min.js?v=1.0.0.js"></script>
+		<script src="../../static/js/weui.min.js?v=1.0.0"></script>
 		<script src="../static/js/jquery.min.js?v=1.0.0"></script>
 		<script src="../../static/js/jquery-weui.js"></script>
 		<script type="text/javascript" src="../static/js/utils/core.js?v=1.0.0"></script>
 		<script type="text/javascript" src="../static/js/utils/getWxOpenId.js?v=1.0.0"></script>
-		<script src="../static/js/home/owl.carousel.js?v=1.0.0"></script>
+
 		<script src="../static/js/home/index.js"></script>
 	</head>
-	<script>
-		$(function() {
-			//var openId = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-			//var openId='owoh4joV0zYw7mbFhNkyNmYaeATw';
-			//var openId='owoh4joptj9sj3fU7ULmA0NQiVvI';
-			var openId = $.getCookie('open_id');
-			$.ajax({
-				type: "get",
-				url: genAPI('wxDev/qrcode/preferential?openId=' + openId),
-				//url: "http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId=" + openId,
-				dataType: "json",
-				success: function(res) {
-					if(res.code == 00000) {
-						jQuery(".hxAddress").html(res.data.address);
-						jQuery(".Opentime time").html(res.data.openTime);
-						jQuery(".jxstel").html(res.data.telephone);
-						jQuery(".jxstel").attr("href", "tel:" + res.data.telephone);
-					} else {
-						jQuery(".hxAddress").html("浙江省杭州市余杭区138号");
-						jQuery(".Opentime time").html("7:00-20:00");
-						jQuery(".jxstel").html("4008267818");
-						jQuery(".jxstel").attr("href", "tel:" + "4008267818");
-					}
-				}
-			})
-		})
-	</script>
 
 	<body>
 		<div class="home">
@@ -64,7 +37,7 @@
 				<img src="../static/img/home/top_back.jpg" />
 			</div>
 			<div class="homeInfo">
-				<div>
+				<div class="homeH">
 					<div class="infoH">
 						<h1>贴心优质的售后服务</h1>
 					</div>
@@ -72,13 +45,31 @@
 				<div class="textBox">
 					<p class="textNor">全国千家专业售后网点提供创业化产品安装、维修、保养服务。</p>
 				</div>
+				<div class="textBox">
+					<p class="textNor textH">-- 服务宗旨</p>
+				</div>
+				<div class="textBox">
+					<p class="textNor">以用户满意为导向，以使用效果为准则</p>
+				</div>
+				<div class="textBox">
+					<p class="textNor textH">-- 服务理念</p>
+				</div>
+				<div class="textBox">
+					<p class="textNor">鸿雁秉承”反应迅速、专业规范、服务全面“的服务工作准则，坚持”服务先于市场”的理念，确保鸿雁的服务始终与用户”心贴心”！</p>
+				</div>
+				<div class="textBox">
+					<p class="textNor textH">-- 全程跟踪服务体系，致力系统化解决方案</p>
+				</div>
+				<div class="textBox">
+					<p class="textNor">鸿雁打破单一的售后服务机制，率先创建”360度全程跟踪服务体系”，自售前、售中到售后，对用户实行全程咨询、指导、量身定制解决方案、完善迅捷的持续跟踪服务，确保鸿雁产品全程受控！</p>
+				</div>
 			</div>
 			<div class="discountInfo">
 				<p class="infoHx clear">
 					<span class="fle">管家地址</span>
 					<span class="Opentime fle">
 					（营业时间：<time></time>）
-				</span>
+					</span>	
 				</p>
 				<div class="hxAddress"></div>
 				<p class="infoMj clear">
@@ -139,7 +130,7 @@
 					</div>
 				</section>
 			</div>-->
-			<b class="openId"></b>
+			<!--<b class="openId"></b>-->
 		</div>
 	</body>
 
