@@ -5,7 +5,8 @@
 .home_top {
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 120px;
+	overflow: hidden;
 }
 .home_top img{
 	width:100%;

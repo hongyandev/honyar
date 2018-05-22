@@ -27,7 +27,7 @@ $(function () {
 		
 			$.ajax({
 				type: "get",
-				url: genAPI('wxDev/qrcode/preferential?openId=' + openId),
+				url: genAPI('wxDev/qrcode/preferential?openId=' + openID),
 				//url: "http://wx.hongyancloud.com/wxDev/qrcode/preferential?openId=" + openID,
 				dataType: "json",
 				success: function(res) {
