@@ -29,8 +29,25 @@ $(document).ready(function() {
         });
         $searchInput.on('blur', function() {
             if(!this.value.length) cancelSearch();
-        });
-        $("#souBtn").on('click', function() {
+        })
+        .on('change', function() {
+            var telephone = $('#searchInput').val();
+            if(telephone == ""){
+                weui.topTips("请输入手机号码");
+                return;
+            };
+            if(isPhoneNo(telephone) == true) {
+                //console.info(telephone);
+                loadList('searchDropower', openID, telephone);
+                $searchResult.show();
+                return;
+
+            } else {
+                weui.topTips("请填写正确的手机号码",3000);
+            }
+        })
+
+       /* $("#souBtn").on('click', function() {
             var telephone = $('#searchInput').val();
                 if(telephone == ""){
                     weui.topTips("请输入手机号码");
@@ -45,7 +62,7 @@ $(document).ready(function() {
                 } else {
                     weui.topTips("请填写正确的手机号码",3000);
                 }
-            });
+            });*/
         $searchClear.on('click', function() {
             hideSearchResult();
             cancelSearch();
