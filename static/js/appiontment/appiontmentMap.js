@@ -4,8 +4,8 @@ $(function() {
 	var key = 'b3f46725cfbf1073af700a708c2eb00c';
 	// TODO 1.这里缺少一个 开始获取用户坐标的方法
 	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	var openID = 'owoh4jtbf16-9nmh35uvOsvdc0eM';
-	//var openID=$.getCookie('open_id');
+	//var openID = 'owoh4jtbf16-9nmh35uvOsvdc0eM';
+	var openID=$.getCookie('open_id');
 	mapObj = new AMap.Map('iCenter');
 	mapObj.plugin('AMap.Geolocation', function() {
 		geolocation = new AMap.Geolocation({
