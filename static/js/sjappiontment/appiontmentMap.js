@@ -464,7 +464,7 @@ $(function() {
 			//console.log(result);
 			var component = result.regeocode.addressComponent;
 			NewProvince = component.province;
-			NewCity = component.city;
+            NewCity = component.city || component.district;
             Newdistrict = component.district;
 			NewLng = result.position.lng;
 			NewLat = result.position.lat;
