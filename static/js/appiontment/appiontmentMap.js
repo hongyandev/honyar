@@ -4,8 +4,8 @@ $(function() {
 	var key = 'b3f46725cfbf1073af700a708c2eb00c';
 	// TODO 1.这里缺少一个 开始获取用户坐标的方法
 	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	//var openID = 'oZlooxHvjmiadlhZXf_40nVrHgd4';
-	var openID=$.getCookie('open_id');
+	var openID = 'owoh4jtbf16-9nmh35uvOsvdc0eM';
+	//var openID=$.getCookie('open_id');
 	mapObj = new AMap.Map('iCenter');
 	mapObj.plugin('AMap.Geolocation', function() {
 		geolocation = new AMap.Geolocation({
@@ -243,6 +243,7 @@ $(function() {
 				city = "city=" + NewCity;
 				longitude = "&longitude=" + NewLng;
 				latitude = "&latitude=" + NewLat;
+                //district = vm.district;
 				district = "&district=" + Newdistrict;
 				//				alert(district);
 				//				alert("http://wx.hongyancloud.com/wxDev/reserve/getDealerList?" + province + city + longitude + latitude);
@@ -253,6 +254,7 @@ $(function() {
 					type: 'GET',
 					dataType: 'json',
 					success: function(data) {
+					    console.info(city+district);
 						var datas = data.data;
 						this.workersItem = datas;
 						this.title = '请选择服务商'
@@ -280,9 +282,15 @@ $(function() {
 				$.closePopup();
 			},
 			getDistrict: function(item) { // 得到省级 城市等数据
+                // console.log(item)
 				if(item.adcode != '100000') {
 					this.districtComponent = item;
 				}
+                if(item.adcode == "419001") {
+                    map.setCenter(item.center.split(','));
+                    $.closePopup();
+                    return;
+                }
 				if(item.level === "street") {
 
 					map.setCenter(item.center.split(','));
@@ -455,9 +463,10 @@ $(function() {
 		positionPicker.on('success', function(result) {
 			//console.log('XXX');
 			//console.log(result);
+            //console.log(vm.districtComponent);
 			var component = result.regeocode.addressComponent;
 			NewProvince = component.province;
-			NewCity = component.city;
+			NewCity = component.city || component.district;
             Newdistrict = component.district;
 			NewLng = result.position.lng;
 			NewLat = result.position.lat;
