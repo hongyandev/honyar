@@ -172,6 +172,9 @@ $(function() {
                     }
                 });
             },
+            myApppiont:function () {
+                window.location.href = "../sjappiontment/myAppiont.html?uid="+uid;
+            },
 			// 获取验证码
 			smsclick: function() {
 				var phone = vm.reserveTelephone;
@@ -435,7 +438,7 @@ $(function() {
 							//alert('预约申请提交成功！');
 							$.toast("预约申请提交成功！",3000);
 							//alert(uid);
-							window.location.href = "../sjappiontment/myAppiont.html";
+							window.location.href = "../sjappiontment/myAppiont.html?uid="+uid;
 						} else {
                             $.toptip(data.msg);
 						}
