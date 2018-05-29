@@ -62,8 +62,7 @@ var vmInfo=new Vue;
 		methods: {
 //
 			closeDistrict: function() { // 省级返回到地图 上一页方法
-				if(this.districtComponent)
-					map.setCenter(this.districtComponent.center.split(','));
+				
 				$.closePopup();
 			},
 ////

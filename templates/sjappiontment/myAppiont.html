@@ -8,14 +8,21 @@
 		<link rel="stylesheet" href="../../static/css/jquery-weui.min.css">
 		<link rel="stylesheet" href="../../static/css/example.css?v=1.0.0" />
 		<link rel="stylesheet" href="../../static/css/appiontment/myAppiont.css?v=1.0.0" />
-        <script src="../../static/js/sjlib-jq.js"></script>
+		<script src="../../static/js/sjlib-jq.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/vue"></script>
 		<script src="../../static/js/sjappiontment/myApppiont_v.js"></script>
 		<title>预约列表</title>
 	</head>
 
 	<body>
+
 		<div class="modal-content" ID="modal-content">
+			<!--<div class="toolbar">
+				<div class="toolbar-inner">
+					<a class="picker-button" v-on:click="closeAppiont">返回</a>
+					<h1 class="title">我的预约</h1>
+				</div>
+			</div>-->
 			<div class="page__bd">
 				<!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
 				<div class="weui-search-bar" id="searchBar">
@@ -45,6 +52,15 @@
 									<div class="det_left_tetl">
 										<p>预约电话：{{item.reserveTelephone}}</p>
 									</div>
+									<div class="det_left_tetl">
+										<p>服务类型：{{item.serviceTypeDesc}}</p>
+									</div>
+									<div class="det_left_tetl">
+										<p>预约上门时间：{{item.reserveDate}}</p>
+									</div>
+									<div class="det_left_tetl">
+										<p>预约网点：{{item.khmc}}</p>
+									</div>
 									<div class="det_left_add">
 										<p>地址：{{item.province}}{{item.city}}{{item.district}}{{item.town}}{{item.detailAddress}}</p>
 									</div>
@@ -64,6 +80,5 @@
 			</ul>
 		</div>
 	</body>
-
 
 </html>

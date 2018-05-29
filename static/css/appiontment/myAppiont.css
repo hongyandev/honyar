@@ -8,13 +8,28 @@ html {
 	height: 100%;
 }
 
+body {
+	background-color: #fff;
+}
+
 .weui-cells {
 	margin-top: 0 !important;
+}
+
+.weui-cells:after, .weui-cells:before{
+	z-index: -1 !important;
+}
+
+.weui-cell:before{
+	z-index: -1 !important;
 }
 
 .det_back {
 	width: 90%;
 	padding:15px 5%;
+	margin-bottom: 8px;
+	border-radius: 10px;
+	background-color: #F8F8F8;
 }
 
 .det_left {
@@ -70,7 +85,7 @@ html {
 	color: #AAAAAA;
 }
 .weui-swiped-btn{
-    padding: 30px 1em;
+    padding-top: 80%;
 }
 
 .det_right {
@@ -100,3 +115,8 @@ html {
 	color: #8BC34A;
 }
 
+.picker-button{
+	position: absolute;
+	left: -80%;
+	top: 0;
+}

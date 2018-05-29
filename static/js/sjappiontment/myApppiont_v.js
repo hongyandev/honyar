@@ -5,6 +5,7 @@ $(function() {
         if(r!=null) return unescape(r[2]);return null;
     }
     var uid = (getQueryString('uid')!=null ? getQueryString('uid') : null);
+    //var uid = "180309090532";
 	var vm = new Vue({
 		el: "#modal-content",
 		data: {
@@ -14,6 +15,9 @@ $(function() {
 			workersItem: []
 		},
 		methods: {
+//			closeAppiont: function(){
+//				window.location.href = "../sjappiontment/appiontmentMap.html?uid="+uid;
+//			},
 			postuser: function(item){
                 $.confirm("", "您确定要删除这条预约吗?", function() {
                     $.ajax({
@@ -39,9 +43,8 @@ $(function() {
 
             },
 			doSearch: function(e) {
-				//console.log(e)
+				console.log(e)
 				var telephone = e ? e.target.value : '';
-                console.log(telephone)
 //				$.showLoading();
 				$.ajax({
                     url:genAPI('wxDev/reserve/getReserveFenye'),
@@ -76,9 +79,8 @@ $(function() {
             $('.weui-cell_swiped').swipeout();
         },
 		mounted: function() {
-			//console.log("init...")
+			console.log("init...")
             this.uid = uid;
-			console.info(uid);
 			this.pageNum = 1;
 			this.pageSize = 10000;
 			this.doSearch();
