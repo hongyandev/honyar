@@ -12,13 +12,19 @@ $(function() {
 			uid: "",
 			pageNum: "",
 			pageSize: "",
+            telephone:"",
 			workersItem: []
 		},
+        watch: {
+            telephone:function(val, oldVal){
+                if(val==""){
+                    this.doSearch();
+                };
+            }
+        },
 		methods: {
-//			closeAppiont: function(){
-//				window.location.href = "../sjappiontment/appiontmentMap.html?uid="+uid;
-//			},
 			postuser: function(item){
+                if(this.telephone == ""){
                 $.confirm("", "您确定要删除这条预约吗?", function() {
                     $.ajax({
                         type:"post",
@@ -39,47 +45,89 @@ $(function() {
                     $('.weui-cell_swiped').swipeout('close');
                     //取消操作
                 });
-
+                }else{
+                    $.confirm("", "很抱歉，您删除不了这条预约", function() {
+                        $('.weui-cell_swiped').swipeout('close');
+                    })
+                }
 
             },
-			doSearch: function(e) {
-				console.log(e)
-				var telephone = e ? e.target.value : '';
-//				$.showLoading();
-				$.ajax({
+            cancelSearch:function () {
+                $.ajax({
                     url:genAPI('wxDev/reserve/getReserveFenye'),
-					//url: "http://wxdev.hongyancloud.com/wxDev/reserve/getReserveFenye",
-					async: false,
-					type: 'GET',
-					data: {
-						uid: this.uid,
-						telephone: telephone,
-						pageNum: this.pageNum,
-						pageSize: this.pageSize
-					},
-					dataType: 'json',
-					success: function(data) {
-						var datas = data.data.list;
-						console.log(datas);
-						this.workersItem = datas;
+                    //url: "http://wxdev.hongyancloud.com/wxDev/reserve/getReserveFenye",
+                    async: false,
+                    type: 'GET',
+                    data: {
+                        uid: this.uid,
+                        pageNum: this.pageNum,
+                        pageSize: this.pageSize
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        var datas = data.data.list;
+                        //console.log(datas);
+                        this.workersItem = datas;
                         $('.weui-cell_swiped').swipeout();
-					},
-					error: function(data) {
-						console.log(data)
-					},
-					complete: function() {
-						console.log('complete')
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    },
+                    complete: function() {
+                        // console.info(this.telephone);
+                        this.telephone="";
+                        // console.log('complete')
 //						$.hideLoading();
-					},
-					context: this
-				});
-			}
+                    },
+                    context: this
+                });
+            },
+
+            doSearch: function(e) {
+                //console.log(e);
+                //var telephone = e ? e.target.value : '';
+                var phone = this.telephone.toUpperCase();
+                //console.log(phone);
+
+                if(isPhoneNo(phone) == false) {
+                    $.toptip('请输入正确的手机号码',3000);
+                    return;
+                };
+//				$.showLoading();
+                $.ajax({
+                    url:genAPI('wxDev/reserve/getReserveFenye'),
+                    //url: "http://wxdev.hongyancloud.com/wxDev/reserve/getReserveFenye",
+                    async: false,
+                    type: 'GET',
+                    data: {
+                        uid: this.uid,
+                        telephone: phone,
+                        pageNum: this.pageNum,
+                        pageSize: this.pageSize
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        var datas = data.data.list;
+                        //console.log(datas);
+                        this.workersItem = datas;
+                        $('.weui-cell_swiped').swipeout();
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    },
+                    complete: function() {
+                        console.log('complete')
+//						$.hideLoading();
+                    },
+                    context: this
+                });
+            }
 		},
         updated:function () {
             $('.weui-cell_swiped').swipeout();
         },
 		mounted: function() {
-			console.log("init...")
+			console.log("init...");
             this.uid = uid;
 			this.pageNum = 1;
 			this.pageSize = 10000;
