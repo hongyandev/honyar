@@ -3,9 +3,9 @@ $(function() {
 	// key
 	var key = 'b3f46725cfbf1073af700a708c2eb00c';
 	// TODO 1.这里缺少一个 开始获取用户坐标的方法
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
 	//var openID = 'owoh4jtbf16-9nmh35uvOsvdc0eM';
-	var openID=$.getCookie('open_id');
+	//var openID=$.getCookie('open_id');
 	mapObj = new AMap.Map('iCenter');
 	mapObj.plugin('AMap.Geolocation', function() {
 		geolocation = new AMap.Geolocation({
@@ -172,7 +172,7 @@ $(function() {
 			smsclick: function() {
 				var phone = vm.reserveTelephone;
 				if(isPhoneNo(phone) == false) {
-					alert('请输入正确的手机号码');
+                    $.toptip('请输入正确的手机号码');
 					//weui.topTips('请输入正确的手机号码', 3000);
 					return;
 				};
@@ -386,43 +386,49 @@ $(function() {
 					iCode: vm.iCode, // 验证码
 					khdm: vm.khdm // 客户代码
 				};
+				var userTelephone = vm.userTelephone;
+                if(isPhoneNo(userTelephone) == false) {
+                    $.toptip('请输入正确的手机号码');
+                    //weui.topTips('请输入正确的手机号码', 3000);
+                    return;
+                };
 				if(myData.reserveType == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请选择预约人类型!')
+					$.toptip('请选择预约人类型!')
 					return;
 				}
 
 				if(myData.reserveName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入预约人姓名!')
+                    $.toptip('请输入预约人姓名!')
 					return;
 				}
 
 				if(myData.serviceType == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请选择服务类型!')
+                    $.toptip('请选择服务类型!')
 					return;
 				}
 				if(myData.userName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入业主姓名!')
+                    $.toptip('请输入业主姓名!')
 					return;
 				}
 				if(myData.userName == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入业主姓名!')
+                    $.toptip('请输入业主姓名!')
 					return;
 				}
 
 				if(myData.detailAddress == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入详细位置!')
+                    $.toptip('请输入详细位置!')
 					return;
 				}
 
 				if(myData.reserveDate == "") {
 					//weui.topTips('请输入预约人姓名！', 3000);
-					alert('请输入预约时间!')
+                    $.toptip('请输入预约时间!')
 					return;
 				}
 
@@ -436,15 +442,15 @@ $(function() {
 					success: function(data) {
 						if(data.code == "00000") {
 							//alert(JSON.stringify(data));
-							alert('预约申请提交成功！');
+							$.toptip('预约申请提交成功！');
 							window.location.href = "../appiontment/myAppiont.html";
 						} else {
-							alert(data.msg);
+                            $.toptip(data.msg);
 						}
 					},
 					error: function(data) {
 						console.log(data)
-						alert('网络异常,请检查您的网络');
+                        $.toptip('网络异常,请检查您的网络');
 					},
 					complete: function() {
 						$.hideLoading();
