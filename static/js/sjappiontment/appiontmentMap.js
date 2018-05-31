@@ -385,6 +385,12 @@ $(function() {
 					iCode: vm.iCode, // 验证码
 					khdm: vm.khdm // 客户代码
 				};
+                var userTelephone = vm.userTelephone;
+                if(isPhoneNo(userTelephone) == false) {
+                    $.toptip('请输入正确的手机号码');
+                    //weui.topTips('请输入正确的手机号码', 3000);
+                    return;
+                };
 				if(myData.reserveType == "") {
                     $.toptip('请选择预约人类型！', 3000);
 					//alert('请选择预约人类型!')
