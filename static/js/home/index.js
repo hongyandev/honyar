@@ -38,7 +38,7 @@ $(function () {
 						jQuery(".jxstel").attr("href", "tel:" + res.data.telephone);
 					} else {
 						jQuery(".hxAddress").html("浙江省杭州市余杭区138号");
-						jQuery(".Opentime").html("7:00-20:00");
+						jQuery(".Opentime time").html("7:00-20:00");
 						jQuery(".jxstel").html("4008267818");
 						jQuery(".jxstel").attr("href", "tel:" + "4008267818");
 					}
