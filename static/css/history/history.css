@@ -138,3 +138,8 @@ html {
 	width:40px;
 	height:40px;
 }
+.empty{
+	margin:40% auto;
+	width:80%;
+	text-align: center;
+}
