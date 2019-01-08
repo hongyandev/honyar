@@ -105,7 +105,7 @@ $(function() {
 			state: '', // 状态
 			iCode: '', // 验证码
 			workersItem: [], // 水电工数据 item
-			supplier: '    请选择预约水电工',
+			supplier: '    请选择服务网点',
 			address: '',
             show: true,
             count: '',
