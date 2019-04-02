@@ -15,7 +15,50 @@
 			body {
 				font-size: 14px
 			}
+
+			.arrleft {
+				top: 50px;
+				left: 0;
+				width: 40px;
+				cursor: pointer;
+			}
+			.arright {
+				top: 50px;
+				right: 0;
+				width: 40px;
+				cursor: pointer;
+			}
+			.arrleft,  .arright {
+				bottom: 0;
+				background: url(http://assets.alicdn.com/s.gif);
+				position: absolute;
+			}
+			.tm-m-photo-viewer-navicon {
+				display: block;
+				font-size: 40px;
+				font-style: normal;
+				color: #fff;
+				cursor: pointer;
+			}
+			.arright .tm-m-photo-viewer-navicon {
+				position: absolute;
+				top: 50%;
+				right: 8px;
+			}
+			.arrleft .tm-m-photo-viewer-navicon {
+				position: absolute;
+				top: 50%;
+				left: 8px;
+			}
 		</style>
+		<!--<script src="../../static/js/sddown/comment.js"></script>
+		<script>
+            $(function () {
+
+                var obj = new commentMove('.weui-uploader__bd', '.tm-m-photo-viewer');
+                obj.init()
+            })
+		</script>-->
 	</head>
 
 	<body>
@@ -44,19 +87,32 @@
 					</a>
 				</div>
 			</div>
-            <!--<div class="icon_new">
+            <div class="icon_new">
                  <a id="souBtn" href="javascript:void(0)">
                     <span>搜索</span>
                  </a>
-            </div>-->
+            </div>
 		</div>
 
 		<div class="page__bd content">
 			<div class="weui-gallery" id="gallery" style="opacity: 0; display: none;">
-                <div class="weui-closed">
+                <!--<div class="weui-closed">
                     <span>关闭</span>
                 </div>
-                <img class="weui-gallery__img" id="galleryImg" />
+                <img class="weui-gallery__img" id="galleryImg" />-->
+
+					<div class="weui-closed">
+						<span>关闭</span>
+					</div>
+                    <div>
+						<img class="weui-gallery__img" id="galleryImg" />
+						<a class="arrleft">
+							<i class="tm-m-photo-viewer-navicon arrow-right">&lt;</i>
+						</a>
+						<a class="arright">
+							<i class="tm-m-photo-viewer-navicon arrow-right">&gt;</i>
+						</a>
+                    </div>
                 <div class="weui-gallery__opr">
                     <a href="javascript:" class="weui-gallery__del" id="galleryDel">
                         <i class="weui-icon-delete weui-icon_gallery-delete"></i>
@@ -71,14 +127,14 @@
 					</div>
 				</div>
 		</div>
-       <!-- <div class="weui-tabbar" style="position:fixed;">
+        <div class="weui-tabbar" style="position:fixed;">
             <a href="sddown_new.html" class="weui-tabbar__item weuiTabicon">
                 <div class="weui-tabbar__icon">
                     <img src="../../static/img/sddown/addq.png" alt="">
                 </div>
-                &lt;!&ndash;<p class="weui-tabbar__label">上传水电图</p>&ndash;&gt;
+                <!--<p class="weui-tabbar__label">上传水电图</p>-->
             </a>
-        </div>-->
+        </div>
 
 	</body>
 </html>
