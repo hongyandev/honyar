@@ -1,7 +1,8 @@
 $(document).ready(function() {
+    //$("form").submit(function(){
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
-    var openID=$.getCookie('open_id');
+      var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID);
     //检索后加载列表
         var $searchBar = $('#searchBar'),
@@ -10,6 +11,11 @@ $(document).ready(function() {
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
             $searchCancel = $('#searchCancel');
+
+        $searchText.on('click', function() {
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchInput.focus();
+        });
 
         function hideSearchResult() {
             $searchResult.hide();
@@ -23,14 +29,10 @@ $(document).ready(function() {
             loadList('getDropowerAndDetails', openID);
         }
 
-        $searchText.on('click', function() {
-            $searchBar.addClass('weui-search-bar_focusing');
-            $searchInput.focus();
-        });
         $searchInput.on('blur', function() {
             if(!this.value.length) cancelSearch();
-        })
-        .on('change', function() {
+        });
+        /*.on('change', function() {
             var telephone = $('#searchInput').val();
             if(telephone == ""){
                 weui.topTips("请输入手机号码");
@@ -45,9 +47,9 @@ $(document).ready(function() {
             } else {
                 weui.topTips("请填写正确的手机号码",3000);
             }
-        })
+        })*/
 
-       /* $("#souBtn").on('click', function() {
+        $("#souBtn").on('click', function() {
             var telephone = $('#searchInput').val();
                 if(telephone == ""){
                     weui.topTips("请输入手机号码");
@@ -62,7 +64,7 @@ $(document).ready(function() {
                 } else {
                     weui.topTips("请填写正确的手机号码",3000);
                 }
-            });*/
+            });
         $searchClear.on('click', function() {
             hideSearchResult();
             cancelSearch();
@@ -73,6 +75,7 @@ $(document).ready(function() {
             $searchInput.blur();
         });
 
+  //  });
 });
 //刷新加载页面
 function loadList(action, openid, keyword) {
@@ -128,13 +131,12 @@ function loadList(action, openid, keyword) {
 
                 //明细图片fadeIn
                 $(".detaPic").on("click", "li", function() {
+                    $(this).toggleClass("current").siblings().removeClass("current");
                     $galleryImg.attr("src", this.getAttribute("realPath"));
                     $galleryDel.attr("imgid", this.getAttribute("imgid"));
                     $gallery.show();
 
                     $galleryImg.get(0).onload = function (){
-                        //var picH=document.getElementById("galleryImg").height;
-                        // var picW=document.getElementById("galleryImg").width;
                         var picH=$("#galleryImg").height();
                         var picW=$("#galleryImg").width();
                         console.log(picH);
@@ -142,6 +144,44 @@ function loadList(action, openid, keyword) {
                         $galleryImg.css({"margin-top":-parseFloat(picH)/2+"px","margin-left":-parseFloat(picW)/2+"px"})
                     };
                 });
+                //点击zuo箭头
+
+                $(".arrleft").click(function () {
+                    var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
+                    console.info(index);
+                    index--;
+                    if (index >= 0) {
+                        $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
+                        var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
+                        $galleryImg.attr("src", src);
+                    }
+                    if (index < 1) {
+                        //index = 0;
+                       // $(this).children().css({ "display": "none" });
+                       // alert("已经到头了")
+                        return;
+                    }
+                });
+                //点击you
+                $(".arright").click(function () {
+                    var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
+                    console.info(index);
+                    index++;
+                    var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
+                    $galleryImg.attr("src", src);
+
+                   // $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
+                    if (index >= $(".weui-uploader__bd li").length - 1) {
+                       // $(this).children().css({ "display": "none" });
+                       // alert("已经到头了")
+                    }
+
+
+
+
+                });
+
+
                 //删除水电图和明细
                 $(document).on("click",".deletePic",function () {
                     var openID = $(this).parents("ol").parents(".deta_ul").attr("openid");
