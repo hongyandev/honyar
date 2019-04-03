@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
                     className: 'custom-classname'
                 });
                 jQuery("#fwm").val(res.resultStr);
-                submitAntiCode();
+                submitAntiCode(loading);
             });
         }
     });
@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
 });
 
 //提交
-function submitAntiCode() {
+function submitAntiCode(loading) {
 
     var validResult = validateAll();
     if(validResult == false)
@@ -51,7 +51,8 @@ function submitAntiCode() {
         contentType: 'application/json',*/
         success: function(res) {
             if(res.code=='200'){
-                console.info(res.data);
+                loading.hide();
+               // console.info(res.data);
                 var queryData = JSON.parse(res.data);
                     var queryCount = queryData.data.queryCount;
                     var queryResult = queryData.data.queryResult;
