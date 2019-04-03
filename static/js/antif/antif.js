@@ -61,7 +61,7 @@ function submitAntiCode(loading) {
                     var infoTure = queryResult + ", 已被查询" + queryCount + "次！"
 
                     if(queryCount == 0) {
-                        weui.topTips(infoFalse);
+                        weui.topTips(infoFalse,6000);
                     } else {
                        /* $.alert(infoTure, "查询成功", function() {
                             $("#fwm").val("");
