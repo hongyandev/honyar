@@ -191,3 +191,7 @@
   z-index: 1;
   height: 100%;
   width: 100%; }
+.columns{
+  height:180px;
+  overflow: hidden;
+}
