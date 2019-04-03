@@ -5,41 +5,80 @@ function validateAll() {
 		return false;
 	}
 }
-$(document).ready(function(e) {
-	retrieveData();
+
+
+jQuery(document).ready(function(){
+    //这个是调用微信的jssdk将需要用到的功能进行注入
+    weixin.config({
+        debug: false,
+        jsApiList: ['hideOptionMenu','scanQRCode']
+    });
+    weixin.ready(function () {
+        weixin.hideOptionMenu();
+        document.querySelector('#scanQRCode').onclick = function () {
+            weixin.scanQRCode(function(res){
+                var loading = weui.loading('loading', {
+                    className: 'custom-classname'
+                });
+                jQuery("#fwm").val(res.resultStr);
+                submitAntiCode();
+            });
+        }
+    });
+    weixin.error(function (res) {
+        weui.topTips(res.errMsg, 3000);
+    });
 });
 
+//提交
 function submitAntiCode() {
 
-	var validResult = validateAll();
-	if(validResult == false)
-		return;
+    var validResult = validateAll();
+    if(validResult == false)
+        return;
 
-	var Code = $('#fwm').val();
+    var fwm = $("#fwm").val();
+    var gs = $("input[name='tmlb']:checked").val();
 
-	$.ajax({
-		type: "post",
-		url: "http://sge.cn:9101/api/smfw",
-		data: {
-			gs: "1", // 1: 鸿雁, 2: 南京鸿雁
-			fwtm: "123456"
-		},
-		success: function(data) {
-			var queryCount = data.queryCount;
-			var queryResult = data.queryResult;
-			var quertCode = data.quertCode;
+    $.ajax({
+        type: "post",
+        url: "https://wxdev.hongyancloud.com/hy/unauth/getQCQuery",
+        data: {
+            gs: gs, // 1: 鸿雁, 2: 南京鸿雁
+            fwtm: fwm
+        },
+        /*dataType:"json",
+        contentType: 'application/json',*/
+        success: function(res) {
+            if(res.code=='200'){
+                console.info(res.data);
+                var queryData = JSON.parse(res.data);
+                    var queryCount = queryData.data.queryCount;
+                    var queryResult = queryData.data.queryResult;
 
-			var infoFalse = queryResult
-			var infoTure = queryResult + ", 已被查询" + queryCount + "次！"
+                    var infoFalse = queryResult;
+                    var infoTure = queryResult + ", 已被查询" + queryCount + "次！"
 
-			if(queryCount == 0) {
-				weui.topTips(infoFalse);
-			} else {
-				weui.topTips(infoTure);
-			}
-		},
-		error: function(data) {
-			weui.topTips('访问出错！');
-		}
-	});
+                    if(queryCount == 0) {
+                        weui.topTips(infoFalse);
+                    } else {
+                       /* $.alert(infoTure, "查询成功", function() {
+                            $("#fwm").val("");
+                        });*/
+                        weui.toast(infoTure, {
+                            duration: 3000,
+                            className: 'custom-classname',
+                            callback: function() {
+                                $("#fwm").val("");
+                            }
+                        });
+                    }
+            }
+
+
+        },
+        error: function(data) {
+            weui.topTips('访问出错！');
+        }
+    });
 }
