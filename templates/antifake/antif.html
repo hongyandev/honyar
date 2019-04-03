@@ -18,6 +18,7 @@
 		<script src="../../static/js/jquery.min.js"></script>
 		<script src="../../static/js/antif/bootstrap.min.js"></script>
 		<script src="../../static/js/antif/ie10-viewport-bug-workaround.js"></script>
+        <script src="../../static/js/lib-jq.js"></script>
 		<script src="../../static/js/antif/antif.js"></script>
 
 	</head>
@@ -29,22 +30,19 @@
 			</div>
 		</nav>
 		<div class="container">
-			<form name="form" method="post" action="TmcxAllServlet" onSubmit="return validateAll()">
 				<div class="radio">
-					<label><input name="tmlb" type="radio" value="hy" checked />杭州鸿雁电器有限公司产品</label>
-					<label><input name="tmlb" type="radio" value="nj" />原南京普天鸿雁电器有限公司产品</label>
+					<label><input name="tmlb" type="radio" value="1" checked />杭州鸿雁电器有限公司产品</label>
+					<label><input name="tmlb" type="radio" value="2" />原南京普天鸿雁电器有限公司产品</label>
 				</div>
 				<div class="form-group">
 					<label for="fwm">请输入20位防伪码</label>
 					<input type="text" class="form-control" id="fwm" name="tm" placeholder="请输入20位防伪码">
-					<!--<div class="scan">
+					<div id="scanQRCode" class="scan">
 						<img id="scanf" src="../../static/img/antifake/scananti.png" />
-					</div>-->
+					</div>
 				</div>
-				<button type="submit" onclick="submitAntiCode()" class="btn btn-block btn-primary">提交认证</button>
+				<button type="submit" onclick="submitAntiCode()" class="btn btn-block btn-success">提交认证</button>
 				<button type="reset" class="btn btn-block btn-default">重置</button>
-			</form>
-
 			<h3>使用说明</h3>
 			<p>输入20位防伪数码（位于外包装合格证条形码下方及产品防伪标识上）和验证码，按“提交认证”按钮。</p>
 			<p>如果为鸿雁正宗产品，查询结果会显示“鸿雁正宗产品” 字样，同时显示该防伪数码已被查询的总次数。</p>
