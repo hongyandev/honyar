@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>样本册列表</title>
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/galleryCss/blueimp-gallery.css">
+    <link rel="stylesheet" href="../css/galleryCss/animate.css">
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="../js/jquery-2.1.0.min.js"></script>
+    <!--<script src="../js/jquery.cookie.min.js"></script>-->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/mui-loading.js"></script>
+    <script src="../js/pic/catalogList.js"></script>
+    <style>
+        .muiBackdrop::-webkit-scrollbar {
+            display: none;
+        }
+        .search{
+            margin-bottom:0;
+        }
+        .ranking{
+            width:60px;
+            height:60px;
+            position:fixed;
+            bottom:10px;
+            left:10px;
+            background: url(../img/ranking.png) no-repeat center;
+            background-size: contain;
+        }
+        .backdrop{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 998;
+            background-color: rgba(0,0,0,.3);
+        }
+        .mui-content{
+            position: absolute;
+            top: 6%;
+            left: 5%;
+            z-index: 999;
+            height: 90%;
+            background: #fff;
+            width: 90%;
+        }
+        .mui-table-view-cell{padding:11px 2px}
+        .sliderTitle ul{margin-bottom:0;padding:10px 0;}
+        .sliderTitle ul li{margin-bottom:0;}
+        .mui-control-content {
+            background-color: white;
+            min-height: 215px;
+        }
+        .mui-segmented-control .mui-control-item{
+            line-height:45px;
+        }
+        .mui-control-content .mui-loading {
+            margin-top: 50px;
+        }
+        .mui-slider-indicator.mui-segmented-control{
+            border-bottom:1px solid #e5e5e5;
+            background: #009D85;
+        }
+        .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+            border-bottom:2px solid #fff;
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="classInfo mui-clearfix">
+        <div class="mui-input-row mui-search mui-pull-left muiSearch" style="width:100%">
+            <input style="margin-bottom:0;" type="search" class="mui-input-clear search" placeholder="">
+        </div>
+       <!-- <button id="screening" type="button" class="mui-btn mui-icon mui-icon-arrowdown mui-right mui-pull-right">筛选</button>
+        <div class="muiBackdrop" style="display: none">
+            <ul>
+                <li>
+                    <div class="className">时长：</div>
+                    <dl>
+                        <dd><span class="active">全部</span></dd>
+                        <dd><span>0-10</span></dd>
+                        <dd><span>0-10</span></dd>
+                        <dd><span>0-10</span></dd>
+                        <dd><span>0-10</span></dd>
+                        <dd><span>0-10</span></dd>
+                        <dd><span>0-10</span></dd>
+                    </dl>
+                </li>
+                <li>
+                    <div class="className">时长：</div>
+                    <dl>
+                        <dd><span class="active">全部</span></dd>
+                        <dd><span>0-10</span></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>-->
+    </div>
+    <div class="lightBoxGallery container">
+      <input id="uid" type="hidden"/>
+          <ul id="catalogLists" class="row">
+          </ul>
+    </div>
+
+</body>
+
+</html>
