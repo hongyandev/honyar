@@ -146,40 +146,40 @@ function loadList(action, openid, keyword) {
                 });
                 //点击zuo箭头
 
-                $(".arrleft").click(function () {
-                    var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
-                    console.info(index);
-                    index--;
-                    if (index >= 0) {
-                        $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
-                        var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
-                        $galleryImg.attr("src", src);
-                    }
-                    if (index < 1) {
-                        //index = 0;
-                       // $(this).children().css({ "display": "none" });
-                       // alert("已经到头了")
-                        return;
-                    }
-                });
-                //点击you
-                $(".arright").click(function () {
-                    var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
-                    console.info(index);
-                    index++;
-                    var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
-                    $galleryImg.attr("src", src);
+                /*  $(".arrleft").click(function () {
+                      var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
+                      console.info(index);
+                      index--;
+                      if (index >= 0) {
+                          $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
+                          var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
+                          $galleryImg.attr("src", src);
+                      }
+                      if (index < 1) {
+                          //index = 0;
+                         // $(this).children().css({ "display": "none" });
+                         // alert("已经到头了")
+                          return;
+                      }
+                  });
+                  //点击you
+                  $(".arright").click(function () {
+                      var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
+                      console.info(index);
+                      index++;
+                      var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
+                      $galleryImg.attr("src", src);
 
-                   // $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
-                    if (index >= $(".weui-uploader__bd li").length - 1) {
-                       // $(this).children().css({ "display": "none" });
-                       // alert("已经到头了")
-                    }
-
-
+                     // $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
+                      if (index >= $(".weui-uploader__bd li").length - 1) {
+                         // $(this).children().css({ "display": "none" });
+                         // alert("已经到头了")
+                      }
 
 
-                });
+
+
+                  });*/
 
 
                 //删除水电图和明细
