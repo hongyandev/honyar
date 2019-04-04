@@ -10,11 +10,11 @@ $(function () {
         success: function(res) {
             if(res.code == "00000") {
                 jQuery(".top_info label").html("个人中心");
-                jQuery(".top_info a").attr("href","member/member.html");
+                jQuery(".top_info a").attr("href","../member/member.html");
                 jQuery('.openId').html(openID);
             }else{
                 jQuery(".top_info label").html("注册");
-                jQuery(".top_info a").attr("href","login/login.html");
+                jQuery(".top_info a").attr("href","../login/login.html");
             }
 			/*if(openID=="oZIooxJ_MT0M1ApB_4caa_gvXgWc"){
             	$("#btn").show();
