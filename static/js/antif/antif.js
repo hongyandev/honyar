@@ -32,12 +32,14 @@ jQuery(document).ready(function(){
 
 //提交
 function submitAntiCode(loading) {
-    var loading = loading ||  weui.loading('loading', {
-        className: 'custom-classname'
-    });
     var validResult = validateAll();
     if(validResult == false)
         return;
+
+    var loading = loading ||  weui.loading('loading', {
+        className: 'custom-classname'
+    });
+
 
     var fwm = $("#fwm").val();
     var gs = $("input[name='tmlb']:checked").val();
