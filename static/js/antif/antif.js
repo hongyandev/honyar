@@ -29,7 +29,9 @@ jQuery(document).ready(function(){
         weui.topTips(res.errMsg, 3000);
     });
 });
-
+function submitReset() {
+    $("#fwm").val("");
+}
 //提交
 function submitAntiCode(loading) {
     var validResult = validateAll();
