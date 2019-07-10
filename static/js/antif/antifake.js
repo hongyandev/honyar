@@ -11,3 +11,42 @@ $(document).ready(function() {
 	});
 });
 
+jQuery(document).ready(function(){
+    //这个是调用微信的jssdk将需要用到的功能进行注入
+    weixin.config({
+        debug: false,
+        jsApiList: ['hideOptionMenu','scanQRCode']
+    });
+    weixin.ready(function () {
+        weixin.hideOptionMenu();
+        document.querySelector('#scanQRCode').onclick = function () {
+            weixin.scanQRCode(function(res){
+                var loading = weui.loading('loading', {
+                    className: 'custom-classname'
+                });
+                $.ajax({
+                    type: "get",
+                    url:genAPI('wxDev/verificate/uidAuthority?uid='+res.resultStr),
+                    //url: "	http://wx.hongyancloud.com/wxDev/verificate/uidAuthority?uid="+res.resultStr,
+                    dataType:"json",
+                    success: function(data) {
+                        loading.hide();
+                        if(data.code == "00000") {
+                            jQuery(".sCodeInput").val(res.resultStr);
+                        }else {
+                            weui.topTips(data.msg, 2000);
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        loading.hide();
+                        weui.topTips('网络异常', 2000);
+                    }
+                });
+            });
+        }
+    });
+    weixin.error(function (res) {
+        weui.topTips(res.errMsg, 3000);
+    });
+});
+

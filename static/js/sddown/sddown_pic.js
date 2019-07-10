@@ -13,8 +13,8 @@ function GetRequest() {
 
 //保存上传图片信息的全局变量
 var uploadFiles = [];
-//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-var openID=$.getCookie('open_id');
+var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+//var openID=$.getCookie('open_id');
 var theRequest = GetRequest();
 var formdata = new FormData();
 formdata.append('openId', openID);

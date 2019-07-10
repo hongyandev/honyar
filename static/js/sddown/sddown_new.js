@@ -1,7 +1,7 @@
 function Bt_submit() {
 
-	//var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-	var openID = $.getCookie('open_id'); //'oZlooxHvjmiadlhZXf_40nVrHgd4';// $.getCookie('open_id');
+	var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+	//var openID = $.getCookie('open_id'); //'oZlooxHvjmiadlhZXf_40nVrHgd4';// $.getCookie('open_id');
 	
 //	var sdid = $('#inputSdid').val();
 //	var name = $('#inputName').val();

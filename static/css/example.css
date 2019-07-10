@@ -289,7 +289,7 @@ ul {
     box-sizing: border-box;
     -webkit-transition: .5s;
     transition: .5s;
-    background: url(images/layers/transparent.gif) no-repeat 50%;
+    /*background: url(images/layers/transparent.gif) no-repeat 50%;*/
     background-size: contain;
     font-size: 14px;
     color: #fff
@@ -352,7 +352,7 @@ ul {
 
 .page.layers .layers__layer_popout.j_pic {
     border-color: transparent;
-    background-image: url(images/layers/popout.png)
+    /*background-image: url(images/layers/popout.png)*/
 }
 
 .page.layers .layers__layer_mask {
@@ -391,7 +391,7 @@ ul {
 
 .page.layers .layers__layer_navigation.j_pic {
     background-color: transparent;
-    background-image: url(images/layers/navigation.png)
+    /*background-image: url(images/layers/navigation.png)*/
 }
 
 .page.layers .layers__layer_content {
@@ -412,7 +412,7 @@ ul {
 }
 
 .page.layers .layers__layer_content.j_pic {
-    background-image: url(images/layers/content.png)
+    /*background-image: url(images/layers/content.png)*/
 }
 
 .page.searchbar .searchbar-result {
@@ -500,6 +500,7 @@ ul {
     animation: b .2s forwards
 }
 
+/*
 @supports (constant(safe-area-inset-top  )) {
     .page {
         padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left)
@@ -514,4 +515,4 @@ ul {
         padding-left: constant(safe-area-inset-left);
         padding-right: constant(safe-area-inset-right)
     }
-}
+}*/

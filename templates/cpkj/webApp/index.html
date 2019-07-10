@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>样本册列表</title>
     <link rel="stylesheet" href="../css/reset.min.css">
     <link rel="stylesheet" href="../css/mui.css">
@@ -10,18 +10,22 @@
     <link rel="stylesheet" href="../css/galleryCss/blueimp-gallery.css">
     <link rel="stylesheet" href="../css/galleryCss/animate.css">
     <link rel="stylesheet" href="../css/style.css"/>
+    <!--<script type="text/javascript" src="http://g.alicdn.com/ilw/cdnjs/jquery/2.1.4/jquery.min.js"></script>-->
     <script src="../js/jquery-2.1.0.min.js"></script>
-    <!--<script src="../js/jquery.cookie.min.js"></script>-->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/mui.min.js"></script>
-    <script src="../js/mui-loading.js"></script>
-    <script src="../js/pic/catalogList.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/mui-loading.js"></script>
+    <script type="text/javascript" src="../js/pic/catalogList.js?v=1"></script>
     <style>
         .muiBackdrop::-webkit-scrollbar {
             display: none;
         }
-        .search{
+        #search{
             margin-bottom:0;
+        }
+        .container{
+            padding-bottom:160px;
         }
         .ranking{
             width:60px;
@@ -31,26 +35,21 @@
             left:10px;
             background: url(../img/ranking.png) no-repeat center;
             background-size: contain;
-        }
-        .backdrop{
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 998;
-            background-color: rgba(0,0,0,.3);
+            z-index: 100;
         }
         .mui-content{
-            position: absolute;
-            top: 6%;
+            position: fixed;
+            top: 10%;
             left: 5%;
-            z-index: 999;
-            height: 90%;
+            z-index: 9999999;
+            height: 80%;
             background: #fff;
             width: 90%;
         }
-        .mui-table-view-cell{padding:11px 2px}
+        .mui-slider{
+            position: absolute;
+        }
+        .mui-table-view-cell{padding:11px 0}
         .sliderTitle ul{margin-bottom:0;padding:10px 0;}
         .sliderTitle ul li{margin-bottom:0;}
         .mui-control-content {
@@ -71,45 +70,162 @@
             border-bottom:2px solid #fff;
             color:#fff;
         }
+        .muiIcon{
+            position:absolute;
+            top:-6%;
+            left:50%;
+            margin-left: -12px;
+            z-index: 9999999;
+            color:#fff;
+        }
+        .closeIcon{
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            z-index: 9999999;
+            color: #fff;
+            margin-right: -13px;
+            margin-top: 118px;
+        }
+        .muiSearch{
+            position: relative;
+        }
+        .muiSearch input{
+            font-size: 16px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 34px;
+            border: 0;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 0, .1);
+            padding-left: 30px;
 
+        }
+        .searchIcon{
+            position: absolute;
+            left:5px;
+            top:5px;
+        }
+        .muiClear{
+            position: absolute;
+            right:5px;
+            top:5px;
+        }
+        .navTabs{
+            position:fixed;
+            top:54px;
+            left:0;
+            width:30%;
+            background: #fff;
+        }
+        .navTabs ul li{
+            padding:10px;
+            border-bottom:1px solid #f1f1f1;
+            text-align: center;
+            margin-bottom:0;
+        }
+        .navTabs ul li a{
+            color:#555;
+            text-decoration: none;
+        }
+        .navTabs ul li.active{
+            background: #f1f1f1;
+        }
+        .navTabs ul li.active a{
+            color:#009D85
+        }
+        .mui-scroll-wrapper{
+            overflow: scroll;
+        }
     </style>
-</head>
-<body>
-    <div class="classInfo mui-clearfix">
-        <div class="mui-input-row mui-search mui-pull-left muiSearch" style="width:100%">
-            <input style="margin-bottom:0;" type="search" class="mui-input-clear search" placeholder="">
-        </div>
-       <!-- <button id="screening" type="button" class="mui-btn mui-icon mui-icon-arrowdown mui-right mui-pull-right">筛选</button>
-        <div class="muiBackdrop" style="display: none">
-            <ul>
-                <li>
-                    <div class="className">时长：</div>
-                    <dl>
-                        <dd><span class="active">全部</span></dd>
-                        <dd><span>0-10</span></dd>
-                        <dd><span>0-10</span></dd>
-                        <dd><span>0-10</span></dd>
-                        <dd><span>0-10</span></dd>
-                        <dd><span>0-10</span></dd>
-                        <dd><span>0-10</span></dd>
-                    </dl>
-                </li>
-                <li>
-                    <div class="className">时长：</div>
-                    <dl>
-                        <dd><span class="active">全部</span></dd>
-                        <dd><span>0-10</span></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>-->
-    </div>
-    <div class="lightBoxGallery container">
-      <input id="uid" type="hidden"/>
-          <ul id="catalogLists" class="row">
-          </ul>
-    </div>
 
+
+</head>
+<body style="background: #f1f1f1">
+<div class="classInfo mui-clearfix">
+    <form action="">
+        <!--<div class="mui-input-row mui-search mui-pull-left muiSearch">
+            <input id="search" type="search" class="mui-input-clear search" placeholder="">
+        </div>-->
+        <div class="muiSearch mui-pull-left">
+            <input id="search" type="search" />
+            <span class="searchIcon mui-icon mui-icon-search"></span>
+            <span style="display: none" id="muiClear" class="muiClear mui-icon mui-icon-close"></span>
+        </div>
+    </form>
+    <button id="screening" type="button" class="mui-btn mui-icon mui-icon-arrowdown mui-right mui-pull-right">筛选</button>
+    <div class="muiBackdrop" style="display: none">
+        <ul class="catalogType"></ul>
+    </div>
+</div>
+<div class="lightBoxGallery container">
+    <input id="uid" type="hidden"/>
+    <div class="navTabs">
+        <ul>
+
+        </ul>
+    </div>
+    <div id="pullrefresh">
+        <div class="mui-scroll">
+            <ul id="catalogLists">
+            </ul>
+        </div>
+    </div>
+</div>
+<a class="ranking" href="javascript:void(0)"></a>
+<div class="rankingInfo" style="display: none">
+
+    <div class="mui-content">
+        <p id="muiIcon" class="muiIcon mui-icon mui-icon-close"></p>
+        <div id="slider" class="mui-slider" style="height: 100%">
+            <div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#item1mobile">
+                    今日排行榜
+                </a>
+                <a class="mui-control-item" href="#item2mobile">
+                    总排行榜
+                </a>
+            </div>
+            <div class="sliderTitle">
+                <ul class="clearfix text-center">
+                    <li class="mui-col-xs-4 pull-left">姓名</li>
+                    <li  class="mui-col-xs-4 pull-left">转发用户数</li>
+                    <li class="mui-col-xs-4 pull-left">阅读数</li>
+                </ul>
+            </div>
+            <div class="mui-slider-group" style="height:90%">
+                <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                    <div id="scroll1" class="mui-scroll-wrapper">
+                        <div id="item1Con" class="mui-scroll">
+                            <ul class="mui-table-view"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item2mobile" class="mui-slider-item mui-control-content">
+                    <div id="scroll2" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div class="mui-loading">
+                                <div class="mui-spinner">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop"></div>
+</div>
+<p class="qrcode" style="display: none">
+    <a class="qrcode-icon" href="javascript:void(0)"></a>
+    <b>生成二维码</b>
+</p>
+<div class="qrcodeInfo" style="display: none">
+    <div id="qrcode"></div>
+    <p id="closeIcon" class="closeIcon mui-icon mui-icon-close" style="font-size:36px;"></p>
+    <div class="backdrop"></div>
+</div>
 </body>
+
 
 </html>
