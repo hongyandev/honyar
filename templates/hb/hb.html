@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="bg">
+    <div class="xhb"></div>
+    <div class="text">
+        <p>您获得了一个积分红包，打开领取</p>
+        <h3>杭州鸿雁电器有限公司</h3>
+        <p>兑换积分</p>
+    </div>
+    <div class="hb-bg">
+        <img src="img/bg1.png"/>
+        <a href="hbCon.html" class="hb"></a>
+        <a href="hbCon.html" class="hb-txet">我的领取记录></a>
+    </div>
+</div>
+</body>
+<script src="jquery-2.1.4.js"></script>
+<script>
+    $(function () {
+        var wh=$(window).height();
+        console.log(wh);
+        $(".bg").height(wh+"px")
+    })
+</script>
+</html>

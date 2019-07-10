@@ -1,2 +1,4 @@
 ### STS ###
 .project
+.idea/
+sh.exe.stackdump

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="bgCon">
+    <div class="conTxt">
+        <h3>杭州鸿雁电器有限公司</h3>
+        <h1>5000<span>积分</span></h1>
+        <p>已存入积分账户</p>
+        <a class="btn" href="javascript:void(0)">继续兑换</a>
+        <div class="ptxt">近一个月的兑换记录</div>
+        <div class="conList">
+            <ul>
+                <li>
+                    <div class="leCon">
+                        <div>杭州鸿雁电器有限公司</div>
+                        <time>2018-02-03 11:20</time>
+                    </div>
+                    <span class="jf">+300</span>
+                </li>
+                <li>
+                    <div class="leCon">
+                        <div>杭州鸿雁电器有限公司</div>
+                        <time>2018-02-03 11:20</time>
+                    </div>
+                    <span class="jf">+300</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <img src="img/hongbao_4.png"/>
+</div>
+</body>
+<script src="jquery-2.1.4.js"></script>
+<script>
+    $(function () {
+        var wh=$(window).height();
+        console.log(wh);
+        $(".bgCon").height(wh+"px")
+    })
+</script>
+</html>

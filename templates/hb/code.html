@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="codeBg">
+    <div class="codeCon">
+        <div class="codeConbg"></div>
+        <img src="img/qrcode.jpg"/>
+        <p>官方公众号</p>
+        <span>微信搜索关注"鸿雁智慧生活"</span>
+    </div>
+    <img class="sbg" src="img/sbg.png"/>
+</div>
+</body>
+<script src="jquery-2.1.4.js"></script>
+<script>
+    $(function () {
+        var wh=$(window).height();
+        console.log(wh);
+        $(".codeBg").height(wh+"px")
+    })
+</script>
+</html>

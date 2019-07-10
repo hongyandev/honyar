@@ -1,0 +1,67 @@
+*{padding:0;margin: 0;font-style: normal;}
+a{text-decoration: none;}
+html{font-size:65.5%;font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;}
+.bg{
+    background-color: #db5443;
+    width: 100%;
+    height:100%;
+    position:relative;
+}
+.xhb{
+    width:6rem;
+    height:6rem;
+    background: url(img/xhb.png) center no-repeat;
+    position: absolute;
+    background-size: contain;
+    top:10%;
+    left:50%;
+    margin-left: -3rem;
+    z-index: 99;
+}
+.text{
+    width:80%;
+    margin:0 10%;
+    position:absolute;
+    top:20%;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #efcc8f;
+}
+.text p{line-height:3rem;padding:1.5rem 0;font-size:1.4rem;}
+h3{
+    font-size:2.2rem;
+}
+.hb-bg{
+    position: absolute;
+    bottom:0;
+    left:0;
+    z-index: 99;
+}
+.hb-bg img{width:100%}
+.hb{width:12rem;height:12rem;background: url(img/hb.png) center no-repeat;position: absolute;background-size: contain;display: block;top:-1rem;left:50%;margin-left: -6rem;z-index: 99;}
+.hb-txet{position:absolute;bottom:5rem;font-size:1.6rem;left:50%;margin-left:-5rem;color: #efcc8f;}
+
+/* content */
+html{font-size:65.5%;font-family:"Microsoft Yahei",Tahoma,Simsun,sans-serif;}
+.bgCon{position: relative;background-color: #f1f1f1;}
+img{width:100%;}
+.conTxt{position:absolute;top:24%;text-align: center;width: 100%;}
+.conTxt h3{font-size: 1.8rem;width: 80%;margin:0 10%;font-weight: normal}
+.conTxt h1{font-size: 4rem;padding:15px 0;font-weight: normal}
+.conTxt h1 span{font-size:1.6rem}
+.conTxt p{font-size:1.4rem;margin-bottom:3rem;}
+.btn{display:inline-block;padding:0 5rem;font-size:1.6rem;color:#db5443;border:0.1rem solid #db5443;border-radius:15px;text-decoration: none;line-height:3.5rem;height:3.5rem;}
+.conList{width:100%;text-align: left;background-color: #fff;}
+.ptxt{margin:3rem 1.5rem 1.5rem;text-align: left;font-size:1.4rem;color:#888}
+.conList ul li{font-size:1.4rem;display:block;clear:both;overflow: hidden;border-bottom:1px solid #e5e5e5;}
+.conList ul li .leCon{float:left;line-height:2.5rem;padding:1rem 0 1rem 1.5rem;}
+.conList ul li .leCon time{color:#888;}
+.conList ul li .jf{float:right;margin-top:1.8rem;padding-right:1.5rem;}
+/*codeBg*/
+.codeBg{position:relative;background: -webkit-linear-gradient(#fff,#fcfcfc,#e5e5e5);background: -o-linear-gradient(#fff,#fcfcfc,#e5e5e5);background: -moz-linear-gradient(#fff,#fcfcfc,#e5e5e5);background: linear-gradient(#fff,#fcfcfc,#e5e5e5);}
+.sbg{width:100%;position:absolute;bottom:0;left:0;}
+.codeCon{width:80%;margin:0 10%;position: absolute;top:8%;text-align: center;font-size:1.4rem;}
+.codeConbg{width:100%;height:180px;background: url(img/sCode.png) center no-repeat;background-size: contain;}
+.codeCon img{width:50%;display: inline-block;margin-top:50px;}
+.codeCon p{margin-bottom:5px;}
+.codeCon span{font-size:1.2rem;color:#888;}

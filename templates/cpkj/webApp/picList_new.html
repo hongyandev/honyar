@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet prefetch" href="../css/photoswipe.css">
+    <link rel="stylesheet prefetch" href="../css/default-skin.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jquery-2.1.0.min.js"></script>
+    <script src="../js/jquery.cookie.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/photoswipe.js"></script>
+    <script src="../js/photoswipe-ui-default.min.js"></script>
+    <script src="../js/pic/picList_new.js?v=1"></script>
+    <style>
+
+        .my-gallery figure{margin-bottom:5px;}
+        .my-gallery {width:96%;margin: 10px auto;}
+        .my-gallery .img-dv {width:100%;margin-bottom: 1%;}
+        .my-gallery .img-dv a {display:block;width:100%;text-align: center}
+        .my-gallery .img-dv a img {width:100%;}
+        .pswp__caption{
+            position: fixed;
+            bottom:15%;
+            background: none;
+            text-align: center;
+        }
+        .btnKz{
+            font-size:16px;
+            background: #2ac845;
+            color: #fff;
+            border-radius: 3px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <input id="uid" type="hidden"/>
+      <!--<ul id="picLists" class="row"></ul>-->
+        <!--如果有多个data-pswp-uid 它的值是不能重复的-->
+        <div class="my-gallery" data-pswp-uid="1">
+           <!-- <figure>
+                <div class="img-dv"><a href="../img/001.jpg" data-size="1920x1080"><img src="../img/001.jpg"></a></div>
+                <figcaption style="display:none;">在这里可增加图片描述</figcaption>
+            </figure>-->
+        </div>
+
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp_btn">
+                        <a id="conBtn" href="javascript:void(0)">扩展内容</a>
+                    </div>
+                    <div class="pswp_content" style="display: none">
+                        <div class="gbIcon"><a href="javascript:void(0)" class="closed">×</a></div>
+                        <div class="content"></div>
+                    </div>
+                    <!--分享-->
+                    <!--<div class="pswp__share-modal pswp__single-tap">
+                        <div class="pswp__share-tooltip">
+                        </div>
+                    </div>-->
+                    <!--<button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;left" title="Previous (arrow left)">
+                    </button>
+                    <button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;right" title="Next (arrow right)">
+                    </button>-->
+                    <div class="pswp__caption">
+                        <a class="pswp__caption__center "></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

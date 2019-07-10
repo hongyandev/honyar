@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+		<title>水电图下载</title>
+        <link rel="stylesheet" href="../../static/css/weui.css?v=1.0.0" />
+        <link rel="stylesheet" href="../../static/css/blueimp/css/blueimp-gallery.css">
+        <link rel="stylesheet" href="../../static/css/sddown/sddown.css?v=1.0.0" />
+        <script src="../../static/js/lib-jq.js"></script>
+		<script src="../../static/js/blueimp/jquery.blueimp-gallery.min.js"></script>
+		<script src="../../static/js/sddown/sddowntest.js?v=1.0.0"></script>
+        <style>
+            .ibox-content {
+                padding:10px;
+            }
+            .ibox-content dt{
+                padding:5px 0;
+            }
+            .ibox-content dd {
+                width:70px;
+                height:70px;
+                overflow:hidden;
+                float: left;
+                margin-right:10px;
+            }
+            .blueimp-gallery > .deletePic {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                margin-left:-14px;
+                font-size: 30px;
+                cursor: pointer;
+                display: block;
+                width:28px;
+                height:28px;
+                background: url('../../static/img/sddown/delete-ico.png') no-repeat;
+            }
+        </style>
+    </head>
+
+	<body>
+		<div class="wrapper wrapper-content">
+            <div class="page__bd topbar">
+                <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+                <div class="weui-search-bar" id="searchBar">
+                    <form class="weui-search-bar__form">
+                        <div class="weui-search-bar__box">
+                            <i class="weui-icon-search"></i>
+                            <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="电话号码" required/>
+                            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                        </div>
+                        <label class="weui-search-bar__label" id="searchText">
+                            <i class="weui-icon-search"></i>
+                            <span>请输入电话号码</span>
+                        </label>
+                    </form>
+                    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+                </div>
+                <div class="icon_new">
+                    <div class="icon_new_img">
+                        <a href="sddown_new.html">
+                            <img style="margin-top:9%;margin-right: 36%;" src="../../static/img/sddown/newicon.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="icon_new">
+                    <a id="souBtn" href="javascript:void(0)">
+                        <span>搜索</span>
+                    </a>
+                </div>
+            </div>
+		<div class="row content">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+                        <!--<dl class="lightBoxGallery clear">
+                            <dt class="address">
+                                <p>shdjakshdj</p>
+                            </dt>
+                            <dd class="">
+                                <a href="../../static/css/blueimp/img/p_big1.jpg" title="图片" data-gallery="">
+                                    <img src="../../static/css/blueimp/img/p_big1.jpg">
+                                </a>
+                            </dd>
+                        </dl>
+                        <dl class="lightBoxGallery clear">
+                            <dt class="address">
+                                <p>shdjakshdj</p>
+                            </dt>
+                            <dd class="">
+                                <a href="../../static/css/blueimp/img/p_big2.jpg" title="图片" data-gallery="">
+                                    <img src="../../static/css/blueimp/img/p_big2.jpg">
+                                </a>
+                            </dd>
+                        </dl>
+                        <div id="" class="blueimp-gallery">
+                            <div class="slides"></div>
+                            <h3 class="title"></h3>
+                            <a class="prev">‹</a>
+                            <a class="next">›</a>
+                            <a class="close">×</a>
+                            <a class="play-pause"></a>
+                            <ol class="indicator"></ol>
+                        </div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
