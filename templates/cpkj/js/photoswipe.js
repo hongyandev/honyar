@@ -52,7 +52,7 @@ var framework = {
 	},
 	removeClass: function(el, className) {
 		var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-		el.className = el.className.replace(reg, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
+		el.className = el.className.replace(reg, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 	},
 	addClass: function(el, className) {
 		if( !framework.hasClass(el,className) ) {
@@ -2812,7 +2812,14 @@ var _getItemAt,
 
 
 	_appendImage = function(index, item, baseDiv, img, preventAnimation, keepPlaceholder) {
-		
+        var arr = JSON.parse(localStorage.getItem("arrs"));
+        if(index > 0){
+            if(arr[index-1].content==""){
+                $(".pswp_btn").hide();
+            }else{
+                $(".pswp_btn").show();
+            }
+		}
 
 		if(item.loadError) {
 			return;

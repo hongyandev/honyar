@@ -17,7 +17,11 @@ ul,li{list-style: none}
 .pswp_btn{
     position: fixed;
     top: 10%;
-    right: 5%;
+    right: 0;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    z-index: 5000;
 }
 .pswp_content{
     width:100%;
@@ -33,7 +37,6 @@ ul,li{list-style: none}
 }
 .gbIcon{
     height:30px;
-    text-align: right;
     margin:10px;
 }
 .gbIcon .closed{

@@ -4,7 +4,7 @@ function GetQueryString(name) {
     var r = window.location.hash.substr(1).match(reg);
     if(r!=null)return  unescape(r[2]); return null;
 }
-
+var arr;
 $(function () {
 
     var temp = JSON.parse(localStorage.getItem("temp"));
@@ -20,15 +20,8 @@ $(function () {
         async:false,
         success: function(res){
             if(res.code=="200"){
-                var arr = res.data;
+                arr = res.data;
                 var html = '';
-                /*for(var i=0;i<arr.length;i++){
-                    html += '<li class="col-xs-4 col-sm-2 col-md-1">\n' +
-                        '              <a id="imgSrc" href="'+arr[i].filePath+'" data-gallery="">' +
-                        '                   <img src='+arr[i].filePath+'?x-oss-process=image/resize,m_fill,h_100,w_100>' +
-                        '               </a>' +
-                        '     </li>';
-                };*/
                 for(var i=0;i<arr.length;i++){
                     html += ' <figure  class="col-xs-4 col-sm-2 col-md-1">\n' +
                         '                <div class="img-dv" data-size="">' +
@@ -41,13 +34,24 @@ $(function () {
                 };
                 $('.my-gallery').html(html);
                 /*localStorage.setItem("arrs",JSON.stringify(arr));*/
+                localStorage.setItem("arrs",JSON.stringify(arr));
+                var index = parseFloat(GetQueryString("pid"));
+                if(index){
+                    if(arr[index-1].content==""){
+                        $(".pswp_btn").hide();
+                    }else{
+                        $(".pswp_btn").show();
+                    }
+                }
 
-
-                $("#conBtn").on("click",function () {
-                   var index = parseFloat(GetQueryString("pid"));
+                $("#conBtn").on("click",function (e) {
+                   // e.preventDefault();
+                    var index = parseFloat(GetQueryString("pid"));
                    console.info(index);
-                   $(".pswp_content").show();
-                   $(".pswp_content .content").html(arr[index-1].content);
+                   debugger;
+                    window.location.href = 'detailExtended.html?index='+index;
+                   //$(".pswp_content").show();
+                  // $(".pswp_content .content").html(arr[index-1].content);
                 });
                 $(".gbIcon").on("click",function (e) {
                     e.preventDefault();
@@ -158,6 +162,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         if(index >= 0) {
             openPhotoSwipe( index, clickedGallery );
         }
+
+            if(arr[index].content==""){
+                $(".pswp_btn").hide();
+            }else{
+                $(".pswp_btn").show();
+            }
+
         return false;
     };
 
@@ -197,6 +208,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
                 bottom: 100
             },
             fullscreenEl : false,
+            loop:false,
             shareButtons: [
                 {id:'wechat', label:'分享微信', url:'#'},
                 {id:'weibo', label:'新浪微博', url:'#'},
@@ -235,6 +247,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             options.showAnimationDuration = 0;
         }
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
         gallery.listen('imageLoadComplete', function(index, item) {
             var linkEl = item.el.children[0];
             var img = item.container.children[0];
@@ -248,8 +261,6 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             }
         });
         gallery.init();
-        console.info(index);
-        console.info(gallery.activeIndex)
     };
     var galleryElements = document.querySelectorAll( gallerySelector );
     for(var i = 0, l = galleryElements.length; i < l; i++) {
@@ -260,7 +271,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
     if(hashData.pid && hashData.gid) {
         openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
     }
-    console.info(hashData.pid);
+   // console.info(hashData.pid);
 };
 
 function auto_data_size(){
@@ -278,8 +289,8 @@ function checkShow($img) { // 传入一个img的jq对象
     var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
     var windowHeight = $(window).height(); // 浏览器自身的高度
     var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
-    console.info(scrollTop);
-    console.info(windowHeight);
+    //console.info(scrollTop);
+    //console.info(windowHeight);
     if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
         return true;
     }
