@@ -237,7 +237,7 @@ $(function () {
 function catalogData(jsonstr) {
     $.ajax({
         type: "post",
-        url: "https://wxdev.hongyancloud.com/hy/unauth/getCatalogListByCondition",
+        url: "https://wx.hongyancloud.com/hy/unauth/getCatalogListByCondition",
         data: {
             'jsonStr': jsonstr
         },
@@ -324,7 +324,7 @@ function ranking() {
     <!--根据选择获取各个面板-->
     $.ajax({
         type: "post",
-        url: "https://wxdev.hongyancloud.com/hy/unauth/getRankList",
+        url: "https://wx.hongyancloud.com/hy/unauth/getRankList",
         async: false,
         success: function (res) {
             if (res.code == '200') {
@@ -372,7 +372,7 @@ function ranking() {
 function catalogType() {
     $.ajax({
         type: "post",
-        url: "https://wxdev.hongyancloud.com/hy/unauth/getCatalogType",
+        url: "https://wx.hongyancloud.com/hy/unauth/getCatalogType",
         async: false,
         success: function (res) {
             if (res.code == '200') {
@@ -399,7 +399,7 @@ function catalogType() {
 function navTabs() {
     $.ajax({
         type: "post",
-        url: "https://wxdev.hongyancloud.com/hy/unauth/getCatalogType",
+        url: "https://wx.hongyancloud.com/hy/unauth/getCatalogType",
         async: false,
         success: function (res) {
             if (res.code == '200') {
