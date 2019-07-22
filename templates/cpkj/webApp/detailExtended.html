@@ -5,22 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="../css/reset.min.css">
-    <link rel="stylesheet" href="../css/mui.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/galleryCss/blueimp-gallery.css">
-    <link rel="stylesheet" href="../css/galleryCss/animate.css">
     <link rel="stylesheet" href="../css/style.css"/>
     <script src="../js/jquery-2.1.0.min.js"></script>
     <script src="../js/jquery.cookie.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/mui.min.js"></script>
 </head>
 <body>
 <div class="pswp_content">
-    <!--<div class="gbIcon"><a href="javascript:void(0)" class="closed">返回</a></div>-->
-    <div class="content"></div>
+    <div class="content">
+        <p>
+            <iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="498" width="510" src="//player.youku.com/embed/XNDE1NDMxMDUyMA" class="note-video-clip"></iframe>
+        </p>
+    </div>
 </div>
-<script>
+<!--<script>
     function GetRequest() {
         var url = location.search; //获取url中"?"符后的字串
         var theRequest = new Object();
@@ -40,6 +37,6 @@
         var arr = JSON.parse(localStorage.getItem("arrs"));
         $(".pswp_content .content").html(arr[index-1].content);
     });
-</script>
+</script>-->
 </body>
 </html>
