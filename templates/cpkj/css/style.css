@@ -35,6 +35,9 @@ ul,li{list-style: none}
 .pswp_content .content{
     margin:10px 20px;
 }
+.pswp_content .content img{
+    width:100%!important;
+}
 .gbIcon{
     height:30px;
     margin:10px;
