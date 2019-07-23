@@ -785,6 +785,7 @@ var publicMethods = {
 	},
 	getCurrentIndex: function() {
 		return _currentItemIndex;
+		//console.info(_currentItemIndex);
 	},
 	isDragging: function() {
 		return _isDragging;
@@ -1131,7 +1132,15 @@ var publicMethods = {
 		if(beforeAnimation && diffAbs < 2) {
 			return;
 		}
-
+        var arr = JSON.parse(localStorage.getItem("arrs"));
+		var index = _currentItemIndex;
+        if(index > 0){
+            if(arr[index].content==""){
+                $(".pswp_btn").hide();
+            }else{
+                $(".pswp_btn").show();
+            }
+        }
 
 		self.currItem = _getItemAt( _currentItemIndex );
 		_renderMaxResolution = false;
@@ -2812,14 +2821,14 @@ var _getItemAt,
 
 
 	_appendImage = function(index, item, baseDiv, img, preventAnimation, keepPlaceholder) {
-        var arr = JSON.parse(localStorage.getItem("arrs"));
+        /*var arr = JSON.parse(localStorage.getItem("arrs"));
         if(index > 0){
             if(arr[index-1].content==""){
                 $(".pswp_btn").hide();
             }else{
                 $(".pswp_btn").show();
             }
-		}
+		}*/
 
 		if(item.loadError) {
 			return;
@@ -2852,7 +2861,6 @@ var _getItemAt,
 		var onComplete = function() {
 			item.loading = false;
 			item.loaded = true;
-
 			if(item.loadComplete) {
 				item.loadComplete(item);
 			} else {
@@ -2954,7 +2962,6 @@ _registerModule('Controller', {
 			}
 
 			_listen('beforeChange', function(diff) {
-
 				var p = _options.preload,
 					isNext = diff === null ? true : (diff >= 0),
 					preloadBefore = Math.min(p[0], _getNumItems() ),
