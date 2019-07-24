@@ -48,7 +48,7 @@ function submitAntiCode(loading) {
 
     $.ajax({
         type: "post",
-        url: "https://wxdev.hongyancloud.com/hy/unauth/getQCQuery",
+        url: "https://wx.hongyancloud.com/hy/unauth/getQCQuery",
         data: {
             gs: gs, // 1: 鸿雁, 2: 南京鸿雁
             fwtm: fwm
@@ -76,7 +76,7 @@ function submitAntiCode(loading) {
                             duration: 3000,
                             className: 'custom-classname',
                             callback: function() {
-                                $("#fwm").val("");
+                               // $("#fwm").val("");
                             }
                         });
                     }
