@@ -85,6 +85,7 @@ function submitAntiCode(loading) {
 
         },
         error: function(data) {
+            loading.hide();
             weui.topTips('访问出错！');
         }
     });
