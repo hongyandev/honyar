@@ -2,7 +2,7 @@ $(document).ready(function() {
     //$("form").submit(function(){
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
-      var openID=$.getCookie('open_id');
+    var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID);
     //检索后加载列表
         var $searchBar = $('#searchBar'),
@@ -103,7 +103,38 @@ function loadList(action, openid, keyword) {
                         var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
                         var getBT = '<a href="javascript:void(0)" class="getPic"></a>';
                         str+="<div class='detaId'>";
-                        str+="<div class='deta_h'><h1>"+ o.address +"</h1></div><div class='deta_ul' openid="+o.openId+">";
+                        str+="<div class='deta_h'>" +
+                            "<div class=\"weui-form-preview__bd\">\n" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">详细地址</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+ o.address +"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">试压时间</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.sysj+"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">保压时间</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.bysj+"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">起始压力</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.ksyl+"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">结束压力</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.jsyl+"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">过程压降</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.yj+"</span>\n" +
+                            "                </div>" +
+                            "                <div class=\"weui-form-preview__item\">" +
+                            "                    <label class=\"weui-form-preview__label\">判断结果</label>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.jg+"</span>\n" +
+                            "                </div>" +
+                            "            </div>"+
+                            "</div><div class='deta_ul' openid="+o.openId+">";
                         str+="<ul class='clear detaPic' id="+o.id+">";
                         $.each(o.children,function (j,obj) {
                             //str+="<li class='weui-uploader__file' imgid="+obj.id+" realPath='background-image:url("+obj.fileRealPath+")' style='background-image:url("+obj.fileRealPath+"?x-oss-process=image/resize,m_fill,h_100,w_100)'></li>"
