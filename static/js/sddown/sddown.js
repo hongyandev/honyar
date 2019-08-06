@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //$("form").submit(function(){
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
-    //var openID ='oZIooxHvjmiadIhZXf_40nVrHgd4';
+    //var openID ='owoh4joptj9sj3fU7ULmA0NQiVvI';
     var openID=$.getCookie('open_id');
     loadList('getDropowerAndDetails', openID);
     //检索后加载列表
@@ -57,7 +57,8 @@ $(document).ready(function() {
                 };
                 if(isPhoneNo(telephone) == true) {
                         //console.info(telephone);
-                        loadList('searchDropower', openID, telephone);
+                        location.href='sddown_recevice.html?tel='+telephone;
+                        //loadList('searchDropower', openID, telephone);
                         $searchResult.show();
                         return;
 
@@ -100,7 +101,7 @@ function loadList(action, openid, keyword) {
                 if(returnData.length > 0){
                     $.each(returnData,function (i,o) {
                         var clickBT = '<a href="sddown_pic.html?mainid=' + o.id + '" class="addPic"></a>';
-                        var deleteBT = '<a href="javascript:void(0)" class="deletePic"></a>';
+                        var deleteBT = '<a href="javascript:void(0)" status="'+o.status+'" validate="'+o.validate+'" class="deletePic"></a>';
                         var getBT = '<a href="javascript:void(0)" class="getPic"></a>';
                         str+="<div class='detaId'>";
                         str+="<div class='deta_h'>" +
@@ -111,7 +112,7 @@ function loadList(action, openid, keyword) {
                             "                </div>" +
                             "                <div class=\"weui-form-preview__item\">" +
                             "                    <label class=\"weui-form-preview__label\">试压时间</label>\n" +
-                            "                    <span class=\"weui-form-preview__value\">"+o.sysj+"</span>\n" +
+                            "                    <span class=\"weui-form-preview__value\">"+o.sysj +"</span>\n" +
                             "                </div>" +
                             "                <div class=\"weui-form-preview__item\">" +
                             "                    <label class=\"weui-form-preview__label\">保压时间</label>\n" +
@@ -144,13 +145,10 @@ function loadList(action, openid, keyword) {
 
                         });
                         str+="</ul>";
-                        if(o.openId == openid){
-                            str+='<ol value="'+o.id+'" class="operatBtn clear"><li>'+clickBT+'</li><li class="delpic">'+deleteBT+'</li></ol></div>'
-                        }else{
-                            $(".weui-gallery__opr").hide();
-                           // str+='<div tel="'+o.userTel+'" value="'+o.id+'" class="opBtn">'+getBT+'<br>认领水电图</div>';
-
-                        }
+                        str+='<ol value="'+o.id+'" class="operatBtn clear">' +
+                                '<li>'+clickBT+'</li>' +
+                                '<li class="delpic">'+deleteBT+'</li>' +
+                                '</ol></div>'
                         str+='</div>';
                     });
                     details.html(str);
@@ -175,48 +173,16 @@ function loadList(action, openid, keyword) {
                         $galleryImg.css({"margin-top":-parseFloat(picH)/2+"px","margin-left":-parseFloat(picW)/2+"px"})
                     };
                 });
-                //点击zuo箭头
-
-                /*  $(".arrleft").click(function () {
-                      var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
-                      console.info(index);
-                      index--;
-                      if (index >= 0) {
-                          $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
-                          var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
-                          $galleryImg.attr("src", src);
-                      }
-                      if (index < 1) {
-                          //index = 0;
-                         // $(this).children().css({ "display": "none" });
-                         // alert("已经到头了")
-                          return;
-                      }
-                  });
-                  //点击you
-                  $(".arright").click(function () {
-                      var index = $(".weui-uploader__bd li").index($(".weui-uploader__bd li.current"));
-                      console.info(index);
-                      index++;
-                      var src =  $(".weui-uploader__bd li").eq(index).attr("realPath");
-                      $galleryImg.attr("src", src);
-
-                     // $(".weui-uploader__bd li").eq(index).toggleClass("current").siblings().removeClass("current");
-                      if (index >= $(".weui-uploader__bd li").length - 1) {
-                         // $(this).children().css({ "display": "none" });
-                         // alert("已经到头了")
-                      }
-
-
-
-
-                  });*/
-
-
                 //删除水电图和明细
                 $(document).on("click",".deletePic",function () {
                     var openID = $(this).parents("ol").parents(".deta_ul").attr("openid");
                     var detaId = $(this).parents("ol").attr("value");
+                    var status = $(this).attr('status');
+                    var validate = $(this).attr('validate');
+                    if(status=='1' || validate=='1' ){
+                        weui.topTips('此水电图不能删除！');
+                        return false;
+                    }
                     weui.confirm('您确定要删除文件这条记录吗?', {
                         buttons: [{
                             label: '取消',
@@ -262,39 +228,7 @@ function loadList(action, openid, keyword) {
 				$galleryDel.on("click", function() {
 					galleryDel(this);
 				});
-                //认领水电图
-                $(document).on("click",".opBtn",function(){
-                    var tel=$(this).attr('tel');
-                    $(".telInput").val(tel);
-                    weui.dialog({
-                        content:
-                        '<div class="weui-cell">\n' +
-                        '                <div class="weui-cell__bd weuiInput">\n' +
-                        '                    <input class="weui-input telInput" type="number" pattern="[0-9]*" disabled="disabled"">\n' +
-                        '                </div>\n' +
-                        '            </div>'+
-                        '<div class="weui-cell weui-cell_vcode">\n' +
-                        '                <div class="weui-cell__bd weuiInput">\n' +
-                        '                    <input class="weui-input" type="tel" placeholder="请输入验证码">\n' +
-                        '                </div>\n' +
-                        '                <div class="weui-cell__ft">\n' +
-                        '                    <button class="weui-vcode-btn weui-code-btn-g">获取验证码</button>\n' +
-                        '                </div>\n' +
-                        '            </div>',
-                        className: 'custom-classname',
-                        buttons: [{
-                            label: '取消',
-                            type: 'default',
-                            onClick: function () {
 
-                            }
-                        }, {
-                            label: '确定',
-                            type: 'primary',
-                            onClick: function () { alert('确定') }
-                        }]
-                    });
-                });
 			} else {
 				weui.topTips(returnDatas.msg);
 			}
