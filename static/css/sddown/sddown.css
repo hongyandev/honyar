@@ -177,3 +177,9 @@ button.weui-code-btn-g{
     width:40px;
     height:40px;
 }
+.weui-form-preview__bd{
+	padding:0;
+}
+.weui-form-preview__bd span{
+	text-align:left;
+}
