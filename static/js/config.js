@@ -9,7 +9,7 @@ var config = (function(){
             appId:'wx203cc78ceb539356'
         },
         PROD:{
-            url:'http://wx.hongyancloud.com/',
+            url:'https://wx.hongyancloud.com/',
             appId:'wx80edbe54ff1cd668'
         }
     };
