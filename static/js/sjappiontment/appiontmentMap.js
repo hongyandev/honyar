@@ -32,6 +32,7 @@ $(function() {
 
 	function onError(data) {
 		//alert(JSON.stringify(data));
+        $.toptip(data.message, 3000);
 		document.getElementById('tip').innerHTML = '定位失败';
 	}
 
