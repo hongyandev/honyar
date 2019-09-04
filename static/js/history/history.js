@@ -1,8 +1,8 @@
 
 $(function() {
-    //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
     //var openID = 'owoh4joptj9sj3fU7ULmA0NQiVvI';
-    var openID=$.getCookie('open_id');
+    //var openID=$.getCookie('open_id');
     loadList('getBillAndDetails', openID);
     //检索
     var $searchBar = $('#searchBar'),
