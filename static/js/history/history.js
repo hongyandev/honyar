@@ -1,6 +1,7 @@
 
 $(function() {
     //var openID = 'oZIooxJ_MT0M1ApB_4caa_gvXgWc';
+    //var openID = 'owoh4joptj9sj3fU7ULmA0NQiVvI';
     var openID=$.getCookie('open_id');
     loadList('getBillAndDetails', openID);
     //检索
@@ -30,19 +31,16 @@ $(function() {
         if(!this.value.length) cancelSearch();
     });
     $("#souBtn").on('click', function() {
-        var telephone = $('#searchInput').val();
-        if(telephone == ""){
-            weui.topTips("请输入手机号码");
+        var content = $searchInput.val();
+        if(content.length==""){
+            weui.topTips("请输入关键词");
             return;
-        };
-        if(isPhoneNo(telephone) == true) {
-            console.info(telephone);
-            loadList('searchBill', openID, telephone);
-            //$searchResult.show();
-           // return;
-
+        }
+        if(content.length) {
+            loadList('searchBill', openID, content);
+            $searchResult.show();
         } else {
-            weui.topTips("请填写正确的手机号码",3000);
+            $searchResult.hide();
         }
     });
     $searchClear.on('click', function() {
@@ -144,7 +142,7 @@ function loadList(action, openid, keyword) {
                     });
                     details.html(str);
                 }else{
-                    str+="<div class='empty align_center'><span>此手机号码还没有上传质保记录图！</span></div>";
+                    str+="<div class='empty align_center'><span>还没有找到上传质保记录图！</span></div>";
                     //$(".content").html(str);
                     details.html(str);
                 }
