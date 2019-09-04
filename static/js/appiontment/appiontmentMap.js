@@ -156,7 +156,7 @@ $(function() {
                     type:"GET",
                     dataType:"json",
                     success:function(res){
-                        if(res.code==00000){
+                        if(res.code=="00000"){
                             // for(var i=0;i<res.data.length;i++){
                             	// vm.serviceTypes.push(res.data[i]);
 							// }
