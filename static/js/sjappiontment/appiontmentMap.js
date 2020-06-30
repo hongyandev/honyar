@@ -32,6 +32,7 @@ $(function() {
 
 	function onError(data) {
 		//alert(JSON.stringify(data));
+        $.toptip(data.message, 3000);
 		document.getElementById('tip').innerHTML = '定位失败';
 	}
 
@@ -160,7 +161,7 @@ $(function() {
                     type:"GET",
                     dataType:"json",
                     success:function(res){
-                        if(res.code==00000){
+                        if(res.code=="00000"){
                             // for(var i=0;i<res.data.length;i++){
                             	// vm.serviceTypes.push(res.data[i]);
 							// }

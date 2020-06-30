@@ -28,7 +28,7 @@ $(function() {
                                 "uid":this.uid,
                                 "id":item.id
                             }, success: function(res) {
-                                if(res.code==00000){
+                                if(res.code=="00000"){
                                     $.toast("预约已删除!", 2000,function() {
                                         window.location.href=window.location.href;
                                     });

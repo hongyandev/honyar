@@ -95,7 +95,7 @@ $(document).on("click", ".delete-swipeout", function() {
                     "openId":openID,
                     "id":recordid
                 }, success: function(res) {
-                    if(res.code==00000){
+                    if(res.code=="00000"){
                         $.toast("文件已经删除!", 2000,function() {
                             window.location.href=window.location.href;
                         });
